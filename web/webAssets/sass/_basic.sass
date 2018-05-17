@@ -1,55 +1,226 @@
 /*!
 	-----------------------------------------------------------------------------
-
 	2.0 - Basicos
-			#
-			# Login
-			# Footer
-			# Usuarios
-
 	-----------------------------------------------------------------------------
 	*/
 
-/*  A
-	======================================= */
+body
+	background-color: #eee
+	background-color: #f5f5f5
+	font:
+		family: $f-base
+		size: 16px
+		weight: $light
+	color: $font-color
+
 a
-	color: $link-primary
+	color: $link
+	font:
+		family: $f-base
+		size: 16px
+		weight: $regular
+	text-decoration: none
+	// +transition(all 0.3s ease-in)
 	&:active,
 	&:focus,
 	&:hover
-		color: $link-primary-active
+		color: darken($link , 10% )
+		text-decoration: none
 
 /*  Btn
-	======================================= */
-/* primary */
+	================================================ */
+.ladda-button
+	background-color: transparent
+	border-radius: 0
+	padding: 0
+
+.btn-primary.ladda-button[disabled],
+.btn-primary.ladda-button[disabled]:hover,
+.btn-primary.ladda-button[data-loading],
+.btn-primary.ladda-button[data-loading]:hover
+	background-color: $primary
+
+.btn-info.ladda-button[disabled],
+.btn-info.ladda-button[disabled]:hover,
+.btn-info.ladda-button[data-loading],
+.btn-info.ladda-button[data-loading]:hover
+	background-color: $info
+
+.btn-success.ladda-button[disabled],
+.btn-success.ladda-button[disabled]:hover,
+.btn-success.ladda-button[data-loading],
+.btn-success.ladda-button[data-loading]:hover
+	background-color: $success
+
+.btn-warning.ladda-button[disabled],
+.btn-warning.ladda-button[disabled]:hover,
+.btn-warning.ladda-button[data-loading],
+.btn-warning.ladda-button[data-loading]:hover
+	background-color: $warning
+
+.btn
+	display: inline-block
+	font-weight: 400
+	text-align: center
+	white-space: nowrap
+	vertical-align: middle
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	border: 1px solid transparent
+	padding: .375rem .75rem
+	line-height: 1.5
+	@extend .fs-16
+	@extend .fw-light
+	letter-spacing: 1px
+	border-radius: .25rem
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
 .btn-primary
-	border-color: $btn-primary
-    background-color: $btn-primary
+	border-color: $primary
+	background-color: $primary
 	&:active,
 	&:focus,
 	&:hover
-		border-color: $btn-primary-active
-		background-color: $btn-primary-active
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active
+		border-color: darken( $primary, 10% )
+		background-color: darken( $primary, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
 
-/* succes */
+.btn-secondary
+	border-color: $secondary
+	background-color: $secondary
+	&:active,
+	&:focus,
+	&:hover
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $secondary, 10% )
+		background-color: darken( $secondary, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($secondary,0.1)
+
+.btn-outline-primary
+	border-color: $grey-d
+	color: $grey-d
+	&:active,
+	&:focus,
+	&:hover
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+
+.btn-warning
+	border-color: $accent
+	background-color: $accent
+	&:active,
+	&:focus,
+	&:hover
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $accent, 10% )
+		background-color: darken( $accent, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($accent,0.1)
+
+.btn-error
+	border-color: $error
+	background-color: $error
+	&:active,
+	&:focus,
+	&:hover
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $error, 10% )
+		background-color: darken( $error, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($error,0.1)
+
 .btn-success
 	border-color: $success
 	background-color: $success
 	&:active,
 	&:focus,
 	&:hover
-		border-color: $success-active
-		background-color: $success-active
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $success, 10% )
+		background-color: darken( $success, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($success,0.1)
 
-/* danger */
-.btn-danger
-	border-color: $error
-    background-color: $error
+.btn-info
+	border-color: $info
+	background-color: $info
 	&:active,
 	&:focus,
 	&:hover
-		border-color: $error-active
-		background-color: $error-active
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $info, 10% )
+		background-color: darken( $info, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($info,0.1)
+
+.btn-outline-default
+	background-color: transparent
+	border-color: $font-color
+	color: $font-color
+	&:active,
+	&:focus,
+	&:hover
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $font-color, 10% )
+		color: darken( $font-color, 10% )
+		box-shadow: none
 
 /*  Label
 	======================================= */
@@ -63,7 +234,7 @@ a
 .form-material
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label
-		color: $color-primary
+		color: $primary
 
 /* Error */
 .form-material.form-group.has-danger
@@ -77,7 +248,7 @@ a
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
-		color: $color-primary
+		color: $primary
 
 /*  Input
 	======================================= */
@@ -85,20 +256,16 @@ a
 	.form-control,
 	.form-control.focus,
 	.form-control:focus
-		background-image: -webkit-gradient(linear,left top,left bottom,from($color-primary),to($color-primary)),-webkit-gradient(linear,left top,left bottom,from($color-gray),to($color-gray))
-		background-image: -webkit-linear-gradient($color-primary,$color-primary),-webkit-linear-gradient($color-gray,$color-gray)
-		background-image: -o-linear-gradient($color-primary,$color-primary),-o-linear-gradient($color-gray,$color-gray)
-		background-image: linear-gradient($color-primary,$color-primary),linear-gradient($color-gray,$color-gray)
+		background-image: -webkit-gradient(linear,left top,left bottom,from($primary),to($primary)),-webkit-gradient(linear,left top,left bottom,from(secondary),to(secondary))
+		background-image: -webkit-linear-gradient($primary,$primary),-webkit-linear-gradient(secondary,secondary)
+		background-image: -o-linear-gradient($primary,$primary),-o-linear-gradient(secondary,secondary)
+		background-image: linear-gradient($primary,$primary),linear-gradient(secondary,secondary)
 
 /*  Login
 	======================================= */
 /* Imagen de fondo */
 .page-login-v3
 	&:before
-		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)
-		background-image: -webkit-gradient(linear, left top, left bottom, from($bg-primary), to(#3583ca))
-		background-image: -webkit-linear-gradient(top, $bg-primary 0%, #3583ca 100%)
-		background-image: -o-linear-gradient(top, $bg-primary 0%, #3583ca 100%)
 		background-image: url('https://drscdn.500px.org/photo/230473379/q%3D80_m%3D2000/v2?webp=true&sig=8098ec687c2dacf53ba17515209dca4cf6ee1ad91d7e0aae23a217db2089824c')
 
 /* Login */
@@ -119,10 +286,10 @@ a
 /*  Header
 	======================================= */
 .navbar-inverse
-	background-color: $bg-primary
+	background-color: $primary
 	.navbar-collapse,
 	.navbar-form
-		border-color: $border-color
+		border-color: $primary
 
 /*  Footer
 	======================================= */
@@ -162,3 +329,25 @@ a
 		margin: 0 auto
 		max-width: 80%
 		width: 200px
+
+// Loader
+.loader-overlay
+	background-color: $primary
+	background-image: url(../images/logo-latingal-boutique.png)
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: 100px
+
+// Loading
+.animsition-loading
+	background-color: $gray-900
+	border-left: 5px solid $accent
+
+.modal-backdrop
+	background-color: rgba(red,.2)
+	position: absolute
+	z-index: 9906
+
+.modal
+	position: fixed
+	z-index: 9999

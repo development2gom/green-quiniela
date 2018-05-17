@@ -10,13 +10,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin([
 						'id' => 'form-ajax',
-						//'options' => ['class' => 'form-horizontal'],
+						'options' => ['class' => 'form-registro'],
 						'enableAjaxValidation' => true,
 						'enableClientValidation'=>true,
-					]); ?>
-
-    <?= $form->field($model, 'image')->fileInput(["class"=>"hide"])->label(false) ?> 
-
+                    ]); ?>
+    
     <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true, 'placeholder'=>'Nombre'])->label(false) ?>
 
     <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, 'placeholder'=>'Apellido paterno'])->label(false) ?>
@@ -32,5 +30,12 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton($model->isNewRecord ? 'Registrarme' : 'Actualizar información', ['class' => "btn btn-success btn-block btn-lg"]) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <div class="form-group form-group-check">
+        <div class="checkbox-custom checkbox-primary">
+            <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
+            <label for="check-terminos">Acepto terminos y condiciones</label>
+        </div>
+        <div class="checkbox-mask"></div>
+    </div>
 
+    <?php ActiveForm::end(); ?>
