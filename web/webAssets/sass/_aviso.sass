@@ -1,0 +1,112 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	0.0 - Footer
+
+	----------------------------------------------------------------------------- */
+
+/*  Aviso de Privacidad
+	========================================================================== */
+.page-terminos
+	padding: 64px 0 32px
+	&.page-mh-full
+		min-height: calc(100vh - 210px)
+	h2.title
+		@extend .fs-24
+		@extend .fw-bold
+		line-height: 1
+		margin-bottom: 32px
+		+respond-to(xs)
+			font-size: $fs-22
+		+respond-to(tx)
+			font-size: $fs-20
+	.page-terminos-cont
+		background-color: $white
+		box-shadow: 0 1px 3px 0 rgba($black,.3)
+		padding: 32px
+		position: relative
+		+respond-to(xs)
+			padding: 32px 16px
+
+		h2
+			@extend .color-gray-700
+			@extend .fs-18
+			@extend .fw-bold
+			letter-spacing: 1px
+			margin: 40px 0 30px
+			+respond-to(xs)
+				white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+		h3
+			@extend .color-gray-600
+			@extend .fs-16
+			@extend .fw-bold
+			letter-spacing: 1px
+			margin-bottom: 4px
+			+respond-to(xs)
+				white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+		h5
+			@extend .color-gray-600
+			@extend .fs-144
+			@extend .fw-bold
+			letter-spacing: 1px
+			margin-bottom: 4px
+			+respond-to(xs)
+				white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+		ul
+			list-style-position: outside
+			margin-bottom: 30px
+			padding-left: 26px
+			li
+				@extend .color-gray-700
+				@extend .fs-15
+				letter-spacing: 1px
+				line-height: 1.8
+				margin-bottom: 8px
+				+respond-to(xs)
+					white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+		ol
+			list-style-position: outside
+			margin-bottom: 30px
+			padding-left: 26px
+			li
+				@extend .color-gray-700
+				@extend .fs-15
+				letter-spacing: 1px
+				line-height: 1.6
+				margin-bottom: 6px
+				padding-left: 8px
+				+respond-to(xs)
+					white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+		p
+			@extend .color-gray-700
+			@extend .fs-15
+			letter-spacing: 1px
+			line-height: 1.6
+			margin-bottom: 30px
+			text-align: justify
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+			&.text-italic
+				font-style: italic
+			
+			.bold
+				@extend .fw-bold
+			.up
+				text-transform: uppercase

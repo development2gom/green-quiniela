@@ -1,0 +1,172 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	0.0 - Footer
+
+	----------------------------------------------------------------------------- */
+
+/*  Footer
+	========================================================================== */
+.page-outfits
+	// background-color: green
+	margin-bottom: 32px
+	margin-top: 32px
+	// padding: 32px 0
+	width: 100%
+	&.page-page-h100
+		min-height: calc(100vh - 296px)
+	.container-1220
+		
+		.shop-panel
+			background-color: $white
+			box-shadow: 0 1px 3px 0 rgba($black,.3) !important
+
+			.outfits-products
+				@extend .border-bottom
+				overflow: hidden
+				// padding-left: 160px
+				// padding-right: 80px
+				position: relative
+				width: 100%
+				// +respond-to(tp)
+				// 	padding-left: 0
+				// 	padding-right: 0
+
+				.owl-carousel-outfits
+					align-items: center
+					@extend .bg-f5
+					display: flex
+					height: 300px
+					margin: 0 auto
+					overflow: hidden
+					position: relative
+					width: 300px
+					.owl-stage-outer
+						// background-color: orange
+						// height: 100%
+						overflow: hidden
+						width: 100%
+						.owl-stage
+							display: flex
+							height: 100%
+							.item
+								// background-color: orange
+								height: 100%
+								width: 100%
+								img
+									max-width: 100%
+
+					.owl-nav
+						// background-color: rgba(red,.1)
+						bottom: 0
+						left: -30px
+						position: absolute
+						right: -30px
+						top: 0
+						.owl-prev,
+						.owl-next
+							align-items: center
+							@extend .bg-f5
+							bottom: 0
+							cursor: pointer
+							display: flex
+							justify-content: center
+							position: absolute
+							top: 0
+							width: 30px
+						.owl-prev
+							// background-color: orange
+							left: 0
+						.owl-next
+							// background-color: purple
+							right: 0
+
+
+		.shop-details
+
+			.item-tabs
+
+				.tab-content
+					article
+						&.outfits-tab-item
+							align-items: center
+							background-color: $white
+							@extend .border-d
+							display: flex
+							justify-content: space-between
+							margin-bottom: 16px
+							padding: 16px 8px
+							&:last-child
+								margin-bottom: 0
+							.outfits-tab-item-details
+								align-items: center
+								display: flex
+								justify-content: flex-start
+								.outfits-tab-item-details-img
+									@extend .bg-c
+									border-radius: 50%
+									height: 40px
+									overflow: hidden
+									margin-right: 8px
+									width: 40px
+									img
+										max-width: 100%
+										width: 40px
+								.outfits-tab-item-details-txt
+									p
+										@extend .fs-18
+										@extend .fw-regular
+									span
+										@extend .fs-16
+										@extend .fw-light
+
+							.outfits-tab-item-actions
+								.btn-primary
+									@extend .fs-144
+
+
+
+// Modal Agregar Outfits
+.modal-agregar-outfits
+	.modal-dialog
+		.modal-content
+			.modal-header
+			.modal-body
+				.outfits-item-details
+					align-items: center
+					display: flex
+					justify-content: flex-start
+					margin-bottom: 16px
+					&:last-child
+						margin-bottom: 0
+					.outfits-item-details-img
+						@extend .bg-c
+						border-radius: 50%
+						height: 80px
+						overflow: hidden
+						margin-right: 8px
+						width: 80px
+						img
+							max-width: 100%
+							width: 80px
+					.outfits-item-details-txt
+						width: calc(100% - 90px)
+						p
+							@extend .fs-18
+							@extend .fw-regular
+						.form-outfits-select
+							margin-top: 8px
+							.form-group
+								width: 100%
+								.custom-select
+									@extend .border-c
+									&:active,
+									&:hover,
+									&:focus
+										@extend .border-d
+										box-shadow: none
+										outline: none
+						span
+							@extend .fs-16
+							@extend .fw-light
+			// .modal-footer

@@ -18,6 +18,61 @@ $(document).ready(function () {
         colocarImagen(file);
 
     });
+
+
+    $("#check-terminos").change(function() {
+
+        if($(this).is(':checked')){
+            console.log('if');
+            $(".checkbox-mask").hide();
+        }
+        else{
+            $(".checkbox-mask").show();
+            console.log('else');
+        }
+
+    });
+
+    $("#check-terminos").on('click', function() {
+
+        if($(this).is(':checked')){
+            console.log('click if');
+            $(".checkbox-mask").hide();
+        }
+        else{
+            $(".checkbox-mask").show();
+            console.log('click else');
+        }
+
+    });
+
+    $("#btn-acepto-terminos").on('click', function() {
+
+        $(".checkbox-mask").hide();
+        $("#check-terminos").prop( "checked", true );
+        $("#modal-terminos-condiciones").modal("hide");
+        console.log("acepto terminos");
+
+    });
+
+    $(".checkbox-mask").on('click', function() {
+
+        console.log("mask");
+        $("#modal-terminos-condiciones").modal();
+
+    });
+
+    $(document).on({
+        'click':function(e){
+            e.preventDefault();
+           
+            console.log("mask");
+            $("#modal-terminos-condiciones").modal();
+              
+        }
+    }, '.checkbox-mask');
+
+
 });
 
 function validarTipoImagen(jsfile) {
