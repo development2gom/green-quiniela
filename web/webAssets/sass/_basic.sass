@@ -18,7 +18,6 @@ a
 	font:
 		family: $f-base
 		size: 16px
-		weight: $regular
 	text-decoration: none
 	// +transition(all 0.3s ease-in)
 	&:active,
@@ -60,7 +59,6 @@ a
 
 .btn
 	display: inline-block
-	font-weight: 400
 	text-align: center
 	white-space: nowrap
 	vertical-align: middle
@@ -71,8 +69,8 @@ a
 	border: 1px solid transparent
 	padding: .375rem .75rem
 	line-height: 1.5
-	@extend .fs-16
-	@extend .fw-light
+	font-size: $fs-16
+	font-weight: $regular
 	letter-spacing: 1px
 	border-radius: .25rem
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -229,12 +227,22 @@ a
 	form
 		.form-material
 			label
-				color: #a3afb7
+				color: lighten($font-color, 30%)
+				@extend .fw-light
+
+.form-material
+	.form-control:-webkit-autofill~.floating-label
+		top: -1.3rem
+
+	.form-control~.floating-label
+		padding: 0 10px
+
 /* Active */
 .form-material
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label
 		color: $primary
+		top: -1.3rem
 
 /* Error */
 .form-material.form-group.has-danger
@@ -242,6 +250,7 @@ a
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
 		color: $error
+		top: -1.3rem
 
 /* Succes */
 .form-material.form-group.has-success
@@ -249,6 +258,8 @@ a
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
 		color: $primary
+		top: -1.3rem
+
 
 /*  Input
 	======================================= */
@@ -256,11 +267,23 @@ a
 	.form-control,
 	.form-control.focus,
 	.form-control:focus
-		background-image: -webkit-gradient(linear,left top,left bottom,from($primary),to($primary)),-webkit-gradient(linear,left top,left bottom,from(secondary),to(secondary))
-		background-image: -webkit-linear-gradient($primary,$primary),-webkit-linear-gradient(secondary,secondary)
-		background-image: -o-linear-gradient($primary,$primary),-o-linear-gradient(secondary,secondary)
-		background-image: linear-gradient($primary,$primary),linear-gradient(secondary,secondary)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
 
+.form-material.form-group.has-success
+	.form-control.focus,
+	.form-control:focus,
+	.form-control:not(.empty)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
+
+.form-control
+	color: lighten($font-color, 25%)
+	
 /*  Login
 	======================================= */
 /* Imagen de fondo */
@@ -343,6 +366,7 @@ a
 	background-color: $gray-900
 	border-left: 5px solid $accent
 
+// Modal
 .modal-backdrop
 	background-color: rgba(red,.2)
 	position: absolute
@@ -351,3 +375,9 @@ a
 .modal
 	position: fixed
 	z-index: 9999
+	.modal-dialog
+		.modal-header
+			button.close
+				position: absolute
+				right: 24px
+				top: 16px

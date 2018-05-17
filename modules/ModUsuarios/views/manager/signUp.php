@@ -22,7 +22,7 @@ $this->registerJsFile(
 ?>
 
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-12">
     <div class="panel">
       <div class="panel-body">
           <div class="brand text-center">

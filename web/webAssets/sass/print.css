@@ -19,7 +19,7 @@
 	0.0 - Tipografía
 
 	----------------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i,800,800i");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @media print {
   .hero-pago-establecimiento-actions-body {
     align-items: flex-start;
