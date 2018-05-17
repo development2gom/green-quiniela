@@ -32,7 +32,7 @@ $this->registerJsFile(
             <h2 class="brand-text font-size-18 text-center"><?= Html::encode($this->title) ?></h2>
           </div>
           <?= $this->render('_form', [
-            'model' => $model,
+            'model' => $model
           ]) ?>
           <p class="text-center">¿Tienes una cuenta? <a href="<?=Url::base()?>/login">Ingresa</a></p>
       </div>

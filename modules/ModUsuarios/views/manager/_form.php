@@ -21,10 +21,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true, 'placeholder'=>'Email'])->label(false) ?>
     <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, 'placeholder'=>'Repetir email'])->label(false) ?>
+
+    <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => 10, 'placeholder'=>'Telefono'])->label(false) ?>
+    
+    <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true, 'placeholder'=>'Codigo postal'])->label(false) ?>
     
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'=>'Contraseña'])->label(false) ?>
     
     <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, 'placeholder'=>'Repetir contraseña'])->label(false) ?>
+
+    <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder'=>'Codigo'])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Registrarme' : 'Actualizar información', ['class' => "btn btn-success btn-block btn-lg"]) ?>
