@@ -2,6 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\WrkPartidos;
+
+
 class AdministradorController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -16,7 +19,10 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionPartidos()
     {
-        return $this->render('partidos');
+        $partidos_nuevos =WrkPartidos::find()-> where(['b_habilitado'=>1])->
+        andWhere(['is','id_equipo1',null])-> all();
+        echo count($partidos_nuevos);
+        return $this->render('partidos',['partidos_nuevos'=>$partidos_nuevos]);
     }
 
     public function actionActualizarPartidos(){
