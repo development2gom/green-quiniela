@@ -21,7 +21,7 @@ class AdministradorController extends \yii\web\Controller
     {
         $partidos_nuevos =WrkPartidos::find()-> where(['b_habilitado'=>1])->
         andWhere(['is','id_equipo1',null])-> all();
-        echo count($partidos_nuevos);
+        
         return $this->render('partidos',['partidos_nuevos'=>$partidos_nuevos]);
     }
 

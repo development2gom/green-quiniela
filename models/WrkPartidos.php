@@ -8,15 +8,19 @@ use Yii;
  * This is the model class for table "wrk_partidos".
  *
  * @property string $id_partido
+ * @property string $txt_token
  * @property string $id_equipo1 Numero identificador del equipo seleccionado
  * @property string $id_equipo2 Numero identificador del equipo seleccionado
  * @property string $fch_partido Fecha del partido
- * @property int $num_goles_equipo1 Numero de goles anotados por el equipo
- * @property int $num_goles_equipo2 Numero de goles anotados por el equipo
- * @property string $b_habilirado Dato implementado para habilitar el registro
+ * @property string $b_habilitado Dato implementado para habilitar el registro
+ * @property string $b_empate
+ * @property string $id_fase
+ * @property string $id_equipo_ganador
  *
  * @property CatEquipos $equipo1
  * @property CatEquipos $equipo2
+ * @property CatEquipos $equipoGanador
+ * @property CatFasesDelTorneo $fase
  * @property WrkQuiniela[] $wrkQuinielas
  */
 class WrkPartidos extends \yii\db\ActiveRecord
@@ -35,10 +39,14 @@ class WrkPartidos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_equipo1', 'id_equipo2', 'num_goles_equipo1', 'num_goles_equipo2', 'b_habilirado'], 'integer'],
+            [['id_equipo1', 'id_equipo2', 'b_habilitado', 'b_empate', 'id_fase', 'id_equipo_ganador'], 'integer'],
             [['fch_partido'], 'safe'],
+            [['id_fase'], 'required'],
+            [['txt_token'], 'string', 'max' => 100],
             [['id_equipo1'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo1' => 'id_equipo']],
             [['id_equipo2'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo2' => 'id_equipo']],
+            [['id_equipo_ganador'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo_ganador' => 'id_equipo']],
+            [['id_fase'], 'exist', 'skipOnError' => true, 'targetClass' => CatFasesDelTorneo::className(), 'targetAttribute' => ['id_fase' => 'id_fase']],
         ];
     }
 
@@ -49,12 +57,14 @@ class WrkPartidos extends \yii\db\ActiveRecord
     {
         return [
             'id_partido' => 'Id Partido',
+            'txt_token' => 'Txt Token',
             'id_equipo1' => 'Id Equipo1',
             'id_equipo2' => 'Id Equipo2',
             'fch_partido' => 'Fch Partido',
-            'num_goles_equipo1' => 'Num Goles Equipo1',
-            'num_goles_equipo2' => 'Num Goles Equipo2',
-            'b_habilirado' => 'B Habilirado',
+            'b_habilitado' => 'B Habilitado',
+            'b_empate' => 'B Empate',
+            'id_fase' => 'Id Fase',
+            'id_equipo_ganador' => 'Id Equipo Ganador',
         ];
     }
 
@@ -72,6 +82,22 @@ class WrkPartidos extends \yii\db\ActiveRecord
     public function getEquipo2()
     {
         return $this->hasOne(CatEquipos::className(), ['id_equipo' => 'id_equipo2']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEquipoGanador()
+    {
+        return $this->hasOne(CatEquipos::className(), ['id_equipo' => 'id_equipo_ganador']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFase()
+    {
+        return $this->hasOne(CatFasesDelTorneo::className(), ['id_fase' => 'id_fase']);
     }
 
     /**
