@@ -83,6 +83,19 @@
 				.bold
 					@extend .fw-bold
 
+				.num-pos
+					display: inline-block
+					height: 16px
+					position: relative
+					width: 12px
+					small
+						@extend .fs-10
+						position: absolute
+						top: -6px
+
+			&.ul-style-simple
+				list-style: none
+
 		ol
 			list-style-position: outside
 			margin-bottom: 30px
@@ -98,6 +111,13 @@
 					white-space: pre-wrap
 					word-wrap: break-word
 					overflow-wrap: break-word
+
+		hr
+			@extend .bg-e
+			display: block
+			height: 1px
+			margin: 0 0 32px
+			width: 25%
 
 		p
 			@extend .color-gray-700

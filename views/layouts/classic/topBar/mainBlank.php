@@ -141,7 +141,9 @@ AppAssetClassicTopBarBlank::register($this);
           Cualquier modificación al presente Aviso de Privacidad le será informado indistintamente, mediante avisos en las oficinas de ACFE, correo electrónico o a través de los portales de internet de ACFE.
         </p>
 
-        <ul>
+        <hr>
+
+        <ul class="ul-style-simple">
           <li>
             <span class="num-pos"><small>1</small></span>La Ley define Aviso de Privacidad como el documento físico, electrónico o en cualquier otro formato generado por el responsable que es puesto a disposición del titular, previo al tratamiento de sus Datos Personales.
           </li>
