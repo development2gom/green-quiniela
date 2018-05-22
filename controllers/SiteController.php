@@ -83,6 +83,8 @@ class SiteController extends Controller
         // $auth = \Yii::$app->authManager;
         // $authorRole = $auth->getRole('test');
         // $auth->assign($authorRole, $usuario->getId());
+
+        $this->layout = "classic/topBar/mainBienvenido";
         return $this->render('index');
     }
 

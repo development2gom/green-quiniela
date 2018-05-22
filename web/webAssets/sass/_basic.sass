@@ -76,8 +76,12 @@ a
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 
 .btn-primary
-	border-color: $primary
-	background-color: $primary
+	border-color: transparent
+	background-color: transparent
+	background-image: url(../images/BOTON.png)
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: 260px 60px
 	&:active,
 	&:focus,
 	&:hover,
@@ -91,9 +95,9 @@ a
 	&:focus,
 	&:not(:disabled):not(.disabled):active,
 	&:not(:disabled):not(.disabled).active
-		border-color: darken( $primary, 10% )
-		background-color: darken( $primary, 10% )
-		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+		border-color: transparent
+		background-color: transparent
+		box-shadow: none
 
 .btn-secondary
 	border-color: $secondary
@@ -289,7 +293,10 @@ a
 /* Imagen de fondo */
 .page-login-v3
 	&:before
-		background-image: url('https://drscdn.500px.org/photo/230473379/q%3D80_m%3D2000/v2?webp=true&sig=8098ec687c2dacf53ba17515209dca4cf6ee1ad91d7e0aae23a217db2089824c')
+		background-image: url('../images/IMAGEN-AZUL.png')
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
 
 /* Login */
 .login
@@ -353,13 +360,26 @@ a
 		max-width: 80%
 		width: 200px
 
+// Inpus
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="number"],
+	input[type="tel"]
+	.form-control
+		background-color: $accent
+		border-color: $accent
+		color: $primary
+		@extend .fs-20
+		@extend .fw-regular
+		height: 3.273rem
+		&:focus
+			border-color: darken( $accent, 20% )
+
 // Loader
 .loader-overlay
 	background-color: $primary
-	background-image: url(../images/logo-latingal-boutique.png)
-	background-position: 50%
-	background-repeat: no-repeat
-	background-size: 100px
 
 // Loading
 .animsition-loading
@@ -390,6 +410,7 @@ a
 .logo-25-anos,
 .logo-quiniela
 	position: absolute
+	z-index: 2
 
 .triangulo-naranja
 	left: 0
@@ -417,3 +438,119 @@ a
 	img
 		max-width: 560px
 		width: 560px
+
+.sec-registro
+	background-color: $white
+	position: relative
+	z-index: 9
+	.page-registro
+		position: relative
+		z-index: 9
+		.logo-quiniela-blue
+			width: 360px
+		
+		.brand
+			margin-bottom: 32px
+			.brand-text
+				color: $primary
+				@extend .fs-30
+				@extend .fw-bold
+				// line-height: 1.2
+				@extend .text-up
+
+		.form-pre-registro,
+		.form-registro
+
+			.form-group
+				margin-bottom: 12px
+				.col-md-4
+					padding-right: 0
+				label
+					color: $primary
+					display: block
+					@extend .fs-22
+					@extend .fw-bold
+					line-height: 1.2
+					text-align: right
+					@extend .text-up
+					width: 100%
+				// .form-control
+				
+				a.btn-primary,
+				button.btn-primary
+					color: $primary
+					@extend .fs-34
+					@extend .fw-bold
+					height: 60px
+					margin-top: 24px
+					@extend .text-up
+					width: 260px
+
+			.form-group-check
+				position: relative
+
+				.checkbox-custom
+					position: relative
+					z-index: 3
+
+				.checkbox-mask
+					bottom: 0
+					cursor: pointer
+					left: 0
+					position: absolute
+					right: 0
+					top: 0
+					z-index: 6
+
+.sec-bienvenido
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
+	.page-bienvenida
+		// background-color: red
+		height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+
+		.sb-pasos
+			margin-top: 72px
+			.sb-pasos-title
+				h2
+					@extend .color-white
+					@extend .fs-40
+					@extend .text-up
+			.sb-pasos-body
+				margin-top: 32px
+				ul
+					list-style-position: outside
+					margin-bottom: 30px
+					padding-left: 26px
+					li
+						@extend .color-white
+						@extend .fs-22
+						letter-spacing: 1px
+						line-height: 1.8
+						margin-bottom: 8px
+						text-align: left
+						+respond-to(xs)
+							white-space: pre-wrap
+							word-wrap: break-word
+							overflow-wrap: break-word
+						strong
+							@extend .fw-bold
+							@extend .text-up
+
+				a.btn-primary,
+				button.btn-primary
+					color: $primary
+					@extend .fs-34
+					@extend .fw-bold
+					height: 60px
+					margin-top: 24px
+					@extend .text-up
+					width: 260px

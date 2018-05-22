@@ -7,8 +7,8 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\EntUsuarios */
 
-$this->title = 'Registrarse';
-$this->params['classBody'] = "page-login-v3 layout-full login-page";
+$this->title = 'Registro';
+$this->params['classBody'] = "site-navbar-small sec-registro";
 
 $this->registerCssFile(
   '@web/webAssets/css/signUp.css',
@@ -29,12 +29,12 @@ $this->registerJsFile(
             <!-- <a class="avatar avatar-lg js-img-avatar">
                   <img class="js-image-preview" src="<?=Url::base()."/webAssets/images/site/user.png"?>">
                 </a> -->
-            <h2 class="brand-text font-size-18 text-center"><?= Html::encode($this->title) ?></h2>
+            <h2 class="brand-text"><?= Html::encode($this->title) ?></h2>
           </div>
           <?= $this->render('_form', [
             'model' => $model
           ]) ?>
-          <p class="text-center">¿Tienes una cuenta? <a href="<?=Url::base()?>/login">Ingresa</a></p>
+          <!-- <p class="text-center">¿Tienes una cuenta? <a href="<?=Url::base()?>/login">Ingresa</a></p> -->
       </div>
     </div>
   </div>
