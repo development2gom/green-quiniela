@@ -167,6 +167,12 @@ class ConcursantesController extends Controller{
 
     }
 
+    public function actionTermino(){
+        
+        $this->layout = "classic/topBar/mainTermino";
+        return $this->render("termino");
+    }
+
 }
 
 ?>

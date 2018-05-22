@@ -103,7 +103,9 @@ a
 
 .btn-secondary
 	border-color: $secondary
-	background-color: $secondary
+	// background-color: $secondary
+	background-color: transparent
+	color: $white
 	&:active,
 	&:focus,
 	&:hover,
@@ -116,8 +118,10 @@ a
 	&:hover,
 	&:focus
 		border-color: darken( $secondary, 10% )
-		background-color: darken( $secondary, 10% )
-		box-shadow: 0 0 0 0.1rem rgba($secondary,0.1)
+		// background-color: darken( $secondary, 10% )
+		background-color: transparent
+		box-shadow: none
+		color: $white
 
 .btn-outline-primary
 	border-color: $grey-d
@@ -516,31 +520,91 @@ a
 				// background-color: yellow
 				.panel-heading
 					border: 2px solid $white
-					padding: 4px 16px
+					border-radius: 0
+					padding: 0 16px
 					.panel-title
 						@extend .color-white
-						@extend .fs-30
+						@extend .fs-40
+						text-align: center
 						@extend .text-up
 						&::after,
 						&::before
 							@extend .color-white
+							@extend .fs-20
 							opacity: 1
+							top: 32px
 
-					&:first-child
-						background-color: red
+						&::after
+							content: ''
+
+						&::before
+							content: ''
+
+					// &:first-child
+					// 	background-color: red
+					// 	border-bottom-left-radius: 0
+					// 	border-bottom-right-radius: 0
 					
-					&:last-child
-						background-color: purple
+					// &:last-child
+					// 	background-color: purple
 
 				.panel-collapse
-					background-color: darken( $primary, 30% )
+					background-color: rgba( $black, .38 )
 					.panel-body
 						@extend .color-white
 						padding: 24px 16px
-						p
+						p.panel-body-pais
 							@extend .color-white
+							display: block
 							@extend .fs-16
-							// @extend .text-up
+							margin-bottom: 4px
+							text-align: center
+						img.panel-body-equipo
+							display: block
+							margin: 0 auto 12px
+							max-width: 42px
+							width: 42px
+						// .panel-body-btn
+						// 	background-color: transparent
+
+			a.btn-primary,
+			button.btn-primary
+				color: $primary
+				@extend .fs-34
+				@extend .fw-bold
+				height: 60px
+				margin-top: 24px
+				@extend .text-up
+				width: 260px
+
+			.col-d-flex,
+			.col-d-flex-end
+				display: flex
+				flex-direction: column
+				justify-content: center
+			
+			.col-d-flex-end
+				align-items: flex-end
+
+			.col-d-flex
+				.text-completa-registra,
+				.text-resultados
+					@extend .color-white
+					max-width: 100%
+					width: 242px
+
+				.text-completa-registra
+					@extend .fs-18
+					@extend .fw-regular
+				.text-resultados
+					@extend .fs-20
+					@extend .fw-bold
+
+.sec-termino
+	background-color: $accent
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
 
 .sec-bienvenido
 	background-image: url('../images/IMAGEN-AZUL.png')
