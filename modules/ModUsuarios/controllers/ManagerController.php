@@ -14,6 +14,8 @@ use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
+use app\models\CatCodigos;
+use app\models\RelUsuariosCodigos;
 
 /**
  * Default controller for the `musuarios` module
@@ -56,7 +58,7 @@ class ManagerController extends Controller {
 		
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
-		] );
+		]);
 
 		if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
 			Yii::$app->response->format = Response::FORMAT_JSON;
@@ -64,38 +66,47 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
-			
-			if ($model->signup ()) {
-
-				// Envia un correo de bienvenida al usuario
-				// if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
-				// 	$model->enviarEmailBienvenida();
-				// }
+			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_codigo_usado'=>0, 'b_habilitado'=>1])->one();
+			if($codigo){
+				$codigo->b_codigo_usado = 1;
+				$codigo->save();
 				
-				// if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
+				if ($model->signup ()) {
+					$relUSerCodigo = new RelUsuariosCodigos();
+					$relUSerCodigo->id_usuario = $model->id_usuario;
+					$relUSerCodigo->id_codigo = $codigo->id_codigo;
+					$relUSerCodigo->save();
+
+					// Envia un correo de bienvenida al usuario
+					if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
+						$model->enviarEmailBienvenida();
+					}
 					
-				// 	$model->enviarEmailActivacion();
-					
-				// 	$this->redirect ( [ 
-				// 			'login' 
-				// 	] );
-					
-				// } else {
-					
-				// 	if (Yii::$app->getUser ()->login ( $model )) {
-				// 		return $this->goHome ();
-				// 	}
-				// }
+					if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
+						
+						$model->enviarEmailActivacion();
+						
+						$this->redirect ( [ 
+								'login' 
+						] );
+						
+					} else {
+						
+						if (Yii::$app->getUser ()->login ( $model )) {
+							return $this->goHome ();
+						}
+					}
+				}
+			}else{
+				$model->addError('txt_codigo', 'Este codigo ya se uso o no exixte.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
-
-	
-			return $this->render ( 'signUp', [ 
-				'model' => $model 
-			] );
 		
+		return $this->render ( 'signUp', [ 
+			'model' => $model
+		] );
 		
 	}
 	

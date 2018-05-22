@@ -1,21 +1,53 @@
 <?php
 namespace app\controllers;
 
+use Yii;
 use yii\web\Controller;
 use app\models\WrkPartidos;
 use yii\db\Expression;
 use app\models\CatEquipos;
 use app\models\CatFasesDelTorneo;
 use yii\db\conditions\BetweenCondition;
-use Yii;
+
 
 use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
+use app\models\RelUsuariosCodigos;
+
 
 
 class ConcursantesController extends Controller{
  
+    /**
+     * @inheritdoc
+     */
+    /*public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControlExtend::className(),
+                'only' => ['partidos-fase'],
+                'rules' => [
+                    [
+                        'actions' => ['partidos-fase'],
+                       'allow' => true,
+                        'roles' => ['usuario-normal'],
+
+                        
+                    ],
+                    
+                ],
+            ],
+           // 'verbs' => [
+           //     'class' => VerbFilter::className(),
+           //     'actions' => [
+           //         'logout' => ['post'],
+           //     ],
+           // ],
+       ];
+   }*/
+
     public function actionInstrucciones()
     {
         return $this->render('instrucciones');

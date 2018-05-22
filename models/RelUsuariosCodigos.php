@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 /**
  * This is the model class for table "rel_usuarios_codigos".
@@ -34,7 +35,7 @@ class RelUsuariosCodigos extends \yii\db\ActiveRecord
             [['id_usuario', 'id_codigo', 'b_habilitado'], 'integer'],
             [['id_usuario', 'id_codigo'], 'unique', 'targetAttribute' => ['id_usuario', 'id_codigo']],
             [['id_codigo'], 'exist', 'skipOnError' => true, 'targetClass' => CatCodigos::className(), 'targetAttribute' => ['id_codigo' => 'id_codigo']],
-            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => ModUsuariosEntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
+            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => EntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
         ];
     }
 

@@ -30,6 +30,48 @@ AppAssetClassicTopBarBlank::register($this);
 
   <?php $this->endBody();?>
 
+<!-- Modal -->
+<div class="modal fade modal-fade-in-scale-up" id="modal-terminos-condiciones" aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-simple">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+<h4 class="modal-title">Términos y condiciones</h4>
+</div>
+<div class="modal-body">
+<p>Lorem ipsum</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-primary" id="btn-acepto-terminos">Acepto terminos</button>
+</div>
+</div>
+</div>
+</div>
+<!-- End Modal -->
+
+<!-- Modal -->
+<div class="modal fade modal-fade-in-scale-up" id="modal-aviso-privacidad" aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-simple">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+<h4 class="modal-title">Aviso de Privacidad</h4>
+</div>
+<div class="modal-body">
+<p>Lorem ipsum</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+</div>
+</div>
+</div>
+</div>
+<!-- End Modal -->
+
   <script>
   (function(document, window, $) {
     'use strict';
