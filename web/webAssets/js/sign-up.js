@@ -75,7 +75,31 @@ $(document).ready(function () {
     // Al campo de texto telefono validara solo numeros
 	$('#entusuarios-txt_telefono').keydown(function (e) {
 		validarSoloNumeros(e);
-	});
+    });
+    
+    $('#js-pre-registro').on('submit', function(e){
+        e.preventDefault();
+		var formData = new FormData(this);
+
+		$.ajax({
+			type:'POST',
+			url: baseUrl+'pre-registro',
+			data:formData,
+			cache:false,
+			contentType: false,
+			processData: false,
+			success:function(data){
+				if(data.status=="success"){
+					
+				}else{
+					
+				}
+			},
+			error: function(){
+
+			}
+		});
+    });
 });
 
 function validarTipoImagen(jsfile) {
