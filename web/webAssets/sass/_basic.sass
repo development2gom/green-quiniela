@@ -82,6 +82,7 @@ a
 	background-position: 50%
 	background-repeat: no-repeat
 	background-size: 260px 60px
+	color: $primary
 	&:active,
 	&:focus,
 	&:hover,
@@ -98,6 +99,7 @@ a
 		border-color: transparent
 		background-color: transparent
 		box-shadow: none
+		color: darken( $primary, 10% )
 
 .btn-secondary
 	border-color: $secondary
@@ -386,22 +388,6 @@ a
 	background-color: $gray-900
 	border-left: 5px solid $accent
 
-// Modal
-.modal-backdrop
-	background-color: rgba(red,.2)
-	position: absolute
-	z-index: 9906
-
-.modal
-	position: fixed
-	z-index: 9999
-	.modal-dialog
-		.modal-header
-			button.close
-				position: absolute
-				right: 24px
-				top: 16px
-
 // Template design
 .triangulo-naranja,
 .pasto-superior-derecha,
@@ -502,6 +488,60 @@ a
 					top: 0
 					z-index: 6
 
+.sec-concursante
+	background-attachment: fixed
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	padding-top: 16.858rem !important
+	position: relative
+	z-index: 9
+	.page-concursante
+		min-height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+		.page-content
+			width: 100%
+
+			h4
+				@extend .color-white
+				@extend .fs-24
+				@extend .fw-light
+				text-align: center
+				@extend .text-up
+
+			.panel-group
+				// background-color: yellow
+				.panel-heading
+					border: 2px solid $white
+					padding: 4px 16px
+					.panel-title
+						@extend .color-white
+						@extend .fs-30
+						@extend .text-up
+						&::after,
+						&::before
+							@extend .color-white
+							opacity: 1
+
+					&:first-child
+						background-color: red
+					
+					&:last-child
+						background-color: purple
+
+				.panel-collapse
+					background-color: darken( $primary, 30% )
+					.panel-body
+						@extend .color-white
+						padding: 24px 16px
+						p
+							@extend .color-white
+							@extend .fs-16
+							// @extend .text-up
+
 .sec-bienvenido
 	background-image: url('../images/IMAGEN-AZUL.png')
 	background-position: 50%
@@ -512,7 +552,7 @@ a
 	z-index: 9
 	.page-bienvenida
 		// background-color: red
-		height: 100vh
+		min-height: 100vh
 		position: relative
 		width: 100%
 		z-index: 9

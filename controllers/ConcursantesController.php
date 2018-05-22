@@ -67,6 +67,7 @@ class ConcursantesController extends Controller{
         andWhere(['id_fase'=>$fase->id_fase ])
         ->all() ;
 
+        $this->layout = "classic/topBar/mainConcursante";
         return $this->render('partidos-proximos',['partidos'=>$partidos]);
 
     }

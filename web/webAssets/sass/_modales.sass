@@ -1,0 +1,37 @@
+/*!
+	-----------------------------------------------------------------------------
+	2.0 - Usuarios
+	-----------------------------------------------------------------------------
+	*/
+
+// Modal
+.modal-backdrop
+	background-color: rgba(red,.2)
+	position: absolute
+	z-index: 9906
+
+.modal
+	position: fixed
+	z-index: 9999
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close
+					position: absolute
+					right: 24px
+					top: 16px
+				.modal-title
+					color: $primary
+					@extend .fs-24
+					@extend .fw-bold
+			.modal-body
+			.modal-footer
+				a.btn-primary,
+				button.btn-primary
+					color: $primary
+					@extend .fs-18
+					@extend .fw-bold
+					height: 60px
+					margin-top: 24px
+					@extend .text-up
+					width: 260px
