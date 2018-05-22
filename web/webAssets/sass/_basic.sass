@@ -18,7 +18,6 @@ a
 	font:
 		family: $f-base
 		size: 16px
-		weight: $regular
 	text-decoration: none
 	// +transition(all 0.3s ease-in)
 	&:active,
@@ -60,7 +59,6 @@ a
 
 .btn
 	display: inline-block
-	font-weight: 400
 	text-align: center
 	white-space: nowrap
 	vertical-align: middle
@@ -71,18 +69,22 @@ a
 	border: 1px solid transparent
 	padding: .375rem .75rem
 	line-height: 1.5
-	@extend .fs-16
-	@extend .fw-light
+	font-size: $fs-16
+	font-weight: $regular
 	letter-spacing: 1px
 	border-radius: .25rem
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 
 .btn-primary
-	border-color: $primary
-	background-color: $primary
+	border-color: transparent
+	background-color: transparent
+	background-image: url(../images/BOTON.png)
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: 260px 60px
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -93,16 +95,16 @@ a
 	&:focus,
 	&:not(:disabled):not(.disabled):active,
 	&:not(:disabled):not(.disabled).active
-		border-color: darken( $primary, 10% )
-		background-color: darken( $primary, 10% )
-		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+		border-color: transparent
+		background-color: transparent
+		box-shadow: none
 
 .btn-secondary
 	border-color: $secondary
 	background-color: $secondary
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -120,7 +122,7 @@ a
 	color: $grey-d
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -136,7 +138,7 @@ a
 	background-color: $accent
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -154,7 +156,7 @@ a
 	background-color: $error
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -172,7 +174,7 @@ a
 	background-color: $success
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -190,7 +192,7 @@ a
 	background-color: $info
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -209,7 +211,7 @@ a
 	color: $font-color
 	&:active,
 	&:focus,
-	&:hover
+	&:hover,
 	&:active,
 	&:active:focus,
 	&:active:hover,
@@ -229,12 +231,22 @@ a
 	form
 		.form-material
 			label
-				color: #a3afb7
+				color: lighten($font-color, 30%)
+				@extend .fw-light
+
+.form-material
+	.form-control:-webkit-autofill~.floating-label
+		top: -1.3rem
+
+	.form-control~.floating-label
+		padding: 0 10px
+
 /* Active */
 .form-material
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label
 		color: $primary
+		top: -1.3rem
 
 /* Error */
 .form-material.form-group.has-danger
@@ -242,6 +254,7 @@ a
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
 		color: $error
+		top: -1.3rem
 
 /* Succes */
 .form-material.form-group.has-success
@@ -249,6 +262,8 @@ a
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
 		color: $primary
+		top: -1.3rem
+
 
 /*  Input
 	======================================= */
@@ -256,17 +271,32 @@ a
 	.form-control,
 	.form-control.focus,
 	.form-control:focus
-		background-image: -webkit-gradient(linear,left top,left bottom,from($primary),to($primary)),-webkit-gradient(linear,left top,left bottom,from(secondary),to(secondary))
-		background-image: -webkit-linear-gradient($primary,$primary),-webkit-linear-gradient(secondary,secondary)
-		background-image: -o-linear-gradient($primary,$primary),-o-linear-gradient(secondary,secondary)
-		background-image: linear-gradient($primary,$primary),linear-gradient(secondary,secondary)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
 
+.form-material.form-group.has-success
+	.form-control.focus,
+	.form-control:focus,
+	.form-control:not(.empty)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
+
+.form-control
+	color: lighten($font-color, 25%)
+	
 /*  Login
 	======================================= */
 /* Imagen de fondo */
 .page-login-v3
 	&:before
-		background-image: url('https://drscdn.500px.org/photo/230473379/q%3D80_m%3D2000/v2?webp=true&sig=8098ec687c2dacf53ba17515209dca4cf6ee1ad91d7e0aae23a217db2089824c')
+		background-image: url('../images/IMAGEN-AZUL.png')
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
 
 /* Login */
 .login
@@ -330,19 +360,33 @@ a
 		max-width: 80%
 		width: 200px
 
+// Inpus
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="number"],
+	input[type="tel"]
+	.form-control
+		background-color: $accent
+		border-color: $accent
+		color: $primary
+		@extend .fs-20
+		@extend .fw-regular
+		height: 3.273rem
+		&:focus
+			border-color: darken( $accent, 20% )
+
 // Loader
 .loader-overlay
 	background-color: $primary
-	background-image: url(../images/logo-latingal-boutique.png)
-	background-position: 50%
-	background-repeat: no-repeat
-	background-size: 100px
 
 // Loading
 .animsition-loading
 	background-color: $gray-900
 	border-left: 5px solid $accent
 
+// Modal
 .modal-backdrop
 	background-color: rgba(red,.2)
 	position: absolute
@@ -351,3 +395,162 @@ a
 .modal
 	position: fixed
 	z-index: 9999
+	.modal-dialog
+		.modal-header
+			button.close
+				position: absolute
+				right: 24px
+				top: 16px
+
+// Template design
+.triangulo-naranja,
+.pasto-superior-derecha,
+.red-balon,
+.pasto-verde-inferior-izquierda,
+.logo-25-anos,
+.logo-quiniela
+	position: absolute
+	z-index: 2
+
+.triangulo-naranja
+	left: 0
+	top: 0
+.pasto-superior-derecha
+	right: 0
+	top: 0
+.red-balon
+	bottom: 0
+	right: 0
+.pasto-verde-inferior-izquierda
+	bottom: 0
+	left: 0
+
+.logo-25-anos
+	right: 24px
+	top: 16px
+	img
+		max-width: 140px
+		width: 140px
+
+.logo-quiniela
+	left: 0
+	top: 0
+	img
+		max-width: 560px
+		width: 560px
+
+.sec-registro
+	background-color: $white
+	position: relative
+	z-index: 9
+	.page-registro
+		position: relative
+		z-index: 9
+		.logo-quiniela-blue
+			width: 360px
+		
+		.brand
+			margin-bottom: 32px
+			.brand-text
+				color: $primary
+				@extend .fs-30
+				@extend .fw-bold
+				// line-height: 1.2
+				@extend .text-up
+
+		.form-pre-registro,
+		.form-registro
+
+			.form-group
+				margin-bottom: 12px
+				.col-md-4
+					padding-right: 0
+				label
+					color: $primary
+					display: block
+					@extend .fs-22
+					@extend .fw-bold
+					line-height: 1.2
+					text-align: right
+					@extend .text-up
+					width: 100%
+				// .form-control
+				
+				a.btn-primary,
+				button.btn-primary
+					color: $primary
+					@extend .fs-34
+					@extend .fw-bold
+					height: 60px
+					margin-top: 24px
+					@extend .text-up
+					width: 260px
+
+			.form-group-check
+				position: relative
+
+				.checkbox-custom
+					position: relative
+					z-index: 3
+
+				.checkbox-mask
+					bottom: 0
+					cursor: pointer
+					left: 0
+					position: absolute
+					right: 0
+					top: 0
+					z-index: 6
+
+.sec-bienvenido
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
+	.page-bienvenida
+		// background-color: red
+		height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+
+		.sb-pasos
+			margin-top: 72px
+			.sb-pasos-title
+				h2
+					@extend .color-white
+					@extend .fs-40
+					@extend .text-up
+			.sb-pasos-body
+				margin-top: 32px
+				ul
+					list-style-position: outside
+					margin-bottom: 30px
+					padding-left: 26px
+					li
+						@extend .color-white
+						@extend .fs-22
+						letter-spacing: 1px
+						line-height: 1.8
+						margin-bottom: 8px
+						text-align: left
+						+respond-to(xs)
+							white-space: pre-wrap
+							word-wrap: break-word
+							overflow-wrap: break-word
+						strong
+							@extend .fw-bold
+							@extend .text-up
+
+				a.btn-primary,
+				button.btn-primary
+					color: $primary
+					@extend .fs-34
+					@extend .fw-bold
+					height: 60px
+					margin-top: 24px
+					@extend .text-up
+					width: 260px

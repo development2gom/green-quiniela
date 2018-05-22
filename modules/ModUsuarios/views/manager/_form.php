@@ -9,39 +9,77 @@ use yii\widgets\ActiveForm;
 ?>
 
     <?php $form = ActiveForm::begin([
-						'id' => 'form-ajax',
-						'options' => ['class' => 'form-registro'],
-						'enableAjaxValidation' => true,
-						'enableClientValidation'=>true,
-                    ]); ?>
-    
-    <?php // $form->field($model, 'txt_username')->textInput(['maxlength' => true, 'placeholder'=>'Nombre'])->label(false) ?>
+        'id' => 'form-ajax',
+        'options' => ['class' => 'form-registro'],
+        'enableAjaxValidation' => true,
+        'enableClientValidation'=>true,
+    ]); ?>
 
-    <?php // $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, 'placeholder'=>'Apellido paterno'])->label(false) ?>
-
-    <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true, 'placeholder'=>'Email'])->label(false) ?>
-    <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, 'placeholder'=>'Repetir email'])->label(false) ?>
-
-    <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => 10, 'placeholder'=>'Telefono'])->label(false) ?>
-    
-    <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true, 'placeholder'=>'Codigo postal'])->label(false) ?>
-    
-    <?php // $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'=>'Contraseña'])->label(false) ?>
-    
-    <?php // $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, 'placeholder'=>'Repetir contraseña'])->label(false) ?>
-
-    <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder'=>'Codigo'])->label(false) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Registrarme' : 'Actualizar información', ['class' => "btn btn-success btn-block btn-lg"]) ?>
-    </div>
-
-    <div class="form-group form-group-check">
-        <div class="checkbox-custom checkbox-primary">
-            <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
-            <label for="check-terminos">Acepto terminos y condiciones</label>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Nombre.</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" class="form-control">
+            </div>
+            </div>
         </div>
-        <div class="checkbox-mask"></div>
-    </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Email.</label>
+            </div>
+            <div class="col-md-8">
+                <input type="email" class="form-control">
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Teléfono.</label>
+            </div>
+            <div class="col-md-8">
+                <input type="tel" class="form-control">
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Código.</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number" class="form-control">
+            </div>
+            </div>
+        </div>
+    
+        <?php # $form->field($model, 'txt_username')->textInput(['maxlength' => true]) ?>
+
+        <?php # $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true]) ?>
+
+        <?php # $form->field($model, 'txt_email')->textInput(['maxlength' => true]) ?>
+        <?php # $form->field($model, 'repeatEmail')->textInput(['maxlength' => true]) ?>
+        
+        <?php # $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+        
+        <?php # $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true]) ?>
+
+        <div class="form-group form-group-check">
+            <div class="checkbox-custom checkbox-primary">
+                <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
+                <label for="check-terminos">Acepto terminos y condiciones</label>
+            </div>
+            <div class="checkbox-mask"></div>
+        </div>
+        
+        <div class="form-group form-group-actions">
+            <?= Html::submitButton($model->isNewRecord ? 'Registrarme' : 'Actualizar información', ['class' => "btn btn-primary btn-block btn-lg"]) ?>
+        </div>
 
     <?php ActiveForm::end(); ?>
