@@ -73,6 +73,7 @@ class ConcursantesController extends Controller{
       // andWhere(['txt_grupo'=>'A'])->  
        all() ;
 
+        $this->layout = "classic/topBar/mainConcursante";
         return $this->render('partidos-proximos',['partidos'=>$partidos]);
 
     }
@@ -164,6 +165,12 @@ class ConcursantesController extends Controller{
     public function actionAvisoPrivacidad(){
         return $this->render('aviso-privacidad');
 
+    }
+
+    public function actionTermino(){
+        
+        $this->layout = "classic/topBar/mainTermino";
+        return $this->render("termino");
     }
 
 }

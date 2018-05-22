@@ -100,6 +100,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/_modales.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_modales.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/_normalize.sass": {
 		"aP": 0,
 		"bl": 0,
@@ -139,19 +152,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/_usuarios.sass": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 2,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_usuarios.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/_variables.sass": {
 		"aP": 0,
 		"bl": 0,
@@ -161,6 +161,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_variables.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/print.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/print.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

@@ -82,6 +82,7 @@ a
 	background-position: 50%
 	background-repeat: no-repeat
 	background-size: 260px 60px
+	color: $primary
 	&:active,
 	&:focus,
 	&:hover,
@@ -98,10 +99,13 @@ a
 		border-color: transparent
 		background-color: transparent
 		box-shadow: none
+		color: darken( $primary, 10% )
 
 .btn-secondary
 	border-color: $secondary
-	background-color: $secondary
+	// background-color: $secondary
+	background-color: transparent
+	color: $white
 	&:active,
 	&:focus,
 	&:hover,
@@ -114,8 +118,10 @@ a
 	&:hover,
 	&:focus
 		border-color: darken( $secondary, 10% )
-		background-color: darken( $secondary, 10% )
-		box-shadow: 0 0 0 0.1rem rgba($secondary,0.1)
+		// background-color: darken( $secondary, 10% )
+		background-color: transparent
+		box-shadow: none
+		color: $white
 
 .btn-outline-primary
 	border-color: $grey-d
@@ -386,22 +392,6 @@ a
 	background-color: $gray-900
 	border-left: 5px solid $accent
 
-// Modal
-.modal-backdrop
-	background-color: rgba(red,.2)
-	position: absolute
-	z-index: 9906
-
-.modal
-	position: fixed
-	z-index: 9999
-	.modal-dialog
-		.modal-header
-			button.close
-				position: absolute
-				right: 24px
-				top: 16px
-
 // Template design
 .triangulo-naranja,
 .pasto-superior-derecha,
@@ -502,6 +492,120 @@ a
 					top: 0
 					z-index: 6
 
+.sec-concursante
+	background-attachment: fixed
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	padding-top: 16.858rem !important
+	position: relative
+	z-index: 9
+	.page-concursante
+		min-height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+		.page-content
+			width: 100%
+
+			h4
+				@extend .color-white
+				@extend .fs-24
+				@extend .fw-light
+				text-align: center
+				@extend .text-up
+
+			.panel-group
+				// background-color: yellow
+				.panel-heading
+					border: 2px solid $white
+					border-radius: 0
+					padding: 0 16px
+					.panel-title
+						@extend .color-white
+						@extend .fs-40
+						text-align: center
+						@extend .text-up
+						&::after,
+						&::before
+							@extend .color-white
+							@extend .fs-20
+							opacity: 1
+							top: 32px
+
+						&::after
+							content: ''
+
+						&::before
+							content: ''
+
+					// &:first-child
+					// 	background-color: red
+					// 	border-bottom-left-radius: 0
+					// 	border-bottom-right-radius: 0
+					
+					// &:last-child
+					// 	background-color: purple
+
+				.panel-collapse
+					background-color: rgba( $black, .38 )
+					.panel-body
+						@extend .color-white
+						padding: 24px 16px
+						p.panel-body-pais
+							@extend .color-white
+							display: block
+							@extend .fs-16
+							margin-bottom: 4px
+							text-align: center
+						img.panel-body-equipo
+							display: block
+							margin: 0 auto 12px
+							max-width: 42px
+							width: 42px
+						// .panel-body-btn
+						// 	background-color: transparent
+
+			a.btn-primary,
+			button.btn-primary
+				color: $primary
+				@extend .fs-34
+				@extend .fw-bold
+				height: 60px
+				margin-top: 24px
+				@extend .text-up
+				width: 260px
+
+			.col-d-flex,
+			.col-d-flex-end
+				display: flex
+				flex-direction: column
+				justify-content: center
+			
+			.col-d-flex-end
+				align-items: flex-end
+
+			.col-d-flex
+				.text-completa-registra,
+				.text-resultados
+					@extend .color-white
+					max-width: 100%
+					width: 242px
+
+				.text-completa-registra
+					@extend .fs-18
+					@extend .fw-regular
+				.text-resultados
+					@extend .fs-20
+					@extend .fw-bold
+
+.sec-termino
+	background-color: $accent
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
+
 .sec-bienvenido
 	background-image: url('../images/IMAGEN-AZUL.png')
 	background-position: 50%
@@ -512,7 +616,7 @@ a
 	z-index: 9
 	.page-bienvenida
 		// background-color: red
-		height: 100vh
+		min-height: 100vh
 		position: relative
 		width: 100%
 		z-index: 9
