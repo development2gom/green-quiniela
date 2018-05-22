@@ -13,11 +13,12 @@ use Yii;
  * @property int $num_goles Numero de goles anotados por el equipo
  * @property int $num_puntuacion Puntuacion del equipo
  * @property string $b_habilitado Dato implementado para habilitar el registro
+ * @property string $txt_grupo
  *
  * @property WrkPartidos[] $wrkPartidos
  * @property WrkPartidos[] $wrkPartidos0
+ * @property WrkPartidos[] $wrkPartidos1
  * @property WrkQuiniela[] $wrkQuinielas
- * @property WrkQuiniela[] $wrkQuinielas0
  */
 class CatEquipos extends \yii\db\ActiveRecord
 {
@@ -35,9 +36,9 @@ class CatEquipos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['txt_nombre_equipo', 'txt_url_imagen_equipo'], 'required'],
+            [['txt_nombre_equipo', 'txt_url_imagen_equipo', 'txt_grupo'], 'required'],
             [['num_goles', 'num_puntuacion', 'b_habilitado'], 'integer'],
-            [['txt_nombre_equipo'], 'string', 'max' => 50],
+            [['txt_nombre_equipo', 'txt_grupo'], 'string', 'max' => 50],
             [['txt_url_imagen_equipo'], 'string', 'max' => 300],
         ];
     }
@@ -54,6 +55,7 @@ class CatEquipos extends \yii\db\ActiveRecord
             'num_goles' => 'Num Goles',
             'num_puntuacion' => 'Num Puntuacion',
             'b_habilitado' => 'B Habilitado',
+            'txt_grupo' => 'Txt Grupo',
         ];
     }
 
@@ -76,16 +78,16 @@ class CatEquipos extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getWrkQuinielas()
+    public function getWrkPartidos1()
     {
-        return $this->hasMany(WrkQuiniela::className(), ['id_equipo1' => 'id_equipo']);
+        return $this->hasMany(WrkPartidos::className(), ['id_equipo_ganador' => 'id_equipo']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getWrkQuinielas0()
+    public function getWrkQuinielas()
     {
-        return $this->hasMany(WrkQuiniela::className(), ['id_equipo2' => 'id_equipo']);
+        return $this->hasMany(WrkQuiniela::className(), ['id_equipo_ganador' => 'id_equipo']);
     }
 }
