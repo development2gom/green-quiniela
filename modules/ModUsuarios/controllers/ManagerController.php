@@ -14,7 +14,6 @@ use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
-use app\config\FireBase;
 use app\models\CatCodigos;
 use app\models\RelUsuariosCodigos;
 

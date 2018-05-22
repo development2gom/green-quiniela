@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 /**
  * This is the model class for table "wrk_quiniela".
@@ -10,15 +11,12 @@ use Yii;
  * @property string $id_quiniela
  * @property string $id_usuario Registro identificador para el usuario
  * @property string $id_partido Registro identificador del partido
- * @property string $id_equipo1 Numero identificador del equipo seleccionado
- * @property string $id_equipo2 Numero identificador del equipo seleccionado
- * @property int $num_goles_equipo1 Pronostico de goles para el equipo seleccionado
- * @property int $num_goles_equipo2 Pronostico de goles para el equipo seleccionado
  * @property string $fch_creacion Fecha de creacion del registro
  * @property string $b_acertado Dato indicador del usuario que acerto en el pronostico
+ * @property string $b_empata
+ * @property string $id_equipo_ganador
  *
- * @property CatEquipos $equipo1
- * @property CatEquipos $equipo2
+ * @property CatEquipos $equipoGanador
  * @property ModUsuariosEntUsuarios $usuario
  * @property WrkPartidos $partido
  */
@@ -38,11 +36,10 @@ class WrkQuiniela extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_usuario', 'id_partido', 'id_equipo1', 'id_equipo2', 'num_goles_equipo1', 'num_goles_equipo2', 'b_acertado'], 'integer'],
+            [['id_usuario', 'id_partido', 'b_acertado', 'b_empata', 'id_equipo_ganador'], 'integer'],
             [['fch_creacion'], 'safe'],
-            [['id_equipo1'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo1' => 'id_equipo']],
-            [['id_equipo2'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo2' => 'id_equipo']],
-            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => ModUsuariosEntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
+            [['id_equipo_ganador'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo_ganador' => 'id_equipo']],
+            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => EntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
             [['id_partido'], 'exist', 'skipOnError' => true, 'targetClass' => WrkPartidos::className(), 'targetAttribute' => ['id_partido' => 'id_partido']],
         ];
     }
@@ -56,29 +53,19 @@ class WrkQuiniela extends \yii\db\ActiveRecord
             'id_quiniela' => 'Id Quiniela',
             'id_usuario' => 'Id Usuario',
             'id_partido' => 'Id Partido',
-            'id_equipo1' => 'Id Equipo1',
-            'id_equipo2' => 'Id Equipo2',
-            'num_goles_equipo1' => 'Num Goles Equipo1',
-            'num_goles_equipo2' => 'Num Goles Equipo2',
             'fch_creacion' => 'Fch Creacion',
             'b_acertado' => 'B Acertado',
+            'b_empata' => 'B Empata',
+            'id_equipo_ganador' => 'Id Equipo Ganador',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEquipo1()
+    public function getEquipoGanador()
     {
-        return $this->hasOne(CatEquipos::className(), ['id_equipo' => 'id_equipo1']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEquipo2()
-    {
-        return $this->hasOne(CatEquipos::className(), ['id_equipo' => 'id_equipo2']);
+        return $this->hasOne(CatEquipos::className(), ['id_equipo' => 'id_equipo_ganador']);
     }
 
     /**
@@ -86,7 +73,7 @@ class WrkQuiniela extends \yii\db\ActiveRecord
      */
     public function getUsuario()
     {
-        return $this->hasOne(ModUsuariosEntUsuarios::className(), ['id_usuario' => 'id_usuario']);
+        return $this->hasOne(EntUsuarios::className(), ['id_usuario' => 'id_usuario']);
     }
 
     /**
