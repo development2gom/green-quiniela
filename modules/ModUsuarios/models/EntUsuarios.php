@@ -104,7 +104,10 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 						[ 
 								'txt_username',
 								'txt_apellido_paterno',
-								'txt_email' 
+								'txt_email',
+								'txt_telefono',
+								'txt_codigo_postal',
+								'txt_codigo'
 						],
 						'required',
 						'on' => 'registerInput',
@@ -468,7 +471,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 
 		if($this->save()){
 
-			$this->guardarRoleUsuario();
+			//$this->guardarRoleUsuario();
 
 			return true;
 		}else{

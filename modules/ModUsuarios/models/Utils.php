@@ -18,6 +18,18 @@ class Utils {
 		$token = $pre . md5 ( uniqid ( $pre ) ) . uniqid ();
 		return $token;
 	}
+
+	/**
+	 * Obtenemos la fecha actual para almacenarla
+	 *
+	 * @return string
+	 */
+	public static function getFechaActual() {
+		
+		// Inicializamos la fecha y hora actual
+		$fecha = date ( 'Y-m-d H:i:s', time () );
+		return $fecha;
+	}
 	
 	/**
 	 * Obtiene fecha de vencimiento para una fecha
