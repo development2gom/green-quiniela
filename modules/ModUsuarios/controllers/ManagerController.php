@@ -71,8 +71,8 @@ class ManagerController extends Controller {
 	
 				$session = Yii::$app->session;				
 				$usuarioTemporal = $session->get('usuarioTemporal');
-				$model->txt_username = $usuarioTemporal['user'];
-				$model->txt_apellido_paterno = $usuarioTemporal['user'];
+				//$model->txt_username = $usuarioTemporal['user'];
+				//$model->txt_apellido_paterno = $usuarioTemporal['user'];
 				$model->repeatPassword = $usuarioTemporal['pass2'];
 				$model->password = $usuarioTemporal['pass'];
 
@@ -115,7 +115,7 @@ class ManagerController extends Controller {
 		}
 		
 		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
-		return $this->render ( 'signUp', [ 
+		return $this->render( 'signUp', [ 
 			'model' => $model
 		] );
 		
@@ -387,6 +387,14 @@ class ManagerController extends Controller {
     public function actionPreRegistro()
     {
 		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+
+		if($_POST){
+			$session = Yii::$app->session;
+			$session->set('usuarioTemporal', $_POST);
+			
+			$this->redirect(['sign-up']);
+		}
+
         return $this->render('pre-registro');
     }
 }

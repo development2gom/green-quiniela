@@ -83,7 +83,7 @@ $(document).ready(function () {
 
 		$.ajax({
 			type:'POST',
-			url: baseUrl+'modUsuarios/manager/pre-reg',
+			url: baseUrl+'pre-registro',
 			data:formData,
 			cache:false,
 			contentType: false,

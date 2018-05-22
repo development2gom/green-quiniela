@@ -30,14 +30,14 @@ $this->registerJsFile(
             <h2 class="brand-text"><?= Html::encode($this->title) ?></h2>
 
           </div>
-          <form class="form-pre-registro" action="">
+          <form id="js-pre-registro" class="form-pre-registro" action="">
             <div class="form-group">
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Nombre de usuario.</label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" class="form-control">
+                  <input type="text" name="user" class="form-control">
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@ $this->registerJsFile(
                   <label for="">Contraseña.</label>
                 </div>
                 <div class="col-md-8">
-                  <input type="password" class="form-control">
+                  <input type="password" name="pass" class="form-control">
                 </div>
               </div>
             </div>
@@ -59,15 +59,13 @@ $this->registerJsFile(
                   <label for="">Confirmar tu contraseña.</label>
                 </div>
                 <div class="col-md-8">
-                  <input type="password" class="form-control">
+                  <input type="password" name="pass2" class="form-control">
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <a class="btn btn-primary" href="<?=Url::base()?>/sign-up">
-                Continuar
-              </a>
+              <button class="btn btn-primary" type="submit">Continuar</button>
             </div>
 
           </form>
