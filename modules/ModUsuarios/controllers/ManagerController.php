@@ -104,6 +104,7 @@ class ManagerController extends Controller {
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
 		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'signUp', [ 
 			'model' => $model
 		] );
@@ -357,4 +358,14 @@ class ManagerController extends Controller {
 			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
+
+	/**
+     * Renders the index view for the module
+     * @return string
+     */
+    public function actionPreRegistro()
+    {
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+        return $this->render('pre-registro');
+    }
 }

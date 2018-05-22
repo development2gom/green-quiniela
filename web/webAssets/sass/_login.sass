@@ -1,17 +1,68 @@
 /*!
-	-----------------------------------------------------------------------------
-
-	2.0 - Login
-			# Listado
-			# Crear
-			# Actualizar
-
-	-----------------------------------------------------------------------------
+	--------------------------
+	Login
+	--------------------------
 	*/
-/*  Listado
-	======================================= */
-// .login
 
+// ----------- Login Elements
+
+// Form
+body.login-page
+	.panel
+		.panel-body
+			padding: 32px 32px 24px
+
+			.ayuda-soporte
+				@extend .fs-15
+				span
+					display: block
+					@extend .fs-16
+				a
+					@extend .fs-15
+	form
+		margin: 32px 0 16px
+
+.form-group
+	&.has-error
+		.help-block
+			color: $error
+			@extend .fs-12
+			margin-top: 4px
+			text-align: left
+
+	&.form-group-actions
+		margin-top: 16px
+
+	&.olvide-contrasena
+		text-align: right 
+		a
+			@extend .fs-15
+
+	&.necesito-cuenta
+		margin-top: 16px
+		a
+			@extend .fs-16
+
+	&.olvide-contrasena,
+	&.necesito-cuenta
+		a
+			margin-left: 0
+
+
+// Form material
+.form-material.floating
+	margin-bottom: 12px
+	margin-top: 12px
+
+.form-material.floating + .form-material.floating
+	margin-top: 24px
+
+// Footer Login
+.page-copyright
+	margin-top: 32px
+
+
+// ----------- login
 .login-page
 	.panel
 		.panel-body

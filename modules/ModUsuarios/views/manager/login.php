@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 $this->title = 'Login';
-$this->params['classBody'] = "page-login-v3 layout-full";
+$this->params['classBody'] = "page-login-v3 layout-full login-page";
 
 ?>
 
@@ -17,9 +17,9 @@ $this->params['classBody'] = "page-login-v3 layout-full";
 
 <div class="panel">
 	<div class="panel-body">
-		<div class="brand">
+		<!-- <div class="brand">
 			<img class="brand-img mb-40" src="<?= Url::base() ?>/webAssets/images/logo.png" alt="...">
-		</div>
+		</div> -->
 
 
 		<?php 
@@ -44,19 +44,21 @@ $this->params['classBody'] = "page-login-v3 layout-full";
 
 		<?= $form->field($model, 'password')->passwordInput(["class" => "form-control"]) ?>
 
-		<div class="form-group clearfix">
-			<a class="float-right" href="<?= Url::base() ?>/peticion-pass">¿Olvidaste tu contraseña?</a>
+		<div class="form-group clearfix olvide-contrasena">
+			<a href="<?= Url::base() ?>/peticion-pass">¿Olvidaste tu contraseña?</a>
 		</div>
 
 		<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style" => "zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])
 	?>
-		<div class="form-group clearfix text-center mt-20">
+		<div class="form-group clearfix necesito-cuenta">
 			<a href="<?= Url::base() ?>/sign-up">Necesito una cuenta</a>
 		</div>
 
 		<?php ActiveForm::end(); ?>
 
 
-		<p class="soporteTxt">¿Necesitas ayuda? escribe a: <a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
+		<p class="ayuda-soporte">
+			<span>¿Necesitas ayuda? escribe a:</span>
+			<a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
 	</div>
 </div>
