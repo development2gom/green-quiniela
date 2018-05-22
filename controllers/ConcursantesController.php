@@ -61,11 +61,17 @@ class ConcursantesController extends Controller{
         ->one();
 
         $partidos =WrkPartidos::find()->where(['b_habilitado'=>1])->
-        andWhere(['>','fch_partido',new Expression('now()')])->
         andWhere(['is not','id_equipo1',null])->
         andWhere(['is not','id_equipo2',null])->
-        andWhere(['id_fase'=>$fase->id_fase ])
-        ->all() ;
+        andWhere(['id_fase'=>$fase->id_fase ])->
+        orderBy(' txt_grupo ASC,fch_partido ASC,')->
+        //andWhere([new Expression('order by',' fch_partido','desc','txt_grupo','desc')]->
+        
+        //andWhere(['<','fch_partido',
+        //new Expression('now()')])->
+
+      // andWhere(['txt_grupo'=>'A'])->  
+       all() ;
 
         $this->layout = "classic/topBar/mainConcursante";
         return $this->render('partidos-proximos',['partidos'=>$partidos]);

@@ -20,8 +20,9 @@ use yii\widgets\ActiveForm;
             <div class="col-md-4">
                 <label for="">Nombre.</label>
             </div>
-            <div class="col-md-8">
-                <input type="text" class="form-control">
+            <div class="col-md-8"> 
+                <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true])->label(false) ?>            
+                <!--<input type="text" class="form-control">-->
             </div>
             </div>
         </div>
@@ -32,7 +33,8 @@ use yii\widgets\ActiveForm;
                 <label for="">Email.</label>
             </div>
             <div class="col-md-8">
-                <input type="email" class="form-control">
+                <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true])->label(false) ?>
+                <!--<input type="email" class="form-control">-->
             </div>
             </div>
         </div>
@@ -43,7 +45,8 @@ use yii\widgets\ActiveForm;
                 <label for="">Teléfono.</label>
             </div>
             <div class="col-md-8">
-                <input type="tel" class="form-control">
+                <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => true])->label(false) ?>            
+                <!--<input type="tel" class="form-control">-->
             </div>
             </div>
         </div>
@@ -54,7 +57,8 @@ use yii\widgets\ActiveForm;
                 <label for="">Código.</label>
             </div>
             <div class="col-md-8">
-                <input type="number" class="form-control">
+                <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true])->label(false) ?>            
+                <!--<input type="number" class="form-control">-->
             </div>
             </div>
         </div>

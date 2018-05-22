@@ -21,19 +21,30 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
         <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
             
             <?php
-            foreach ($partidos as $partido) {
-                $equipo1 = $partido->equipo1;
-                $equipo2 = $partido->equipo2;
+            
+            $grupoActual = null;
+                foreach ($partidos as $key=> $partido) {
+
+                        $equipo1 = $partido->equipo1;
+                        $equipo2 = $partido->equipo2;
+            if($grupoActual && $grupoActual!=$partido->txt_grupo){
+                echo '</div>
+                </div>';
+            }        
+            if($grupoActual!=$partido->txt_grupo){
+            $grupoActual = $partido->txt_grupo;
             ?>
-            <div class="panel">
-                <div class="panel-heading" id="siteMegaAccordionHeadingOne" role="tab">
-                    <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
-                        Collapsible Group Item #1
+            <div class="panel-heading" id="siteMegaAccordionHeadingOne<?= $key ?>" role="tab">
+                    <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
+                        Grupo: <?= $grupoActual ?>
                     </a>
-                </div>
-                <div class="panel-collapse collapse" id="siteMegaCollapseOne" aria-labelledby="siteMegaAccordionHeadingOne" role="tabpanel">
+            </div>
+            <div class="panel-collapse collapse" id="siteMegaCollapseOne<?= $key ?>" aria-labelledby="siteMegaAccordionHeadingOne<?= $key ?>" role="tabpanel">
                 <div class="panel-body">
-                    <div class="row">
+            <?php
+            }
+            ?>
+            <div class="row">
                         <div class="col-md-4">
                             <?= $equipo1->txt_nombre_equipo; ?>
                         
@@ -54,14 +65,6 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                             class="js-equipo">
                         </div>
                     </div>
-
-                    <?php
-                        # echo Calendario::getDateComplete( $partido->fch_partido);
-                    ?>
-
-                </div>
-                </div>
-            </div>
             <?php
             }
             ?>
