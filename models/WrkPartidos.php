@@ -16,6 +16,8 @@ use Yii;
  * @property string $b_empate
  * @property string $id_fase
  * @property string $id_equipo_ganador
+ * @property string $b_resuelto
+ * @property string $txt_grupo
  *
  * @property CatEquipos $equipo1
  * @property CatEquipos $equipo2
@@ -39,10 +41,11 @@ class WrkPartidos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_equipo1', 'id_equipo2', 'b_habilitado', 'b_empate', 'id_fase', 'id_equipo_ganador'], 'integer'],
+            [['id_equipo1', 'id_equipo2', 'b_habilitado', 'b_empate', 'id_fase', 'id_equipo_ganador', 'b_resuelto'], 'integer'],
             [['fch_partido'], 'safe'],
             [['id_fase'], 'required'],
             [['txt_token'], 'string', 'max' => 100],
+            [['txt_grupo'], 'string', 'max' => 50],
             [['id_equipo1'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo1' => 'id_equipo']],
             [['id_equipo2'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo2' => 'id_equipo']],
             [['id_equipo_ganador'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo_ganador' => 'id_equipo']],
@@ -65,6 +68,8 @@ class WrkPartidos extends \yii\db\ActiveRecord
             'b_empate' => 'B Empate',
             'id_fase' => 'Id Fase',
             'id_equipo_ganador' => 'Id Equipo Ganador',
+            'b_resuelto' => 'B Resuelto',
+            'txt_grupo' => 'Txt Grupo',
         ];
     }
 
