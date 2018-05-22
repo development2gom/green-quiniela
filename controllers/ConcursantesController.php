@@ -118,12 +118,14 @@ class ConcursantesController extends Controller{
             return $response;
     }
 
-    public function actionTerminosyCondiciones(){
+    public function actionTerminosCondiciones(){
+        return $this->render('terminos-condiciones');
 
     }
 
-    public function actionAvisoDePrivacidad(){
-        
+    public function actionAvisoPrivacidad(){
+        return $this->render('aviso-privacidad');
+
     }
 
 }
