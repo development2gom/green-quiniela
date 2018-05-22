@@ -36,7 +36,7 @@ class CatEquipos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['txt_nombre_equipo', 'txt_url_imagen_equipo', 'txt_grupo'], 'required'],
+            [['txt_nombre_equipo', 'txt_url_imagen_equipo'], 'required'],
             [['num_goles', 'num_puntuacion', 'b_habilitado'], 'integer'],
             [['txt_nombre_equipo', 'txt_grupo'], 'string', 'max' => 50],
             [['txt_url_imagen_equipo'], 'string', 'max' => 300],
