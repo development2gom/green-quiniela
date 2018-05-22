@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
 						'enableClientValidation'=>true,
                     ]); ?>
     
-    <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true, 'placeholder'=>'Nombre'])->label(false) ?>
+    <?php // $form->field($model, 'txt_username')->textInput(['maxlength' => true, 'placeholder'=>'Nombre'])->label(false) ?>
 
-    <?= $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, 'placeholder'=>'Apellido paterno'])->label(false) ?>
+    <?php // $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true, 'placeholder'=>'Apellido paterno'])->label(false) ?>
 
     <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true, 'placeholder'=>'Email'])->label(false) ?>
     <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true, 'placeholder'=>'Repetir email'])->label(false) ?>
@@ -26,9 +26,9 @@ use yii\widgets\ActiveForm;
     
     <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true, 'placeholder'=>'Codigo postal'])->label(false) ?>
     
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'=>'Contraseña'])->label(false) ?>
+    <?php // $form->field($model, 'password')->passwordInput(['maxlength' => true, 'placeholder'=>'Contraseña'])->label(false) ?>
     
-    <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, 'placeholder'=>'Repetir contraseña'])->label(false) ?>
+    <?php // $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true, 'placeholder'=>'Repetir contraseña'])->label(false) ?>
 
     <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder'=>'Codigo'])->label(false) ?>
 
