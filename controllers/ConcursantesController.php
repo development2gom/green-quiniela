@@ -52,9 +52,10 @@ class ConcursantesController extends Controller{
     }
 
     public function actionGuardarResultados(){
-    
+    $idUsuario=3;
      // Yii::$app->response->format=\yii\web\Response::FORMAT_JSON;
         $response = new ResponseServices();
+
         $token = null;
         $partido_seleccionado = null;
 
@@ -74,6 +75,20 @@ class ConcursantesController extends Controller{
             $partido_seleccionado = $_POST['equipo_seleccionado'];
 
         }
+//camel keys
+        $existeQuiniela =WrkQuiniela::find()->
+        where(['id_usuario'=>$idUsuario])->
+        andWhere(['=','id_partido',new Expression('(select id_partido from wrk_partidos
+        where b_habilitado = 1
+        and txt_token ="'.$token.'")')])->one();
+        if($existeQuiniela){
+
+            $response->message="El resgistro ya se encuentra guardado";
+
+            return $response;
+
+        }
+        
 //consulta a la base de datos
         $resultado =WrkPartidos::find()->where(['b_habilitado'=>1])->
         andWhere(['txt_token'=>$token])->one();
@@ -81,7 +96,7 @@ class ConcursantesController extends Controller{
         $quiniela = new WrkQuiniela();
         //por medio de las flechitas se busca llegar a el parametro necesitado para posteriormene alojarlo en labase de datos
         $quiniela->id_partido=$resultado->id_partido;
-        $quiniela->id_usuario=1;
+        $quiniela->id_usuario=$idUsuario;
         $quiniela->fch_creacion=Calendario::getFechaActual();
                 
         if($partido_seleccionado){
@@ -101,6 +116,14 @@ class ConcursantesController extends Controller{
 
        
             return $response;
+    }
+
+    public function actionTerminosyCondiciones(){
+
+    }
+
+    public function actionAvisoDePrivacidad(){
+        
     }
 
 }

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 /**
  * This is the model class for table "wrk_quiniela".
@@ -38,7 +39,7 @@ class WrkQuiniela extends \yii\db\ActiveRecord
             [['id_usuario', 'id_partido', 'b_acertado', 'b_empata', 'id_equipo_ganador'], 'integer'],
             [['fch_creacion'], 'safe'],
             [['id_equipo_ganador'], 'exist', 'skipOnError' => true, 'targetClass' => CatEquipos::className(), 'targetAttribute' => ['id_equipo_ganador' => 'id_equipo']],
-            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => ModUsuariosEntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
+            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => EntUsuarios::className(), 'targetAttribute' => ['id_usuario' => 'id_usuario']],
             [['id_partido'], 'exist', 'skipOnError' => true, 'targetClass' => WrkPartidos::className(), 'targetAttribute' => ['id_partido' => 'id_partido']],
         ];
     }
@@ -72,7 +73,7 @@ class WrkQuiniela extends \yii\db\ActiveRecord
      */
     public function getUsuario()
     {
-        return $this->hasOne(ModUsuariosEntUsuarios::className(), ['id_usuario' => 'id_usuario']);
+        return $this->hasOne(EntUsuarios::className(), ['id_usuario' => 'id_usuario']);
     }
 
     /**

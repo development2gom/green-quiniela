@@ -10,6 +10,7 @@ use app\modules\ModUsuarios\models\Utils;
 use kartik\password\StrengthValidator;
 use yii\web\UploadedFile;
 use app\models\Email;
+use app\models\Calendario;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -457,7 +458,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 
 		$this->setPassword ( $this->password );
 		$this->generateAuthKey ();
-		$this->fch_creacion = Utils::getFechaActual ();
+		$this->fch_creacion = Calendario::getFechaActual ();
 		
 		// Si esta activada la opcion de mandar correo de activación el usuario estara en status pendiente
 		if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion'] && !$isFacebook) {

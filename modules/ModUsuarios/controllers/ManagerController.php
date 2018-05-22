@@ -14,7 +14,6 @@ use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
-use app\config\FireBase;
 
 /**
  * Default controller for the `musuarios` module
@@ -69,38 +68,34 @@ class ManagerController extends Controller {
 			if ($model->signup ()) {
 
 				// Envia un correo de bienvenida al usuario
-				if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
-					$model->enviarEmailBienvenida();
-				}
+				// if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
+				// 	$model->enviarEmailBienvenida();
+				// }
 				
-				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
+				// if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
 					
-					$model->enviarEmailActivacion();
+				// 	$model->enviarEmailActivacion();
 					
-					$this->redirect ( [ 
-							'login' 
-					] );
+				// 	$this->redirect ( [ 
+				// 			'login' 
+				// 	] );
 					
-				} else {
+				// } else {
 					
-					if (Yii::$app->getUser ()->login ( $model )) {
-						return $this->goHome ();
-					}
-				}
+				// 	if (Yii::$app->getUser ()->login ( $model )) {
+				// 		return $this->goHome ();
+				// 	}
+				// }
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
 
-		if(FireBase::ENABLED){
-			return $this->render ( '//firebase/sign-up', [ 
-				'model' => $model 
-			] );
-		}else{
+	
 			return $this->render ( 'signUp', [ 
 				'model' => $model 
 			] );
-		}
+		
 		
 	}
 	
