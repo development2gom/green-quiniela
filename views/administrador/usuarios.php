@@ -20,3 +20,6 @@ foreach($usuarios as $usuarioactual){
 
 
 ?>
+<p>
+<a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" class="button">EXPORTAR</a>
+</p>
