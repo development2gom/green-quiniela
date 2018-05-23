@@ -27,6 +27,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
             $grupoActual = null;
             foreach ($partidos as $key=> $partido) {
 
+
                 $equipo1 = $partido->equipo1;
                 $equipo2 = $partido->equipo2;
                 if($grupoActual && $grupoActual!=$partido->txt_grupo){

@@ -1,6 +1,7 @@
 var inputFile = $("#entusuarios-image");
 var tamanioAdmitido = 3;
 var tipoImagenesAdmitidas = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
+
 $(document).ready(function () {
     $(".js-img-avatar").on("click", function (e) {
         e.preventDefault();
@@ -14,48 +15,49 @@ $(document).ready(function () {
 
         if (!validarTamanioImagen(file))
             return false
-            
+
         colocarImagen(file);
 
     });
 
 
-    $("#check-terminos").change(function() {
+    $("#check-terminos").change(function () {
 
-        if($(this).is(':checked')){
+        if ($(this).is(':checked')) {
             console.log('if');
             $(".checkbox-mask").hide();
         }
-        else{
+        else {
             $(".checkbox-mask").show();
             console.log('else');
         }
 
     });
 
-    $("#check-terminos").on('click', function() {
+    $("#check-terminos").on('click', function () {
 
-        if($(this).is(':checked')){
+        if ($(this).is(':checked')) {
             console.log('click if');
             $(".checkbox-mask").hide();
         }
-        else{
+        else {
             $(".checkbox-mask").show();
             console.log('click else');
         }
 
     });
 
-    $("#btn-acepto-terminos").on('click', function() {
+    $("#btn-acepto-terminos").on('click', function () {
 
         $(".checkbox-mask").hide();
-        $("#check-terminos").prop( "checked", true );
+        $("#check-terminos").prop("checked", true);
         $("#modal-terminos-condiciones").modal("hide");
+        $(".js-aviso-check").css('display', 'none');
         console.log("acepto terminos");
 
     });
 
-    $(".checkbox-mask").on('click', function() {
+    $(".checkbox-mask").on('click', function () {
 
         console.log("mask");
         $("#modal-terminos-condiciones").modal();
@@ -63,25 +65,25 @@ $(document).ready(function () {
     });
 
     $(document).on({
-        'click':function(e){
+        'click': function (e) {
             e.preventDefault();
-           
+
             console.log("mask");
             $("#modal-terminos-condiciones").modal();
-              
+
         }
     }, '.checkbox-mask');
 
     // Al campo de texto telefono validara solo numeros
-	$('#entusuarios-txt_telefono').keydown(function (e) {
-		validarSoloNumeros(e);
+    $('#entusuarios-txt_telefono').keydown(function (e) {
+        validarSoloNumeros(e);
     });
-    
-    $('#js-pre-registro').on('submit', function(e){
-        e.preventDefault();
-		var formData = new FormData(this);
 
-		$.ajax({
+    $('#js-pre-registro').on('submit', function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+		/*$.ajax({
 			type:'POST',
 			url: baseUrl+'pre-registro',
 			data:formData,
@@ -98,7 +100,16 @@ $(document).ready(function () {
 			error: function(){
 
 			}
-		});
+		});*/
+    });
+
+    $("#form-ajax").on("beforeSubmit", function (e) {
+        if ($("#check-terminos").is(':checked')) {
+            // $(this).submit();
+        } else {
+            $(".js-aviso-check").text("Aceptar terminos y condiciones").show();
+            return false;
+        }
     });
 });
 
@@ -146,18 +157,18 @@ function colocarImagen(jsfile) {
  * @param e
  */
 function validarSoloNumeros(e) {
-	// Allow: backspace, delete, tab, escape, enter and .
-	if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
-		// Allow: Ctrl+A, Command+A
-		(e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-		// Allow: home, end, left, right, down, up
-		(e.keyCode >= 35 && e.keyCode <= 40)) {
-		// let it happen, don't do anything
-		return;
-	}
-	// Ensure that it is a number and stop the keypress
-	if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57))
-		&& (e.keyCode < 96 || e.keyCode > 105)) {
-		e.preventDefault();
-	}
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
+        // let it happen, don't do anything
+        return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57))
+        && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
 }

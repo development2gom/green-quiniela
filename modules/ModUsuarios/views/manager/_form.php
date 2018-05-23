@@ -42,10 +42,58 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-md-4">
+                <label for="">Repetir email.</label>
+            </div>
+            <div class="col-md-8">
+                <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true])->label(false) ?>
+                <!--<input type="email" class="form-control">-->
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Contraseña.</label>
+            </div>
+            <div class="col-md-8">
+                <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label(false) ?>
+                <!--<input type="email" class="form-control">-->
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Repetir contraseña.</label>
+            </div>
+            <div class="col-md-8">
+                <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true])->label(false) ?>
+                <!--<input type="email" class="form-control">-->
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
                 <label for="">Teléfono.</label>
             </div>
             <div class="col-md-8">
                 <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => true])->label(false) ?>            
+                <!--<input type="tel" class="form-control">-->
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-4">
+                <label for="">Codigo postal.</label>
+            </div>
+            <div class="col-md-8">
+                <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true])->label(false) ?>            
                 <!--<input type="tel" class="form-control">-->
             </div>
             </div>
@@ -78,6 +126,7 @@ use yii\widgets\ActiveForm;
             <div class="checkbox-custom checkbox-primary">
                 <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
                 <label for="check-terminos">Acepto terminos y condiciones</label>
+                <span class="js-aviso-check"></span>
             </div>
             <div class="checkbox-mask"></div>
         </div>
