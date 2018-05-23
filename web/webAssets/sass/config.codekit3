@@ -35,6 +35,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/_bienvenido.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_bienvenido.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/_components.sass": {
 		"aP": 0,
 		"bl": 0,
@@ -44,6 +57,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_components.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/_concursante.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_concursante.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/_finalizado.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_finalizado.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -139,6 +178,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/_registro.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_registro.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/_site-styles.sass": {
 		"aP": 0,
 		"bl": 0,
@@ -148,6 +200,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_site-styles.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/_terminos.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_terminos.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -178,6 +243,32 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/site-bienvenido.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-bienvenido.css",
+		"oF": 6,
+		"oS": 3,
+		"uL": 0
+		},
+	"\/site-concursante.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-concursante.css",
+		"oF": 6,
+		"oS": 3,
+		"uL": 0
+		},
 	"\/site-extend.sass": {
 		"aP": 1,
 		"bl": 0,
@@ -190,6 +281,45 @@
 		"oF": 7,
 		"oS": 3,
 		"uL": 1
+		},
+	"\/site-finalizado.sass": {
+		"aP": 0,
+		"bl": 1,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-finalizado.css",
+		"oF": 6,
+		"oS": 3,
+		"uL": 0
+		},
+	"\/site-registro.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-registro.css",
+		"oF": 6,
+		"oS": 3,
+		"uL": 0
+		},
+	"\/site-terminos.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-terminos.css",
+		"oF": 6,
+		"oS": 3,
+		"uL": 0
 		}
 	},
 "hooks": [

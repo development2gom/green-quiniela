@@ -6,9 +6,11 @@
 
 // Modal
 .modal-backdrop
-	background-color: rgba(red,.2)
+	background-color: rgba($primary,.7)
 	position: absolute
 	z-index: 9906
+	&.show
+		opacity: 1
 
 .modal
 	position: fixed
@@ -24,7 +26,9 @@
 					color: $primary
 					@extend .fs-24
 					@extend .fw-bold
-			.modal-body
+
+			// .modal-body
+
 			.modal-footer
 				a.btn-primary,
 				button.btn-primary

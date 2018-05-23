@@ -10,6 +10,7 @@
 
 	.modal-header
 		h3.page-aviso-title
+			color: $primary
 			@extend .fs-24
 			@extend .fw-bold
 			line-height: 1
@@ -20,8 +21,15 @@
 	.modal-body.page-aviso-body,
 	.modal-body.page-terminos-body
 
+		h3,
+		h4,
+		h5,
+		ul,
+		ol,
+		p
+			color: $primary
+
 		h3
-			@extend .color-gray-300
 			@extend .fs-18
 			@extend .fw-regular
 			letter-spacing: 1px
@@ -33,7 +41,6 @@
 				overflow-wrap: break-word
 
 		h4
-			@extend .color-gray-400
 			@extend .fs-16
 			@extend .fw-bold
 			letter-spacing: 1px
@@ -55,7 +62,6 @@
 					top: -4px
 
 		h5
-			@extend .color-gray-500
 			@extend .fs-144
 			@extend .fw-bold
 			letter-spacing: 1px
@@ -70,7 +76,6 @@
 			margin-bottom: 30px
 			padding-left: 26px
 			li
-				@extend .color-gray-700
 				@extend .fs-15
 				letter-spacing: 1px
 				line-height: 1.8
@@ -101,7 +106,6 @@
 			margin-bottom: 30px
 			padding-left: 26px
 			li
-				@extend .color-gray-700
 				@extend .fs-15
 				letter-spacing: 1px
 				line-height: 1.6
@@ -120,7 +124,6 @@
 			width: 25%
 
 		p
-			@extend .color-gray-700
 			@extend .fs-16
 			letter-spacing: 1px
 			line-height: 1.6
@@ -147,3 +150,33 @@
 				@extend .fw-bold
 			.up
 				text-transform: uppercase
+
+			a
+				color: $accent
+				@extend .fs-16
+				@extend .fw-bold
+				letter-spacing: 1px
+				line-height: 1.6
+
+		.table
+			thead
+				background-color: $secondary
+				tr
+					th
+						border-color: $black
+						color: $font-color
+						@extend .fs-18
+						@extend .fw-bold
+						text-align: center
+						@extend .text-up
+						vertical-align: middle
+			tbody
+				tr
+					td
+						border: 1px solid $black
+						color: $primary
+						span
+							display: block
+			
+			&.table-bordered
+				border: 1px solid $black
