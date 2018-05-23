@@ -102,7 +102,10 @@ class ManagerController extends Controller {
 						} else {
 							
 							if (Yii::$app->getUser ()->login ( $model )) {
-								return $this->goHome ();
+								return $this->redirect ( [ 
+									'//concursantes/partidos-proximos' 
+								] );
+								//return $this->goHome ();
 							}
 						}
 					}else{

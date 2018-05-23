@@ -46,6 +46,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public $repeat;
 	public $repeatEmail;
 	public $image;
+	public $txt_codigo;
 	
 	/**
 	 * @inheritdoc
