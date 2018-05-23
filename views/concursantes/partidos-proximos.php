@@ -13,16 +13,20 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
 
 <?php
             $grupoActual = null;
-    foreach ($partidos as $partido) {
+           
+    foreach ($partidos as $partido ) 
+    {
+      //  echo $fase;
 
             $equipo1 = $partido->equipo1;
             $equipo2 = $partido->equipo2;
             
-if($grupoActual!=$partido->txt_grupo){
-$grupoActual = $partido->txt_grupo;
-echo '<br><br>Grupo:'.$grupoActual.'<br><br>';
+if($grupoActual!=$partido->txt_grupo)
+{
+            $grupoActual = $partido->txt_grupo;
+            echo '<br><br>Grupo:'.$grupoActual.'<br><br>';
 }
-    
+
 ?>
     <?php
         echo $equipo1->txt_nombre_equipo;
