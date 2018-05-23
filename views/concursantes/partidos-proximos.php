@@ -49,25 +49,31 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                 <?php
                 }
                 ?>
-                <div id="js-div-partido-<?=$partido->txt_token?>" class="row <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
+                <div id="js-div-partido-<?=$partido->txt_token?>" class="row no-gutters <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
                     <div class="col-md-4">
-                        <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
-                    
-                        <img src='<?=$equipo1->txt_url_imagen_equipo;?>' data-partido ="<?=$partido->txt_token?>" 
-                        data-nombre="<?=$equipo1->txt_nombre_equipo?>"
-                        data-token="<?=$partido->id_equipo1?>"
-                        class="panel-body-equipo js-equipo"/>
+                        <div class="panel-body-item">
+                            <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
+                        
+                            <img src='<?=$equipo1->txt_url_imagen_equipo;?>' data-partido ="<?=$partido->txt_token?>" 
+                            data-nombre="<?=$equipo1->txt_nombre_equipo?>"
+                            data-token="<?=$partido->id_equipo1?>"
+                            class="panel-body-equipo js-equipo"/>
+                        </div>
                     </div>
-                    <div class="col-md-4 d-flex align-items-center justify-content-center">
-                        <button class='btn btn-secondary panel-body-btn js-equipo' data-nombre="empate" data-partido ="<?=$partido->txt_token?>">empate</button >
+                    <div class="col-md-4 d-flex align-items-center justify-content-center ">
+                        <div class="panel-body-item-button">
+                            <button class='btn btn-secondary panel-body-btn js-equipo' data-nombre="empate" data-partido ="<?=$partido->txt_token?>">empate</button >
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
+                        <div class="panel-body-item">
+                            <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
 
-                        <img src= '<?=$equipo2->txt_url_imagen_equipo;?>'  data-partido ="<?=$partido->txt_token?>" 
-                        data-nombre="<?=$equipo2->txt_nombre_equipo?>"
-                        data-token="<?=$partido->id_equipo2?>"
-                        class="panel-body-equipo js-equipo">
+                            <img src= '<?=$equipo2->txt_url_imagen_equipo;?>'  data-partido ="<?=$partido->txt_token?>" 
+                            data-nombre="<?=$equipo2->txt_nombre_equipo?>"
+                            data-token="<?=$partido->id_equipo2?>"
+                            class="panel-body-equipo js-equipo">
+                        </div>
                     </div>
                 </div>
             <?php
