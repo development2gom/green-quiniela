@@ -12,6 +12,9 @@ $(document).ready(function () {
             equipo_seleccionado = null;
         }*/
 
+        var padre = $(this).parent();
+        padre.toggleClass('active');
+
         $.ajax({
             url: url+'/concursantes/guardar-resultados',
             type: 'post',

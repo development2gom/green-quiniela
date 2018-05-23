@@ -272,6 +272,8 @@ class ManagerController extends Controller {
 			
 			return $this->goBack ();
 		}
+
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'login', [ 
 				'model' => $model 
 		] );
