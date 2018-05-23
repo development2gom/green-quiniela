@@ -62,12 +62,12 @@ class ConcursantesController extends Controller
 
         $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
 
-        return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
-
         $this->layout = "classic/topBar/mainConcursante";
+        return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
         return $this->render('partidos-proximos',['partidos'=>$partidos]);
 
     }
+    
     public function actionResultados()
     {
         return $this->render('resultados');
