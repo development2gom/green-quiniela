@@ -140,4 +140,12 @@ class SiteController extends Controller
         exit;
         return $fulllist;
     }
+
+    public function actionTerminosCondiciones(){
+
+        $this->layout = "classic/topBar/mainTerminosCondiciones";
+
+        return $this->render("terminos-condiciones");
+    }
+
 }

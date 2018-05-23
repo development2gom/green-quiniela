@@ -13,14 +13,14 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAssetRegistro extends AssetBundle
+class AppAssetBienvenido extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web/webAssets/';
     public $css = [
         'plugins/ladda/ladda.css',
-        'css/site-registro.css.map',
-        'css/site-registro.css'
+        'css/site-bienvenido.css.map',
+        'css/site-bienvenido.css'
     ];
     public $js = [
         'plugins/ladda/spin.min.js',

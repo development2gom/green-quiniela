@@ -160,22 +160,10 @@ class ConcursantesController extends Controller
         return $response;
     }
 
-    public function actionTerminosCondiciones()
-    {
-        return $this->render('terminos-condiciones');
-
-    }
-
-    public function actionAvisoPrivacidad()
-    {
-        return $this->render('aviso-privacidad');
-
-    }
-
-    public function actionTermino(){
+    public function actionFinalizado(){
         
-        $this->layout = "classic/topBar/mainTermino";
-        return $this->render("termino");
+        $this->layout = "classic/topBar/mainFinalizado";
+        return $this->render("finalizado");
     }
 
 }
