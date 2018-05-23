@@ -69,7 +69,7 @@ class ConcursantesController extends Controller
 
 
         $this->layout = "classic/topBar/mainConcursante";
-        return $this->render('partidos-proximos',['partidos'=>$partidos]);
+        return $this->render('partidos-proximos', ['partidos' => $partidos]);
 
     }
     public function actionResultados()
@@ -155,7 +155,7 @@ class ConcursantesController extends Controller
             $quiniela->b_empata = 1;
         }
 //envia el contenido de quiniela a la base de datos
-        
+
 
         if ($quiniela->save()) {
             $response->status = 'success';
@@ -176,8 +176,9 @@ class ConcursantesController extends Controller
 
     }
 
-    public function actionTermino(){
-        
+    public function actionTermino()
+    {
+
         $this->layout = "classic/topBar/mainTermino";
         return $this->render("termino");
     }
