@@ -107,7 +107,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 								//'txt_apellido_paterno',
 								'txt_email',
 								'txt_telefono',
-								//'txt_codigo_postal',
+								'txt_codigo_postal',
 								'txt_codigo'
 						],
 						'required',

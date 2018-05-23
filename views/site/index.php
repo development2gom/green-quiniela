@@ -19,6 +19,6 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
             <li><strong>Registra.</strong> Realiza tu registro e inserta tu código.</li>
             <li><strong>Completa.</strong> Realiza dos compras, de $1,000 c/u.</li>
         </ul>
-        <a href="<?=Url::base()?>/pre-registro" class="btn btn-primary">Regístrate</a>
+        <a href="<?=Url::base()?>/sign-up" class="btn btn-primary">Regístrate</a>
     </div>
 </div>

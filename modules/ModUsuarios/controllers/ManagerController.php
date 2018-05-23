@@ -66,49 +66,53 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
-			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_codigo_usado'=>0, 'b_habilitado'=>1])->one();
+			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_habilitado'=>1])->one();
 			if($codigo){
+				if($codigo->b_codigo_usado == 0){
 	
-				$session = Yii::$app->session;				
-				$usuarioTemporal = $session->get('usuarioTemporal');
-				//$model->txt_username = $usuarioTemporal['user'];
-				//$model->txt_apellido_paterno = $usuarioTemporal['user'];
-				$model->repeatPassword = $usuarioTemporal['pass2'];
-				$model->password = $usuarioTemporal['pass'];
+					// $session = Yii::$app->session;				
+					// $usuarioTemporal = $session->get('usuarioTemporal');
+					//$model->txt_username = $usuarioTemporal['user'];
+					//$model->txt_apellido_paterno = $usuarioTemporal['user'];
+					// $model->repeatPassword = $usuarioTemporal['pass2'];
+					// $model->password = $usuarioTemporal['pass'];
 
-				if ($model->signup ()) {
-					$codigo->b_codigo_usado = 1;
-					$codigo->save();
+					if ($model->signup ()) {
+						$codigo->b_codigo_usado = 1;
+						$codigo->save();
 
-					$relUSerCodigo = new RelUsuariosCodigos();
-					$relUSerCodigo->id_usuario = $model->id_usuario;
-					$relUSerCodigo->id_codigo = $codigo->id_codigo;
-					$relUSerCodigo->save();
+						$relUSerCodigo = new RelUsuariosCodigos();
+						$relUSerCodigo->id_usuario = $model->id_usuario;
+						$relUSerCodigo->id_codigo = $codigo->id_codigo;
+						$relUSerCodigo->save();
 
-					// Envia un correo de bienvenida al usuario
-					if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
-						$model->enviarEmailBienvenida();
-					}
-					
-					if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
-						
-						$model->enviarEmailActivacion();
-						
-						$this->redirect ( [ 
-								'login' 
-						] );
-						
-					} else {
-						
-						if (Yii::$app->getUser ()->login ( $model )) {
-							return $this->goHome ();
+						// Envia un correo de bienvenida al usuario
+						if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
+							$model->enviarEmailBienvenida();
 						}
+						
+						if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
+							
+							$model->enviarEmailActivacion();
+							
+							$this->redirect ( [ 
+									'login' 
+							] );
+							
+						} else {
+							
+							if (Yii::$app->getUser ()->login ( $model )) {
+								return $this->goHome ();
+							}
+						}
+					}else{
+						print_r($model->errors);
 					}
 				}else{
-					print_r($model->errors);
+					$model->addError('txt_codigo', 'Este codigo ya fue usado.');					
 				}
 			}else{
-				$model->addError('txt_codigo', 'Este codigo ya se uso o no exixte.');
+				$model->addError('txt_codigo', 'Este codigo no exixte.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
@@ -121,7 +125,7 @@ class ManagerController extends Controller {
 		
 	}
 
-	public function actionPreReg(){
+	/*public function actionPreReg(){
 		if($_POST){
 			$session = Yii::$app->session;
 			$session->set('usuarioTemporal', $_POST);
@@ -130,7 +134,7 @@ class ManagerController extends Controller {
 		}
 
 		return $this->render('preReg');
-	}
+	}*/
 	
 	/**
 	 * Crea peticion para el cambio de contraseña
