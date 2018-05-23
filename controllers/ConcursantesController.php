@@ -64,10 +64,6 @@ class ConcursantesController extends Controller
 
         return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
 
-
-
-
-
         $this->layout = "classic/topBar/mainConcursante";
         return $this->render('partidos-proximos',['partidos'=>$partidos]);
 
