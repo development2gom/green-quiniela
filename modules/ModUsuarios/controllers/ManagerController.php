@@ -68,10 +68,18 @@ class ManagerController extends Controller {
 		if ($model->load ( Yii::$app->request->post () )) {
 			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_codigo_usado'=>0, 'b_habilitado'=>1])->one();
 			if($codigo){
-				$codigo->b_codigo_usado = 1;
-				$codigo->save();
-				
+	
+				$session = Yii::$app->session;				
+				$usuarioTemporal = $session->get('usuarioTemporal');
+				//$model->txt_username = $usuarioTemporal['user'];
+				//$model->txt_apellido_paterno = $usuarioTemporal['user'];
+				$model->repeatPassword = $usuarioTemporal['pass2'];
+				$model->password = $usuarioTemporal['pass'];
+
 				if ($model->signup ()) {
+					$codigo->b_codigo_usado = 1;
+					$codigo->save();
+
 					$relUSerCodigo = new RelUsuariosCodigos();
 					$relUSerCodigo->id_usuario = $model->id_usuario;
 					$relUSerCodigo->id_codigo = $codigo->id_codigo;
@@ -96,6 +104,8 @@ class ManagerController extends Controller {
 							return $this->goHome ();
 						}
 					}
+				}else{
+					print_r($model->errors);
 				}
 			}else{
 				$model->addError('txt_codigo', 'Este codigo ya se uso o no exixte.');
@@ -104,10 +114,22 @@ class ManagerController extends Controller {
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
 		
-		return $this->render ( 'signUp', [ 
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+		return $this->render( 'signUp', [ 
 			'model' => $model
 		] );
 		
+	}
+
+	public function actionPreReg(){
+		if($_POST){
+			$session = Yii::$app->session;
+			$session->set('usuarioTemporal', $_POST);
+			
+			$this->redirect(['sign-up']);
+		}
+
+		return $this->render('preReg');
 	}
 	
 	/**
@@ -357,4 +379,22 @@ class ManagerController extends Controller {
 			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
+
+	/**
+     * Renders the index view for the module
+     * @return string
+     */
+    public function actionPreRegistro()
+    {
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+
+		if($_POST){
+			$session = Yii::$app->session;
+			$session->set('usuarioTemporal', $_POST);
+			
+			$this->redirect(['sign-up']);
+		}
+
+        return $this->render('pre-registro');
+    }
 }

@@ -18,17 +18,28 @@ AppAssetClassicTopBarBlank::register($this);
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+
+  <div class="triangulo-naranja">
+    <img src="<?=Url::base()?>/webAssets/images/TRIANGULO-NARANJA.png" alt="">
+  </div>
+
+  <div class="logo-25-anos">
+    <img src="<?=Url::base()?>/webAssets/images/LOGO-25-ANOS-CSF-01.png" alt="">
+  </div>
+
+  <div class="logo-quiniela">
+    <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
+  </div>
+
   <?php $this->beginBody();?>
   
 
-  <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
+  <div class="page-concursante vertical-align" data-animsition-in="fade-in" data-animsition-out="fade-out">
     <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
       <?=$content?>
     </div>
   </div>  
 
-  <?=$this->render("//components/classic/topbar/footerBlank")?>
 
   <?php $this->endBody();?>
 

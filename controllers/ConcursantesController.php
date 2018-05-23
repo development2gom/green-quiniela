@@ -67,6 +67,10 @@ class ConcursantesController extends Controller
 
 
 
+
+        $this->layout = "classic/topBar/mainConcursante";
+        return $this->render('partidos-proximos',['partidos'=>$partidos]);
+
     }
     public function actionResultados()
     {
@@ -170,6 +174,12 @@ class ConcursantesController extends Controller
     {
         return $this->render('aviso-privacidad');
 
+    }
+
+    public function actionTermino(){
+        
+        $this->layout = "classic/topBar/mainTermino";
+        return $this->render("termino");
     }
 
 }

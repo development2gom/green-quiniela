@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 $this->title = "Dashboard";
 
-$this->params['classBody'] = "site-navbar-small sec-bienvenido";
+$this->params['classBody'] = "site-navbar-small sec-termino";
 ?>
 
 <div class="sb-pasos">
