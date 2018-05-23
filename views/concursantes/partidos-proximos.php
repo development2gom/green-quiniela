@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use app\models\Calendario;
+use app\models\WrkQuiniela;
 
 $this->params['classBody'] = "site-navbar-small sec-concursante";
 
@@ -11,7 +12,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
 
 <div class="row">
     <div class="col-md-4 col-d-flex">
-        <p class="text-completa-registra">
+        <p class="text-completa-registra" data-url="<?= Url::base() ?>">
             Tienes del 1 al 12 de junio para completar y registrar tus predicciones de este fase.
         </p>
         <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
@@ -26,7 +27,10 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
             <?php
             $grupoActual = null;
             foreach ($partidos as $key=> $partido) {
-
+                /**
+                 * TODO: Cambiar id_usuario a id de usuario logueado
+                 */
+                $resultado = WrkQuiniela::find()->where(["id_usuario"=>3, 'id_partido'=>$partido->id_partido])->one();
 
                 $equipo1 = $partido->equipo1;
                 $equipo2 = $partido->equipo2;
@@ -45,7 +49,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                 <?php
                 }
                 ?>
-                <div class="row">
+                <div id="js-div-partido-<?=$partido->txt_token?>" class="row <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
                     <div class="col-md-4">
                         <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
                     
@@ -78,7 +82,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
     </div>
     
     <div class="col-md-4 col-d-flex-end">
-        <a href="<?=Url::base()?>/concursantes/termino" class="btn btn-primary">Siguiente</a>
+    <button id="js-verificar-siguiente" class="btn btn-primary" data-id="<?=Url::base()?>">Siguiente</button>
     </div>
 
 </div>
