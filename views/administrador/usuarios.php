@@ -1,7 +1,10 @@
+
 <?php
 
 use yii\bootstrap\Button;
-    $nombreUsuario = null;
+
+            $nombreUsuario = null;
+
 foreach($usuarios as $usuarioactual){
 
             $idUsuario = $usuarioactual->id_usuario;
@@ -13,10 +16,19 @@ foreach($usuarios as $usuarioactual){
 
 
     if($nombreUsuario != null){
+
             echo $idUsuario.'<p>'.$tipoUsuario.'<p>'.$nombreUsuario.
             '<p>'.$apellidoPaternoUsuario.'<p>'.$apellidoMaternoUsuario.'<p>'.$fechaCreacion.'<br><br>';
+    
     }
 }
 
 
 ?>
+
+
+<p>
+    <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
+         EXPORTAR
+    </a>
+</p>

@@ -63,8 +63,11 @@ class ConcursantesController extends Controller
         $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
 
         $this->layout = "classic/topBar/mainConcursante";
+
+        return $this->render('partidos-proximos', ['partidos' => $partidos]);
+
         return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
-        return $this->render('partidos-proximos',['partidos'=>$partidos]);
+       
 
     }
 
@@ -124,9 +127,17 @@ class ConcursantesController extends Controller
             return $response;
         }
 
+
+        else {
+            $quiniela->b_empata = 1;
+        }
+//envia el contenido de quiniela a la base de datos
+
+
         $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
         where b_habilitado = 1
         and txt_token ="' . $token . '")')])->one();
+
 
         if ($existeQuiniela) {
             
@@ -168,11 +179,34 @@ class ConcursantesController extends Controller
         return $response;
     }
 
+
+    public function actionTerminosCondiciones()
+    {
+        return $this->render('terminos-condiciones');
+
+    }
+
+    public function actionAvisoPrivacidad()
+    {
+        return $this->render('aviso-privacidad');
+
+    }
+
+    public function actionTermino()
+    {
+
+        $this->layout = "classic/topBar/mainTermino";
+        return $this->render("termino");
+    }
+
     public function actionFinalizado(){
         
         $this->layout = "classic/topBar/mainFinalizado";
         return $this->render("finalizado");
+    
+
     }
+
 
 }
 
