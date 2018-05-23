@@ -128,7 +128,7 @@ class ConcursantesController extends Controller
         }
 
 
-        } else {
+        else {
             $quiniela->b_empata = 1;
         }
 //envia el contenido de quiniela a la base de datos
@@ -197,13 +197,16 @@ class ConcursantesController extends Controller
 
         $this->layout = "classic/topBar/mainTermino";
         return $this->render("termino");
+    }
 
     public function actionFinalizado(){
         
         $this->layout = "classic/topBar/mainFinalizado";
         return $this->render("finalizado");
+    
 
     }
+
 
 }
 
