@@ -42,7 +42,7 @@ $(document).ready(function () {
         if(sinContestar.length > 0){
             swal('Espera', 'Falta por contestar '+sinContestar.length+' partidos', 'warning');            
         }else{
-            window.location.href = url+"/concursantes/termino";
+            window.location.href = url+"/concursantes/finalizado";
         }
     });
 });

@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use app\models\Calendario;
 use app\models\WrkQuiniela;
-
+$this->title = "Quiniela mundialista";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
 
 $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
@@ -82,7 +82,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
     </div>
     
     <div class="col-md-4 col-d-flex-end">
-    <button id="js-verificar-siguiente" class="btn btn-primary" data-id="<?=Url::base()?>">Siguiente</button>
+    <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?=Url::base()?>">Siguiente</button>
     </div>
 
 </div>

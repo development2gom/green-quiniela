@@ -96,7 +96,7 @@ class ConcursantesController extends Controller
         /**
         * TODO: Cambiar id_usuario a id de usuario logueado
         */
-        $idUsuario = 3;
+        $idUsuario = 4;
 
         $token = null;
         $partido_seleccionado = null;
@@ -127,10 +127,8 @@ class ConcursantesController extends Controller
             return $response;
         }
 
-
-        else {
-            $quiniela->b_empata = 1;
-        }
+        
+        
 //envia el contenido de quiniela a la base de datos
 
 
