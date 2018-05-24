@@ -394,14 +394,18 @@ a
 
 // Template design
 .triangulo-naranja,
+.cuadro-naranja,
 .pasto-superior-derecha,
 .red-balon,
 .pasto-verde-inferior-izquierda,
+.pasto-verde,
 .logo-25-anos,
 .logo-quiniela,
 .logo-quiniela-terminos
 	position: fixed
 	z-index: 2
+	+respond-to(xs)
+		z-index: 18
 
 .logo-quiniela,
 .logo-quiniela-terminos
@@ -411,15 +415,69 @@ a
 	// background-color: red
 	left: 0
 	top: 0
+	+respond-to(xs)
+		display: none
 	img
 		width: 74%
+
+.cuadro-naranja
+	display: none
+	left: 0
+	right: 0
+	top: -70px
+	+respond-to(xs)
+		display: block
+	+respond-to(tp)
+		top: -40px
+	+respond-to(tx)
+		top: -40px
+	+respond-to(sl)
+		top: -50px
+	+respond-to(sp)
+		top: -40px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		top: -180px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		top: -140px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		top: -160px
+
+	img
+		width: 100%
 
 .pasto-superior-derecha
 	right: 0
 	text-align: right
 	top: 0
+	+respond-to(xs)
+		display: none
 	img
 		width: 90%
+		+respond-to(xs)
+			height: 80%
+			max-width: 100%
+			width: 768px
+
+.pasto-verde
+	display: none
+	left: 0
+	right: 0
+	bottom: 5px
+	+respond-to(xs)
+		display: block
+	+respond-to(sp)
+		bottom: 15px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		bottom: -170px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		bottom: -160px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		bottom: -150px
+
+	img
+		width: 100%
 
 .red-balon
 	bottom: 0
@@ -437,16 +495,101 @@ a
 .logo-25-anos
 	right: 24px
 	top: 16px
+	+respond-to(xs)
+		right: auto
+		top: auto
+		bottom: 60px
+		left: 24px
+	+respond-to(tp)
+		right: auto
+		top: auto
+		bottom: 50px
+		left: 24px
+	+respond-to(sl)
+		right: auto
+		top: auto
+		bottom: 40px
+		left: 24px
+	+respond-to(sp)
+		right: auto
+		top: auto
+		bottom: 30px
+		left: 24px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		display: none
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		display: none
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		display: none
+	
 	img
 		max-width: 120px
 		width: 120px
+		+respond-to(micon)
+			max-width: 100px
+			width: 100px
+		+respond-to(md)
+			max-width: 90px
+			width: 90px
+		+respond-to(sm)
+			max-width: 80px
+			width: 80px
+		+respond-to(tl)
+			max-width: 70px
+			width: 70px
+
+		+respond-to(xs)
+			max-width: 120px
+			width: 120px
+		+respond-to(tp)
+			max-width: 110px
+			width: 110px
+		+respond-to(sl)
+			max-width: 100px
+			width: 100px
 
 .logo-quiniela
-	left: 0
-	top: 0
+	left: 30px
+	top: 20px
+	+respond-to(lg)
+		top: 40px
+		left: 40px
+	+respond-to(md)
+		top: 40px
+		left: 40px
+	+respond-to(sm)
+		top: 40px
+		left: 40px
+	+respond-to(tl)
+		top: 30px
+		left: 40px
+	+respond-to(xs)
+		top: 25px
+		left: 40px
+	+respond-to(sp)
+		top: 20px
+		left: 40px
+
 	img
 		// max-width: 380px
-		width: 34%
+		width: 50%
+		+respond-to(md)
+			width: 40%
+		+respond-to(sm)
+			width: 30%
+		+respond-to(tl)
+			width: 28%
+		+respond-to(xs)
+			width: 40%
+		+respond-to(sp)
+
+		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+			width: 30%
+		@media screen and (max-width: 600px ) and (orientation: landscape)
+			width: 30%
+		@media screen and (max-width: 480px ) and (orientation: landscape)
+			width: 20%
 
 .logo-quiniela-terminos
 	left: 0
@@ -455,6 +598,17 @@ a
 	img
 		max-width: 480px
 		width: 480px
+		+respond-to(md)
+			max-width: 440px
+			width: 440px
+		+respond-to(sm)
+			max-width: 380px
+			width: 380px
+		+respond-to(tl)
+			max-width: 320px
+			width: 320px
+		+respond-to(xs)
+			max-width: 100%
 
 .panel
 	box-shadow: none

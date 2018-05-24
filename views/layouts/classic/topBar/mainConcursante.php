@@ -22,12 +22,16 @@ AppAssetConcursante::register($this);
     <img src="<?=Url::base()?>/webAssets/images/TRIANGULO-NARANJA.png" alt="">
   </div>
 
+  <div class="cuadro-naranja">
+    <img src="<?=Url::base()?>/webAssets/images/CUADRO-NARANJA-SUPERIOR.png" alt="">
+  </div>
+
   <div class="logo-25-anos">
     <img src="<?=Url::base()?>/webAssets/images/LOGO-25-ANOS-CSF-01.png" alt="">
   </div>
 
   <a href="<?=Url::base()?>/" class="logo-quiniela">
-    <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
+    <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
   </a>
 
   <?php $this->beginBody();?>

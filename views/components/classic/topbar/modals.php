@@ -70,7 +70,7 @@ use yii\helpers\Url;
 
         <p>El cliente deberá presentarse en alguno de los 5 módulos de Atención que se encuentran dentro del CENTRO SANTA FE con sus tickets de compra.</p>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -145,7 +145,7 @@ use yii\helpers\Url;
 
         <p>El cliente deberá presentar ticket de compra que cumpla la condición de participación de acuerdo a la siguiente tabla:</p>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th scope="col">Jornada</th>
@@ -188,7 +188,7 @@ use yii\helpers\Url;
 
         <h4>3. Períodos de participación.</h4>
 
-        <table class="table table-bordered mt-30">
+        <table class="table table-bordered table-responsive mt-30">
             <thead>
                 <tr>
                     <th scope="col">PERÍODO DE PARTICIPACIÓN</th>
@@ -233,7 +233,7 @@ use yii\helpers\Url;
 
         <p>CENTRO SANTA FE ha dispuesto para este concurso los siguientes premios:</p>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th scope="col">JORNADA</th>
@@ -411,7 +411,7 @@ use yii\helpers\Url;
           Le informamos que sus datos personales podrán ser compartidos con las siguientes organizaciones y autoridades distintas a nosotros, para los siguientes fines:
         </p>
 
-        <table class="table table-bordered mt-30">
+        <table class="table table-bordered table-responsive mt-30">
           <thead>
               <tr>
                   <th scope="col">DESTINATARIO DE LOS DATOS PERSONALES</th>
