@@ -94,9 +94,10 @@ class AdministradorController extends \yii\web\Controller
                 header('Content-Type: application/excel');
                 header('Content-Disposition: attachment; filename="'.$fileName.'"');
 
-                $consultaUsuarios=ModUsuariosEntUsuarios::find()->all();
+                $consultaUsuarios=ModUsuariosEntUsuarios::find()->
+                where(['txt_auth_item'=>'usuario-normal'])->all();
 
-                $data[]= ["Nombre", "Apellido Paterno","Apellido Materno", "Email", "Fecha Creacion"];
+                $data[]= ["Nombre", "Apellido Paterno","Apellido Materno", "Email","Puntuacion", "Fecha Creacion"];
 
         foreach($consultaUsuarios as $clienteUsuario){
                 $data[]= [
@@ -104,6 +105,7 @@ class AdministradorController extends \yii\web\Controller
                     $clienteUsuario->txt_apellido_paterno,
                     $clienteUsuario->txt_apellido_materno,
                     $clienteUsuario->txt_email,
+                    $clienteUsuario->num_puntos,
                     $clienteUsuario->fch_creacion
                 ];
         }

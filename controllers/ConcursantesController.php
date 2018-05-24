@@ -14,6 +14,8 @@ use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
 use app\models\RelUsuariosCodigos;
+use app\components\AccessControlExtend;
+use yii\filters\VerbFilter;
 
 
 
@@ -23,21 +25,18 @@ class ConcursantesController extends Controller
     /**
      * @inheritdoc
      */
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
-                'only' => ['partidos-fase'],
+                'only' => ['partidos-fase', 'partidos-proximos'],
                 'rules' => [
                     [
-                        'actions' => ['partidos-fase'],
-                       'allow' => true,
-                        'roles' => ['usuario-normal'],
-
-                        
+                        'actions' => ['partidos-fase', 'partidos-proximos'],
+                        'allow' => true,
+                        'roles' => ['@'],   
                     ],
-                    
                 ],
             ],
            // 'verbs' => [
@@ -47,7 +46,7 @@ class ConcursantesController extends Controller
            //     ],
            // ],
        ];
-   }*/
+   }
 
     public function actionInstrucciones()
     {
@@ -97,6 +96,8 @@ class ConcursantesController extends Controller
         * TODO: Cambiar id_usuario a id de usuario logueado
         */
         $idUsuario = 4;
+        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $idUsuario = $usuario->id_usuario;
 
         $token = null;
         $partido_seleccionado = null;
@@ -132,9 +133,9 @@ class ConcursantesController extends Controller
 //envia el contenido de quiniela a la base de datos
 
 
-        $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
-        where b_habilitado = 1
-        and txt_token ="' . $token . '")')])->one();
+                $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
+                where b_habilitado = 1
+                and txt_token ="' . $token . '")')])->one();
 
 
         if ($existeQuiniela) {
