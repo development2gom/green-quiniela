@@ -7,11 +7,12 @@
 body
 	background-color: #eee
 	background-color: #f5f5f5
+	color: $font-color
 	font:
 		family: $f-base
 		size: 16px
 		weight: $light
-	color: $font-color
+	overflow-x: hidden
 
 a
 	color: $link
@@ -403,6 +404,7 @@ a
 .logo-quiniela,
 .logo-quiniela-terminos
 	position: fixed
+	width: 100%
 	z-index: 2
 	+respond-to(xs)
 		z-index: 18
@@ -494,6 +496,7 @@ a
 
 .logo-25-anos
 	right: 24px
+	text-align: right
 	top: 16px
 	+respond-to(xs)
 		right: auto
@@ -550,6 +553,7 @@ a
 			width: 100px
 
 .logo-quiniela
+	display: inline-block
 	left: 30px
 	top: 20px
 	+respond-to(lg)
@@ -573,13 +577,13 @@ a
 
 	img
 		// max-width: 380px
-		width: 50%
+		width: 24%
 		+respond-to(md)
-			width: 40%
+			width: 22%
 		+respond-to(sm)
-			width: 30%
+			width: 20%
 		+respond-to(tl)
-			width: 28%
+			width: 20%
 		+respond-to(xs)
 			width: 40%
 		+respond-to(sp)
