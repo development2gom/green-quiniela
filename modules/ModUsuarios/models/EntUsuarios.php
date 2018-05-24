@@ -473,7 +473,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 
 		if($this->save()){
 
-			//$this->guardarRoleUsuario();
+			$this->guardarRoleUsuario();
 
 			return true;
 		}else{

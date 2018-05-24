@@ -22,33 +22,32 @@ use yii\filters\VerbFilter;
 class ConcursantesController extends Controller
 {
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
-                //se colocan los nombres de los action para los permisos de acceso
-                'only' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
-                'aviso-privacidad','termino','finalizado'],
+                'only' => ['partidos-fase', 'partidos-proximos'],
                 'rules' => [
                     [
-                          //se colocan los nombres de los action para los permisos de acceso
-                        'actions' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
-                        'aviso-privacidad','termino','finalizado'],
+                        'actions' => ['partidos-fase', 'partidos-proximos'],
                         'allow' => true,
                         'roles' => ['usuario_normal'],
+                          
                     ],
-                   
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+           // 'verbs' => [
+           //     'class' => VerbFilter::className(),
+           //     'actions' => [
+           //         'logout' => ['post'],
+           //     ],
+           // ],
+       ];
+   }
 
     public function actionInstrucciones()
     {

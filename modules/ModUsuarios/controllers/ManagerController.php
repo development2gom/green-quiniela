@@ -270,7 +270,9 @@ class ManagerController extends Controller {
 
 		if ($model->load ( Yii::$app->request->post () ) && $model->login ()) {
 			
-			return $this->goBack ();
+			return $this->redirect ( [ 
+				'//concursantes/partidos-proximos' 
+			] );//return $this->goBack ();
 		}
 
 		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
