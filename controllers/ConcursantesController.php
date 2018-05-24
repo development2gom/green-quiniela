@@ -14,6 +14,8 @@ use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
 use app\models\RelUsuariosCodigos;
+use app\components\AccessControlExtend;
+use yii\filters\VerbFilter;
 
 
 
@@ -25,10 +27,12 @@ class ConcursantesController extends Controller
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
+                //se colocan los nombres de los action para los permisos de acceso
                 'only' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
                 'aviso-privacidad','termino','finalizado'],
                 'rules' => [
                     [
+                          //se colocan los nombres de los action para los permisos de acceso
                         'actions' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
                         'aviso-privacidad','termino','finalizado'],
                         'allow' => true,
@@ -94,6 +98,8 @@ class ConcursantesController extends Controller
         * TODO: Cambiar id_usuario a id de usuario logueado
         */
         $idUsuario = 4;
+        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $idUsuario = $usuario->id_usuario;
 
         $token = null;
         $partido_seleccionado = null;
@@ -129,9 +135,9 @@ class ConcursantesController extends Controller
 //envia el contenido de quiniela a la base de datos
 
 
-        $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
-        where b_habilitado = 1
-        and txt_token ="' . $token . '")')])->one();
+                $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
+                where b_habilitado = 1
+                and txt_token ="' . $token . '")')])->one();
 
 
         if ($existeQuiniela) {
