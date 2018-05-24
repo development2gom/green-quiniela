@@ -14,6 +14,7 @@ use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
 use app\models\RelUsuariosCodigos;
+use app\components\AccessControlExtend;
 
 
 
@@ -23,21 +24,18 @@ class ConcursantesController extends Controller
     /**
      * @inheritdoc
      */
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
-                'only' => ['partidos-fase'],
+                'only' => ['partidos-fase', 'partidos-proximos'],
                 'rules' => [
                     [
-                        'actions' => ['partidos-fase'],
-                       'allow' => true,
-                        'roles' => ['usuario-normal'],
-
-                        
+                        'actions' => ['partidos-fase', 'partidos-proximos'],
+                        'allow' => true,
+                        'roles' => ['@'],   
                     ],
-                    
                 ],
             ],
            // 'verbs' => [
@@ -47,7 +45,7 @@ class ConcursantesController extends Controller
            //     ],
            // ],
        ];
-   }*/
+   }
 
     public function actionInstrucciones()
     {
