@@ -36,7 +36,7 @@ class ConcursantesController extends Controller
                         'actions' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
                         'aviso-privacidad','termino','finalizado'],
                         'allow' => true,
-                        'roles' => ['usuario-normal'],
+                        'roles' => ['usuario_normal'],
                     ],
                    
                 ],
@@ -91,16 +91,17 @@ class ConcursantesController extends Controller
 
     public function actionGuardarResultados()
     {
+        $idUsuario = 4;
+        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $idUsuario = $usuario->id_usuario;
+
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
         
         /**
         * TODO: Cambiar id_usuario a id de usuario logueado
         */
-        $idUsuario = 4;
-        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
-        $idUsuario = $usuario->id_usuario;
-
+       
         $token = null;
         $partido_seleccionado = null;
 
