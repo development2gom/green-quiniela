@@ -27,6 +27,10 @@ AppAssetFinalizado::register($this);
     <img src="<?=Url::base()?>/webAssets/images/PASTO-VERDE_INF_IZQ.png" alt="">
   </div>
 
+  <div class="pasto-verde">
+    <img src="<?=Url::base()?>/webAssets/images/PASTO-INFERIOR.png" alt="">
+  </div>
+
 
   <?php $this->beginBody();?>
   

@@ -9,6 +9,11 @@
 	padding-top: 0 !important
 	position: relative
 	z-index: 9
+	.red-balon,
+	.pasto-verde-inferior-izquierda
+		+respond-to(xs)
+			display: none
+
 	.page-finalizado
 		min-height: 100vh
 		position: relative
@@ -17,10 +22,23 @@
 
 		.sf-participar
 			margin-top: 24px
+			+respond-to(xs)
+				margin-bottom: 190px
+			+respond-to(tx)
+				margin-bottom: 190px
+			+respond-to(tp)
+				margin-bottom: 190px
+			+respond-to(sl)
+				margin-bottom: 190px
+			+respond-to(sp)
+				margin-bottom: 190px
 			.sf-participar-img
 				margin: 0 auto
 				max-width: 500px
 				width: 500px
+				+respond-to(xs)
+					max-width: 100%
+
 			.sf-participar-title
 				h2
 					@extend .color-white
@@ -30,12 +48,17 @@
 					@extend .text-up
 					span
 						display: block
+					+respond-to(xs)
+						font-size: $fs-38
 				h3
 					color: $primary
 					@extend .fs-26
 					@extend .fw-regular
 					margin-top: 0
 					@extend .text-up
+					+respond-to(xs)
+						font-size: $fs-18
+
 			.sf-participar-body
 				margin-top: 64px
 				p.text-codigo,
@@ -56,6 +79,7 @@
 					@extend .text-up
 					height: 42px
 					margin: 16px auto 0
+					max-width: 100%
 					padding: 8px 16px
 					width: 330px
 

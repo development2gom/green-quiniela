@@ -50,7 +50,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                 }
                 ?>
                 <div id="js-div-partido-<?=$partido->txt_token?>" class="row no-gutters <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
-                    <div class="col-md-4">
+                    <div class="col-4 col-md-4">
                         <div class="panel-body-item">
                             <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
                         
@@ -60,12 +60,12 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                             class="panel-body-equipo js-equipo"/>
                         </div>
                     </div>
-                    <div class="col-md-4 d-flex align-items-center justify-content-center ">
+                    <div class="col-4 col-md-4 d-flex align-items-center justify-content-center ">
                         <div class="panel-body-item-button">
                             <button class='btn btn-secondary panel-body-btn js-equipo' data-nombre="empate" data-partido ="<?=$partido->txt_token?>">empate</button >
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4 col-md-4">
                         <div class="panel-body-item">
                             <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
 

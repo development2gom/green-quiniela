@@ -10,6 +10,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
 <div class="row">
     <div class="col-md-7 offset-md-5">
+        <img class="stc-img" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
         <div class="stc-title">
             <h2>Términos y condiciones</h2>
         </div>
@@ -46,15 +47,14 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <ul>
                 <li>Compras de montos y períodos de participación establecidos.</li>
-                <li>
-                    Establecimientos que entreguen comprobante de compra, ticket o nota de remisión que exhiban los siguientes datos:
-                    <ul>
-                        <li>- Nombre del establecimiento</li>
-                        <li>- Sucursal</li>
-                        <li>- Fecha</li>
-                        <li>- Monto de compra</li>
-                    </ul>
-                </li>
+                <li>Establecimientos que entreguen comprobante de compra, ticket o nota de remisión que exhiban los siguientes datos:</li>
+            </ul>
+
+            <ul class="ul-simple">
+                <li>- Nombre del establecimiento</li>
+                <li>- Sucursal</li>
+                <li>- Fecha</li>
+                <li>- Monto de compra</li>
             </ul>
 
             <p>*Tickets sujetos a validación. Los clientes deberán conservar los tickets ya que en caso de resultar ganador tendrá que presentar los tickets originales para validar su participación.</p>
@@ -69,7 +69,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <p>El cliente deberá presentarse en alguno de los 5 módulos de Atención que se encuentran dentro del CENTRO SANTA FE con sus tickets de compra.</p>
 
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -144,7 +144,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <p>El cliente deberá presentar ticket de compra que cumpla la condición de participación de acuerdo a la siguiente tabla:</p>
 
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">Jornada</th>
@@ -187,7 +187,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <h4>3. Períodos de participación.</h4>
 
-            <table class="table table-bordered mt-30">
+            <table class="table table-bordered table-responsive mt-30">
                 <thead>
                     <tr>
                         <th scope="col">PERÍODO DE PARTICIPACIÓN</th>
@@ -232,7 +232,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <p>CENTRO SANTA FE ha dispuesto para este concurso los siguientes premios:</p>
 
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">JORNADA</th>
