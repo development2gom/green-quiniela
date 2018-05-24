@@ -23,8 +23,8 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
         </ul>
         <p>*Aplica restricciones, consulta términos y condiciones.</p>
         <div class="sb-pasos-actions">
-            <a href="<?=Url::base()?>/pre-registro" class="btn btn-primary">Regístrate</a>
-            <a href="<?=Url::base()?>/sign-up" class="btn btn-primary">Acceder</a>
+            <a href="<?=Url::base()?>/sign-up" class="btn btn-primary">Regístrate</a>
+            <a href="<?=Url::base()?>/login" class="btn btn-primary">Acceder</a>
         </div>
     </div>
 </div>

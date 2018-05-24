@@ -12,13 +12,14 @@ foreach($usuarios as $usuarioactual){
             $nombreUsuario = $usuarioactual->txt_username;
             $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
             $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
+            $puntos = $usuarioactual->num_puntos;
             $fechaCreacion = $usuarioactual->fch_creacion;
 
 
     if($nombreUsuario != null){
 
             echo $idUsuario.'<p>'.$tipoUsuario.'<p>'.$nombreUsuario.
-            '<p>'.$apellidoPaternoUsuario.'<p>'.$apellidoMaternoUsuario.'<p>'.$fechaCreacion.'<br><br>';
+            '<p>'.$apellidoPaternoUsuario.'<p>'.$apellidoMaternoUsuario.'<p>'.$puntos.'<p>'.$fechaCreacion.'<br><br>';
     
     }
 }
