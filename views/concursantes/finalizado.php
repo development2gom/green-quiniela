@@ -17,5 +17,9 @@ $this->params['classBody'] = "site-navbar-small sec-finalizado";
         <p class="text-codigo">Código para activar</p>
         <span class="text-fase">Siguiente fase</span>
         <input class="codigo" type="text">
+
+        <div class="form-group">
+            <a href="#" class="btn btn-primary">Avanzar</a>
+        </div>
     </div>
 </div>
