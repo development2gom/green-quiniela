@@ -20,34 +20,31 @@ use app\models\RelUsuariosCodigos;
 class ConcursantesController extends Controller
 {
 
-    /**
-     * @inheritdoc
-     */
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
-                'only' => ['partidos-fase'],
+                'only' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
+                'aviso-privacidad','termino','finalizado'],
                 'rules' => [
                     [
-                        'actions' => ['partidos-fase'],
-                       'allow' => true,
+                        'actions' => ['instrucciones', 'partidos-proximos','resultados','lideres','administrador','guardar-resultados','terminos-condiciones',
+                        'aviso-privacidad','termino','finalizado'],
+                        'allow' => true,
                         'roles' => ['usuario-normal'],
-
-                        
                     ],
-                    
+                   
                 ],
             ],
-           // 'verbs' => [
-           //     'class' => VerbFilter::className(),
-           //     'actions' => [
-           //         'logout' => ['post'],
-           //     ],
-           // ],
-       ];
-   }*/
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }
 
     public function actionInstrucciones()
     {
