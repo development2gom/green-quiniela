@@ -37,10 +37,14 @@
 					@extend .fs-22
 					@extend .fw-bold
 					line-height: 1.2
+					margin-top: 8px
 					text-align: right
 					@extend .text-up
 					width: 100%
-				// .form-control
+
+				.form-control
+					+placeholder
+						color: rgba($primary,.75)
 				
 				a.btn-primary,
 				button.btn-primary
@@ -51,6 +55,16 @@
 					margin-top: 24px
 					@extend .text-up
 					width: 260px
+
+				.checkbox-custom
+					label
+						&::before,
+						&::after
+							cursor: pointer
+						&::before
+							border-color: $accent
+						&::after
+							top: 2px
 
 			.form-group-check
 				margin: 0 auto

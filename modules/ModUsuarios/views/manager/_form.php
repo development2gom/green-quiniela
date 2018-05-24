@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Nombre.</label>
             </div>
             <div class="col-md-8"> 
@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Email.</label>
             </div>
             <div class="col-md-8">
@@ -41,7 +41,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Repetir email.</label>
             </div>
             <div class="col-md-8">
@@ -53,7 +53,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Contraseña.</label>
             </div>
             <div class="col-md-8">
@@ -65,7 +65,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Repetir contraseña.</label>
             </div>
             <div class="col-md-8">
@@ -77,7 +77,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Teléfono.</label>
             </div>
             <div class="col-md-8">
@@ -89,7 +89,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
+            <div class="col-md-4">
                 <label for="">Codigo postal.</label>
             </div>
             <div class="col-md-8">
@@ -101,30 +101,19 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4 d-flex align-self-center">
-                <label for="">Código.</label>
+            <div class="col-md-4">
+                <label for="">Código de acceso.</label>
             </div>
             <div class="col-md-8">
-                <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true])->label(false) ?>            
+                <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder' => '7C564007X4W'])->label(false) ?>            
                 <!--<input type="number" class="form-control">-->
             </div>
             </div>
         </div>
-    
-        <?php # $form->field($model, 'txt_username')->textInput(['maxlength' => true]) ?>
-
-        <?php # $form->field($model, 'txt_apellido_paterno')->textInput(['maxlength' => true]) ?>
-
-        <?php # $form->field($model, 'txt_email')->textInput(['maxlength' => true]) ?>
-        <?php # $form->field($model, 'repeatEmail')->textInput(['maxlength' => true]) ?>
-        
-        <?php # $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-        
-        <?php # $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true]) ?>
 
         <div class="form-group">
             <div class="form-group-check">
-                <div class="checkbox-custom checkbox-primary">
+                <div class="checkbox-custom checkbox-warning">
                     <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
                     <label for="check-terminos">Acepto terminos y condiciones</label>
                     <span class="js-aviso-check"></span>
