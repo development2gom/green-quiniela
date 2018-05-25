@@ -17,6 +17,7 @@ use app\models\RelUsuariosCodigos;
 use app\components\AccessControlExtend;
 use yii\filters\VerbFilter;
 use app\modules\ModUsuarios\models\EntUsuarios;
+use app\models\CatCodigos;
 
 
 
@@ -31,10 +32,10 @@ class ConcursantesController extends Controller
         return [
             'access' => [
                 'class' => AccessControlExtend::className(),
-                'only' => ['partidos-fase', 'partidos-proximos'],
+                'only' => ['partidos-fase', 'partidos-proximos', 'verificar-codigo'],
                 'rules' => [
                     [
-                        'actions' => ['partidos-fase', 'partidos-proximos'],
+                        'actions' => ['partidos-fase', 'partidos-proximos', 'verificar-codigo'],
                         'allow' => true,
                         'roles' => ['@'],   
                     ],
@@ -93,7 +94,7 @@ class ConcursantesController extends Controller
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
         
-        $idUsuario = $user = Yii::$app->user->identity->id_usuario;
+        $idUsuario = Yii::$app->user->identity->id_usuario;
         $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
         $idUsuario = $usuario->id_usuario;
 
@@ -204,7 +205,45 @@ class ConcursantesController extends Controller
 
     }
 
+    public function actionVerificarCodigo(){
+        $usuario = Yii::$app->user->identity;            
 
+        if(isset($_POST['codigo'])){
+            $codigo = CatCodigos::find()->where(['txt_codigo'=>$_POST['codigo'], 'b_habilitado'=>1])->one();
+            
+            /**
+             * TODO: Verificar codigo por fase
+             */
+            if($codigo){
+                if($codigo->b_codigo_usado == 0){
+                    $codigo->b_codigo_usado = 1;
+                    $codigo->save();
+
+                    $relUSerCodigo = new RelUsuariosCodigos();
+                    $relUSerCodigo->id_usuario = $usuario->id_usuario;
+                    $relUSerCodigo->id_codigo = $codigo->id_codigo;
+                    $relUSerCodigo->save();
+
+                    return $this->redirect(['terminado']);
+                }else{
+                    $response = new ResponseServices();
+                    $response->status = "error1";
+                    $response->message = "Este codigo ya fue usado";
+
+                    return $response;
+                }
+            }else{
+                $response = new ResponseServices();
+                $response->status = "error2";
+                $response->message = "Este codigo no existe";
+
+                return $response;
+            }
+        }
+        $response = new ResponseServices();
+
+         return $response;
+    }
 }
 
 ?>
