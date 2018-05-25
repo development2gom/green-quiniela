@@ -1,11 +1,16 @@
 
 <?php
+$this->title = "Usuarios";
+$this->params['classBody'] = "sec-usuarios";
+['depends'=>[\app\assets\AppAssetClassicTopBar::className()]];
 
 use yii\bootstrap\Button;
+?>
+<div class="sec-usuarios-cont">
+    <?php
+        $nombreUsuario = null;
 
-            $nombreUsuario = null;
-
-foreach($usuarios as $usuarioactual){
+        foreach($usuarios as $usuarioactual){
 
             $idUsuario = $usuarioactual->id_usuario;
             $tipoUsuario = $usuarioactual->txt_auth_item;
@@ -16,20 +21,26 @@ foreach($usuarios as $usuarioactual){
             $fechaCreacion = $usuarioactual->fch_creacion;
 
 
-    if($nombreUsuario != null){
+            if($nombreUsuario != null){
+            ?>
+                <div class="sec-usuarios-item">
 
-            echo $idUsuario.'<p>'.$tipoUsuario.'<p>'.$nombreUsuario.
-            '<p>'.$apellidoPaternoUsuario.'<p>'.$apellidoMaternoUsuario.'<p>'.$puntos.'<p>'.$fechaCreacion.'<br><br>';
-    
-    }
-}
+                    <p class="sec-usuarios-nombre"><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></p>
+                    <p class="sec-usuarios-tipo"><?= $idUsuario ?> - <?= $tipoUsuario ?></p>
+                    <p class="sec-usuarios-puntos"><?= $puntos ?></p>
+                    <p class="sec-usuarios-fecha"><?= $fechaCreacion ?></p>
+
+                </div>
+            <?php
+            }
+        }
+    ?>
 
 
-?>
+    <div class="sec-usuarios-actions">
+        <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
+            EXPORTAR
+        </a>
+    </div>
 
-
-<p>
-    <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
-         EXPORTAR
-    </a>
-</p>
+</div>

@@ -1,0 +1,153 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Listados
+			# Listados
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Listados
+	======================================= */
+
+.footer-admin
+	align-items: center
+	background-color: $secondary
+	display: flex
+	justify-content: center
+	position: relative
+	padding: 8px 32px
+	width: 100%
+	.footer-link
+		color: $white
+		@extend .fs-15
+		@extend .fw-light
+	hr
+		background-color: $white
+		height: 16px
+		margin: 0 16px
+		width: 2px
+
+// Actualizar Partidos
+.sec-actualizar-partidos
+
+	.page
+		.page-content
+			padding: 16px 32px
+			+respond-to(xs)
+				padding: 16px
+
+
+	.title-admin
+		color: $primary
+		@extend .fs-22
+		@extend .fw-bold
+		margin-bottom: 16px
+		text-align: center
+
+	.sec-ap-cont
+		background-color: $white
+		border-radius: 4px
+		box-shadow: 0 2px 4px 0 rgba($black,.3)
+		display: flex
+		flex-wrap: wrap
+		margin: 0 auto 32px
+		max-width: 96%
+		padding: 24px
+		width: 650px
+		+respond-to(tp)
+			padding: 16px 1px
+
+		.sec-ap-item
+			align-items: center
+			display: flex
+			margin-bottom: 24px
+			width: 100%
+			.sec-ap-item-local
+				width: 40%
+				+respond-to(xs)
+					width: 35%
+			.sec-ap-item-empate
+				width: 20%
+				+respond-to(xs)
+					width: 30%
+				button.btn-primary
+					+respond-to(xs)
+						max-width: 100%
+						min-width: 100%
+						padding-left: 0
+						padding-right: 0
+			.sec-ap-item-visita
+				width: 40%
+				+respond-to(xs)
+					width: 35%
+			.sec-ap-item-local,
+			.sec-ap-item-visita
+				align-items: center
+				display: flex
+				flex-direction: column
+				img
+					max-width: 100%
+					width: 30px
+				p
+					text-align: center
+
+// Usuarios
+.sec-usuarios
+
+	.page
+		min-height: calc(100vh - 100px)
+		.page-content
+			padding: 16px 32px
+			+respond-to(xs)
+				padding: 16px
+
+
+	.title-admin
+		color: $primary
+		@extend .fs-22
+		@extend .fw-bold
+		margin-bottom: 16px
+		text-align: center
+
+	.sec-usuarios-cont
+		display: flex
+		flex-wrap: wrap
+		margin: 0 auto
+		max-width: 96%
+		padding: 24px
+		width: 1280px
+		+respond-to(tp)
+			padding: 16px 1px
+
+		.sec-usuarios-item
+			background-color: $white
+			border-radius: 4px
+			box-shadow: 0 2px 4px 0 rgba($black,.3)
+			margin-bottom: 16px
+			margin-right: 3%
+			padding: 16px
+			width: 31.31%
+			&:nth-child(3n + 3)
+				margin-right: 0
+			&:hover
+				box-shadow: 0 8px 5px 0 rgba($black,.2)
+
+			p
+				@extend .fs-16
+
+				&.sec-usuarios-nombre
+					@extend .fw-bold
+					@extend .text-up
+
+				&.sec-usuarios-tipo
+					font-style: italic
+
+				&.sec-usuarios-puntos
+					@extend .fw-regular
+
+		.sec-usuarios-actions
+			align-items: center
+			display: flex
+			justify-content: flex-end
+			width: 100%
