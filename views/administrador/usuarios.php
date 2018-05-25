@@ -7,34 +7,43 @@ $this->params['classBody'] = "sec-usuarios";
 use yii\bootstrap\Button;
 ?>
 <div class="sec-usuarios-cont">
-    <?php
-        $nombreUsuario = null;
 
-        foreach($usuarios as $usuarioactual){
-
-            $idUsuario = $usuarioactual->id_usuario;
-            $tipoUsuario = $usuarioactual->txt_auth_item;
-            $nombreUsuario = $usuarioactual->txt_username;
-            $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
-            $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
-            $puntos = $usuarioactual->num_puntos;
-            $fechaCreacion = $usuarioactual->fch_creacion;
-
-
-            if($nombreUsuario != null){
-            ?>
-                <div class="sec-usuarios-item">
-
-                    <p class="sec-usuarios-nombre"><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></p>
-                    <p class="sec-usuarios-tipo"><?= $idUsuario ?> - <?= $tipoUsuario ?></p>
-                    <p class="sec-usuarios-puntos"><?= $puntos ?></p>
-                    <p class="sec-usuarios-fecha"><?= $fechaCreacion ?></p>
-
-                </div>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th class="text-center">Número de puntos</th>
+                <th>Fecha de creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            
             <?php
+            $nombreUsuario = null;
+            foreach($usuarios as $usuarioactual){
+
+                $idUsuario = $usuarioactual->id_usuario;
+                $tipoUsuario = $usuarioactual->txt_auth_item;
+                $nombreUsuario = $usuarioactual->txt_username;
+                $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
+                $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
+                $puntos = $usuarioactual->num_puntos;
+                $fechaCreacion = $usuarioactual->fch_creacion;
+
+                if($nombreUsuario != null){
+                ?>
+                    <tr>
+
+                        <td><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
+                        <td class="text-center"><?= $puntos ?></td>
+                        <td><?= $fechaCreacion ?></td>
+                    </tr>
+                <?php
+                }
             }
-        }
-    ?>
+            ?>
+        </tbody>
+    </table>
 
 
     <div class="sec-usuarios-actions">
