@@ -45,6 +45,13 @@
 		margin-bottom: 16px
 		text-align: center
 
+	.sec-ap-actions
+		display: flex
+		justify-content: flex-end
+		margin: 0 auto 8px
+		max-width: 96%
+		width: 650px
+
 	.sec-ap-cont
 		background-color: $white
 		border-radius: 4px
@@ -67,25 +74,41 @@
 				width: 40%
 				+respond-to(xs)
 					width: 35%
+				&.active
+					border: 2px solid $secondary
 			.sec-ap-item-empate
+				align-items: center
+				display: flex
+				justify-content: center
 				width: 20%
 				+respond-to(xs)
 					width: 30%
-				button.btn-primary
+				button.btn-secondary
+					color: $secondary
 					+respond-to(xs)
 						max-width: 100%
 						min-width: 100%
 						padding-left: 0
 						padding-right: 0
+				&.active
+					button.btn-secondary
+						background-color: $secondary
+						border-color: $secondary
+						color: $white
 			.sec-ap-item-visita
 				width: 40%
 				+respond-to(xs)
 					width: 35%
+				&.active
+					border: 2px solid $secondary
 			.sec-ap-item-local,
 			.sec-ap-item-visita
 				align-items: center
 				display: flex
 				flex-direction: column
+				padding: 16px 8px
+				+respond-to(xs)
+					padding: 16px 2px
 				img
 					max-width: 100%
 					width: 30px
