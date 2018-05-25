@@ -16,6 +16,7 @@ use app\models\Calendario;
 use app\models\RelUsuariosCodigos;
 use app\components\AccessControlExtend;
 use yii\filters\VerbFilter;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 
 
@@ -66,7 +67,7 @@ class ConcursantesController extends Controller
 
         return $this->render('partidos-proximos', ['partidos' => $partidos]);
 
-        return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
+        //return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
        
 
     }
@@ -95,10 +96,11 @@ class ConcursantesController extends Controller
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
         
-        /**
-        * TODO: Cambiar id_usuario a id de usuario logueado
-        */
-       
+
+        $idUsuario = $user = Yii::$app->user->identity->id_usuario;
+        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $idUsuario = $usuario->id_usuario;
+
         $token = null;
         $partido_seleccionado = null;
 

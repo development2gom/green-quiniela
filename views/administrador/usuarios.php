@@ -1,5 +1,8 @@
 
 <?php
+$this->title = "Usuarios";
+$this->params['classBody'] = "sec-usuarios";
+['depends'=>[\app\assets\AppAssetClassicTopBar::className()]];
 
 use yii\bootstrap\Button;
 use app\models\Calendario;
@@ -24,12 +27,51 @@ foreach($usuarios as $usuarioactual){
     }
 }
 
-
 ?>
+<div class="sec-usuarios-cont">
+
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th class="text-center">Número de puntos</th>
+                <th>Fecha de creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <?php
+            $nombreUsuario = null;
+            foreach($usuarios as $usuarioactual){
+
+                $idUsuario = $usuarioactual->id_usuario;
+                $tipoUsuario = $usuarioactual->txt_auth_item;
+                $nombreUsuario = $usuarioactual->txt_username;
+                $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
+                $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
+                $puntos = $usuarioactual->num_puntos;
+                $fechaCreacion = $usuarioactual->fch_creacion;
+
+                if($nombreUsuario != null){
+                ?>
+                    <tr>
+
+                        <td><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
+                        <td class="text-center"><?= $puntos ?></td>
+                        <td><?= $fechaCreacion ?></td>
+                    </tr>
+                <?php
+                }
+            }
+            ?>
+        </tbody>
+    </table>
 
 
-<p>
-    <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
-         EXPORTAR
-    </a>
-</p>
+    <div class="sec-usuarios-actions">
+        <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
+            EXPORTAR
+        </a>
+    </div>
+
+</div>

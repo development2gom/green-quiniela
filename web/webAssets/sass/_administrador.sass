@@ -1,0 +1,180 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Listados
+			# Listados
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Listados
+	======================================= */
+
+.footer-admin
+	align-items: center
+	background-color: $secondary
+	display: flex
+	justify-content: center
+	position: relative
+	padding: 8px 32px
+	width: 100%
+	.footer-link
+		color: $white
+		@extend .fs-15
+		@extend .fw-light
+	hr
+		background-color: $white
+		height: 16px
+		margin: 0 16px
+		width: 2px
+
+// Actualizar Partidos
+.sec-actualizar-partidos
+
+	.page
+		.page-content
+			padding: 16px 32px
+			+respond-to(xs)
+				padding: 16px
+
+
+	.title-admin
+		color: $primary
+		@extend .fs-22
+		@extend .fw-bold
+		margin-bottom: 16px
+		text-align: center
+
+	.sec-ap-actions
+		display: flex
+		justify-content: flex-end
+		margin: 0 auto 8px
+		max-width: 96%
+		width: 650px
+
+	.sec-ap-cont
+		background-color: $white
+		border-radius: 4px
+		box-shadow: 0 2px 4px 0 rgba($black,.3)
+		display: flex
+		flex-wrap: wrap
+		margin: 0 auto 32px
+		max-width: 96%
+		padding: 24px
+		width: 650px
+		+respond-to(tp)
+			padding: 16px 1px
+
+		.sec-ap-item
+			align-items: center
+			display: flex
+			margin-bottom: 24px
+			width: 100%
+			.sec-ap-item-local
+				width: 40%
+				+respond-to(xs)
+					width: 35%
+				&.active
+					border: 2px solid $secondary
+			.sec-ap-item-empate
+				align-items: center
+				display: flex
+				justify-content: center
+				width: 20%
+				+respond-to(xs)
+					width: 30%
+				button.btn-secondary
+					color: $secondary
+					+respond-to(xs)
+						max-width: 100%
+						min-width: 100%
+						padding-left: 0
+						padding-right: 0
+				&.active
+					button.btn-secondary
+						background-color: $secondary
+						border-color: $secondary
+						color: $white
+			.sec-ap-item-visita
+				width: 40%
+				+respond-to(xs)
+					width: 35%
+				&.active
+					border: 2px solid $secondary
+			.sec-ap-item-local,
+			.sec-ap-item-visita
+				align-items: center
+				display: flex
+				flex-direction: column
+				padding: 16px 8px
+				+respond-to(xs)
+					padding: 16px 2px
+				img
+					max-width: 100%
+					width: 30px
+				p
+					text-align: center
+
+// Usuarios
+.sec-usuarios
+
+	.page
+		min-height: calc(100vh - 100px)
+		.page-content
+			padding: 16px 32px
+			+respond-to(xs)
+				padding: 16px
+
+
+	.title-admin
+		color: $primary
+		@extend .fs-22
+		@extend .fw-bold
+		margin-bottom: 16px
+		text-align: center
+
+	.sec-usuarios-cont
+		background-color: $white
+		border-radius: 4px
+		box-shadow: 0 2px 4px 0 rgba($black,.3)
+		display: flex
+		flex-direction: column
+		margin: 0 auto
+		max-width: 96%
+		padding: 24px
+		width: 1280px
+
+		table.table
+			thead
+				tr
+					th
+						color: $font-color
+						@extend .fs-16
+						@extend .fw-bold
+						padding: 12px 4px
+						text-transform: uppercase
+						vertical-align: middle
+						+respond-to(tp)
+							text-align: center
+			tbody
+				tr
+					border-bottom: 1px solid $grey-d
+					&:last-child
+						border-bottom: none
+					&:hover
+						background-color: rgba($black, .09)
+					&:nth-of-type(odd)
+						background-color: rgba($black, .045)
+						&:hover
+							background-color: rgba($black, .09)
+					td
+						color: $font-color
+						@extend .fs-15
+						@extend .fw-regular
+						padding: 16px 4px
+
+		.sec-usuarios-actions
+			align-items: center
+			display: flex
+			justify-content: flex-end
+			width: 100%

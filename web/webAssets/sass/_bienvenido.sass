@@ -70,6 +70,7 @@
 // 		width: 480px
 
 .sec-bienvenido
+	background-attachment: fixed
 	background-image: url('../images/IMAGEN-AZUL.png')
 	background-position: 50%
 	background-repeat: no-repeat
@@ -77,6 +78,12 @@
 	padding-top: 0 !important
 	position: relative
 	z-index: 9
+
+	.pasto-verde-inferior-izquierda,
+	.red-balon
+		+respond-to(xs)
+			display: none
+
 	.page-bienvenida
 		// background-color: red
 		min-height: 100vh
@@ -89,9 +96,23 @@
 			display: flex
 			justify-content: center
 			min-height: 100vh
+			+respond-to(xs)
+				padding: 12px 20px
 		
 		.sb-pasos
-			margin-top: 40px
+			margin-bottom: 60px
+			+respond-to(lg)
+				margin-top: 70px
+			+respond-to(micon)
+				margin-top: 86px
+			+respond-to(md)
+				margin-top: 90px
+			+respond-to(sm)
+				margin-top: 100px
+
+			+respond-to(xs)
+				margin-bottom: 240px
+
 			.sb-pasos-title
 				h2
 					@extend .color-white
@@ -103,6 +124,9 @@
 					list-style-position: outside
 					margin-bottom: 30px
 					padding-left: 26px
+					+respond-to(xs)
+						padding-left: 40px
+						width: 94%
 					li
 						@extend .color-white
 						@extend .fs-22
@@ -110,6 +134,9 @@
 						line-height: 1.8
 						margin-bottom: 8px
 						text-align: left
+						white-space: pre-wrap
+						word-wrap: break-word
+						overflow-wrap: break-word
 						+respond-to(xs)
 							white-space: pre-wrap
 							word-wrap: break-word
@@ -123,6 +150,12 @@
 					@extend .fs-18
 					padding-left: 10px
 					text-align: left
+					width: 100%
+					white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+					+respond-to(xs)
+						padding-left: 26px
 
 				.sb-pasos-actions
 					align-items: center

@@ -7,8 +7,10 @@ $(document).ready(function(){
         var equipo_ganador =$(this).data("equipo");
         var resultado=$(this).data("nombre");
 
-        
-        
+
+        var padre = $(this).parent();
+        padre.toggleClass('active');
+
         if(!equipo_ganador){
             equipo_ganador = null;
         }

@@ -9,11 +9,36 @@
 	padding-top: 0 !important
 	position: relative
 	z-index: 9
+
+	.pasto-verde-inferior-izquierda,
+	.red-balon
+		+respond-to(xs)
+			display: none
+	
+	// .pasto-verde
+	// 	+respond-to(xs)
+	// 		bottom: -30px
+	// 	+respond-to(tp)
+	// 		bottom: -40px
+	// 	+respond-to(tx)
+	// 		bottom: -50px
+	// 	+respond-to(sl)
+	// 		bottom: -60px
+	// 	+respond-to(sp)
+	// 		bottom: -70px
+
 	.page-registro
 		position: relative
 		z-index: 9
+
 		.logo-quiniela-blue
 			width: 360px
+			+respond-to(xs)
+				max-width: 100%
+
+		.panel
+			+respond-to(xs)
+				margin-bottom: 180px
 		
 		.brand
 			margin-bottom: 32px
@@ -41,6 +66,8 @@
 					text-align: right
 					@extend .text-up
 					width: 100%
+					+respond-to(xs)
+						text-align: left
 
 				.form-control
 					+placeholder
@@ -83,6 +110,11 @@
 					right: 0
 					top: 0
 					z-index: 6
+
+				label
+					+respond-to(xs)
+						font-size: $fs-18
+						margin-top: 4px
 
 .checkbox-custom
 	label

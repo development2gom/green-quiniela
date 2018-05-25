@@ -17,10 +17,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Nombre.</label>
             </div>
-            <div class="col-md-8"> 
+            <div class="col-12 col-md-8"> 
                 <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true])->label(false) ?>            
                 <!--<input type="text" class="form-control">-->
             </div>
@@ -29,10 +29,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Email.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true])->label(false) ?>
                 <!--<input type="email" class="form-control">-->
             </div>
@@ -41,10 +41,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Repetir email.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true])->label(false) ?>
                 <!--<input type="email" class="form-control">-->
             </div>
@@ -53,10 +53,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Contraseña.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label(false) ?>
                 <!--<input type="email" class="form-control">-->
             </div>
@@ -65,10 +65,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Repetir contraseña.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true])->label(false) ?>
                 <!--<input type="email" class="form-control">-->
             </div>
@@ -77,10 +77,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Teléfono.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => true])->label(false) ?>            
                 <!--<input type="tel" class="form-control">-->
             </div>
@@ -89,10 +89,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Codigo postal.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true])->label(false) ?>            
                 <!--<input type="tel" class="form-control">-->
             </div>
@@ -101,10 +101,10 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <label for="">Código de acceso.</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder' => '7C564007X4W'])->label(false) ?>            
                 <!--<input type="number" class="form-control">-->
             </div>

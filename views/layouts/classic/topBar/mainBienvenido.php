@@ -22,6 +22,10 @@ AppAssetBienvenido::register($this);
     <img src="<?=Url::base()?>/webAssets/images/TRIANGULO-NARANJA.png" alt="">
   </div>
 
+  <div class="cuadro-naranja">
+    <img src="<?=Url::base()?>/webAssets/images/CUADRO-NARANJA-SUPERIOR.png" alt="">
+  </div>
+
   <div class="pasto-superior-derecha">
     <img src="<?=Url::base()?>/webAssets/images/PASTO-VERDE-SUP_DER.png" alt="">
   </div>
@@ -34,6 +38,10 @@ AppAssetBienvenido::register($this);
     <img src="<?=Url::base()?>/webAssets/images/PASTO-VERDE_INF_IZQ.png" alt="">
   </div>
 
+  <div class="pasto-verde">
+    <img src="<?=Url::base()?>/webAssets/images/PASTO-INFERIOR.png" alt="">
+  </div>
+
   
 
   <div class="logo-25-anos">
@@ -41,7 +49,7 @@ AppAssetBienvenido::register($this);
   </div>
 
   <a href="<?=Url::base()?>/" class="logo-quiniela">
-    <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
+    <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
   </a>
 
   <?php $this->beginBody();?>
