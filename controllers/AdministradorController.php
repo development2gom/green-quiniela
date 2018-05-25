@@ -37,6 +37,7 @@ class AdministradorController extends \yii\web\Controller
                 ->all() ;
         
         //envio de datos a el documento destino
+        $this->layout = "classic/topBar/mainAdmin";
         return $this->render('actualizar-partidos',['partidos'=>$partidos]); 
         
     }
@@ -85,9 +86,17 @@ class AdministradorController extends \yii\web\Controller
     }
 
     public function actionUsuarios(){
+<<<<<<< HEAD
                 $usuarios =ModUsuariosEntUsuarios::find()->
                 where(['txt_auth_item'=>'usuario-normal'])->all();
                 return $this->render('usuarios',['usuarios'=>$usuarios]); 
+=======
+
+        $this->layout = "classic/topBar/mainAdmin";
+        
+        $usuarios =ModUsuariosEntUsuarios::find()->all();
+        return $this->render('usuarios',['usuarios'=>$usuarios]); 
+>>>>>>> dev
     }
 
     public function actionExportar(){

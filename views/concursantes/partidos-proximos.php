@@ -27,13 +27,12 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
             <?php
             $grupoActual = null;
             foreach ($partidos as $key=> $partido) {
-                /**
-                 * TODO: Cambiar id_usuario a id de usuario logueado
-                 */
-                $resultado = WrkQuiniela::find()->where(["id_usuario"=>3, 'id_partido'=>$partido->id_partido])->one();
+                
+                $user = Yii::$app->user->identity;
+                $resultado = WrkQuiniela::find()->where(["id_usuario"=>$user->id_usuario, 'id_partido'=>$partido->id_partido])->one();
 
                 $equipo1 = $partido->equipo1;
-                $equipo2 = $partido->equipo2;
+                $equipo2 = $partido->equipo2;//print_r($resultado);exit;//echo "<br/>";print_r($equipo1);exit;
                 if($grupoActual && $grupoActual!=$partido->txt_grupo){
                     echo '</div>
                     </div>';
@@ -50,8 +49,23 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                 }
                 ?>
                 <div id="js-div-partido-<?=$partido->txt_token?>" class="row no-gutters <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
-                    <div class="col-md-4">
-                        <div class="panel-body-item">
+                    <div class="col-4 col-md-4">
+
+                        <?php 
+                        $flagEq1 = false;
+                        $flagEq2 = false;
+                        $flagEm3 = false;
+                        if($resultado){
+                            if($equipo1->id_equipo == $resultado->id_equipo_ganador){
+                                $flagEq1 = true;
+                            }else if($equipo2->id_equipo == $resultado->id_equipo_ganador){
+                                $flagEq2 = true;
+                            }else{
+                                $flagEm3 = true;
+                            }
+                        }?>
+
+                        <div class="panel-body-item <?= $flagEq1 ? 'active' : '' ?>">
                             <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
                         
                             <img src='<?=$equipo1->txt_url_imagen_equipo;?>' data-partido ="<?=$partido->txt_token?>" 
@@ -60,13 +74,13 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                             class="panel-body-equipo js-equipo"/>
                         </div>
                     </div>
-                    <div class="col-md-4 d-flex align-items-center justify-content-center ">
-                        <div class="panel-body-item-button">
+                    <div class="col-4 col-md-4 d-flex align-items-center justify-content-center ">
+                        <div class="panel-body-item-button <?= $flagEm3 ? 'active' : '' ?>">
                             <button class='btn btn-secondary panel-body-btn js-equipo' data-nombre="empate" data-partido ="<?=$partido->txt_token?>">empate</button >
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="panel-body-item">
+                    <div class="col-4 col-md-4">
+                        <div class="panel-body-item <?= $flagEq2 ? 'active' : '' ?>">
                             <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
 
                             <img src= '<?=$equipo2->txt_url_imagen_equipo;?>'  data-partido ="<?=$partido->txt_token?>" 

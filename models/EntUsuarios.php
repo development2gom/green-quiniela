@@ -114,4 +114,14 @@ class EntUsuarios extends \yii\db\ActiveRecord
     {
         return $this->hasOne(AuthItem::className(), ['name' => 'txt_auth_item']);
     }
+
+    public static function getUsuarioLogueado(){
+        $usuario = Yii::$app->user->identity;
+      
+        if(!$usuario){
+         $usuario = new EntUsuarios();
+        }
+      
+        return $usuario;
+       }
 }

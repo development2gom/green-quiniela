@@ -18,7 +18,8 @@ class AppAssetClassicTopBar extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web/webAssets/templates/classic/topbar/assets/';
     public $css = [
-      'css/site.min.css',
+        '../../../../css/site-admin.css.map',
+        '../../../../css/site-admin.css'
     ];
     public $js = [
         'js/Section/Menubar.min.js',
@@ -33,4 +34,5 @@ class AppAssetClassicTopBar extends AssetBundle
     public $depends = [
         'app\assets\AppAssetClassicCore',
     ];
+    
 }

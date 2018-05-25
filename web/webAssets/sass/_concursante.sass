@@ -14,6 +14,11 @@
 	padding-top: 16.858rem !important
 	position: relative
 	z-index: 9
+	
+	.logo-25-anos
+		+respond-to(xs)
+			display: none
+
 	.page-concursante
 		min-height: 100vh
 		position: relative
@@ -21,6 +26,9 @@
 		z-index: 9
 		.page-content
 			width: 100%
+			+respond-to(xs)
+				padding: 12px 20px
+				margin-bottom: 48px
 
 			h4
 				@extend .color-white
@@ -35,6 +43,8 @@
 					border: 2px solid $white
 					border-radius: 0
 					padding: 0 16px
+					+respond-to(xs)
+						padding: 0 8px
 					.panel-title
 						@extend .color-white
 						@extend .fs-40
@@ -67,6 +77,9 @@
 						// background-color: green
 						@extend .color-white
 						padding: 24px 16px
+						+respond-to(xs)
+							padding: 16px 8px
+
 						.panel-body-item,
 						.panel-body-item-button
 							// background-color: red
@@ -125,6 +138,8 @@
 					@extend .color-white
 					max-width: 100%
 					width: 242px
+					+respond-to(xs)
+						width: 100%
 
 				.text-completa-registra
 					@extend .fs-18

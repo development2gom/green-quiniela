@@ -9,6 +9,13 @@
 	],
 "creatorBuild": "26680",
 "files": {
+	"\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/_administrador.sassc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/_administrador.sassc",
+		"oF": 0
+		},
 	"\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/_aviso.sassc": {
 		"cB": 0,
 		"ft": 8192,
@@ -107,6 +114,13 @@
 		"oAP": "\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/_variables.sassc",
 		"oF": 0
 		},
+	"\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/site-admin.sassc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/site-admin.sassc",
+		"oF": 0
+		},
 	"\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/site-bienvenido.sassc": {
 		"cB": 0,
 		"ft": 8192,
@@ -142,6 +156,19 @@
 		"oAP": "\/.sass-cache\/81eed967ba5864c7aa02f1985501a5017a30876c\/site-terminos.sassc",
 		"oF": 0
 		},
+	"\/_administrador.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_administrador.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/_aviso.sass": {
 		"aP": 0,
 		"bl": 0,
@@ -151,6 +178,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_aviso.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/_basic-admin.sass": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_basic-admin.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -374,6 +414,19 @@
 		"oAP": "\/print.css",
 		"oF": 0,
 		"oS": 0,
+		"uL": 1
+		},
+	"\/site-admin.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/Applications\/MAMP\/htdocs\/green\/quiniela\/web\/webAssets\/css\/site-admin.css",
+		"oF": 6,
+		"oS": 3,
 		"uL": 1
 		},
 	"\/site-bienvenido.sass": {

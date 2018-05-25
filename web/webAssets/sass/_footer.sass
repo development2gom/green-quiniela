@@ -22,11 +22,24 @@
 	padding: 8px 32px
 	position: fixed
 	right: 0
-	z-index: 12
+	z-index: 19
 	a.footer-link
 		color: $white
+		&:focus
+			outline: none
+			
 	hr
 		background-color: $white
 		height: 16px
 		margin: 0 16px
 		width: 2px
+		+respond-to(xs)
+			display: none
+	+respond-to(xs)
+		justify-content: space-between
+		padding: 8px
+		a.footer-link
+			font-size: $fs-14
+
+#yii-debug-toolbar
+	display: none !important
