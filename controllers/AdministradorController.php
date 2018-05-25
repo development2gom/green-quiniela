@@ -86,17 +86,24 @@ class AdministradorController extends \yii\web\Controller
     }
 
     public function actionUsuarios(){
-<<<<<<< HEAD
+
                 $usuarios =ModUsuariosEntUsuarios::find()->
                 where(['txt_auth_item'=>'usuario-normal'])->all();
                 return $this->render('usuarios',['usuarios'=>$usuarios]); 
-=======
+
 
         $this->layout = "classic/topBar/mainAdmin";
         
         $usuarios =ModUsuariosEntUsuarios::find()->all();
         return $this->render('usuarios',['usuarios'=>$usuarios]); 
->>>>>>> dev
+
+        $this->layout = "classic/topBar/mainAdmin";
+                $usuarios =ModUsuariosEntUsuarios::find()->
+                where(['txt_auth_item'=>'usuario-normal'])->all();
+                return $this->render('usuarios',['usuarios'=>$usuarios]); 
+
+        
+
     }
 
     public function actionExportar(){

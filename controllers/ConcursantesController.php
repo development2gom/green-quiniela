@@ -95,18 +95,12 @@ class ConcursantesController extends Controller
 
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
-        
-<<<<<<< HEAD
-        /**
-        * TODO: Cambiar id_usuario a id de usuario logueado
-        */
-       
-=======
+
         $idUsuario = $user = Yii::$app->user->identity->id_usuario;
         $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
         $idUsuario = $usuario->id_usuario;
 
->>>>>>> dev
+
         $token = null;
         $partido_seleccionado = null;
 

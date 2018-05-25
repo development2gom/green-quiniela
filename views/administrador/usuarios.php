@@ -5,7 +5,7 @@ $this->params['classBody'] = "sec-usuarios";
 ['depends'=>[\app\assets\AppAssetClassicTopBar::className()]];
 
 use yii\bootstrap\Button;
-<<<<<<< HEAD
+
 use app\models\Calendario;
 
             $nombreUsuario = null;
@@ -29,8 +29,6 @@ foreach($usuarios as $usuarioactual){
 }
 
 
-=======
->>>>>>> dev
 ?>
 <div class="sec-usuarios-cont">
 
