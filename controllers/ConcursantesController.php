@@ -35,7 +35,7 @@ class ConcursantesController extends Controller
                     [
                         'actions' => ['partidos-fase', 'partidos-proximos'],
                         'allow' => true,
-                        'roles' => ['usuario_normal'],
+                        'roles' => ['@'],
                           
                     ],
                 ],
@@ -90,9 +90,7 @@ class ConcursantesController extends Controller
 
     public function actionGuardarResultados()
     {
-        $idUsuario = 4;
-        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
-        $idUsuario = $usuario->id_usuario;
+        
 
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
@@ -118,6 +116,9 @@ class ConcursantesController extends Controller
         }
         //camel keys
         
+        //$idUsuario = 4;
+        $usuario = EntUsuarios::getUsuarioLogueado();
+        $idUsuario = $usuario->id_usuario;
         //consulta a la base de datos
         $faseTorneo = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
