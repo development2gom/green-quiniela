@@ -3,8 +3,11 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = "Finalizado";
-
 $this->params['classBody'] = "site-navbar-small sec-finalizado";
+
+$this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
+    ['depends'=>[\app\assets\AppAsset::className()]]);
+?>
 ?>
 
 <div class="sf-participar">
@@ -16,10 +19,11 @@ $this->params['classBody'] = "site-navbar-small sec-finalizado";
     <div class="sf-participar-body">
         <p class="text-codigo">Código para activar</p>
         <span class="text-fase">Siguiente fase</span>
-        <input class="codigo" type="text">
+        <input class="codigo js-codigo" type="text">
+        <span class="js-status-codigo"></span>
 
         <div class="form-group">
-            <a href="#" class="btn btn-primary">Avanzar</a>
+            <button class="btn btn-primary js-avanzar" data-url="<?=Url::base()?>">Avanzar</button>
         </div>
     </div>
 </div>
