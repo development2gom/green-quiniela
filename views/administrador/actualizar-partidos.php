@@ -5,8 +5,11 @@ $this->registerJsFile('@web/webAssets/js/site/actualizar-partidos.js',
 ['depends'=>[\app\assets\AppAssetClassicTopBar::className()]]);
 
 ?>
-<div class="sec-ap-cont">
+<div class="sec-ap-actions">
+    <button class="btn btn-primary">GUARDAR</button>
+</div>
 
+<div class="sec-ap-cont">
     
     <?php
     foreach ($partidos as $partidos) {
@@ -20,7 +23,7 @@ $this->registerJsFile('@web/webAssets/js/site/actualizar-partidos.js',
             </div>
             
             <div class="sec-ap-item-empate">
-                <button class='btn btn-primary js-equipos' data-nombre='Empate' data-token ="<?=$partidos->txt_token?>">empate</button >
+                <button class='btn btn-secondary js-equipos' data-nombre='Empate' data-token ="<?=$partidos->txt_token?>">empate</button >
             </div>
             <div class="sec-ap-item-visita">
                 <img src= '<?=$equipo2->txt_url_imagen_equipo;?>' data-nombre='<?=$equipo2->txt_nombre_equipo?>' data-token ="<?=$partidos->txt_token?>" data-equipo="<?=$partidos->id_equipo2?>" class="js-equipos">
