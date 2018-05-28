@@ -231,7 +231,7 @@ class ConcursantesController extends Controller
                     $relUSerCodigo->id_codigo = $codigo->id_codigo;
                     $relUSerCodigo->save();
 
-                    return $this->redirect(['terminado']);
+                    return $this->redirect(['partidos-proximos']);
                 }else{
                     $response = new ResponseServices();
                     $response->status = "error1";
