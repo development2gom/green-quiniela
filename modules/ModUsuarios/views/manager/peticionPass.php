@@ -4,39 +4,45 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 $this->title = 'Recuperar contraseña';
-$this->params['classBody'] = "page-login-v3 layout-full";
+$this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 ?>
 <div class="panel">
 	<div class="panel-body">
-		<div class="brand">
-			<img class="brand-img mb-40" src="<?=Url::base()?>/webAssets/images/logo.png" alt="...">
+
+		<div class="brand text-center">
+			<h2 class="brand-text"><?= Html::encode($this->title) ?></h2>
 		</div>
 
 
 		<?php 
 		$form = ActiveForm::begin([
 			'id' => 'login-form',
-			'fieldConfig' => [
-				"template" => "{input}{label}{error}",
-				"options" => [
-					"class" => "form-group form-material floating",
-					"data-plugin" => "formMaterial"
-				],
-				"labelOptions" => [
-					"class" => "floating-label"
-				]
-			]
+			'options' => [
+				'class' => 'form-peticion-pass'
+			]	
 		]); 
 		?>
 
-		<?= $form->field($model, 'username')->textInput(["class"=>"form-control"]) ?>
+		<div class="form-group">
+            <div class="row">
+            <div class="col-12 col-md-4">
+                <label for="">Nombre de usuario.</label>
+            </div>
+            <div class="col-12 col-md-8">
+                <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label(false) ?>            
+                <!--<input type="tel" class="form-control">-->
+            </div>
+            </div>
+        </div>
 
 		<div class="form-group clearfix">
 			<a class="float-right" href="<?=Url::base()?>/sign-up">Necesito una cuenta</a>
 		</div>
 
-		<?= Html::submitButton('<span class="ladda-label">Recuperar contraseña</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])
-        ?>
+		<div class="form-group clearfix">
+			<?= Html::submitButton('<span class="ladda-label">Recuperar contraseña</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-peticion-pass btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])?>
+		</div>
+		
         <div class="form-group clearfix  text-center mt-20">
 			<a href="<?=Url::base()?>/login">Iniciar sesión</a>
 		</div>

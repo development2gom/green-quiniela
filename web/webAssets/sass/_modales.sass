@@ -16,12 +16,17 @@
 	position: fixed
 	z-index: 9999
 	.modal-dialog
+		+respond-to(xs)
+			margin: 20px
 		.modal-content
 			.modal-header
 				button.close
 					position: absolute
 					right: 24px
 					top: 16px
+					+respond-to(xs)
+						right: 8px
+						top: 8px
 				.modal-title
 					color: $primary
 					@extend .fs-24
@@ -30,6 +35,8 @@
 			// .modal-body
 
 			.modal-footer
+				+respond-to(xs)
+					justify-content: center
 				a.btn-primary,
 				button.btn-primary
 					color: $primary
@@ -39,3 +46,7 @@
 					margin-top: 24px
 					@extend .text-up
 					width: 260px
+					+respond-to(xs)
+						background-size: 220px 45px
+						height: 45px
+						width: 220px
