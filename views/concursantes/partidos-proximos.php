@@ -41,7 +41,10 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                     $grupoActual = $partido->txt_grupo;
                 ?>
                     <div class="panel-heading" id="siteMegaAccordionHeadingOne<?= $key ?>" role="tab">
-                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">Grupo: <?= $grupoActual ?></a>
+                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
+                            Grupo: <?= $grupoActual ?>
+                        </a>
+
                     </div>
                     <div class="panel-collapse collapse" id="siteMegaCollapseOne<?= $key ?>" aria-labelledby="siteMegaAccordionHeadingOne<?= $key ?>" role="tabpanel">
                         <div class="panel-body">
