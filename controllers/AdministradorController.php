@@ -130,7 +130,7 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionNuevosPartidos()
     {
-
+        $this->layout = "classic/topBar/mainAdmin";
                     $nuevoPartido =WrkPartidos::find()->
                     where(['id_equipo1'=>null])->
                     andWhere(['id_equipo2'=>null])->all();
