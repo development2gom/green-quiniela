@@ -163,6 +163,7 @@ class ManagerController extends Controller {
 			// Envio de correo electronico
 			$utils->sendEmailRecuperarPassword ($user->txt_email, $parametrosEmail );
 		}
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'peticionPass', [ 
 				'model' => $model 
 		] );
