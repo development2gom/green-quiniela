@@ -20,9 +20,10 @@
 			display: none
 
 	.page-concursante
+		margin: 0 auto
 		min-height: 100vh
 		position: relative
-		width: 100%
+		width: 95%
 		z-index: 9
 		.page-content
 			width: 100%
@@ -42,14 +43,19 @@
 				.panel-heading
 					border: 2px solid $white
 					border-radius: 0
-					padding: 0 16px
-					+respond-to(xs)
-						padding: 0 8px
+					
 					.panel-title
+						background-color: red
 						@extend .color-white
+						display: block
 						@extend .fs-40
+						padding: 0 16px
 						text-align: center
 						@extend .text-up
+
+						+respond-to(xs)
+							padding: 0 8px
+
 						&::after,
 						&::before
 							@extend .color-white
