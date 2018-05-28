@@ -49,5 +49,22 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
             window.location.href = url+"/concursantes/finalizado";
         }
     });
+
+    $('.js-avanzar').on('click', function(){
+        var codigo = $('.js-codigo').val();
+        var url = $(this).data('url');
+
+        $.ajax({
+            url: url+"/concursantes/verificar-codigo",
+            type:'POST',
+            data: {codigo: codigo},
+            success: function(resp){
+                $(".js-status-codigo").html(resp.message);                
+            },
+            error: function(){
+
+            }
+        });
+    });
 });
 
