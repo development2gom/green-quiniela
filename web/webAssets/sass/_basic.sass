@@ -345,6 +345,92 @@ a
 			img
 				height: 30px
 
+// FORM CHECKBOX
+//
+// Checkbox
+.checkboxes
+	background-color: transparent
+	display: block
+	height: 32px
+	margin-bottom: 12px
+	padding: 0 20px
+	position: relative
+	text-align: center
+	.checkboxes-cont
+		display: flex
+		.checkbox 
+			display: table-cell
+			width: 100%
+			height: 100%
+			vertical-align: middle
+			text-align: center
+
+		label 
+			display: flex !important
+			cursor: pointer
+			position: relative
+		
+			span 
+				display: inline-block
+				position: relative
+				background-color: transparent
+				width: 16px
+				height: 16px
+				transform-origin: center
+				border: 2px solid $primary
+				vertical-align: -4px
+				margin-right: 12px
+				transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89) // custom ease effect for bouncy animation
+		
+
+				&:before 
+					content: ""
+					width: 0px
+					height: 2px
+					border-radius: 2px // so that the tick has nice rounded look
+					background: $white
+					position: absolute
+					transform: rotate(45deg)
+					top: 5px // you'll need to experiment with placement depending on the dimensions you've chosen
+					left: 3px // you'll need to experiment with placement depending on the dimensions you've chosen
+					transition: width 50ms ease 50ms
+					transform-origin: 0% 0%
+				
+			
+				&:after 
+					content: ""
+					width: 0
+					height: 2px
+					border-radius: 2px // so that the tick has nice rounded look
+					background: $white
+					position: absolute
+					transform: rotate(305deg)
+					top: 9px // you'll need to experiment with placement depending on the dimensions you've chosen
+					left: 4px // you'll need to experiment with placement depending on the dimensions you've chosen
+					transition: width 50ms ease
+					transform-origin: 0% 0%
+
+		input[type="checkbox"],
+		input[type="radio"]
+			display: none 
+		
+			&:checked 
+				+ label 
+					span 
+						background-color: $primary
+						transform: scale(1.1) // enlarge the box
+
+						&:after 
+							width: 10px
+							background-color: $white
+							transition: width 150ms ease 100ms // enlarge the tick
+						
+
+						&:before 
+							width: 5px
+							background-color: $white
+							transition: width 150ms ease 100ms
+
 /*  Usuarios
 	======================================= */
 /* Crear */
