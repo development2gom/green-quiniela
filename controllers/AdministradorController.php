@@ -187,4 +187,14 @@ class AdministradorController extends \yii\web\Controller
         
     }
 
+    public function actionGrid(){
+
+        //$usuario =ModUsuariosEntUsuarios:: find()->all();
+        $dataProvider = new CactiveDataProvider('ModUsuariosEntUsuarios');
+
+
+
+        return $this->render('grid',['dataProvider'=>$dataProvider]);
+    }
+
 }
