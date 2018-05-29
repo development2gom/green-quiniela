@@ -29,18 +29,7 @@ console.log(partido);
                     equipo_ganador: equipo_ganador
                     
             
-                },
-            //     success:function(respuesta){
-            // if(respuesta.status == 'success'){
-            //     //swal('Correcto','Resultados guardados con exito','success');
-
-            // }
-            // else
-            // {
-            //     //swal('Espera','Ocurrio un problema al guardar el resultado','error');
-            // }
-            //     },
-                
+                }          
             
             });
     
