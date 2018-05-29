@@ -12,6 +12,9 @@ AppAssetFinalizado::register($this);
 <html class="no-js css-menubar" lang="<?= Yii::$app->language ?>">
 <!-- Etiqueta head -->
 <?=$this->render("//components/head")?>
+
+<?=$this->render("//components/logout")?>
+
 <body class="animsition <?=isset($this->params['classBody'])?$this->params['classBody']:''?>">
   
   <!--[if lt IE 8]>

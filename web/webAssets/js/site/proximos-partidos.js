@@ -34,6 +34,7 @@ $(document).ready(function () {
                 else {
                     swal('Espera', resultado.message, 'error');
                 }
+                gruposFaltantes();
 
             },
             error: function () {
@@ -65,7 +66,8 @@ $(document).ready(function () {
             type:'POST',
             data: {codigo: codigo},
             success: function(resp){
-                $(".js-status-codigo").html(resp.message);                
+                $(".js-status-codigo").html(resp.message);   
+                gruposFaltantes();             
             },
             error: function(){
 
@@ -75,13 +77,19 @@ $(document).ready(function () {
 
     gruposFaltantes();
     
-    function gruposFaltantes(){
-        // Agregar clase para sabr cuales faltan
-        $('.panel-heading').removeClass("active");
-        var abuelos = $('.js-partido-no-contestado').parents('.panel-collapse');
-        var hermano = abuelos.siblings('.panel-heading');
-        abuelos.prev().addClass("active");
-    }
+    
 
 });
 
+function gruposFaltantes(){
+
+    $( ".panel-heading" ).each(function( index ) {
+        var elemento =  $(".panel-collapse:eq("+index+") .js-partido-no-contestado").size();
+        if(elemento==0){
+            $(this).addClass("active");
+        }
+      });
+
+    
+    
+}

@@ -14,8 +14,8 @@ use app\models\Calendario;
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th class="text-center">Número de puntos</th>
-                <th>Fecha de creación</th>
+                <th class="text-center">Puntuación</th>
+                <th>Fecha de registro</th>
             </tr>
         </thead>
         <tbody>
