@@ -61,8 +61,8 @@ class WrkPartidos extends \yii\db\ActiveRecord
         return [
             'id_partido' => 'Id Partido',
             'txt_token' => 'Txt Token',
-            'id_equipo1' => 'Id Equipo1',
-            'id_equipo2' => 'Id Equipo2',
+            'id_equipo1' => 'Local',
+            'id_equipo2' => 'Visita',
             'fch_partido' => 'Fch Partido',
             'b_habilitado' => 'B Habilitado',
             'b_empate' => 'B Empate',

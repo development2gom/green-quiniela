@@ -29,7 +29,8 @@
 		width: 2px
 
 // Actualizar Partidos
-.sec-actualizar-partidos
+.sec-actualizar-partidos,
+.sec-nuevos-partidos
 
 	.page
 		.page-content
@@ -45,14 +46,16 @@
 		margin-bottom: 16px
 		text-align: center
 
-	.sec-ap-actions
+	.sec-ap-actions,
+	.sec-np-actions
 		display: flex
 		justify-content: flex-end
 		margin: 0 auto 8px
 		max-width: 96%
 		width: 650px
 
-	.sec-ap-cont
+	.sec-ap-cont,
+	.sec-np-cont
 		background-color: $white
 		border-radius: 4px
 		box-shadow: 0 2px 4px 0 rgba($black,.3)
@@ -114,6 +117,67 @@
 					width: 30px
 				p
 					text-align: center
+
+
+		.form-pre-registro
+			display: flex
+			flex-direction: column
+			width: 100%
+			.sec-np-item
+				align-items: center
+				display: flex
+				margin-bottom: 24px
+				width: 100%
+				.sec-np-item-local,
+				.sec-np-item-empate,
+				.sec-np-item-visita
+					margin-right: 3%
+					width: 31.31%
+					+respond-to(xs)
+						width: 35%
+					&.active
+						border: 2px solid $secondary
+				.sec-np-item-empate
+					align-items: center
+					display: flex
+					justify-content: center
+
+					button.btn-secondary
+						color: $secondary
+						+respond-to(xs)
+							max-width: 100%
+							min-width: 100%
+							padding-left: 0
+							padding-right: 0
+					&.active
+						button.btn-secondary
+							background-color: $secondary
+							border-color: $secondary
+							color: $white
+
+				.sec-np-item-local,
+				.sec-np-item-visita
+					align-items: center
+					display: flex
+					flex-direction: column
+					// padding: 16px 8px
+					+respond-to(xs)
+						padding: 16px 2px
+					img
+						max-width: 100%
+						width: 30px
+					p
+						text-align: center
+
+				.sec-np-item-empate
+					align-items: center
+					display: flex
+					flex-direction: column
+					justify-content: flex-start
+					p
+						@extend .fs-15
+						@extend .fw-bold
+						margin-bottom: 8px
 
 // Usuarios
 .sec-usuarios
