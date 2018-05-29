@@ -59,6 +59,8 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
+      
+
         $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
 
@@ -97,9 +99,7 @@ class ConcursantesController extends Controller
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
  
-        $idUsuario = Yii::$app->user->identity->id_usuario;
-
-        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $usuario = EntUsuarios::getUsuarioLogueado();
         $idUsuario = $usuario->id_usuario;
 
 
@@ -200,6 +200,7 @@ class ConcursantesController extends Controller
 
     public function actionTermino()
     {
+
 
         $this->layout = "classic/topBar/mainTermino";
         return $this->render("termino");
