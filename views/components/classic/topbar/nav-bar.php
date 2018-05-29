@@ -44,7 +44,7 @@ role="navigation">
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
         
         <li class="nav-item dropdown">
-          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
+          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="<?=Url::base()?>/site/logout" aria-expanded="false" data-animation="scale-up" role="button">
             <span class="log-out mr-10 color-white text-uppercase">
               <i class="icon wb-power" aria-hidden="true"></i> Cerrar sesión
             </span>
