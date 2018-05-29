@@ -2,7 +2,7 @@
 $this->title = "Actualizar Partidos";
 $this->params['classBody'] = "sec-actualizar-partidos";
 $this->registerJsFile('@web/webAssets/js/site/actualizar-partidos.js',
-['depends'=>[\app\assets\AppAssetClassicTopBar::className()]]);
+['depends'=>[\app\assets\AppAsset::className()]]);
 
 ?>
 <div class="sec-ap-actions">
