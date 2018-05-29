@@ -113,18 +113,15 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="form-group-check">
-
                 <!-- <div class="checkbox-custom checkbox-warning">
                     <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
                     <label for="check-terminos">Acepto terminos y condiciones</label>
                     <span class="js-aviso-check"></span>
                 </div>
-
                  -->
-
                 <div class="checkboxes">
                     <div class="checkboxes-cont">
-                        <input type="checkbox" id="check-terminos" name="inputCheckboxes" value="" />
+                        <input type="checkbox" id="check-terminos" name="inputCheckboxes" checked value="" />
                         <label for="check-terminos">
                             <span></span> <p>Acepto los términos y condiciones de la promoción.</p>
                         </label>
