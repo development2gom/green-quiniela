@@ -226,6 +226,7 @@ class ManagerController extends Controller {
 			] );
 		}
 		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'cambiarPass', [ 
 				'model' => $model 
 		] );
