@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = "Quiniela mundialista";
+$this->title = "Ganadores";
 
 $this->params['classBody'] = "site-navbar-small sec-bienvenido";
 ?>
