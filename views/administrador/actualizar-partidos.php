@@ -6,7 +6,7 @@ $this->registerJsFile('@web/webAssets/js/site/actualizar-partidos.js',
 
 ?>
 <div class="sec-ap-actions">
-    <button class="btn btn-primary">GUARDAR</button>
+    <button class="btn btn-primary js-guardar" >GUARDAR</button>
 </div>
 
 <div class="sec-ap-cont">

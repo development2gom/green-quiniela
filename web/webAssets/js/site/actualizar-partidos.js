@@ -6,6 +6,8 @@ $(document).ready(function(){
         var partido =$(this).data("token");
         var equipo_ganador =$(this).data("equipo");
         var resultado=$(this).data("nombre");
+        
+
 console.log(partido);
 
         var seleccion=$('#js-seleccion-'+partido+' .active').removeClass('active');
@@ -39,6 +41,16 @@ console.log(partido);
        
 
     })
+    $(".js-guardar").on("click",function(){
+        
+                //swal('Correcto', 'Resultados guardados con exito', 'success');
+                $("#js-div-partido-"+token).removeClass('js-partido-no-contestado');
+            
+        
+
+    })
+
+
 });
 
 
