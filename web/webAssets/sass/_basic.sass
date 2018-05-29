@@ -38,7 +38,7 @@ a
 .btn-primary.ladda-button[disabled]:hover,
 .btn-primary.ladda-button[data-loading],
 .btn-primary.ladda-button[data-loading]:hover
-	background-color: $primary
+	background-color: transparent
 
 .btn-info.ladda-button[disabled],
 .btn-info.ladda-button[disabled]:hover,
@@ -356,6 +356,9 @@ a
 	padding: 0 20px
 	position: relative
 	text-align: center
+	+respond-to(xs)
+		padding: 0 20px
+	
 	.checkboxes-cont
 		display: flex
 		.checkbox 
@@ -365,12 +368,19 @@ a
 			vertical-align: middle
 			text-align: center
 
-		label 
-			display: flex !important
+		label
+			align-items: center
 			cursor: pointer
+			display: flex !important
+			flex-wrap: wrap
+			justify-content: flex-start
 			position: relative
-		
-			span 
+
+			p
+				display: inline-block
+				width: calc(100% - 30px)
+
+			span
 				display: inline-block
 				position: relative
 				background-color: transparent
@@ -381,7 +391,8 @@ a
 				vertical-align: -4px
 				margin-right: 12px
 				transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89) // custom ease effect for bouncy animation
-		
+				// +respond-to(xs)
+				// 	width: 19px
 
 				&:before 
 					content: ""
@@ -589,21 +600,25 @@ a
 		top: auto
 		bottom: 60px
 		left: 24px
+		text-align: left
 	+respond-to(tp)
 		right: auto
 		top: auto
 		bottom: 50px
 		left: 24px
+		text-align: left
 	+respond-to(sl)
 		right: auto
 		top: auto
 		bottom: 40px
 		left: 24px
+		text-align: left
 	+respond-to(sp)
 		right: auto
 		top: auto
 		bottom: 30px
 		left: 24px
+		text-align: left
 
 	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
 		display: none
@@ -675,9 +690,9 @@ a
 		+respond-to(sp)
 
 		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
-			width: 30%
+			width: 22%
 		@media screen and (max-width: 600px ) and (orientation: landscape)
-			width: 30%
+			width: 21%
 		@media screen and (max-width: 480px ) and (orientation: landscape)
 			width: 20%
 
@@ -702,3 +717,6 @@ a
 
 .panel
 	box-shadow: none
+
+.page-content
+	overflow-x: hidden

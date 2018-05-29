@@ -126,7 +126,7 @@ use yii\widgets\ActiveForm;
                     <div class="checkboxes-cont">
                         <input type="checkbox" id="check-terminos" name="inputCheckboxes" value="" />
                         <label for="check-terminos">
-                            <span></span> Acepto los términos y condiciones de la promoción.
+                            <span></span> <p>Acepto los términos y condiciones de la promoción.</p>
                         </label>
                     </div>
                 </div>

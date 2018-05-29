@@ -7,6 +7,7 @@
 // ----------- Aviso - Términos
 .modal-content.page-aviso,
 .modal-content.page-terminos
+	width: 100%
 
 	.modal-header
 		h3.page-aviso-title
@@ -36,7 +37,7 @@
 			margin-bottom: 24px
 			@extend .text-up
 			+respond-to(xs)
-				white-space: pre-wrap
+				// white-space: pre-wrap
 				word-wrap: break-word
 				overflow-wrap: break-word
 
@@ -46,7 +47,7 @@
 			letter-spacing: 1px
 			margin-bottom: 4px
 			+respond-to(xs)
-				white-space: pre-wrap
+				// white-space: pre-wrap
 				word-wrap: break-word
 				overflow-wrap: break-word
 
@@ -67,7 +68,7 @@
 			letter-spacing: 1px
 			margin-bottom: 4px
 			+respond-to(xs)
-				white-space: pre-wrap
+				// white-space: pre-wrap
 				word-wrap: break-word
 				overflow-wrap: break-word
 
@@ -75,13 +76,17 @@
 			list-style-position: outside
 			margin-bottom: 30px
 			padding-left: 26px
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
 			li
 				@extend .fs-16
 				letter-spacing: 1px
 				line-height: 1.8
 				margin-bottom: 8px
 				+respond-to(xs)
-					white-space: pre-wrap
+					// white-space: pre-wrap
 					word-wrap: break-word
 					overflow-wrap: break-word
 
@@ -98,12 +103,17 @@
 						position: absolute
 						top: -6px
 
+				a
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
 			&.ul-style-simple
 				list-style: none
 
-			ul
-				list-style: none
-				margin-top: 16px
+			&.ul-simple
+					list-style: none
+					margin-top: 16px
 
 		ol
 			list-style-position: outside
@@ -116,7 +126,7 @@
 				margin-bottom: 6px
 				padding-left: 8px
 				+respond-to(xs)
-					white-space: pre-wrap
+					// white-space: pre-wrap
 					word-wrap: break-word
 					overflow-wrap: break-word
 

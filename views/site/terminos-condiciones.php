@@ -15,24 +15,20 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
             <h2>Términos y condiciones</h2>
         </div>
         <div class="stc-body">
-            <p>
-                ADMINISTRADORA DE CENTROS COMERCIALES SANTA FE S.A. DE C.V. (Que en lo sucesivo será denominada CENTRO SANTA FE), con domicilio en Av. Vasco de Quiroga 3800, Santa Fe Cuajimalpa, C.P. 05348, Cuajimalpa de Morelos, CDMX y PUBLICDAD Y SOLUCIONES GREEN S.A. DE C.V. (Que en lo sucesivo será mencionado como P. GREEN) ponen a disposición del público general los siguientes términos y condiciones del CONCURSO “QUINIELA MUNDIALISTA CENTRO SANTA FE” (Que en lo sucesivo será denominado EL CONCURSO).
+            <p>ADMINISTRADORA DE CENTROS COMERCIALES SANTA FE S.A. DE C.V. (Que en lo sucesivo será denominada CENTRO SANTA FE), con domicilio en Av. Vasco de Quiroga 3800, Santa Fe Cuajimalpa, C.P. 05348, Cuajimalpa de Morelos, CDMX y PUBLICDAD Y SOLUCIONES GREEN S.A. DE C.V. (Que en lo sucesivo será mencionado como P. GREEN) ponen a disposición del público general los siguientes términos y condiciones del CONCURSO “QUINIELA MUNDIALISTA CENTRO SANTA FE” (Que en lo sucesivo será denominado EL CONCURSO).
             </p>
 
             <h4>I. ACEPTACIÓN DE LOS TÉRMINOS Y CONDICIONES.</h4>
-            <p>
-                Los presentes términos y condiciones rigen EL CONCURSO. La participación del público consumidor en EL CONCURSO implica el conocimiento y aceptación de los presentes términos y condiciones.
+            <p>Los presentes términos y condiciones rigen EL CONCURSO. La participación del público consumidor en EL CONCURSO implica el conocimiento y aceptación de los presentes términos y condiciones.
             </p>
-            <p>
-                Al participar en EL CONCURSO, el consumidor acepta quedar obligado por las reglas y decisiones del organizador, las cuales tendrán carácter definitivo y vinculante respecto de todos los asuntos relacionados con EL CONCURSO. Cualquier violación a los presentes términos y condiciones, reglas del CONCURSO, así como a los procedimientos o sistemas establecidos, implicará la inmediata descalificación y exclusión del participante y/o revocación de cualquiera de los incentivos.
+            <p>Al participar en EL CONCURSO, el consumidor acepta quedar obligado por las reglas y decisiones del organizador, las cuales tendrán carácter definitivo y vinculante respecto de todos los asuntos relacionados con EL CONCURSO. Cualquier violación a los presentes términos y condiciones, reglas del CONCURSO, así como a los procedimientos o sistemas establecidos, implicará la inmediata descalificación y exclusión del participante y/o revocación de cualquiera de los incentivos.
             </p>
 
             <h4>II. NATURALEZA DEL CONCURSO.</h4>
             <p>EL CONCURSO se lleva a cabo en términos del artículo 46 de la Ley Federal de Protección al Consumidor. EL CONCURSO cuenta con aviso de promoción <span class="bold">PROFECO PFC.C.A./002469-2018.</span></p>
 
             <h4>III. RESPONSABLE DEL CONCURSO.</h4>
-            <p>
-                El organizador responsable y permisionario del CONCURSO es PUBLICIDAD Y SOLUCIONES GREEN S.A. DE C.V. con domicilio en Santa Brígida 19, col. Jardines de Santa Mónica, C.P. 05450, Tlalnepantla de Baz, Estado de México, (Denominado P. GREEN).
+            <p>El organizador responsable y permisionario del CONCURSO es PUBLICIDAD Y SOLUCIONES GREEN S.A. DE C.V. con domicilio en Santa Brígida 19, col. Jardines de Santa Mónica, C.P. 05450, Tlalnepantla de Baz, Estado de México, (Denominado P. GREEN).
             </p>
 
             <h4>IV. VIGENCIA DEL CONCURSO.</h4>
@@ -118,12 +114,10 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
                 </tbody>
             </table>
 
-            <p>
-                El embajador de CENTRO SANTA FE verificará que los tickets cumplan con las especificaciones de participación, Si estos son correctos, sellará los tickets, los cuales deberá conservar el participante ya que si resulta ser ganador tendrá que presentarlos para validar su participación.
+            <p>El embajador de CENTRO SANTA FE verificará que los tickets cumplan con las especificaciones de participación, Si estos son correctos, sellará los tickets, los cuales deberá conservar el participante ya que si resulta ser ganador tendrá que presentarlos para validar su participación.
             </p>
 
-            <p>
-                El embajador entregará un código (en una tarjeta de manera física) el cual deberá ingresar una vez completado el registro en el sitio web <a href="htpp://www.mundialcentrosantafe.com">www.mundialcentrosantafe.com</a> los datos son los siguientes:
+            <p>El embajador entregará un código (en una tarjeta de manera física) el cual deberá ingresar una vez completado el registro en el sitio web <a href="htpp://www.mundialcentrosantafe.com">www.mundialcentrosantafe.com</a> los datos son los siguientes:
             </p>
 
             <ul>
@@ -132,12 +126,10 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
                 <li>Correo electrónico</li>
             </ul>
 
-            <p>
-                El sitio pedirá crear un usuario y contraseña e ingresar el código de participación. Concluido este proceso el sitio web enviará en automático un SMS al celular registrado para confirmar su inscripción al CONCURSO.
+            <p>El sitio pedirá crear un usuario y contraseña e ingresar el código de participación. Concluido este proceso el sitio web enviará en automático un SMS al celular registrado para confirmar su inscripción al CONCURSO.
             </p>
 
-            <p>
-                Con el primer código el participante tendrá derecho a completar la primera jornada.
+            <p>Con el primer código el participante tendrá derecho a completar la primera jornada.
             </p>
 
             <h4>2. Condición de participación</h4>
