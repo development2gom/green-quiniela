@@ -6,26 +6,21 @@ $(document).ready(function(){
         var partido =$(this).data("token");
         var equipo_ganador =$(this).data("equipo");
         var resultado=$(this).data("nombre");
+console.log(partido);
+
+        var seleccion=$('#js-seleccion-'+partido+' .active').removeClass('active');
+        var seleccionado = $(this).parent();
+        seleccionado.toggleClass('active');
 
 
-        var padre = $(this).parent();
-        padre.toggleClass('active');
+       
+
 
         if(!equipo_ganador){
             equipo_ganador = null;
         }
-        swal({
-            title: "Espera",
-            text: "¿Esta seguro de guardar el resultado seleccionado:"+resultado+"?",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-warning",
-            confirmButtonText: "Sí, estoy seguro",
-            cancelButtonText: "No, revisaré una vez más",
-            closeOnConfirm: true,
-            //closeOnCancel: false
-        },
-        function() {
+     
+       
             $.ajax({
                 url:'http://localhost:81/clientes/green/green-quiniela/web/administrador/guardar-actualizacion',
                 type: 'post',
@@ -34,26 +29,12 @@ $(document).ready(function(){
                     equipo_ganador: equipo_ganador
                     
             
-                },
-                success:function(respuesta){
-            if(respuesta.status == 'success'){
-                swal('Correcto','Resultados guardados con exito','success');
-
-            }
-            else
-            {
-                swal('Espera','Ocurrio un problema al guardar el resultado','error');
-            }
-                },
-                error: function()
-                {
-                    swal('Espera','Ocurrio un problema al guardar el resultado','error');
-                }
+                }          
             
             });
     
            // codigo de confirmación exitosa
-        });
+     
 
        
 

@@ -29,16 +29,28 @@
 
 	.page-registro
 		position: relative
+		margin-bottom: 120px
 		z-index: 9
 
 		.logo-quiniela-blue
-			width: 360px
+			width: 320px
 			+respond-to(xs)
 				max-width: 100%
+				width: 240px
+			+respond-to(tp)
+				width: 230px
+			+respond-to(tx)
+				width: 220px
+			+respond-to(sl)
+				width: 210px
+			+respond-to(sp)
+				width: 200px
 
 		.panel
 			+respond-to(xs)
 				margin-bottom: 180px
+				padding-left: 16px
+				padding-right: 16px
 		
 		.brand
 			margin-bottom: 32px
@@ -50,7 +62,9 @@
 				@extend .text-up
 
 		.form-pre-registro,
-		.form-registro
+		.form-registro,
+		.form-peticion-pass,
+		.form-cambiar-pass
 
 			.form-group
 				margin-bottom: 12px
@@ -82,41 +96,52 @@
 					margin-top: 24px
 					@extend .text-up
 					width: 260px
+					+respond-to(xs)
+						background-size: 220px 45px
+						font-size: $fs-22
+						height: 45px
+						width: 220px
 
-				.checkbox-custom
-					label
-						&::before,
-						&::after
-							cursor: pointer
-						&::before
-							border-color: $accent
-						&::after
-							top: 2px
+				a.btn-primary.btn-peticion-pass,
+				button.btn-primary.btn-peticion-pass
+					background-size: 290px 45px
+					@extend .fs-20
+					width: 290px
+					+respond-to(xs)
+						background-size: 262px 45px
+						font-size: $fs-18
+						width: 262px
+
+				a.btn-primary.btn-cambiar-password,
+				button.btn-primary.btn-cambiar-password
+					background-size: 290px 45px
+					@extend .fs-20
+					width: 290px
+					+respond-to(xs)
+						background-size: 262px 45px
+						font-size: $fs-18
+						width: 262px
+
 
 			.form-group-check
 				margin: 0 auto
-				max-width: 390px
 				position: relative
 
-				.checkbox-custom
-					position: relative
-					z-index: 3
-
+				.checkboxes
+					label
+						@extend .fs-16
+						@extend .fw-regular
+						text-align: left
+						text-transform: none
+				
 				.checkbox-mask
 					bottom: 0
 					cursor: pointer
+					display: none
+					height: 100%
 					left: 0
 					position: absolute
 					right: 0
 					top: 0
-					z-index: 6
+					width: 100%
 
-				label
-					+respond-to(xs)
-						font-size: $fs-18
-						margin-top: 4px
-
-.checkbox-custom
-	label
-		&::before
-			margin-top: 2px

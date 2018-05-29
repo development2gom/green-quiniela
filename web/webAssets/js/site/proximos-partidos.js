@@ -11,10 +11,13 @@ $(document).ready(function () {
         /*if (!equipo_seleccionado) {
             equipo_seleccionado = null;
         }*/
-var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
+        var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
 
-        var padre = $(this).parent();
-        padre.toggleClass('active');
+        // var padre = $(this).parent();
+        // padre.toggleClass('active');
+
+        $(this).toggleClass('active');
+
 
         $.ajax({
             url: url+'/concursantes/guardar-resultados',
@@ -31,6 +34,7 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
                 else {
                     swal('Espera', resultado.message, 'error');
                 }
+                gruposFaltantes();
 
             },
             error: function () {
@@ -43,6 +47,9 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
     $("#js-verificar-siguiente").on('click', function(){
         var url = $(this).data('url');
         var sinContestar = $(".js-partido-no-contestado");
+        
+        gruposFaltantes();
+        
         if(sinContestar.length > 0){
             swal('Espera', 'Falta por contestar '+sinContestar.length+' partidos', 'warning');            
         }else{
@@ -59,12 +66,30 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
             type:'POST',
             data: {codigo: codigo},
             success: function(resp){
-                $(".js-status-codigo").html(resp.message);                
+                $(".js-status-codigo").html(resp.message);   
+                gruposFaltantes();             
             },
             error: function(){
 
             }
         });
     });
+
+    gruposFaltantes();
+    
+    
+
 });
 
+function gruposFaltantes(){
+
+    $( ".panel-heading" ).each(function( index ) {
+        var elemento =  $(".panel-collapse:eq("+index+") .js-partido-no-contestado").size();
+        if(elemento==0){
+            $(this).addClass("active");
+        }
+      });
+
+    
+    
+}

@@ -112,10 +112,10 @@ class ManagerController extends Controller {
 						print_r($model->errors);
 					}
 				}else{
-					$model->addError('txt_codigo', 'Este codigo ya fue usado.');					
+					$model->addError('txt_codigo', 'Este código ya fue usado.');					
 				}
 			}else{
-				$model->addError('txt_codigo', 'Este codigo no exixte.');
+				$model->addError('txt_codigo', 'Este código no existe.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
@@ -163,6 +163,7 @@ class ManagerController extends Controller {
 			// Envio de correo electronico
 			$utils->sendEmailRecuperarPassword ($user->txt_email, $parametrosEmail );
 		}
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'peticionPass', [ 
 				'model' => $model 
 		] );
@@ -224,6 +225,7 @@ class ManagerController extends Controller {
 			] );
 		}
 		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'cambiarPass', [ 
 				'model' => $model 
 		] );

@@ -59,6 +59,8 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
+      
+
         $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
 
@@ -97,10 +99,9 @@ class ConcursantesController extends Controller
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
  
-        $idUsuario = Yii::$app->user->identity->id_usuario;
-
-        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $usuario = EntUsuarios::getUsuarioLogueado();
         $idUsuario = $usuario->id_usuario;
+
 
         $token = null;
         $partido_seleccionado = null;
@@ -200,6 +201,7 @@ class ConcursantesController extends Controller
     public function actionTermino()
     {
 
+
         $this->layout = "classic/topBar/mainTermino";
         return $this->render("termino");
     }
@@ -210,6 +212,11 @@ class ConcursantesController extends Controller
         return $this->render("finalizado");
     
 
+    }
+
+    public function actionGanadores(){
+        $this->layout = "classic/topBar/mainBienvenido";
+        return $this->render("ganadores");
     }
 
     public function actionVerificarCodigo(){
@@ -231,7 +238,7 @@ class ConcursantesController extends Controller
                     $relUSerCodigo->id_codigo = $codigo->id_codigo;
                     $relUSerCodigo->save();
 
-                    return $this->redirect(['terminado']);
+                    return $this->redirect(['partidos-proximos']);
                 }else{
                     $response = new ResponseServices();
                     $response->status = "error1";

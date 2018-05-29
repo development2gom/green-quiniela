@@ -20,9 +20,10 @@
 			display: none
 
 	.page-concursante
+		margin: 0 auto
 		min-height: 100vh
 		position: relative
-		width: 100%
+		width: 95%
 		z-index: 9
 		.page-content
 			width: 100%
@@ -42,20 +43,34 @@
 				.panel-heading
 					border: 2px solid $white
 					border-radius: 0
-					padding: 0 16px
-					+respond-to(xs)
-						padding: 0 8px
+					
 					.panel-title
 						@extend .color-white
+						display: block
 						@extend .fs-40
+						padding: 0 16px
+						position: relative
 						text-align: center
 						@extend .text-up
+
+						+respond-to(xs)
+							padding: 0 8px
+
 						&::after,
 						&::before
 							@extend .color-white
 							@extend .fs-20
 							opacity: 1
 							top: 32px
+							font-family: 'Web Icons'
+							font-weight: 400
+							font-style: normal
+							position: absolute
+							top: 15px
+							right: 30px
+							-webkit-transition: all .3s linear 0s
+							-o-transition: all .3s linear 0s
+							transition: all .3s linear 0s
 
 						&::after
 							content: ''
@@ -63,13 +78,38 @@
 						&::before
 							content: ''
 
-					// &:first-child
-					// 	background-color: red
-					// 	border-bottom-left-radius: 0
-					// 	border-bottom-right-radius: 0
+					.panel-title[aria-expanded="false"]
+						&::before 
+							opacity: 1
+
+					.panel-title[aria-expanded="false"]
+						&::after
+							opacity: 0
+							-webkit-transform: rotate(-180deg)
+							-ms-transform: rotate(-180deg)
+							-o-transform: rotate(-180deg)
+							transform: rotate(-180deg)
 					
-					// &:last-child
-					// 	background-color: purple
+					.panel-title[aria-expanded="true"]
+						&::before
+							opacity: 0
+							-webkit-transform: rotate(-180deg)
+							-ms-transform: rotate(-180deg)
+							-o-transform: rotate(-180deg)
+							transform: rotate(-180deg)
+
+					.panel-title[aria-expanded="true"]
+						&::after
+							opacity: .6
+
+					&.active
+						background-color: $white
+						border-bottom: 2px solid $primary
+						.panel-title
+							color: $primary
+							&::after,
+							&::before
+								color: $primary
 
 				.panel-collapse
 					background-color: rgba( $black, .38 )
@@ -84,6 +124,7 @@
 						.panel-body-item-button
 							// background-color: red
 							border: 2px solid transparent
+							cursor: pointer
 							p.panel-body-pais
 								@extend .color-white
 								display: block
@@ -92,7 +133,6 @@
 								text-align: center
 							img.panel-body-equipo
 								display: block
-								cursor: pointer
 								margin: 0 auto 12px
 								max-width: 42px
 								width: 42px

@@ -41,7 +41,10 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                     $grupoActual = $partido->txt_grupo;
                 ?>
                     <div class="panel-heading" id="siteMegaAccordionHeadingOne<?= $key ?>" role="tab">
-                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">Grupo: <?= $grupoActual ?></a>
+                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
+                            Grupo: <?= $grupoActual ?>
+                        </a>
+
                     </div>
                     <div class="panel-collapse collapse" id="siteMegaCollapseOne<?= $key ?>" aria-labelledby="siteMegaAccordionHeadingOne<?= $key ?>" role="tabpanel">
                         <div class="panel-body">
@@ -65,28 +68,28 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
                             }
                         }?>
 
-                        <div class="panel-body-item <?= $flagEq1 ? 'active' : '' ?>">
+                        <div class="panel-body-item js-equipo <?= $flagEq1 ? 'active' : '' ?>" data-partido ="<?=$partido->txt_token?>" data-nombre="<?=$equipo1->txt_nombre_equipo?>" data-token="<?=$partido->id_equipo1?>">
                             <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
                         
                             <img src='<?=$equipo1->txt_url_imagen_equipo;?>' data-partido ="<?=$partido->txt_token?>" 
                             data-nombre="<?=$equipo1->txt_nombre_equipo?>"
                             data-token="<?=$partido->id_equipo1?>"
-                            class="panel-body-equipo js-equipo"/>
+                            class="panel-body-equipo "/>
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 d-flex align-items-center justify-content-center ">
-                        <div class="panel-body-item-button <?= $flagEm3 ? 'active' : '' ?>">
-                            <button class='btn btn-secondary panel-body-btn js-equipo' data-nombre="empate" data-partido ="<?=$partido->txt_token?>">empate</button >
+                    <div class="col-4 col-md-4 d-flex align-items-center justify-content-center">
+                        <div class="panel-body-item-button js-equipo <?= $flagEm3 ? 'active' : '' ?>" data-nombre="empate" data-partido ="<?=$partido->txt_token?>">
+                            <button class='btn btn-secondary panel-body-btn'>empate</button >
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
-                        <div class="panel-body-item <?= $flagEq2 ? 'active' : '' ?>">
+                        <div class="panel-body-item js-equipo <?= $flagEq2 ? 'active' : '' ?>" data-partido ="<?=$partido->txt_token?>" data-nombre="<?=$equipo2->txt_nombre_equipo?>" data-token="<?=$partido->id_equipo2?>">
                             <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
 
                             <img src= '<?=$equipo2->txt_url_imagen_equipo;?>'  data-partido ="<?=$partido->txt_token?>" 
                             data-nombre="<?=$equipo2->txt_nombre_equipo?>"
                             data-token="<?=$partido->id_equipo2?>"
-                            class="panel-body-equipo js-equipo">
+                            class="panel-body-equipo">
                         </div>
                     </div>
                 </div>
@@ -102,7 +105,7 @@ $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
     </div>
     
     <div class="col-md-4 col-d-flex-end">
-    <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?=Url::base()?>">Siguiente</button>
+        <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?=Url::base()?>">Siguiente</button>
     </div>
 
 </div>

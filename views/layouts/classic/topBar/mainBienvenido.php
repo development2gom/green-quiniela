@@ -52,6 +52,8 @@ AppAssetBienvenido::register($this);
     <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
   </a>
 
+  <?=$this->render("//components/logout")?>
+
   <?php $this->beginBody();?>
   
 
