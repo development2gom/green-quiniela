@@ -44,7 +44,7 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionGuardarActualizacion()
     {
-                $response = new ResponseServices();
+                //$response = new ResponseServices();
                 $partido = null;
                 $equipo_ganador = null;
         // verificams que las variables no se reciban vacias
@@ -77,11 +77,11 @@ class AdministradorController extends \yii\web\Controller
         }
             //envia el contenido de quiniela a la base de datos
         if($ganador->save()){
-                $response->status='success';
-                $response->message='resgistro guardado'; 
+                // $response->status='success';
+                // $response->message='resgistro guardado'; 
         }
 
-        return $response;
+        //return $response;
     
     }
 
