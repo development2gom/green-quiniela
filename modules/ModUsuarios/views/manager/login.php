@@ -16,12 +16,6 @@ $this->params['classBody'] = "site-navbar-small sec-registro";
 <div class="row">
   <div class="col-md-12">
     <div class="panel">
-      <div class="panel-body">
-          <div class="brand text-center">
-
-            <h2 class="brand-text"><?= Html::encode($this->title) ?></h2>
-
-		  </div>
 
 
 		  <?php 

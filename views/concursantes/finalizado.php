@@ -8,7 +8,6 @@ $this->params['classBody'] = "site-navbar-small sec-finalizado";
 $this->registerJsFile('@web/webAssets/js/site/proximos-partidos.js',
     ['depends'=>[\app\assets\AppAsset::className()]]);
 ?>
-?>
 
 <div class="sf-participar">
     <img class="sf-participar-img" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
