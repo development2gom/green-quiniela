@@ -7,6 +7,7 @@ use app\models\ModUsuariosEntUsuarios;
 use function React\Promise\all;
 use app\models\CatEquipos;
 use Symfony\Component\HttpFoundation\Response;
+use app\models\WrkQuiniela;
 
 
 class AdministradorController extends \yii\web\Controller
@@ -44,45 +45,59 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionGuardarActualizacion()
     {
-                //$response = new ResponseServices();
-                $partido = null;
-                $equipo_ganador = null;
+        $response = new ResponseServices();
+        $partido = null;
+        $equipo_ganador = null;
+        
         // verificams que las variables no se reciban vacias
         if(isset($_POST['partido']) ){
-
-                $partido = $_POST['partido'];
+            $partido = $_POST['partido'];
              
-         }
-         if(isset($_POST['equipo_ganador'])){
-                $equipo_ganador = $_POST['equipo_ganador'];
-         }
+        }
+        if(isset($_POST['equipo_ganador'])){
+            $equipo_ganador = $_POST['equipo_ganador'];
+        }
        
          
-         //generamos una consulta a la base de datos para obtener los registros correctos y asi poder reaizar la insercion de los mismos
-                $ganador =WrkPartidos::find()->where(['b_habilitado'=>1])->
-                andwhere(['txt_token'=>$partido])->one();
+        //generamos una consulta a la base de datos para obtener los registros correctos y asi poder reaizar la insercion de los mismos
+        $ganador = WrkPartidos::find()->where(['b_habilitado'=>1])->
+        andwhere(['txt_token'=>$partido])->one();
 
-        //ingresamos a las propiedades de la variable
-        //$consulta->id_partido=$resultado->id_partido;
-        //$ganador->id_equipo_ganador;
+        $ganadorAnterior = $ganador->id_equipo_ganador;
+        $empateAnterior = $ganador->b_empate;
 
         if($equipo_ganador){
-                $ganador->id_equipo_ganador =$equipo_ganador;
-                $ganador->b_empate=0;
-
-        }
-        else{
-                $ganador->b_empate=1;
-                $ganador->id_equipo_ganador =null;
+            $ganador->id_equipo_ganador =$equipo_ganador;
+            $ganador->b_empate=0;
+        }else{
+            $ganador->b_empate=1;
+            $ganador->id_equipo_ganador = null;
         }
             //envia el contenido de quiniela a la base de datos
         if($ganador->save()){
-                // $response->status='success';
-                // $response->message='resgistro guardado'; 
+            $response->status='success';
+            $response->message='resgistro guardado';
+
+            if($ganadorAnterior){
+                $resultadosAnteriores = WrkQuiniela::find()->where(['id_equipo_ganador'=>$ganadorAnterior])->all();
+                foreach($resultadosAnteriores as $resultadoAnterior){
+                    $usuario = $resultadoAnterior->usuario;
+                    $aciertos = $usuario->num_puntos;
+                    
+                    if($aciertos > 0){
+                        $usuario->num_puntos = $aciertos - 1;
+                        if(!$usuario->save()){
+                            print_r($usuario->error);exit;
+                        }
+                    }
+                }
+            }
+            if($empateAnterior == 1){
+
+            }
         }
 
-        //return $response;
-    
+        return $response;
     }
 
     public function actionUsuarios(){
