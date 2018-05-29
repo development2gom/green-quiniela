@@ -40,7 +40,7 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		</div>
 
 		<div class="form-group clearfix">
-			<?= Html::submitButton('<span class="ladda-label">Recuperar contraseña</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-peticion-pass btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])?>
+			<?= Html::submitButton('<span class="ladda-label">Recuperar contraseña</span>', ["data-style"=>"zoom-in", 'class' => 'btn btn-primary btn-peticion-pass btn-block btn-lg mt-20', 'name' => 'login-button'])?>
 		</div>
 		
         <div class="form-group clearfix  text-center mt-20">

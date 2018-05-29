@@ -8,6 +8,9 @@ $(document).ready(function(){
         var resultado=$(this).data("nombre");
 
 
+        var seleccion=('#js-seleccion-'+partido+' .active').removeclass()      
+
+
         var padre = $(this).parent();
         padre.toggleClass('active');
 
