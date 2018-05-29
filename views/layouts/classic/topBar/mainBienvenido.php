@@ -52,7 +52,7 @@ AppAssetBienvenido::register($this);
     <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
   </a>
 
-  <a href="" class="quiniela-sign-up"><i class="icon fa-sign-out" aria-hidden="true"></i></a>
+  <?=$this->render("//components/logout")?>
 
   <?php $this->beginBody();?>
   

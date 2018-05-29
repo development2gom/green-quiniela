@@ -26,7 +26,7 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		<div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Nombre de usuario.</label>
+                <label for="">Correo electrónico registrado.</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label(false) ?>            
@@ -52,6 +52,6 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		<?php ActiveForm::end(); ?>
 
 
-		<p class="soporteTxt">¿Necesitas ayuda? escribe a: <a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
+		
 	</div>
 </div>
