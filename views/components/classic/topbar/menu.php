@@ -11,7 +11,7 @@ use yii\helpers\Url;
           <li class="site-menu-category">General</li>
           <li class="dropdown site-menu-item has-sub">
             <a data-toggle="dropdown" href="javascript:void(0)" data-dropdown-toggle="false">
-              <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
+              <i class="icon fa-futbol-o" aria-hidden="true"></i>
               <span class="site-menu-title">Partidos</span>
               <span class="site-menu-arrow"></span>
             </a>
@@ -39,7 +39,7 @@ use yii\helpers\Url;
           <li class="site-menu-category">Concursantes</li>
           <li class="dropdown site-menu-item has-sub">
             <a data-toggle="dropdown" href="javascript:void(0)" data-dropdown-toggle="false">
-              <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
+              <i class="icon fa-users" aria-hidden="true"></i>
               <span class="site-menu-title">Concursantes</span>
               <span class="site-menu-arrow"></span>
             </a>

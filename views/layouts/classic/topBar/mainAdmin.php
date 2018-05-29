@@ -25,9 +25,7 @@ AppAsset::register($this);
   <?=$this->render("//components/classic/topbar/menu")?>
 
   <?=$this->render("//components/classic/topbar/bodyAdmin", ["content"=>$content])?>
-  
 
-  <?=$this->render("//components/classic/topbar/footerAdmin")?>
 
   <?php $this->endBody();?>
  

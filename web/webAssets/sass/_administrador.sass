@@ -160,7 +160,7 @@
 					align-items: center
 					display: flex
 					flex-direction: column
-					padding: 16px 8px
+					// padding: 16px 8px
 					+respond-to(xs)
 						padding: 16px 2px
 					img
@@ -171,10 +171,13 @@
 
 				.sec-np-item-empate
 					align-items: center
-					background-color: red
 					display: flex
 					flex-direction: column
-					justify-content: center
+					justify-content: flex-start
+					p
+						@extend .fs-15
+						@extend .fw-bold
+						margin-bottom: 8px
 
 // Usuarios
 .sec-usuarios
