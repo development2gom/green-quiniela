@@ -359,7 +359,7 @@ use yii\helpers\Url;
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="btn-acepto-terminos">Acepto terminos</button>
+        <button type="button" class="btn btn-primary" id="btn-acepto-terminos">Acepto términos</button>
       </div>
     </div>
   </div>

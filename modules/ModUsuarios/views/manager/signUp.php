@@ -26,9 +26,6 @@ $this->registerJsFile(
     <div class="panel">
       <div class="panel-body">
           <div class="brand text-center">
-            <!-- <a class="avatar avatar-lg js-img-avatar">
-                  <img class="js-image-preview" src="<?=Url::base()."/webAssets/images/site/user.png"?>">
-                </a> -->
             <h2 class="brand-text"><?= Html::encode($this->title) ?></h2>
           </div>
           <?= $this->render('_form', [

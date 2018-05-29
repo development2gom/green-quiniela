@@ -11,10 +11,13 @@ $(document).ready(function () {
         /*if (!equipo_seleccionado) {
             equipo_seleccionado = null;
         }*/
-var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
+        var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
 
-        var padre = $(this).parent();
-        padre.toggleClass('active');
+        // var padre = $(this).parent();
+        // padre.toggleClass('active');
+
+        $(this).toggleClass('active');
+
 
         $.ajax({
             url: url+'/concursantes/guardar-resultados',
@@ -43,6 +46,9 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
     $("#js-verificar-siguiente").on('click', function(){
         var url = $(this).data('url');
         var sinContestar = $(".js-partido-no-contestado");
+        
+        gruposFaltantes();
+        
         if(sinContestar.length > 0){
             swal('Espera', 'Falta por contestar '+sinContestar.length+' partidos', 'warning');            
         }else{
@@ -66,5 +72,16 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
             }
         });
     });
+
+    gruposFaltantes();
+    
+    function gruposFaltantes(){
+        // Agregar clase para sabr cuales faltan
+        $('.panel-heading').removeClass("active");
+        var abuelos = $('.js-partido-no-contestado').parents('.panel-collapse');
+        var hermano = abuelos.siblings('.panel-heading');
+        abuelos.prev().addClass("active");
+    }
+
 });
 

@@ -102,6 +102,15 @@
 						&::after
 							opacity: .6
 
+					&.active
+						background-color: $white
+						border-bottom: 2px solid $primary
+						.panel-title
+							color: $primary
+							&::after,
+							&::before
+								color: $primary
+
 				.panel-collapse
 					background-color: rgba( $black, .38 )
 					.panel-body
@@ -115,6 +124,7 @@
 						.panel-body-item-button
 							// background-color: red
 							border: 2px solid transparent
+							cursor: pointer
 							p.panel-body-pais
 								@extend .color-white
 								display: block
@@ -123,7 +133,6 @@
 								text-align: center
 							img.panel-body-equipo
 								display: block
-								cursor: pointer
 								margin: 0 auto 12px
 								max-width: 42px
 								width: 42px
