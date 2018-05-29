@@ -14,7 +14,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
     <div class="sb-ganador-body">
         <div class="sb-ganador-item">
             <div class="sb-ganador-lugar">
-                <button class="btn btn-primary btn-lugar">1er. Lugar</button>
+                <div class="btn btn-primary btn-lugar">1er. Lugar</div>
             </div>
             <div class="sb-ganador-premio">
                 <div class="sb-ganador-premio-item">
@@ -30,7 +30,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
 
         <div class="sb-ganador-item">
             <div class="sb-ganador-lugar">
-                <button class="btn btn-primary btn-lugar">2do. Lugar</button>
+                <div class="btn btn-primary btn-lugar">2do. Lugar</div>
             </div>
             <div class="sb-ganador-premio">
                 <div class="sb-ganador-premio-item">
@@ -46,7 +46,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
 
         <div class="sb-ganador-item">
             <div class="sb-ganador-lugar">
-                <button class="btn btn-primary btn-lugar">3er. Lugar</button>
+                <div class="btn btn-primary btn-lugar">3er. Lugar</div>
             </div>
             <div class="sb-ganador-premio">
                 <div class="sb-ganador-premio-item">
