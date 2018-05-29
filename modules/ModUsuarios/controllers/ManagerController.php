@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
 use app\models\CatCodigos;
 use app\models\RelUsuariosCodigos;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 /**
  * Default controller for the `musuarios` module
@@ -66,6 +68,7 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
+
 			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_habilitado'=>1])->one();
 			if($codigo){
 				if($codigo->b_codigo_usado == 0){
@@ -84,6 +87,7 @@ class ManagerController extends Controller {
 						$relUSerCodigo = new RelUsuariosCodigos();
 						$relUSerCodigo->id_usuario = $model->id_usuario;
 						$relUSerCodigo->id_codigo = $codigo->id_codigo;
+						$relUSerCodigo->id_fase = $codigo->id_fase;
 						$relUSerCodigo->save();
 
 						// Envia un correo de bienvenida al usuario
@@ -259,7 +263,9 @@ class ManagerController extends Controller {
 	public function actionLogin() {
 
 		if (! Yii::$app->user->isGuest) {
-			return $this->goHome ();
+			return $this->redirect ( [ 
+				'//concursantes/partidos-proximos' 
+			] );
 		}
 
 		$model = new LoginForm ();
