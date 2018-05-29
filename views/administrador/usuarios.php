@@ -1,5 +1,6 @@
 
 <?php
+use yii\helpers\Url;
 $this->title = "Usuarios";
 $this->params['classBody'] = "sec-usuarios";
 ['depends'=>[\app\assets\AppAssetClassicTopBar::className()]];
@@ -49,7 +50,7 @@ use app\models\Calendario;
 
 
     <div class="sec-usuarios-actions">
-        <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
+        <a href="<?=Url::base()?>/administrador/exportar" target="_blank" type="button" class="btn btn-primary">
             EXPORTAR
         </a>
     </div>

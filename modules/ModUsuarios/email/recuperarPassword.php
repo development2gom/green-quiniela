@@ -1,6 +1,6 @@
 <?php
-$logoCliente = "http://via.placeholder.com/280x90";
-$logoClienteH = "80px";
+$logoCliente = "LOGO-QUINIELA-MUNDIALISTA-01.png";
+$logoClienteH = "90px";
 $logoClienteW = "auto";
 
 $colorTitle = "#000";
@@ -17,7 +17,7 @@ $fontSize14 = "14px";
 $fontSize16 = "16px";
 $fontSize24 = "24px";
 
-$bgHeader = "rgb(184,14,41)";
+$bgHeader = "#F4A21B";
 $bgBody = "#E2E2E2";
 $bgBodyWmax = "460px";
 $bgBodyWmin = "320px";
