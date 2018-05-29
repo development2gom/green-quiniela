@@ -115,7 +115,7 @@ class ManagerController extends Controller {
 					$model->addError('txt_codigo', 'Este codigo ya fue usado.');					
 				}
 			}else{
-				$model->addError('txt_codigo', 'Este codigo no exixte.');
+				$model->addError('txt_codigo', 'Este codigo no existe.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);

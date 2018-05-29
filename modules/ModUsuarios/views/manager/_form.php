@@ -90,7 +90,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Codigo postal.</label>
+                <label for="">Código postal.</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true])->label(false) ?>            

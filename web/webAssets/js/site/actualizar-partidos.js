@@ -14,7 +14,8 @@ $(document).ready(function(){
         var padre = $(this).parent();
         padre.toggleClass('active');
 
-        
+
+        var seleccion=('#js-seleccion-'+partido+' .active').removeclass()
 
 
         if(!equipo_ganador){

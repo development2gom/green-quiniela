@@ -102,6 +102,7 @@ class ConcursantesController extends Controller
         $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
         $idUsuario = $usuario->id_usuario;
 
+
         $token = null;
         $partido_seleccionado = null;
 
