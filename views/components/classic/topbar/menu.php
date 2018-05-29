@@ -21,12 +21,12 @@ use yii\helpers\Url;
                   <div>
                     <ul class="site-menu-sub site-menu-normal-list">
                       <li class="site-menu-item">
-                        <a class="animsition-link" href="<?=Url::base()?>/administrador/actualizar-partidos">
+                        <a class="animsition-link" href="<?= Url::base() ?>/administrador/actualizar-partidos">
                           <span class="site-menu-title">Ingresar resultados</span>
                         </a>
                       </li>
                       <li class="site-menu-item">
-                        <a class="animsition-link" href="<?=Url::base()?>/administrador/nuevos-partidos">
+                        <a class="animsition-link" href="<?= Url::base() ?>/administrador/nuevos-partidos">
                           <span class="site-menu-title">Nuevos partidos</span>
                         </a>
                       </li>
@@ -49,12 +49,12 @@ use yii\helpers\Url;
                   <div>
                     <ul class="site-menu-sub site-menu-normal-list">
                       <li class="site-menu-item">
-                        <a class="animsition-link" href="<?=Url::base()?>/administrador/usuarios">
+                        <a class="animsition-link" href="<?= Url::base() ?>/administrador/usuarios">
                           <span class="site-menu-title">Listado concursantes</span>
                         </a>
                       </li>
                       <li class="site-menu-item">
-                        <a class="animsition-link" href="<?=Url::base()?>/administrador/resultados">
+                        <a class="animsition-link" href="<?= Url::base() ?>/administrador/resultados">
                           <span class="site-menu-title">Resultados</span>
                         </a>
                       </li>
