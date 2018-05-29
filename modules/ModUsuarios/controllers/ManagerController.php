@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
 use app\models\CatCodigos;
 use app\models\RelUsuariosCodigos;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 /**
  * Default controller for the `musuarios` module
@@ -66,6 +68,7 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
+
 			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_habilitado'=>1])->one();
 			if($codigo){
 				if($codigo->b_codigo_usado == 0){

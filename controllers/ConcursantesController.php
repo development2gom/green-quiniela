@@ -61,18 +61,28 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
-      
-
+        $this->layout = "classic/topBar/mainConcursante";
+       
         $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
 
+        if(!$fase){
+            $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_inicio')])
+            ->one();
+
+            if(!$proximaFase){
+                $fases = CatFasesDelTorneo::find()->where(["b_habilitado"=>1])->all();
+                return $this->render("quiniela-finalizada", ["fases"=>$fases]);
+            }
+            $fasesAnteriores = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['>', new Expression('now()'), new Expression('fch_termino')])
+            ->all();
+
+            
+            return $this->render("fase-por-empezar", ["proximaFase"=>$proximaFase, "fasesAnteriores"=>$fasesAnteriores]);
+        }   
         $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
 
-        $this->layout = "classic/topBar/mainConcursante";
-
         return $this->render('partidos-proximos', ['partidos' => $partidos]);
-
-        //return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
        
 
     }
