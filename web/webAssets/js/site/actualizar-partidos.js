@@ -6,16 +6,14 @@ $(document).ready(function(){
         var partido =$(this).data("token");
         var equipo_ganador =$(this).data("equipo");
         var resultado=$(this).data("nombre");
+console.log(partido);
+
+        var seleccion=$('#js-seleccion-'+partido+' .active').removeClass('active');
+        var seleccionado = $(this).parent();
+        seleccionado.toggleClass('active');
 
 
-        var seleccion=('#js-seleccion-'+partido+' .active').removeclass()      
-
-
-        var padre = $(this).parent();
-        padre.toggleClass('active');
-
-
-        var seleccion=('#js-seleccion-'+partido+' .active').removeclass()
+       
 
 
         if(!equipo_ganador){
