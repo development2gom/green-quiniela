@@ -213,6 +213,11 @@ class ConcursantesController extends Controller
 
     }
 
+    public function actionGanadores(){
+        $this->layout = "classic/topBar/mainBienvenido";
+        return $this->render("ganadores");
+    }
+
     public function actionVerificarCodigo(){
         $usuario = Yii::$app->user->identity;            
 

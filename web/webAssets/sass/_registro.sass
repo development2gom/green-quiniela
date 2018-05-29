@@ -36,15 +36,15 @@
 			width: 320px
 			+respond-to(xs)
 				max-width: 100%
-				width: 260px
-			+respond-to(tp)
-				width: 250px
-			+respond-to(tx)
 				width: 240px
-			+respond-to(sl)
+			+respond-to(tp)
 				width: 230px
-			+respond-to(sp)
+			+respond-to(tx)
 				width: 220px
+			+respond-to(sl)
+				width: 210px
+			+respond-to(sp)
+				width: 200px
 
 		.panel
 			+respond-to(xs)
@@ -63,7 +63,8 @@
 
 		.form-pre-registro,
 		.form-registro,
-		.form-peticion-pass
+		.form-peticion-pass,
+		.form-cambiar-pass
 
 			.form-group
 				margin-bottom: 12px
@@ -110,6 +111,17 @@
 						background-size: 262px 45px
 						font-size: $fs-18
 						width: 262px
+
+				a.btn-primary.btn-cambiar-password,
+				button.btn-primary.btn-cambiar-password
+					background-size: 290px 45px
+					@extend .fs-20
+					width: 290px
+					+respond-to(xs)
+						background-size: 262px 45px
+						font-size: $fs-18
+						width: 262px
+
 
 			.form-group-check
 				margin: 0 auto
