@@ -25,7 +25,7 @@ $this->registerJsFile('@web/webAssets/js/site/actualizar-partidos.js',
             </div>
             
             <div class="sec-ap-item-empate">
-                <button class='btn btn-secondary js-seleccionar-equipo' data-nombre='Empate' data-token ="<?=$partido->txt_token?>">empate</button >
+                <button class='btn btn-secondary js-seleccionar-equipo' data-nombre='Empate' data-token ="<?=$partido->txt_token?>" data-equipo="<?= null ?>">empate</button >
             </div>
             <div class="sec-ap-item-visita">
                 <img class="js-seleccionar-equipo" src= '<?=$equipo2->txt_url_imagen_equipo;?>' data-nombre='<?=$equipo2->txt_nombre_equipo?>' data-token ="<?=$partido->txt_token?>" data-equipo="<?=$partido->id_equipo2?>" >

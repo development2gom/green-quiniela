@@ -63,9 +63,32 @@ class AdministradorController extends \yii\web\Controller
         $ganador = WrkPartidos::find()->where(['b_habilitado'=>1])->
         andwhere(['txt_token'=>$partido])->one();
 
+        if($equipo_ganador){
+            if($ganador->id_equipo_ganador == $equipo_ganador){
+                $response->status = 'success';
+                $response->message = "Ya se habia guardado este resultado";
+
+                return $response;
+            }
+        }else{
+            if($ganador->b_empate == 1){
+                $response->status = 'success';
+                $response->message = "Ya se habia guardado este resultado";
+
+                return $response;  
+            }
+        }
+
+        $yaContestado = true;
+        if($ganador->id_equipo_ganador == null && $ganador->b_empate == 0)
+            $yaContestado = false;
+
+
+        //Guardar datos anteriores del resultado generado por el usuario
         $ganadorAnterior = $ganador->id_equipo_ganador;
         $empateAnterior = $ganador->b_empate;
 
+        //Guardar datos del resultado real del partido
         if($equipo_ganador){
             $ganador->id_equipo_ganador =$equipo_ganador;
             $ganador->b_empate=0;
@@ -73,27 +96,52 @@ class AdministradorController extends \yii\web\Controller
             $ganador->b_empate=1;
             $ganador->id_equipo_ganador = null;
         }
-            //envia el contenido de quiniela a la base de datos
+
+        //envia el contenido de quiniela a la base de datos
         if($ganador->save()){
             $response->status='success';
             $response->message='resgistro guardado';
 
-            if($ganadorAnterior){
-                $resultadosAnteriores = WrkQuiniela::find()->where(['id_equipo_ganador'=>$ganadorAnterior])->all();
+            //Buscar registros de resultados anteriores y si concuerdan con los resutados
+            //reales restar un punto a los usuarios.
+            $resultadosAnteriores = null;
+            if($yaContestado){
+                $resultadosAnteriores = WrkQuiniela::find()->where(['!=', 'id_equipo_ganador', $equipo_ganador])->andWhere(['id_partido'=>$ganador->id_partido])->all();
+            }
+
+            if($resultadosAnteriores){
                 foreach($resultadosAnteriores as $resultadoAnterior){
                     $usuario = $resultadoAnterior->usuario;
                     $aciertos = $usuario->num_puntos;
                     
-                    if($aciertos > 0){
-                        $usuario->num_puntos = $aciertos - 1;
-                        if(!$usuario->save()){
-                            print_r($usuario->error);exit;
+                    if($resultadoAnterior->id_equipo_ganador == $ganadorAnterior || $resultadoAnterior->b_empata != $empateAnterior){
+                        if($aciertos > 0){
+                            $usuario->num_puntos = $aciertos - 1;
+                            if(!$usuario->save()){
+                                print_r($usuario->error);exit;
+                            }
                         }
                     }
                 }
             }
-            if($empateAnterior == 1){
 
+            //Agregar puntos a los usuarios que acertaron en el resultado
+            $quinielasGanadoras = null;
+            if($equipo_ganador){    
+                $quinielasGanadoras = WrkQuiniela::find()->where(['id_partido'=>$ganador->id_partido, 'id_equipo_ganador'=>$equipo_ganador])->all();
+            }else{
+                $quinielasGanadoras = WrkQuiniela::find()->where(['b_empata'=>1, 'id_partido'=>$ganador->id_partido])->all();                
+            }
+
+            if($quinielasGanadoras){
+                foreach($quinielasGanadoras as $quinielaGanadora){
+                    $userGanador = $quinielaGanadora->usuario;
+                    
+                    $userGanador->num_puntos = $userGanador->num_puntos + 1;
+                    if(!$userGanador->save()){
+                        print_r($userGanador->error);exit;
+                    }
+                }
             }
         }
 
