@@ -6,6 +6,15 @@ use yii\helpers\Url;
 $this->title = 'Recuperar contraseña';
 $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 ?>
+<?php if (Yii::$app->session->hasFlash('success')):?>
+<div class="alert dark alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">×</span>
+	</button>
+	<?php echo Yii::$app->session->getFlash('success'); ?>
+</div>
+
+<?php endif;?>
 <div class="panel">
 	<div class="panel-body">
 
