@@ -24,7 +24,7 @@ class LoginForm extends Model {
     public function attributeLabels()
     {
         return [
-            'username' => 'Nombre de Usuario',
+            'username' => 'Email',
             'password' => 'Contraseña'
         ];
     }
