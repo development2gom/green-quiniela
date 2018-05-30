@@ -159,31 +159,21 @@
 					display: flex
 					flex-direction: column
 					justify-items: center
-					margin-top: 24px
 					a.btn-primary,
 					button.btn-primary
 						color: $primary
 						@extend .fs-34
 						@extend .fw-bold
 						height: 60px
+						margin-top: 24px
 						@extend .text-up
 						width: 260px
-
-					a.btn-primary.btn-acceder,
-					button.btn-primary.btn-acceder
-						background-size: 260px 40px
-						@extend .fs-28
-						height: 40px
-						line-height: 1.1
-						margin-top: 16px
-					
-					a.btn-primary.btn-ganador,
-					button.btn-primary.btn-ganador
-						background-size: 260px 40px
-						@extend .fs-26
-						height: 40px
-						line-height: 1
-						margin-top: 12px
+						+respond-to(tp)
+							background-size: 260px 40px
+							font-size: $fs-26
+							height: 40px
+							line-height: 1.1
+							margin-top: 12px
 
 			.sb-ganador-body
 				display: block
