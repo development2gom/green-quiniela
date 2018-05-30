@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Crea contraseña</label>
+                <label for="">Crea Contraseña</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label(false) ?>
@@ -78,7 +78,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Teléfono celular</label>
+                <label for="">Teléfono Celular</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => true])->label(false) ?>            
