@@ -24,9 +24,14 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		?>
 
 		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Recibirás un email para actualizar tu contraseña</h3>
+				</div>
+			</div>
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Correo electrónico registrado.</label>
+                <label for="">Email registrado</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label(false) ?>            

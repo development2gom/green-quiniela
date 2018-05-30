@@ -29,7 +29,7 @@ $this->params['classBody'] = "site-navbar-small sec-registro";
 			]);
 			?>
 			
-			<?= $form->field($model, 'username', ["template"=>"<div class='row'><div class='col-md-4 d-flex align-self-center'>{label}</div><div class='col-md-8'>{input}{error}</div></div>"])->textInput(["class" => "form-control"]) ?>
+			<?= $form->field($model, 'username', ["template"=>"<div class='row'><div class='col-md-4 d-flex align-self-center'>{label}</div><div class='col-md-8'>{input}{error}</div></div>"])->textInput(["class" => "form-control"])->label("Email registrado") ?>
 
 			<?= $form->field($model, 'password', ["template"=>"<div class='row'><div class='col-md-4 d-flex align-self-center'>{label}</div><div class='col-md-8'>{input}{error}</div></div>"])->passwordInput(["class" => "form-control"]) ?>
 
@@ -38,7 +38,7 @@ $this->params['classBody'] = "site-navbar-small sec-registro";
 			</div>
 
 			<div class="form-group">
-				<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style" => "zoom-in", 'class' => 'btn btn-primary ladda-button', 'name' => 'login-button'])?>
+				<?= Html::submitButton('<span class="ladda-label">Inicia sesión</span>', ["data-style" => "zoom-in", 'class' => 'btn btn-primary ladda-button', 'name' => 'login-button'])?>
 			</div>
 
 			<div class="form-group clearfix necesito-cuenta">
