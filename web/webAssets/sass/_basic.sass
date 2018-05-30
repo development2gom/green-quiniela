@@ -477,9 +477,15 @@ a
 		@extend .fs-20
 		@extend .fw-regular
 		height: 3.273rem
-		text-transform: uppercase
 		&:focus
 			border-color: darken( $accent, 20% )
+
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"]
+		text-transform: uppercase
 
 // Loader
 .loader-overlay
@@ -734,3 +740,7 @@ a
 
 .page-content
 	overflow-x: hidden
+
+
+.sec-error
+	background-color: red

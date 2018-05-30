@@ -15,10 +15,19 @@ $this->registerJsFile(
 
 <div class="row">
     <div class="col-md-4 col-d-flex">
-        <p class="text-completa-registra" data-url="<?= Url::base() ?>">
-            Tienes del 1 al 12 de junio para completar y registrar tus predicciones de este fase.
-        </p>
-        <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
+        <div class="column-textos">
+            <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+                1. Por cada partido selecciona un campo (equipo ganador o empate) 
+            </p>
+            <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+                2. Completa cada grupo
+            </p>
+            <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+                3. Da click en finalizar para guardar juego.
+            </p>
+            <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
+            <p class="text-completa-registra" data-url="<?= Url::base() ?>">Para dudas y aclaraciones comunicate  al  01 800 467 1897</p>
+            </div>
     </div>
     <div class="col-md-4">
 
@@ -110,8 +119,10 @@ $this->registerJsFile(
     </div>
     
     <div class="col-md-4 col-d-flex-end">
-        <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?= Url::base() ?>">Siguiente</button>
+        <div class="column-actions">
+            <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?= Url::base() ?>">Finalizar</button>
+            <span>Quiniela guardada (FECHA)</span>
+        </div>
     </div>
 
 </div>
-        
