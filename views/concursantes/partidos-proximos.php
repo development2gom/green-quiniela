@@ -132,7 +132,7 @@ $this->registerJsFile(
 <?php
 if($terminoPartido){
     $this->registerJs(
-        "aparecerLabelTerminar(".Calendario::getDateCompleteHour($terminoPartido->fch_termino).")",
+        "aparecerLabelTerminar('".Calendario::getDateCompleteHour($terminoPartido->fch_termino)."')",
         View::POS_READY,
         'my-button-handler'
     );
