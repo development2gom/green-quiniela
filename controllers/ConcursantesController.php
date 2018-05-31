@@ -246,30 +246,6 @@ class ConcursantesController extends Controller
         $existeQuiniela = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
 
         if($existeQuiniela){
-
-            $existeQuiniela->fch_termino = Calendario::getFechaActual();
-        }else{
-            $existeQuiniela = new EntUsuariosQuiniela();
-            $existeQuiniela->id_usuario = $usuario->id_usuario;
-            $existeQuiniela->id_fase = $faseTorneo->id_fase;
-            $existeQuiniela->fch_termino = Calendario::getFechaActual();
-        }
-
-        $existeQuiniela->save();
-
-        $this->layout = "classic/topBar/mainFinalizado";
-        return $this->render("finalizado");
-        $usuario = EntUsuarios::getUsuarioLogueado();
-        $faseTorneo = $this->getFaseActual();
-        $codigo = RelUsuariosCodigos::find()->where(["id_fase"=>$faseTorneo->id_fase, "id_usuario"=>$usuario->id_usuario])->one();    
-
-        if(!$codigo){
-            // @todo usuario no esta participando
-        }
-        
-        $existeQuiniela = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
-
-        if($existeQuiniela){
             $existeQuiniela->fch_termino = Calendario::getFechaActual();
         }else{
             $existeQuiniela = new EntUsuariosQuiniela();
