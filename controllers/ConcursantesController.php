@@ -23,6 +23,7 @@ use app\models\EntUsuariosQuiniela;
 
 
 
+
 class ConcursantesController extends Controller
 {
 
@@ -61,6 +62,7 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
+        $usuario = EntUsuarios::getUsuarioLogueado();
         
         $this->layout = "classic/topBar/mainConcursante";
        
