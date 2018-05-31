@@ -118,7 +118,7 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
             <p>Con el primer código el participante tendrá derecho a completar la primera jornada.</p>
 
-            <h4>3. Condición de participación.</h4>
+            <h4>2. Condición de participación.</h4>
 
             <p>El cliente deberá presentar ticket de compra que cumpla la condición de participación de acuerdo a la siguiente tabla:</p>
 
@@ -174,23 +174,23 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Jornada 1 - primer período</td>
+                        <td>Jornada 1 - primer periodo</td>
                         <td>del 1 al 12 de junio</td>
                     </tr>
                     <tr>
-                        <td>Jornada 2 – segundo período</td>
+                        <td>Jornada 2 – segundo periodo</td>
                         <td>del 14 al 29 junio</td>
                     </tr>
                     <tr>
-                        <td>Jornada 3 – tercer período</td>
+                        <td>Jornada 3 – tercer periodo</td>
                         <td>4 y 5 julio</td>
                     </tr>
                     <tr>
-                        <td>Jornada 4 – cuarto período</td>
+                        <td>Jornada 4 – cuarto periodo</td>
                         <td>8 y 9 de julio</td>
                     </tr>
                     <tr>
-                        <td>Jornada 5 – quinto período </td>
+                        <td>Jornada 5 – quinto periodo </td>
                         <td>12 y 13 de julio</td>
                     </tr>
                 </tbody>
