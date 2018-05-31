@@ -60,8 +60,8 @@ AppAssetConcursante::register($this);
   </div>
 
   <div class="pp-actions">
-    <button id="js-verificar-siguiente" class="btn btn-primary btn-fixed-pp" data-url="<?= Url::base() ?>">Finalizar</button>
-    <span>Quiniela guardada (FECHA)</span>
+    <button id="js-verificar-siguiente" class="btn btn-primary btn-fixed-pp js-verificar-siguiente" data-url="<?= Url::base() ?>">Finalizar</button>
+    <span class="js-span-finalizado">Quiniela guardada (FECHA)</span>
   </div>
   
 
