@@ -61,6 +61,7 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
+        
         $this->layout = "classic/topBar/mainConcursante";
        
         $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
@@ -82,7 +83,9 @@ class ConcursantesController extends Controller
         }   
         $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
 
-        return $this->render('partidos-proximos', ['partidos' => $partidos]);
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$fase->id_fase])->one();
+
+        return $this->render('partidos-proximos', ['partidos' => $partidos, "terminoPartido"=>$terminoPartido]);
        
 
     }
