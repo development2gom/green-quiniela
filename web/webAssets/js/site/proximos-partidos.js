@@ -44,16 +44,18 @@ $(document).ready(function () {
         });
     });
 
-    $("#js-verificar-siguiente").on('click', function () {
+    $(".js-verificar-siguiente").on('click', function () {
         var url = $(this).data('url');
         var sinContestar = $(".js-partido-no-contestado");
-
+        var padre = $(this).parent();
+        var hijo = padre.find('.js-span-finalizado');
         gruposFaltantes();
 
         if (sinContestar.length > 0) {
             swal('Espera', 'Falta por contestar ' + sinContestar.length + ' partidos', 'warning');
         } else {
-            $(".js-span-finalizado").show();
+            padre.addClass("algo");
+            hijo.addClass("active");
             window.location.href = url + "/concursantes/finalizado";
         }
     });
