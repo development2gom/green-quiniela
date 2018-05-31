@@ -14,7 +14,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
     <div class="sb-pasos-body">
         <ul>
             <li><strong>Compra.</strong> En Centro Santa Fe.</li>
-            <li><strong>Presenta.</strong> Los tickets en cualquier módulo de atención.</li>
+            <li><strong>Presenta.</strong> Tu ticket de compra en los Módulos de Atención participantes.</li>
             <li><strong>Recibe.</strong> Un código de participación.</li>
             <li><strong>Ingresa.</strong> A www.mundialcentrosantafe.com.</li>
             <li><strong>Juega.</strong> En la quiniela mundialista.</li>
