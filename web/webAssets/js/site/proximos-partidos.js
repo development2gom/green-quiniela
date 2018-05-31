@@ -97,6 +97,8 @@ function gruposFaltantes() {
 
 }
 
-function aparecerLabelTerminar(){
+function aparecerLabelTerminar(mensaje){
     $(".js-span-finalizado").addClass("active");
+    
+    $(".js-span-finalizado").text(mensaje);
 }
