@@ -22,6 +22,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
             <li>Si logras el mejor puntaje al final de cada jornada ¡GANAS!.</li>
         </ul>
         <p>*Aplica restricciones, consulta términos y condiciones.</p>
+        <p>Para dudas y aclaraciones comunicate al 01 800 467 1897</p>
         <div class="sb-pasos-actions">
             <a href="<?=Url::base()?>/sign-up" class="btn btn-primary">Regístrate</a>
             <a href="<?=Url::base()?>/login" class="btn btn-primary">Inicia sesión</a>
