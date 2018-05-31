@@ -148,6 +148,23 @@ class Calendario
     }
 
     /**
+     * Regresa la fecha completa con hora
+     * @param string $string
+     * @return string
+     */
+    public static function getDateCompleteMessage($string)
+    {
+        $nombreDia = self::getDayName($string);
+        $dia = self::getDayNumber($string);
+        $mes = self::getMonthName($string);
+        $anio = self::getYearLastDigit($string);
+        $hora = self::getHoursMessage($string);
+        $min = self::getMinMessage($string);
+
+        return $nombreDia . " " . $dia . " de " . $mes . " del " . $anio . " a las " . $hora . " horas con " . $min . " min.";
+    }
+
+    /**
      * Regresa la fecha completa sin hora y minuto
      * @param string $string
      * @return string
@@ -179,6 +196,37 @@ class Calendario
         return $fecha;
     }
 
+    /**
+     * Regresa la hora y minutos
+     * @param string $string
+     * @return string
+     */
+    public static function getHoursMessage($string = null)
+    {
+        $tiempo = time();
+        if ($string) {
+            $tiempo = strtotime($string);
+        }
+        $fecha = date('H', $tiempo);
+
+        return $fecha;
+    }
+    
+    /**
+     * Regresa la hora y minutos
+     * @param string $string
+     * @return string
+     */
+    public static function getMinMessage($string = null)
+    {
+        $tiempo = time();
+        if ($string) {
+            $tiempo = strtotime($string);
+        }
+        $fecha = date('i', $tiempo);
+
+        return $fecha;
+    }
 
     /**
      * Regresa el nombre mes dependiendo del número
