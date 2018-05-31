@@ -101,20 +101,6 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
                             Lunes a domingo: 11:00 a 20:00 hrs
                         </td>
                     </tr>
-                    <tr>
-                        <td>Módulo de información #2</td>
-                        <td>1er nivel, pasillo central, frente a Sephora.</td>
-                        <td>
-                            Lunes a domingo: 11:00 a 20:00 hrs
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Módulo de información #3</td>
-                        <td>1er nivel, cerca de Sears, frente a Best Buy.</td>
-                        <td>
-                            Lunes a domingo: 11:00 a 20:00 hrs
-                        </td>
-                    </tr>
                 </tbody>
             </table>
 
