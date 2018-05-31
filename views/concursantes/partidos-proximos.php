@@ -121,7 +121,7 @@ $this->registerJsFile(
     <div class="col-md-4 col-d-flex-end">
         <div class="column-actions">
             <button id="js-verificar-siguiente" class="btn btn-primary" data-url="<?= Url::base() ?>">Finalizar</button>
-            <span>Quiniela guardada (FECHA)</span>
+            <span class="js-span-finalizado">Quiniela guardada (FECHA)</span>
         </div>
     </div>
 

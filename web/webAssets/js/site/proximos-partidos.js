@@ -53,6 +53,7 @@ $(document).ready(function () {
         if (sinContestar.length > 0) {
             swal('Espera', 'Falta por contestar ' + sinContestar.length + ' partidos', 'warning');
         } else {
+            $(".js-span-finalizado").show();
             window.location.href = url + "/concursantes/finalizado";
         }
     });
