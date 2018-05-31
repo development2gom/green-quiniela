@@ -166,7 +166,7 @@ class Calendario
         $hora = self::getHoursMessage($string);
         $min = self::getMinMessage($string);
 
-        return $nombreDia . " " . $dia . " de " . $mes . " del " . $anio . " a las " . $hora . " horas con " . $min . " min.";
+        return $nombreDia . " " . $dia . " de " . $mes . " del " . $anio . " a las " . $hora . " horas con " . $min . " min";
     }
 
     /**
