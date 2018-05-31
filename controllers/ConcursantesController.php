@@ -257,7 +257,8 @@ class ConcursantesController extends Controller
         if($existeQuiniela->save()){
             $mensajeTexto = "Gracias por participar. Finalizaste la quiniela el " . Calendario::getDateCompleteMessage($existeQuiniela->fch_termino);
             $mensajes = new Mensajes();
-			$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            //$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            $resp = $mensajes->mandarMensageMasivos($mensajeTexto, $usuario->txt_telefono);
             
             $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
