@@ -12,7 +12,7 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         <p style="color:white;"  data-url="<?= Url::base() ?>">
            Muchas gracias por participar
         </p>
-        <h5 style="color:white;">Los resultados serán publicados el <?=Calendario::getDateComplete($proximaFase->fch_premiacion)?></h5>
+        <h5 style="color:white;">Los resultados serán publicados el <?=Calendario::getDateComplete($fase->fch_premiacion)?></h5>
     </div>
 
 </div>
