@@ -286,14 +286,16 @@ class ConcursantesController extends Controller
             $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
             ->one();
 
-            if($faseTorneo){
-                $this->layout = "classic/topBar/mainConcursante";
-                
-                return $this->render("fecha-resultados", ["fase"=>$faseTorneo]);
-            }
+            
 
-            $this->layout = "classic/topBar/mainFinalizado";
-            return $this->render("finalizado");
+            // $this->layout = "classic/topBar/mainFinalizado";
+            // return $this->render("finalizado");
+        }
+
+        if($faseTorneo){
+            $this->layout = "classic/topBar/mainConcursante";
+            
+            return $this->render("fecha-resultados", ["fase"=>$faseTorneo]);
         }
     }
 
