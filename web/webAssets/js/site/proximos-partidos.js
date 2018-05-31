@@ -54,7 +54,7 @@ $(document).ready(function () {
         if (sinContestar.length > 0) {
             swal('Espera', 'Falta por contestar ' + sinContestar.length + ' partidos', 'warning');
         } else {
-            padre.addClass("algo");
+            
             hijo.addClass("active");
             window.location.href = url + "/concursantes/finalizado";
         }
@@ -95,4 +95,8 @@ function gruposFaltantes() {
 
 
 
+}
+
+function aparecerLabelTerminar(){
+    $(".js-span-finalizado").addClass("active");
 }

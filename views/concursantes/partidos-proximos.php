@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use app\models\Calendario;
 use app\models\WrkQuiniela;
+use yii\web\View;
 
 $this->title = "Quiniela mundialista";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
@@ -120,16 +121,20 @@ $this->registerJsFile(
     
     <div class="col-md-4 col-d-flex-end">
         <div class="column-actions">
-            <?php
-            if(){
-            ?>
             <button id="js-verificar-siguiente" class="btn btn-primary js-verificar-siguiente" data-url="<?= Url::base() ?>">Finalizar</button>
-            <?php }?>
             <span class="js-span-finalizado">Quiniela guardada (FECHA)</span>
-            <?php else{
-
-            }?>
         </div>
     </div>
 
 </div>
+
+
+<?php
+if($terminoPartido){
+    $this->registerJs(
+        "aparecerLabelTerminar()",
+        View::POS_READY,
+        'my-button-handler'
+    );
+}
+?>
