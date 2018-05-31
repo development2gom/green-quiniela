@@ -80,7 +80,7 @@ class ConcursantesController extends Controller
             $fasesAnteriores = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['>', new Expression('now()'), new Expression('fch_termino')])
             ->all();
 
-            
+            $this->layout = "classic/topBar/mainTerminado";
             return $this->render("fase-por-empezar", ["proximaFase"=>$proximaFase, "fasesAnteriores"=>$fasesAnteriores]);
         }   
         $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
