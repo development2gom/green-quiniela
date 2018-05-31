@@ -269,7 +269,7 @@ class ConcursantesController extends Controller
         }
 
         if($faseTorneo){
-            $this->layout = "classic/topBar/mainBienvenido";
+            $this->layout = "classic/topBar/mainTerminado";
             
             return $this->render("fecha-resultados", ["fase"=>$faseTorneo]);
         }

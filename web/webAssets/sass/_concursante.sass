@@ -373,3 +373,59 @@
 					margin: 16px auto 0
 					padding: 8px 16px
 					width: 330px
+
+.sec-finzalidado-gracias
+	align-items: center
+	background-attachment: fixed
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	display: flex
+	justify-content: center
+	position: relative
+	z-index: 9
+	.logo-25-anos
+		+respond-to(xs)
+			display: none
+
+.finalizado-gracias
+	align-items: center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	text-align: center
+	+respond-to(xs)
+		margin: 0 auto
+		max-width: 80%
+		
+	// 	margin-top: 140px
+	// +respond-to(tp)
+	// 	margin-top: 24px
+	// +respond-to(tx)
+	// 	margin-top: 24px
+	// +respond-to(sl)
+	// 	margin-top: 24px
+	// +respond-to(sp)
+	// 	margin-top: 16px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		margin-top: 120px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		margin-top: 110px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		margin-top: 100px
+
+	p,
+	h5
+		color: $white
+	p
+		@extend .fs-40
+		@extend .fw-bold
+		@extend .text-up
+		margin-bottom: 40px
+	
+	h5
+		@extend .fs-28
+		@extend .fw-bold
+		@extend .text-up
