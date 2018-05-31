@@ -9,7 +9,7 @@ use app\models\CatEquipos;
 use app\models\CatFasesDelTorneo;
 use yii\db\conditions\BetweenCondition;
 
-
+use app\models\Mensajes;
 use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
@@ -284,12 +284,14 @@ class ConcursantesController extends Controller
             $existeQuiniela->fch_termino = Calendario::getFechaActual();
         }
 
-        $existeQuiniela->save();
-
-        $this->layout = "classic/topBar/mainFinalizado";
-        return $this->render("finalizado");
-    
-
+        if($existeQuiniela->save()){
+            $mensajeTexto = "Gracias por participar. Finalizaste la quiniela el " . Calendario::getDateCompleteMessage($existeQuiniela->fch_termino);
+            $mensajes = new Mensajes();
+			$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            
+            $this->layout = "classic/topBar/mainFinalizado";
+            return $this->render("finalizado");
+        }
     }
 
     public function actionGanadores(){
