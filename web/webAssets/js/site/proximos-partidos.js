@@ -7,7 +7,7 @@ $(document).ready(function () {
         var resultado = $(this).data('nombre');
         var url = $(".text-completa-registra").data('url');
 
-        //se verifica si la variable esta bacia
+        // se verifica si la variable esta bacia
         /*if (!equipo_seleccionado) {
             equipo_seleccionado = null;
         }*/
