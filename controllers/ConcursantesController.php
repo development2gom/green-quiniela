@@ -251,7 +251,9 @@ class ConcursantesController extends Controller
         $existeQuiniela = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $faseTorneo->id_fase])->one();
 
         if ($existeQuiniela) {
-            $existeQuiniela->fch_termino = Calendario::getFechaActual();
+            $this->layout = "classic/topBar/mainTerminado";
+
+            return $this->render("fecha-resultados", ["fase" => $faseTorneo]);
         } else {
             $existeQuiniela = new EntUsuariosQuiniela();
             $existeQuiniela->id_usuario = $usuario->id_usuario;
