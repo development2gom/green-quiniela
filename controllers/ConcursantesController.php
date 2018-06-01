@@ -152,17 +152,12 @@ class ConcursantesController extends Controller
             return $response;
         }
 
-        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$fase->id_fase])->one();
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
 
         if($terminoPartido){
             $reponse->message = "Quiniela completada";
             return $response;
         }
-
-        
-        
-//envia el contenido de quiniela a la base de datos
-
 
         $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
                 where b_habilitado = 1
