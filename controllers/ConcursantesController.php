@@ -87,6 +87,7 @@ class ConcursantesController extends Controller
 
         $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$fase->id_fase])->one();
 
+
         return $this->render('partidos-proximos', ['partidos' => $partidos, "terminoPartido"=>$terminoPartido]);
        
 

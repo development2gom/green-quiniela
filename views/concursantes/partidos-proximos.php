@@ -7,11 +7,12 @@ use yii\web\View;
 $this->title = "Quiniela mundialista";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
 
-$this->registerJsFile(
-    '@web/webAssets/js/site/proximos-partidos.js',
-    ['depends' => [\app\assets\AppAsset::className()]]
-);
-
+if(!$terminoPartido){
+    $this->registerJsFile(
+        '@web/webAssets/js/site/proximos-partidos.js',
+        ['depends' => [\app\assets\AppAsset::className()]]
+    );
+}
 ?>
 
 <div class="row">
