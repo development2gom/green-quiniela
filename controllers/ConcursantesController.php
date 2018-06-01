@@ -137,6 +137,13 @@ class ConcursantesController extends Controller
             $partido_seleccionado = $_POST['equipo_seleccionado'];
         }
         //camel keys
+
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$fase->id_fase])->one();
+
+        if($terminoPartido){
+            $reponse->message = "Quiniela completada";
+            return $response;
+        }
         
         //$idUsuario = 4;
         $usuario = EntUsuarios::getUsuarioLogueado();
