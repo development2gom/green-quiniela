@@ -172,23 +172,23 @@ class ConcursantesController extends Controller
 
 
         if ($existeQuiniela) {
-            $relRespUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$idUsuario, 'id_partido'=>$resultado->id_partido])->one();
+            //$relRespUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$idUsuario, 'id_partido'=>$resultado->id_partido])->one();
 
             if ($partido_seleccionado) {
                 $existeQuiniela->id_equipo_ganador = $partido_seleccionado;
                 $existeQuiniela->b_empata = 0;
 
-                $relRespUsuario->id_ganador = $partido_seleccionado;
-                $relRespUsuario->b_empata = 0;
+                // $relRespUsuario->id_ganador = $partido_seleccionado;
+                // $relRespUsuario->b_empata = 0;
             } else {
                 $existeQuiniela->b_empata = 1;
                 $existeQuiniela->id_equipo_ganador = null;
 
-                $relRespUsuario->id_ganador = null;
-                $relRespUsuario->b_empata = 1;
+                // $relRespUsuario->id_ganador = null;
+                // $relRespUsuario->b_empata = 1;
             }
 
-            if ($existeQuiniela->save() && $relRespUsuario->save()) {
+            if ($existeQuiniela->save()) {
                 $response->status = 'success';
                 $response->message = 'resgistro guardado';
             }
@@ -201,26 +201,26 @@ class ConcursantesController extends Controller
             $quiniela->id_usuario = $idUsuario;
             $quiniela->fch_creacion = Calendario::getFechaActual();
 
-            $relRespUsuario = new RelRespuestaUsuario();
+            //$relRespUsuario = new RelRespuestaUsuario();
 
             if ($partido_seleccionado) {
                 $quiniela->id_equipo_ganador = $partido_seleccionado;
 
-                $relRespUsuario->id_usuario = $idUsuario;
-                $relRespUsuario->id_partido = $resultado->id_partido;
-                $relRespUsuario->id_ganador = $partido_seleccionado;
-                $relRespUsuario->b_empate = 0;
+                // $relRespUsuario->id_usuario = $idUsuario;
+                // $relRespUsuario->id_partido = $resultado->id_partido;
+                // $relRespUsuario->id_ganador = $partido_seleccionado;
+                // $relRespUsuario->b_empate = 0;
             } else {
                 $quiniela->b_empata = 1;
 
-                $relRespUsuario->id_usuario = $idUsuario;
-                $relRespUsuario->id_partido = $resultado->id_partido;
-                $relRespUsuario->id_ganador = null;
-                $relRespUsuario->b_empate = 1;
+                // $relRespUsuario->id_usuario = $idUsuario;
+                // $relRespUsuario->id_partido = $resultado->id_partido;
+                // $relRespUsuario->id_ganador = null;
+                // $relRespUsuario->b_empate = 1;
             }
             //envia el contenido de quiniela a la base de datos
 
-            if ($quiniela->save() && $relRespUsuario->save()) {
+            if ($quiniela->save()) {
                 $response->status = 'success';
                 $response->message = 'resgistro guardado';
             }
