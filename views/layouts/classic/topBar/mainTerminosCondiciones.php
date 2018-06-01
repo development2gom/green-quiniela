@@ -25,10 +25,11 @@ AppAssetTerminosCondiciones::register($this);
   <div class="pasto-verde">
     <img src="<?=Url::base()?>/webAssets/images/PASTO-INFERIOR.png" alt="">
   </div>
-
-  <a href="<?=Url::base()?>/site/terminos" class="logo-quiniela-terminos">
-    <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt="">
-  </a>
+  <div class="logo-quiniela-terminos">
+    <a href="<?=Url::base()?>/site/" class="logo-quiniela-terminos-link">
+      <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt="">
+    </a>
+  </div>
 
   <?php $this->beginBody();?>
   
