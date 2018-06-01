@@ -155,6 +155,7 @@ class ConcursantesController extends Controller
         $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
 
         if($terminoPartido){
+            $response->status = 'success';
             $reponse->message = "Quiniela completada";
             return $response;
         }
