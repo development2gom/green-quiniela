@@ -307,7 +307,6 @@ a
 
 /* Login */
 .login
-	background-color: red
 	.brand
 		.brand-img
 			height: 100px
@@ -481,14 +480,16 @@ a
 		&:focus
 			border-color: darken( $accent, 20% )
 
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"]
+		text-transform: uppercase
+
 // Loader
 .loader-overlay
 	background-color: $primary
-
-// Loading
-.animsition-loading
-	background-color: $gray-900
-	border-left: 5px solid $accent
 
 // Template design
 .triangulo-naranja,
@@ -505,6 +506,24 @@ a
 	z-index: 2
 	+respond-to(xs)
 		z-index: 18
+
+.quiniela-sign-up
+	align-items: center
+	background-color: $accent
+	border-radius: 50%
+	display: flex
+	height: 40px
+	justify-content: center
+	position: fixed
+	right: 8px
+	top: 12px
+	width: 40px
+	z-index: 19
+	i
+		color: $primary
+	+respond-to(xs)
+		right: 16px
+		top: 16px
 
 .logo-quiniela,
 .logo-quiniela-terminos
@@ -523,13 +542,13 @@ a
 	display: none
 	left: 0
 	right: 0
-	top: -70px
+	top: -190px
 	+respond-to(xs)
 		display: block
 	+respond-to(tp)
 		top: -40px
 	+respond-to(tx)
-		top: -40px
+		top: -100px
 	+respond-to(sl)
 		top: -50px
 	+respond-to(sp)
@@ -565,6 +584,7 @@ a
 	bottom: 5px
 	+respond-to(xs)
 		display: block
+		z-index: 2
 	+respond-to(sp)
 		bottom: 15px
 
@@ -654,69 +674,98 @@ a
 			width: 100px
 
 .logo-quiniela
+	// background-color: red
 	display: inline-block
-	left: 30px
-	top: 20px
+	left: 20px
+	top: 16px
+	width: 270px
+	z-index: 19
 	+respond-to(lg)
-		top: 40px
-		left: 40px
+		top: 24px
+		left: 24px
 	+respond-to(md)
-		top: 40px
-		left: 40px
+		top: 24px
+		left: 24px
+		width: 240px
 	+respond-to(sm)
-		top: 40px
-		left: 40px
+		top: 24px
+		left: 24px
+		width: 200px
 	+respond-to(tl)
-		top: 30px
-		left: 40px
-	+respond-to(xs)
-		top: 25px
-		left: 40px
-	+respond-to(sp)
 		top: 20px
-		left: 40px
+		left: 20px
+		width: 180px
+	+respond-to(xs)
+		top: 16px
+		left: 16px
+		width: 180px
+	+respond-to(sp)
+		top: 16px
+		left: 16px
+		width: 140px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		top: 13px
+		width: 28%
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		top: 24px
+		width: 26%
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		top: 16px
+		width: 24%
 
 	img
-		// max-width: 380px
-		width: 24%
-		+respond-to(md)
-			width: 22%
-		+respond-to(sm)
-			width: 20%
-		+respond-to(tl)
-			width: 20%
-		+respond-to(xs)
-			width: 40%
-		+respond-to(sp)
+		max-width: 100%
+		// width: 100%
+		// +respond-to(md)
+		// 	width: 22%
+		// +respond-to(sm)
+		// 	width: 20%
+		// +respond-to(tl)
+		// 	width: 20%
+		// +respond-to(xs)
+		// 	width: 40%
+		// +respond-to(sp)
 
-		@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
-			width: 22%
-		@media screen and (max-width: 600px ) and (orientation: landscape)
-			width: 21%
-		@media screen and (max-width: 480px ) and (orientation: landscape)
-			width: 20%
+		// @media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		// 	width: 22%
+		// @media screen and (max-width: 600px ) and (orientation: landscape)
+		// 	width: 21%
+		// @media screen and (max-width: 480px ) and (orientation: landscape)
+		// 	width: 20%
 
 .logo-quiniela-terminos
+	// background-color: red
 	left: 0
 	// position: fixed
 	top: 0
-	img
-		max-width: 480px
-		width: 480px
-		+respond-to(md)
-			max-width: 440px
-			width: 440px
-		+respond-to(sm)
-			max-width: 380px
-			width: 380px
-		+respond-to(tl)
-			max-width: 320px
-			width: 320px
-		+respond-to(xs)
-			max-width: 100%
+	max-width: 90%
+	width: 430px
+	z-index: 19
+	a
+		display: inline
+		img
+			max-width: 430px
+			width: 430px
+			+respond-to(md)
+				max-width: 420px
+				width: 420px
+			+respond-to(sm)
+				max-width: 360px
+				width: 360px
+			+respond-to(tl)
+				max-width: 300px
+				width: 300px
+			+respond-to(xs)
+				max-width: 100%
 
 .panel
 	box-shadow: none
 
 .page-content
 	overflow-x: hidden
+
+
+.page-content
+	.logo-quiniela-blue
+		max-width: 80%

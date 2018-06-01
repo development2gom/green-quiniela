@@ -11,13 +11,16 @@ $(document).ready(function () {
         /*if (!equipo_seleccionado) {
             equipo_seleccionado = null;
         }*/
-var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
+        var contenedor = $('#js-div-partido-' + token + ' .active').removeClass('active');
 
-        var padre = $(this).parent();
-        padre.toggleClass('active');
+        // var padre = $(this).parent();
+        // padre.toggleClass('active');
+
+        $(this).toggleClass('active');
+
 
         $.ajax({
-            url: url+'/concursantes/guardar-resultados',
+            url: url + '/concursantes/guardar-resultados',
             type: 'post',
             data: {
                 token: token,
@@ -26,11 +29,12 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
             success: function (resultado) {
                 if (resultado.status == 'success') {
                     //swal('Correcto', 'Resultados guardados con exito', 'success');
-                    $("#js-div-partido-"+token).removeClass('js-partido-no-contestado');
+                    $("#js-div-partido-" + token).removeClass('js-partido-no-contestado');
                 }
                 else {
                     swal('Espera', resultado.message, 'error');
                 }
+                gruposFaltantes();
 
             },
             error: function () {
@@ -40,31 +44,61 @@ var contenedor= $('#js-div-partido-'+token+' .active').removeClass('active');
         });
     });
 
-    $("#js-verificar-siguiente").on('click', function(){
+    $(".js-verificar-siguiente").on('click', function () {
         var url = $(this).data('url');
         var sinContestar = $(".js-partido-no-contestado");
-        if(sinContestar.length > 0){
-            swal('Espera', 'Falta por contestar '+sinContestar.length+' partidos', 'warning');            
-        }else{
-            window.location.href = url+"/concursantes/finalizado";
+        var padre = $(this).parent();
+        var hijo = padre.find('.js-span-finalizado');
+        gruposFaltantes();
+
+        if (sinContestar.length > 0) {
+            swal('Espera', 'Falta por contestar ' + sinContestar.length + ' partidos', 'warning');
+        } else {
+            
+            hijo.addClass("active");
+            window.location.href = url + "/concursantes/finalizado";
         }
     });
 
-    $('.js-avanzar').on('click', function(){
+    $('.js-avanzar').on('click', function () {
         var codigo = $('.js-codigo').val();
         var url = $(this).data('url');
 
         $.ajax({
-            url: url+"/concursantes/verificar-codigo",
-            type:'POST',
-            data: {codigo: codigo},
-            success: function(resp){
-                $(".js-status-codigo").html(resp.message);                
+            url: url + "/concursantes/verificar-codigo",
+            type: 'POST',
+            data: { codigo: codigo },
+            success: function (resp) {
+                $(".js-status-codigo").html(resp.message);
+                gruposFaltantes();
             },
-            error: function(){
+            error: function () {
 
             }
         });
     });
+
+    gruposFaltantes();
+
+
+
 });
 
+function gruposFaltantes() {
+
+    $(".panel-heading").each(function (index) {
+        var elemento = $(".panel-collapse:eq(" + index + ") .js-partido-no-contestado").size();
+        if (elemento == 0) {
+            $(this).addClass("active");
+        }
+    });
+
+
+
+}
+
+function aparecerLabelTerminar(mensaje){
+    $(".js-span-finalizado").addClass("active");
+    
+    $(".js-span-finalizado").text(mensaje);
+}

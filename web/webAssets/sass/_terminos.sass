@@ -12,7 +12,8 @@
 	z-index: 9
 
 	.pasto-verde-inferior-izquierda,
-	.logo-quiniela-terminos
+	.logo-quiniela-terminos,
+	.pasto-verde
 		+respond-to(xs)
 			display: none
 	
@@ -24,14 +25,22 @@
 
 		.page-content
 			width: 100%
-			
 
-		.stc-img
-			display: none
-			margin: 0 auto
-			max-width: 100%
-			+respond-to(xs)
-				display: block
+		.stc-logo
+			align-items: center
+			display: flex
+			justify-content: center
+			width: 100%
+			.stc-link
+				align-items: center
+				display: flex
+				justify-content: center
+				.stc-img
+					display: none
+					margin: 0 auto
+					max-width: 80%
+					+respond-to(xs)
+						display: flex
 
 		.stc-title
 			h2
@@ -48,7 +57,7 @@
 			margin-top: 32px
 			padding-bottom: 32px
 			+respond-to(xs)
-				margin-bottom: 180px
+				margin-bottom: 60px
 				padding-left: 16px
 				padding-right: 16px
 

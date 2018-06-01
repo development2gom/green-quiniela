@@ -9,7 +9,7 @@ use app\models\CatEquipos;
 use app\models\CatFasesDelTorneo;
 use yii\db\conditions\BetweenCondition;
 
-
+use app\models\Mensajes;
 use app\models\ResponseServices;
 use app\models\WrkQuiniela;
 use app\models\Calendario;
@@ -19,6 +19,9 @@ use yii\filters\VerbFilter;
 use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\CatCodigos;
 use app\models\RelRespuestaUsuario;
+
+use app\models\EntUsuariosQuiniela;
+
 
 
 
@@ -39,7 +42,7 @@ class ConcursantesController extends Controller
                         'actions' => ['partidos-fase', 'partidos-proximos', 'verificar-codigo'],
                         'allow' => true,
                         'roles' => ['@'],
-                          
+
                     ],
                 ],
             ],
@@ -49,8 +52,8 @@ class ConcursantesController extends Controller
            //         'logout' => ['post'],
            //     ],
            // ],
-       ];
-   }
+        ];
+    }
 
     public function actionInstrucciones()
     {
@@ -60,17 +63,34 @@ class ConcursantesController extends Controller
 
     public function actionPartidosProximos()
     {
-        $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
-            ->one();
-
-        $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
+        $usuario = EntUsuarios::getUsuarioLogueado();
 
         $this->layout = "classic/topBar/mainConcursante";
 
-        return $this->render('partidos-proximos', ['partidos' => $partidos]);
+        $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+            ->one();
 
-        //return $this->render('partidos-proximos', ['partidos' => $partidos], ['fase' => $fase]);
-       
+        if (!$fase) {
+            $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_inicio')])
+                ->one();
+
+            if (!$proximaFase) {
+                $fases = CatFasesDelTorneo::find()->where(["b_habilitado" => 1])->all();
+                return $this->render("quiniela-finalizada", ["fases" => $fases]);
+            }
+            $fasesAnteriores = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['>', new Expression('now()'), new Expression('fch_termino')])
+                ->all();
+
+            $this->layout = "classic/topBar/mainTerminado";
+            return $this->render("fase-por-empezar", ["proximaFase" => $proximaFase, "fasesAnteriores" => $fasesAnteriores]);
+        }
+        $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
+
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $fase->id_fase])->one();
+
+
+        return $this->render('partidos-proximos', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
+
 
     }
 
@@ -93,14 +113,12 @@ class ConcursantesController extends Controller
 
     public function actionGuardarResultados()
     {
-        
+
 
         $response = new ResponseServices();
         //crear un if para conpara la face  del catalogo de torneo y la fase de los partidos y son iguales poder segir con el gusrdado
- 
-        $idUsuario = Yii::$app->user->identity->id_usuario;
 
-        $usuario = EntUsuarios::getUsuarioLogueado($idUsuario);
+        $usuario = EntUsuarios::getUsuarioLogueado();
         $idUsuario = $usuario->id_usuario;
 
 
@@ -120,9 +138,8 @@ class ConcursantesController extends Controller
             $partido_seleccionado = $_POST['equipo_seleccionado'];
         }
         //camel keys
-        
-        //$idUsuario = 4;
-        $usuario = EntUsuarios::getUsuarioLogueado();
+
+
         $idUsuario = $usuario->id_usuario;
         //consulta a la base de datos
         $faseTorneo = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
@@ -141,10 +158,22 @@ class ConcursantesController extends Controller
             where b_habilitado = 1
             and txt_token ="' . $token . '")')])->one();
 
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
+
+        if($terminoPartido){
+            $response->status = 'success';
+            $response->message = "Quiniela completada";
+            return $response;
+        }
+
+        $existeQuiniela = WrkQuiniela::find()->where(['id_usuario' => $idUsuario])->andWhere(['=', 'id_partido', new Expression('(select id_partido from wrk_partidos
+                where b_habilitado = 1
+                and txt_token ="' . $token . '")')])->one();
+
 
         if ($existeQuiniela) {
-            $relRespUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$idUsuario, 'id_partido'=>$resultado->id_partido])->one();            
-            
+            $relRespUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$idUsuario, 'id_partido'=>$resultado->id_partido])->one();
+
             if ($partido_seleccionado) {
                 $existeQuiniela->id_equipo_ganador = $partido_seleccionado;
                 $existeQuiniela->b_empata = 0;
@@ -163,7 +192,7 @@ class ConcursantesController extends Controller
                 $response->status = 'success';
                 $response->message = 'resgistro guardado';
             }
-        }else{
+        } else {
 
             //se le asigna a la variable quiniela todo el contenido que existe en la tabla wrkquiniela
             $quiniela = new WrkQuiniela();
@@ -173,7 +202,7 @@ class ConcursantesController extends Controller
             $quiniela->fch_creacion = Calendario::getFechaActual();
 
             $relRespUsuario = new RelRespuestaUsuario();
-            
+
             if ($partido_seleccionado) {
                 $quiniela->id_equipo_ganador = $partido_seleccionado;
 
@@ -215,29 +244,90 @@ class ConcursantesController extends Controller
     public function actionTermino()
     {
 
+
         $this->layout = "classic/topBar/mainTermino";
         return $this->render("termino");
     }
 
-    public function actionFinalizado(){
-        
-        $this->layout = "classic/topBar/mainFinalizado";
-        return $this->render("finalizado");
-    
+    public function getFaseActual()
+    {
+        $faseTorneo = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])
+            ->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+            ->one();
+
+        return $faseTorneo;
 
     }
+    public function actionFinalizado()
+    {
 
-    public function actionVerificarCodigo(){
-        $usuario = Yii::$app->user->identity;            
 
-        if(isset($_POST['codigo'])){
-            $codigo = CatCodigos::find()->where(['txt_codigo'=>$_POST['codigo'], 'b_habilitado'=>1])->one();
+
+        $usuario = EntUsuarios::getUsuarioLogueado();
+        $faseTorneo = $this->getFaseActual();
+        $codigo = RelUsuariosCodigos::find()->where(["id_fase" => $faseTorneo->id_fase, "id_usuario" => $usuario->id_usuario])->one();
+
+        if (!$codigo) {
+            // @todo usuario no esta participando
+        }
+
+        $existeQuiniela = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $faseTorneo->id_fase])->one();
+
+        if ($existeQuiniela) {
+            $existeQuiniela->fch_termino = Calendario::getFechaActual();
+        } else {
+            $existeQuiniela = new EntUsuariosQuiniela();
+            $existeQuiniela->id_usuario = $usuario->id_usuario;
+            $existeQuiniela->id_fase = $faseTorneo->id_fase;
+            $existeQuiniela->fch_termino = Calendario::getFechaActual();
+        }
+
+        if ($existeQuiniela->save()) {
+            $mensajeTexto = "Gracias por participar Finalizaste la quiniela el " . Calendario::getDateCompleteMessage($existeQuiniela->fch_termino);
+            $mensajes = new Mensajes();
+
+            $resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            //$resp = $mensajes->mandarMensageMasivos($mensajeTexto, $usuario->txt_telefono);
+
+            $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+                ->one();
+
             
+
+            // $this->layout = "classic/topBar/mainFinalizado";
+            // return $this->render("finalizado");
+        }
+
+        if ($faseTorneo) {
+            $this->layout = "classic/topBar/mainTerminado";
+
+            return $this->render("fecha-resultados", ["fase" => $faseTorneo]);
+        }
+    }
+
+    public function actionFinal(){
+        $this->layout = "classic/topBar/mainFinalizado";
+        return $this->render("finalizado");
+    }
+
+    public function actionGanadores()
+    {
+        $this->layout = "classic/topBar/mainBienvenido";
+        return $this->render("ganadores");
+    }
+
+    public function actionVerificarCodigo()
+    {
+        $usuario = Yii::$app->user->identity;
+
+        if (isset($_POST['codigo'])) {
+            $codigo = CatCodigos::find()->where(['txt_codigo' => $_POST['codigo'], 'b_habilitado' => 1])->one();
+
             /**
              * TODO: Verificar codigo por fase
              */
-            if($codigo){
-                if($codigo->b_codigo_usado == 0){
+            if ($codigo) {
+                if ($codigo->b_codigo_usado == 0) {
                     $codigo->b_codigo_usado = 1;
                     $codigo->save();
 
@@ -247,14 +337,14 @@ class ConcursantesController extends Controller
                     $relUSerCodigo->save();
 
                     return $this->redirect(['partidos-proximos']);
-                }else{
+                } else {
                     $response = new ResponseServices();
                     $response->status = "error1";
                     $response->message = "Este codigo ya fue usado";
 
                     return $response;
                 }
-            }else{
+            } else {
                 $response = new ResponseServices();
                 $response->status = "error2";
                 $response->message = "Este codigo no existe";
@@ -264,7 +354,7 @@ class ConcursantesController extends Controller
         }
         $response = new ResponseServices();
 
-         return $response;
+        return $response;
     }
 }
 

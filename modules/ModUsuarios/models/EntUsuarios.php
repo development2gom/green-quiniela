@@ -11,6 +11,7 @@ use kartik\password\StrengthValidator;
 use yii\web\UploadedFile;
 use app\models\Email;
 use app\models\Calendario;
+use app\models\RelUsuariosCodigos;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -67,7 +68,11 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 					'on' => 'registerInput',
 					'message'=>'Los email deben coincidir'
 				],
-
+				[
+					['txt_email', 'repeatEmail'], 'trim', 
+					
+					
+				],
 				
 				[
 					['txt_email', 'repeatEmail'], 'email', 
@@ -274,6 +279,9 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				'id_usuario' => 'id_usuario' 
 		] );
 	}
+
+	
+	
 	
 	/**
 	 *
@@ -285,6 +293,10 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		] );
 	}
 	
+	public function getEntUsuariosQuinielas() 
+	{ 
+		return $this->hasMany(EntUsuariosQuiniela::className(), ['id_usuario' => 'id_usuario']); 
+	}
 	/**
 	 * INCLUDE USER LOGIN VALIDATION FUNCTIONS*
 	 */

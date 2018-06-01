@@ -1,6 +1,7 @@
 //inicia la ejecucion 
-$(document).ready(function(){
+$(document).ready(function () {
     //aqui comiensa la accion para la clase  js-equipos
+  
     $(".js-seleccionar-equipo").on("click",function(){
         // se agrega el contenido a variables 
         var partido =$(this).data("token");
@@ -8,7 +9,11 @@ $(document).ready(function(){
         var resultado=$(this).data("nombre");
         var url = $(".js-div-contenedor").data('url');
 
-        if(!equipo_ganador){
+        var seleccion = $('#js-seleccion-' + partido + ' .active').removeClass('active');
+        var seleccionado = $(this).parent();
+        seleccionado.toggleClass('active');
+
+        if (!equipo_ganador) {
             equipo_ganador = null;
         }
      
@@ -29,6 +34,10 @@ $(document).ready(function(){
             },
         });
     });
+      
+    $(".js-guardar").on("click", function () {
+        swal('Datos guardados con exito');
+    })
 });
 
 

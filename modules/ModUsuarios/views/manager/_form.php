@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Nombre.</label>
+                <label for="">Nombre</label>
             </div>
             <div class="col-12 col-md-8"> 
                 <?= $form->field($model, 'txt_username')->textInput(['maxlength' => true])->label(false) ?>            
@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Email.</label>
+                <label for="">Email</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_email')->textInput(['maxlength' => true])->label(false) ?>
@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Repetir email.</label>
+                <label for="">Confirmar email</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'repeatEmail')->textInput(['maxlength' => true])->label(false) ?>
@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Contraseña.</label>
+                <label for="">Crea Contraseña</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label(false) ?>
@@ -66,7 +66,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Repetir contraseña.</label>
+                <label for="">Confirmar contraseña</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'repeatPassword')->passwordInput(['maxlength' => true])->label(false) ?>
@@ -78,7 +78,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Teléfono.</label>
+                <label for="">Teléfono Celular</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_telefono')->textInput(['maxlength' => true])->label(false) ?>            
@@ -90,7 +90,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Código postal.</label>
+                <label for="">Código postal</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_codigo_postal')->textInput(['maxlength' => true])->label(false) ?>            
@@ -102,7 +102,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Código de acceso.</label>
+                <label for="">Código de acceso</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'txt_codigo')->textInput(['maxlength' => true, 'placeholder' => '7C564007X4W'])->label(false) ?>            
@@ -113,18 +113,15 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <div class="form-group-check">
-
                 <!-- <div class="checkbox-custom checkbox-warning">
                     <input type="checkbox" id="check-terminos" name="inputCheckboxes" />
                     <label for="check-terminos">Acepto terminos y condiciones</label>
                     <span class="js-aviso-check"></span>
                 </div>
-
                  -->
-
                 <div class="checkboxes">
                     <div class="checkboxes-cont">
-                        <input type="checkbox" id="check-terminos" name="inputCheckboxes" value="" />
+                        <input type="checkbox" id="check-terminos" name="inputCheckboxes" checked value="" />
                         <label for="check-terminos">
                             <span></span> <p>Acepto los términos y condiciones de la promoción.</p>
                         </label>

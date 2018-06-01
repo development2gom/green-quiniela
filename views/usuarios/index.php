@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\EntUsuariosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ent Usuarios';
+$this->title = 'Usuarios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ent-usuarios-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2 class="title-admin"><?= Html::encode($this->title) ?></h2>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

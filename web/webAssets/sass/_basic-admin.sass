@@ -296,14 +296,11 @@ a
 /* Imagen de fondo */
 .page-login-v3
 	&:before
-		background-image: url('../images/IMAGEN-AZUL.png')
-		background-position: 50%
-		background-repeat: no-repeat
-		background-size: cover
+		background-color: $primary
+		background-image: none
 
 /* Login */
 .login
-	background-color: red
 	.brand
 		.brand-img
 			height: 100px
@@ -319,10 +316,25 @@ a
 /*  Header
 	======================================= */
 .navbar-inverse
-	background-color: $primary
+	background-color: $accent
 	.navbar-collapse,
 	.navbar-form
-		border-color: $primary
+		border-color: $accent
+
+.navbar-brand
+	padding: 12px !important
+.site-navbar
+	.navbar-header
+		.navbar-brand-logo
+			height: 48px !important
+
+.navbar-nav,
+.navbar-toolbar
+	.nav-link.navbar-avatar
+		padding-top: 1.557rem !important
+		padding-bottom: 1.557rem !important
+
+
 
 /*  Footer
 	======================================= */
@@ -382,9 +394,5 @@ a
 
 // Loader
 .loader-overlay
-	background-color: $primary
+	background-color: $primary !important
 
-// Loading
-.animsition-loading
-	background-color: $gray-900
-	border-left: 5px solid $accent

@@ -14,6 +14,14 @@
 	padding-top: 16.858rem !important
 	position: relative
 	z-index: 9
+	+respond-to(xs)
+		padding-top: 140px !important
+	+respond-to(tp)
+		padding-top: 140px !important
+	+respond-to(tx)
+		padding-top: 140px !important
+	+respond-to(sl)
+		padding-top: 120px !important
 	
 	.logo-25-anos
 		+respond-to(xs)
@@ -21,7 +29,7 @@
 
 	.page-concursante
 		margin: 0 auto
-		min-height: 100vh
+		// min-height: 100vh
 		position: relative
 		width: 95%
 		z-index: 9
@@ -102,6 +110,15 @@
 						&::after
 							opacity: .6
 
+					&.active
+						background-color: $white
+						border-bottom: 2px solid $primary
+						.panel-title
+							color: $primary
+							&::after,
+							&::before
+								color: $primary
+
 				.panel-collapse
 					background-color: rgba( $black, .38 )
 					.panel-body
@@ -115,6 +132,7 @@
 						.panel-body-item-button
 							// background-color: red
 							border: 2px solid transparent
+							cursor: pointer
 							p.panel-body-pais
 								@extend .color-white
 								display: block
@@ -123,7 +141,6 @@
 								text-align: center
 							img.panel-body-equipo
 								display: block
-								cursor: pointer
 								margin: 0 auto 12px
 								max-width: 42px
 								width: 42px
@@ -137,6 +154,8 @@
 
 						.panel-body-item
 							padding: 8px 2px
+							&.active
+								background-color: rgba($accent,.7)
 
 						.panel-body-item-button
 							border-radius: 6px
@@ -144,40 +163,161 @@
 							// .panel-body-btn
 							// 	background-color: transparent
 
-			a.btn-primary,
-			button.btn-primary
-				color: $primary
-				@extend .fs-34
-				@extend .fw-bold
-				height: 60px
-				margin-top: 24px
-				@extend .text-up
-				width: 260px
+			
 
 			.col-d-flex,
 			.col-d-flex-end
-				display: flex
-				flex-direction: column
-				justify-content: center
+				.column-actions,
+				.column-textos
+					// display: flex
+					flex-direction: column
+					justify-content: center
 			
 			.col-d-flex-end
-				align-items: flex-end
+				.column-actions
+					align-items: flex-end
+					+respond-to(lg)
+						display: none
+					+respond-to(md)
+						display: none
+					+respond-to(sm)
+						display: none
+					+respond-to(tl)
+						display: none
+					+respond-to(xs)
+						display: flex
+					span
+						color: $error
+						display: none
+						@extend .fs-18
+						@extend .fw-regular
+						&.active
+							display: block
+
+					a.btn-primary,
+					button.btn-primary,
+					.btn-fixed-pp
+						color: $primary
+						@extend .fs-34
+						@extend .fw-bold
+						height: 60px
+						margin-top: 24px
+						@extend .text-up
+						width: 260px
+					
 
 			.col-d-flex
-				.text-completa-registra,
-				.text-resultados
-					@extend .color-white
-					max-width: 100%
-					width: 242px
+				.column-textos
+					justify-content: center
+					+respond-to(lg)
+						display: none
+					+respond-to(md)
+						display: none
+					+respond-to(sm)
+						display: none
+					+respond-to(tl)
+						display: none
 					+respond-to(xs)
-						width: 100%
+						display: flex
+					.text-completa-registra,
+					.text-resultados
+						@extend .color-white
+						max-width: 100%
+						width: 242px
+						+respond-to(xs)
+							width: 100%
 
-				.text-completa-registra
-					@extend .fs-18
-					@extend .fw-regular
-				.text-resultados
-					@extend .fs-20
-					@extend .fw-bold
+					.text-completa-registra
+						@extend .fs-18
+						@extend .fw-regular
+					.text-resultados
+						@extend .fs-20
+						@extend .fw-bold
+
+.pp-textos
+	align-items: flex-start
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	width: 230px
+	z-index: 19
+	+respond-to(lg)
+		bottom: 10vh
+		position: fixed
+		left: 6vw
+	+respond-to(md)
+		bottom: 10vh
+		position: fixed
+		left: 6vw
+	+respond-to(sm)
+		bottom: 10vh
+		position: fixed
+		left: 6vw
+	+respond-to(tl)
+		bottom: 10vh
+		position: fixed
+		left: 6vw
+	+respond-to(xs)
+		display: none
+	.text-completa-registra,
+	.text-resultados
+		@extend .color-white
+		max-width: 100%
+		width: 242px
+		+respond-to(xs)
+			width: 100%
+
+	.text-completa-registra
+		@extend .fs-18
+		@extend .fw-regular
+	.text-resultados
+		@extend .fs-20
+		@extend .fw-bold
+
+.pp-actions
+	align-items: flex-end
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	width: 230px
+	z-index: 19
+	+respond-to(lg)
+		bottom: 10vh
+		position: fixed
+		right: 6vw
+	+respond-to(md)
+		bottom: 10vh
+		position: fixed
+		right: 6vw
+	+respond-to(sm)
+		bottom: 10vh
+		position: fixed
+		right: 6vw
+	+respond-to(tl)
+		bottom: 10vh
+		position: fixed
+		right: 6vw
+	+respond-to(xs)
+		display: none
+	a.btn-fixed-pp,
+	button.btn-fixed-pp
+		background-size: 230px 50px
+		color: $primary
+		@extend .fs-34
+		@extend .fw-bold
+		height: 50px
+		line-height: 1.3
+		margin-top: 24px
+		@extend .text-up
+		width: 230px
+	span
+		color: $error
+		display: none
+		@extend .fs-18
+		@extend .fw-regular
+		&.active
+			display: block
+
 
 .sec-finalizado
 	background-color: $accent
@@ -233,3 +373,59 @@
 					margin: 16px auto 0
 					padding: 8px 16px
 					width: 330px
+
+.sec-finzalidado-gracias
+	align-items: center
+	background-attachment: fixed
+	background-image: url('../images/IMAGEN-AZUL.png')
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	display: flex
+	justify-content: center
+	position: relative
+	z-index: 9
+	.logo-25-anos
+		+respond-to(xs)
+			display: none
+
+.finalizado-gracias
+	align-items: center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	text-align: center
+	+respond-to(xs)
+		margin: 0 auto
+		max-width: 80%
+		
+	// 	margin-top: 140px
+	// +respond-to(tp)
+	// 	margin-top: 24px
+	// +respond-to(tx)
+	// 	margin-top: 24px
+	// +respond-to(sl)
+	// 	margin-top: 24px
+	// +respond-to(sp)
+	// 	margin-top: 16px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		margin-top: 120px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		margin-top: 110px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		margin-top: 100px
+
+	p,
+	h5
+		color: $white
+	p
+		@extend .fs-40
+		@extend .fw-bold
+		@extend .text-up
+		margin-bottom: 40px
+	
+	h5
+		@extend .fs-28
+		@extend .fw-bold
+		@extend .text-up

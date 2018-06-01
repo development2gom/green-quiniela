@@ -33,7 +33,7 @@ AppAssetConcursante::register($this);
   <a href="<?=Url::base()?>/" class="logo-quiniela">
     <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
   </a>
-
+  <?=$this->render("//components/logout")?>
   <?php $this->beginBody();?>
   
 
@@ -44,6 +44,26 @@ AppAssetConcursante::register($this);
   </div>  
 
   <?php $this->endBody();?>
+
+  <div class="pp-textos">
+      <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+          1. Por cada partido selecciona un campo (equipo ganador o empate) 
+      </p>
+      <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+          2. Completa cada grupo
+      </p>
+      <p class="text-completa-registra" data-url="<?= Url::base() ?>">
+          3. Da click en finalizar para guardar juego.
+      </p>
+      <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
+      <p class="text-completa-registra" data-url="<?= Url::base() ?>">Para dudas y aclaraciones comunicate  al  01 800 467 1897</p>
+  </div>
+
+  <div class="pp-actions">
+    <button id="js-verificar-siguiente" class="btn btn-primary btn-fixed-pp js-verificar-siguiente" data-url="<?= Url::base() ?>">Finalizar</button>
+    <span class="js-span-finalizado">Quiniela guardada (FECHA)</span>
+  </div>
+  
 
   <?=$this->render("//components/classic/topbar/modals")?>
 

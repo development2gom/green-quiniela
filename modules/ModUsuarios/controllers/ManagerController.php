@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
 use app\models\CatCodigos;
 use app\models\RelUsuariosCodigos;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 /**
  * Default controller for the `musuarios` module
@@ -66,6 +68,7 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
+
 			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_habilitado'=>1])->one();
 			if($codigo){
 				if($codigo->b_codigo_usado == 0){
@@ -84,6 +87,7 @@ class ManagerController extends Controller {
 						$relUSerCodigo = new RelUsuariosCodigos();
 						$relUSerCodigo->id_usuario = $model->id_usuario;
 						$relUSerCodigo->id_codigo = $codigo->id_codigo;
+						$relUSerCodigo->id_fase = $codigo->id_fase;
 						$relUSerCodigo->save();
 
 						// Envia un correo de bienvenida al usuario
@@ -112,10 +116,10 @@ class ManagerController extends Controller {
 						print_r($model->errors);
 					}
 				}else{
-					$model->addError('txt_codigo', 'Este codigo ya fue usado.');					
+					$model->addError('txt_codigo', 'Este código ya fue usado.');					
 				}
 			}else{
-				$model->addError('txt_codigo', 'Este codigo no existe.');
+				$model->addError('txt_codigo', 'Este código no existe.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
@@ -162,6 +166,8 @@ class ManagerController extends Controller {
 			
 			// Envio de correo electronico
 			$utils->sendEmailRecuperarPassword ($user->txt_email, $parametrosEmail );
+
+			Yii::$app->session->setFlash('success', "Se ha enviado un email a: ".$user->txt_email." para recuperar tu contraseña");
 		}
 		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'peticionPass', [ 
@@ -225,6 +231,7 @@ class ManagerController extends Controller {
 			] );
 		}
 		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'cambiarPass', [ 
 				'model' => $model 
 		] );
@@ -258,7 +265,9 @@ class ManagerController extends Controller {
 	public function actionLogin() {
 
 		if (! Yii::$app->user->isGuest) {
-			return $this->goHome ();
+			return $this->redirect ( [ 
+				'//concursantes/partidos-proximos' 
+			] );
 		}
 
 		$model = new LoginForm ();

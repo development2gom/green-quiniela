@@ -1,8 +1,10 @@
 
 <?php
+use yii\helpers\Url;
+
 $this->title = "Usuarios";
 $this->params['classBody'] = "sec-usuarios";
-['depends'=>[\app\assets\AppAssetClassicTopBar::className()]];
+['depends' => [\app\assets\AppAssetClassicTopBar::className()]];
 
 use yii\bootstrap\Button;
 
@@ -14,15 +16,15 @@ use app\models\Calendario;
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th class="text-center">Número de puntos</th>
-                <th>Fecha de creación</th>
+                <th class="text-center">Puntuación</th>
+                <th>Fecha de registro</th>
             </tr>
         </thead>
         <tbody>
             
             <?php
             $nombreUsuario = null;
-            foreach($usuarios as $usuarioactual){
+            foreach ($usuarios as $usuarioactual) {
 
                 $idUsuario = $usuarioactual->id_usuario;
                 $tipoUsuario = $usuarioactual->txt_auth_item;
@@ -32,8 +34,8 @@ use app\models\Calendario;
                 $puntos = $usuarioactual->num_puntos;
                 $fechaCreacion = $usuarioactual->fch_creacion;
 
-                if($nombreUsuario != null){
-                ?>
+                if ($nombreUsuario != null) {
+                    ?>
                     <tr>
 
                         <td><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
@@ -41,15 +43,16 @@ use app\models\Calendario;
                         <td><?= $fechaCreacion ?></td>
                     </tr>
                 <?php
-                }
+
             }
-            ?>
+        }
+        ?>
         </tbody>
     </table>
 
 
     <div class="sec-usuarios-actions">
-        <a href="http://localhost:81/clientes/green/green-quiniela/web/administrador/exportar" type="button" class="btn  btn-info">
+        <a href="<?= Url::base() ?>/administrador/exportar" target="_blank" type="button" class="btn btn-primary">
             EXPORTAR
         </a>
     </div>

@@ -3,10 +3,10 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 use yii\helpers\Html;
-use app\assets\AppAssetClassicTopBar;
+use app\assets\AppAsset;
 use yii\helpers\Url;
 
-AppAssetClassicTopBar::register($this);
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,9 +25,7 @@ AppAssetClassicTopBar::register($this);
   <?=$this->render("//components/classic/topbar/menu")?>
 
   <?=$this->render("//components/classic/topbar/bodyAdmin", ["content"=>$content])?>
-  
 
-  <?=$this->render("//components/classic/topbar/footerAdmin")?>
 
   <?php $this->endBody();?>
  

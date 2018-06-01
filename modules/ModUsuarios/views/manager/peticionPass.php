@@ -6,6 +6,15 @@ use yii\helpers\Url;
 $this->title = 'Recuperar contraseña';
 $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 ?>
+<?php if (Yii::$app->session->hasFlash('success')):?>
+<div class="alert dark alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">×</span>
+	</button>
+	<?php echo Yii::$app->session->getFlash('success'); ?>
+</div>
+
+<?php endif;?>
 <div class="panel">
 	<div class="panel-body">
 
@@ -24,9 +33,14 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		?>
 
 		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Recibirás un email para actualizar tu contraseña</h3>
+				</div>
+			</div>
             <div class="row">
             <div class="col-12 col-md-4">
-                <label for="">Nombre de usuario.</label>
+                <label for="">Email registrado</label>
             </div>
             <div class="col-12 col-md-8">
                 <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label(false) ?>            
@@ -52,6 +66,6 @@ $this->params['classBody'] = "page-login-v3 layout-full sec-registro";
 		<?php ActiveForm::end(); ?>
 
 
-		<p class="soporteTxt">¿Necesitas ayuda? escribe a: <a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
+		
 	</div>
 </div>

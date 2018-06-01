@@ -24,7 +24,7 @@ class LoginForm extends Model {
     public function attributeLabels()
     {
         return [
-            'username' => 'Nombre de Usuario',
+            'username' => 'Email',
             'password' => 'Contraseña'
         ];
     }
@@ -109,7 +109,7 @@ class LoginForm extends Model {
 		$this->userEncontrado = $this->getUser ();
 		
 		if (empty($this->userEncontrado)) {
-			$this->addError ( $attribute, 'No existe una cuenta asociada al corro electronico ingresado.' );
+			$this->addError ( $attribute, 'No existe una cuenta asociada al correo electrónico ingresado.' );
 		}
 	}
 	

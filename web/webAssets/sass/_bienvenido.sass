@@ -80,7 +80,9 @@
 	z-index: 9
 
 	.pasto-verde-inferior-izquierda,
-	.red-balon
+	.red-balon,
+	.pasto-verde,
+	.logo-25-anos
 		+respond-to(xs)
 			display: none
 
@@ -98,26 +100,21 @@
 			min-height: 100vh
 			+respond-to(xs)
 				padding: 12px 20px
+			+respond-to(tp)
+				align-items: flex-start
 		
-		.sb-pasos
-			margin-bottom: 60px
-			+respond-to(lg)
-				margin-top: 70px
-			+respond-to(micon)
-				margin-top: 86px
-			+respond-to(md)
-				margin-top: 90px
-			+respond-to(sm)
-				margin-top: 100px
+		.sb-pasos,
+		.sb-ganadores
 
-			+respond-to(xs)
-				margin-bottom: 240px
 
 			.sb-pasos-title
 				h2
 					@extend .color-white
 					@extend .fs-40
 					@extend .text-up
+					span
+						display: block
+
 			.sb-pasos-body
 				margin-top: 32px
 				ul
@@ -171,5 +168,113 @@
 						margin-top: 24px
 						@extend .text-up
 						width: 260px
+						+respond-to(tp)
+							background-size: 260px 40px
+							font-size: $fs-26
+							height: 40px
+							line-height: 1.1
+							margin-top: 12px
 
-				
+			.sb-ganador-body
+				display: block
+				margin-top: 32px
+				.sb-ganador-item
+					display: flex
+					flex-wrap: wrap
+					margin-bottom: 12px
+					+respond-to(xs)
+						margin-bottom: 24px
+					.sb-ganador-lugar
+						align-items: center
+						display: flex
+						justify-content: flex-end
+						margin-right: 16px
+						width: 200px
+						+respond-to(xs)
+							justify-content: center
+							margin-bottom: 8px
+							width: 100%
+						div.btn-primary.btn-lugar
+							background-size: 190px 50px
+							cursor: default
+							@extend .fs-26
+							@extend .fw-bold
+							height: 50px
+							padding: .375rem .75rem
+							@extend .text-up
+							width: 190px
+
+					.sb-ganador-premio
+						width: calc(100% - 220px)
+						display: flex
+						flex-direction: column
+						+respond-to(xs)
+							width: 100%
+						.sb-ganador-premio-item
+							align-items: center
+							display: flex
+							justify-content: flex-start
+							p,
+							span
+								color: $white
+								@extend .fs-26
+								@extend .fw-bold
+								@extend .text-up
+							p
+								margin-left: 8px
+
+		.sb-pasos
+			margin-bottom: 60px
+			+respond-to(lg)
+				margin-top: 70px
+			+respond-to(micon)
+				margin-top: 86px
+			+respond-to(md)
+				margin-top: 90px
+			+respond-to(sm)
+				margin-top: 140px
+
+			+respond-to(tl)
+				margin-top: 150px
+
+			+respond-to(xs)
+				margin-bottom: 60px
+				margin-top: 120px
+			+respond-to(tp)
+				margin-top: 100px
+			+respond-to(tx)
+				margin-top: 90px
+			+respond-to(tl)
+				margin-top: 80px
+
+		.sb-ganadores
+			margin-left: auto
+			margin-right: auto
+			max-width: 90%
+			width: 960px
+			+respond-to(xs)
+				margin-bottom: 60px
+				margin-top: 130px
+			+respond-to(tp)
+				margin-top: 120px
+			+respond-to(tx)
+				margin-top: 110px
+			+respond-to(tl)
+				margin-top: 110px
+
+			@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+				margin-top: 130px
+			@media screen and (max-width: 600px ) and (orientation: landscape)
+				margin-top: 120px
+			@media screen and (max-width: 480px ) and (orientation: landscape)
+				margin-top: 110px
+
+			.sb-pasos-title
+				h2
+
+					+respond-to(xs)
+						font-size: $fs-36
+					+respond-to(tp)
+						font-size: $fs-32
+					+respond-to(sl)
+						font-size: $fs-28
