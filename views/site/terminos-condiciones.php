@@ -10,7 +10,9 @@ $this->params['classBody'] = "site-navbar-small sec-terminos-condiciones";
 
 <div class="row">
     <div class="col-md-7 offset-md-5">
-        <img class="stc-img" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt="">
+        <div class="stc-logo">
+            <a class="stc-link" href="<?=Url::base()?>/site/"><img class="stc-img" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt=""></a>
+        </div>
         <div class="stc-title">
             <h2>Términos y condiciones</h2>
         </div>

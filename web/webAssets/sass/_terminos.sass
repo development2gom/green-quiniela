@@ -25,14 +25,22 @@
 
 		.page-content
 			width: 100%
-			
 
-		.stc-img
-			display: none
-			margin: 0 auto
-			max-width: 80%
-			+respond-to(xs)
-				display: block
+		.stc-logo
+			align-items: center
+			display: flex
+			justify-content: center
+			width: 100%
+			.stc-link
+				align-items: center
+				display: flex
+				justify-content: center
+				.stc-img
+					display: none
+					margin: 0 auto
+					max-width: 80%
+					+respond-to(xs)
+						display: flex
 
 		.stc-title
 			h2
