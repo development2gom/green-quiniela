@@ -282,6 +282,11 @@ class ConcursantesController extends Controller
         }
     }
 
+    public function actionFinal(){
+        $this->layout = "classic/topBar/mainFinalizado";
+        return $this->render("finalizado");
+    }
+
     public function actionGanadores()
     {
         $this->layout = "classic/topBar/mainBienvenido";
