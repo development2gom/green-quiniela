@@ -156,7 +156,7 @@ class ConcursantesController extends Controller
 
         if($terminoPartido){
             $response->status = 'success';
-            $reponse->message = "Quiniela completada";
+            $response->message = "Quiniela completada";
             return $response;
         }
 
