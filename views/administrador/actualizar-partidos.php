@@ -20,7 +20,7 @@ $this->registerJsFile(
     $equipo1 = $partido->equipo1;
     $equipo2 = $partido->equipo2;
     ?>
-        <div id='js-seleccion-<?= $partidos->txt_token ?>' class="sec-ap-item js-partido-<?=$partido->id_partido?>">
+        <div id='js-seleccion-<?= $partido->txt_token ?>' class="sec-ap-item js-partido-<?=$partido->id_partido?>">
             <div class="sec-ap-item-local">
                 <img class="js-seleccionar-equipo js-equipos" src='<?=$equipo1->txt_url_imagen_equipo;?>' data-nombre="<?=$equipo1->txt_nombre_equipo;?>"  data-token ="<?=$partido->txt_token?>" data-equipo="<?=$partido->id_equipo1?>"/>
                 <p><?=  $equipo1->txt_nombre_equipo;?></p>
