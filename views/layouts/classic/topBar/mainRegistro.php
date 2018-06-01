@@ -38,7 +38,12 @@ AppAssetRegistro::register($this);
   <div class="page-registro vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
     <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
 
-      <img class="logo-quiniela-blue" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt="">
+      <div class="registro-logo">
+          <a class="registro-link" href="<?=Url::base()?>/site/">
+            <img class="registro-img" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png" alt="">
+          </a>
+      </div>
+      
 
       <?=$content?>
     </div>
