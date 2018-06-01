@@ -8,6 +8,7 @@ use function React\Promise\all;
 use app\models\CatEquipos;
 use Symfony\Component\HttpFoundation\Response;
 use app\models\WrkQuiniela;
+use app\models\RelRespuestaUsuario;
 
 
 class AdministradorController extends \yii\web\Controller
@@ -79,21 +80,16 @@ class AdministradorController extends \yii\web\Controller
             }
         }
 
-        $yaContestado = true;
-        if($ganador->id_equipo_ganador == null && $ganador->b_empate == 0)
-            $yaContestado = false;
-
-
         //Guardar datos anteriores del resultado generado por el usuario
         $ganadorAnterior = $ganador->id_equipo_ganador;
         $empateAnterior = $ganador->b_empate;
 
         //Guardar datos del resultado real del partido
         if($equipo_ganador){
-            $ganador->id_equipo_ganador =$equipo_ganador;
-            $ganador->b_empate=0;
+            $ganador->id_equipo_ganador = $equipo_ganador;
+            $ganador->b_empate = 0;
         }else{
-            $ganador->b_empate=1;
+            $ganador->b_empate = 1;
             $ganador->id_equipo_ganador = null;
         }
 
@@ -104,42 +100,42 @@ class AdministradorController extends \yii\web\Controller
 
             //Buscar registros de resultados anteriores y si concuerdan con los resutados
             //reales restar un punto a los usuarios.
-            $resultadosAnteriores = null;
-            if($yaContestado){
-                $resultadosAnteriores = WrkQuiniela::find()->where(['!=', 'id_equipo_ganador', $equipo_ganador])->andWhere(['id_partido'=>$ganador->id_partido])->all();
-            }
+            $resultadosAnteriores = WrkQuiniela::find()->where(['id_partido'=>$ganador->id_partido])->all();
 
             if($resultadosAnteriores){
                 foreach($resultadosAnteriores as $resultadoAnterior){
                     $usuario = $resultadoAnterior->usuario;
                     $aciertos = $usuario->num_puntos;
                     
-                    if($resultadoAnterior->id_equipo_ganador == $ganadorAnterior || $resultadoAnterior->b_empata != $empateAnterior){
-                        if($aciertos > 0){
-                            $usuario->num_puntos = $aciertos - 1;
-                            if(!$usuario->save()){
-                                print_r($usuario->error);exit;
+                    $relRespuestaUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$usuario->id_usuario, 'id_partido'=>$resultadoAnterior->id_partido])->one();
+                    if($relRespuestaUsuario){
+                        if($relRespuestaUsuario->id_ganador == $equipo_ganador && $relRespuestaUsuario->b_empate == 0){
+                            $usuario->num_puntos = $aciertos + 1;
+                            if($relRespuestaUsuario->b_error == 1){
+                                $relRespuestaUsuario->b_error = 0;
+                            }
+                        }else if($relRespuestaUsuario->b_empate == $ganador->b_empate){
+                            if($relRespuestaUsuario->b_empate == 1){
+                                $usuario->num_puntos = $aciertos + 1;
+                            }else{
+                                if($aciertos > 0 && $relRespuestaUsuario->b_error == 0){
+                                    $usuario->num_puntos = $aciertos - 1;
+                                    $relRespuestaUsuario->b_error = 1;
+                                }
+                            }
+                        }else{
+                            if($aciertos > 0 && $relRespuestaUsuario->b_error == 0){
+                                $usuario->num_puntos = $aciertos - 1;
+                                $relRespuestaUsuario->b_error = 1;
                             }
                         }
-                    }
-                }
-            }
-
-            //Agregar puntos a los usuarios que acertaron en el resultado
-            $quinielasGanadoras = null;
-            if($equipo_ganador){    
-                $quinielasGanadoras = WrkQuiniela::find()->where(['id_partido'=>$ganador->id_partido, 'id_equipo_ganador'=>$equipo_ganador])->all();
-            }else{
-                $quinielasGanadoras = WrkQuiniela::find()->where(['b_empata'=>1, 'id_partido'=>$ganador->id_partido])->all();                
-            }
-
-            if($quinielasGanadoras){
-                foreach($quinielasGanadoras as $quinielaGanadora){
-                    $userGanador = $quinielaGanadora->usuario;
+                    }    
                     
-                    $userGanador->num_puntos = $userGanador->num_puntos + 1;
-                    if(!$userGanador->save()){
-                        print_r($userGanador->error);exit;
+                    if(!$usuario->save()){
+                        print_r($usuario->error);exit;
+                    }
+                    if(!$relRespuestaUsuario->save()){
+                        print_r($relRespuestaUsuario->error);exit;
                     }
                 }
             }
