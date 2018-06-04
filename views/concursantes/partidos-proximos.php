@@ -83,7 +83,7 @@ $this->registerJsFile(
                             }
                         } ?>
 
-                        <div class="panel-body-item js-equipo <?= $flagEq1 ? 'active' : '' ?>" data-partido ="<?= $partido->txt_token ?>" data-nombre="<?= $equipo1->txt_nombre_equipo ?>" data-token="<?= $partido->id_equipo1 ?>">
+                        <div class="panel-body-item <?=$terminoPartido?"":"js-equipo"?> <?= $flagEq1 ? 'active' : '' ?>" data-partido ="<?= $partido->txt_token ?>" data-nombre="<?= $equipo1->txt_nombre_equipo ?>" data-token="<?= $partido->id_equipo1 ?>">
                             <p class="panel-body-pais"><?= $equipo1->txt_nombre_equipo; ?></p>
                         
                             <img src='<?= $equipo1->txt_url_imagen_equipo; ?>' data-partido ="<?= $partido->txt_token ?>" 
@@ -93,12 +93,12 @@ $this->registerJsFile(
                         </div>
                     </div>
                     <div class="col-4 col-md-4 d-flex align-items-center justify-content-center">
-                        <div class="panel-body-item-button js-equipo <?= $flagEm3 ? 'active' : '' ?>" data-nombre="empate" data-partido ="<?= $partido->txt_token ?>">
+                        <div class="panel-body-item-button <?=$terminoPartido?"":"js-equipo"?> <?= $flagEm3 ? 'active' : '' ?>" data-nombre="empate" data-partido ="<?= $partido->txt_token ?>">
                             <button class='btn btn-secondary panel-body-btn'>empate</button >
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
-                        <div class="panel-body-item js-equipo <?= $flagEq2 ? 'active' : '' ?>" data-partido ="<?= $partido->txt_token ?>" data-nombre="<?= $equipo2->txt_nombre_equipo ?>" data-token="<?= $partido->id_equipo2 ?>">
+                        <div class="panel-body-item <?=$terminoPartido?"":"js-equipo"?> <?= $flagEq2 ? 'active' : '' ?>" data-partido ="<?= $partido->txt_token ?>" data-nombre="<?= $equipo2->txt_nombre_equipo ?>" data-token="<?= $partido->id_equipo2 ?>">
                             <p class="panel-body-pais"><?= $equipo2->txt_nombre_equipo; ?></p>
 
                             <img src= '<?= $equipo2->txt_url_imagen_equipo; ?>'  data-partido ="<?= $partido->txt_token ?>" 
