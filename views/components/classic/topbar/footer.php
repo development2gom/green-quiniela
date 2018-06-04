@@ -12,7 +12,7 @@ date('Y')?> <a href="https://2geeksonemonkey.com/">2 Geeks one Monkey</a></div>
 <footer class="site-footer">
   <div class="site-footer-legal">
       <a href="https://2geeksonemonkey.com/">
-        <img class="footer-logo" src="<?=Url::base()?>/webAssets/images/logo.png"></div>
+        <img class="footer-logo" src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA_AZUL.png"></div>
       </a>
       
   </div>
@@ -22,7 +22,6 @@ date('Y')?> <a href="https://2geeksonemonkey.com/">2 Geeks one Monkey</a></div>
       <a href="https://2geeksonemonkey.com/">
         2 Geeks one Monkey
       </a>
-      <img class="footer-logo" src="<?=Url::base()?>/webAssets/images/monkey-logo.png">
   </div>
     
 </footer> 
