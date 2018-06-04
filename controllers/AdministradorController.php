@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\models\ResponseServices;
 use app\models\WrkPartidos;
 use app\models\ModUsuariosEntUsuarios;
-use function React\Promise\all;
 use app\models\CatEquipos;
 use Symfony\Component\HttpFoundation\Response;
 use app\models\WrkQuiniela;
@@ -167,13 +166,13 @@ class AdministradorController extends \yii\web\Controller
 
         $consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
 
-        $data[] = ["Nombre", "Apellido Paterno", "Apellido Materno", "Email", "Puntuacion", "Fecha Creacion"];
+        $data[] = ["Nombre", "Telefono","C.P.", "Email", "Puntuacion", "Fecha Creacion"];
 
         foreach ($consultaUsuarios as $clienteUsuario) {
                 $data[] = [
                         $clienteUsuario->txt_username,
-                        $clienteUsuario->txt_apellido_paterno,
-                        $clienteUsuario->txt_apellido_materno,
+                        $clienteUsuario->txt_telefono,
+                        $clienteUsuario->txt_codigo_postal,
                         $clienteUsuario->txt_email,
                         $clienteUsuario->num_puntos,
                         $clienteUsuario->fch_creacion
@@ -186,6 +185,7 @@ class AdministradorController extends \yii\web\Controller
                 fputcsv($fp, $row);
         }
         fclose($fp);
+        exit;
     }
 
     public function actionNuevosPartidos()
