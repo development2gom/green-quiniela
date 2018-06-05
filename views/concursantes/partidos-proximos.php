@@ -38,7 +38,7 @@ $this->registerJsFile(
         </div>
     </div>
     <div class="col-md-4">
-
+        
         <h4>Fase de grupos</h4>
 
         <!-- Accordion -->
@@ -128,9 +128,23 @@ $this->registerJsFile(
     
     <div class="col-md-4 col-d-flex-end">
         <div class="column-actions">
+        
             <button id="js-verificar-siguiente" class="btn btn-primary js-verificar-siguiente" data-url="<?= Url::base() ?>">Finalizar</button>
             <span class="js-span-finalizado">Quiniela guardada (FECHA)</span>
         </div>
     </div>
 
 </div>
+
+<?php
+if($terminoPartido){
+?>
+
+<?php
+
+    $this->registerJs(
+        "aparecerLabelTerminar('Finalizado el día ".Calendario::getDateCompleteHour($terminoPartido->fch_termino)."')",
+        View::POS_READY,
+        'my-button-handler'
+    );
+}

@@ -1,5 +1,7 @@
 <?php
-$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/logo-bienvenido.png";
+
+use app\models\WrkQuiniela;
+$logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/logo-bienvenido.png";
 $logoClienteH = "90px";
 $logoClienteW = "auto";
 
@@ -18,6 +20,7 @@ $fontSize16 = "16px";
 $fontSize24 = "24px";
 
 $bgHeader = "#F4A21B";
+$bgHeaderTrans = "244,162,27";
 $bgBody = "#E2E2E2";
 $bgBodyWmax = "460px";
 $bgBodyWmin = "320px";
@@ -125,6 +128,27 @@ a[x-apple-data-detectors=true] {
 
 .ie-browser .block-grid.twelve-up .col, [owa] .block-grid.twelve-up .col {
   width: 50px !important; }
+
+
+.btn-empate{
+  color: <?=$bgHeader?>;
+}
+.btn-empate-active{
+  background-color: <?=$bgHeader?>;
+  color: white;
+}
+
+.local,.visita{
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.local.active,.visita.active{
+  background-color: rgba(<?=$bgHeaderTrans?>,0.35);
+  border-color: <?=$bgHeader?>;
+  color: <?=$colorSubtitle?>;
+}
 
 @media only screen and (min-width: 620px) {
   .block-grid {
@@ -317,7 +341,7 @@ a[x-apple-data-detectors=true] {
                     <div class="">
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
-		<div style="font-size: <?= $fontSize16 ?>;line-height:24px;font-family:'Verdana', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: <?= $fontSize16 ?>;line-height: 28px;text-align: left"><span style="font-size: <?= $fontSize24 ?>; font-weight: bold; color: <?= $colorTitle ?>; line-height: 48px;">Hola <?= $user ?> </span></p></div>	
+		<div style="font-size: <?= $fontSize16 ?>;line-height:24px;font-family:'Verdana', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: <?= $fontSize16 ?>;line-height: 28px;text-align: left"><span style="font-size: <?= $fontSize24 ?>; font-weight: bold; color: <?= $colorTitle ?>; line-height: 48px;">Hola <?= $user->nombreCompleto ?> </span></p></div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
@@ -328,13 +352,94 @@ a[x-apple-data-detectors=true] {
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
         <div style="line-height:24px;color:<?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align:left;">
             <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has 
-            solicitado </strong> un cambio de contraseña. para hacer el cambio da click en la siguiente liga:</span></p>
+            finalizado tu quiniela </strong> </span></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">
-              <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left;color: <?= $colorLink ?>; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300;  line-height: 16px;">
-                <span style="line-height:24px;"><span style=" line-height: 32px; font-size: <?= $fontSize14 ?>; color: <?= $colorLink ?>;" data-mce-style=" line-height: 32px;"><?= $url ?></span></span>
-              </a>
-            </p>
+            <p style="margin: 0;line-height: 24px;text-align: left;background-color:red;" dir="ltr"></p>
+
+
+    
+
+
+
+
+
+            <div style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; border-bottom: 1px solid <?=$bgHeader?>;border-radius: 3px;">
+              <?php
+              $grupoActual = false;
+              
+              foreach($partidos as $key => $partido){
+                $equipo1 = $partido->equipo1;
+                $equipo2 = $partido->equipo2;
+                $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
+                
+                $flagEq1 = false;
+                $flagEq2 = false;
+                $flagEm3 = false;
+                if ($resultado) {
+                    if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
+                        $flagEq1 = true;
+                    } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
+                        $flagEq2 = true;
+                    } else {
+                        $flagEm3 = true;
+                    }
+                } 
+
+                if ($grupoActual && $grupoActual != $partido->txt_grupo) {
+                  echo '</div>';
+              }
+               
+
+                if($grupoActual != $partido->txt_grupo){
+                  $grupoActual = $partido->txt_grupo;
+              ?>
+
+
+              <div style="background-color: transparent;">
+
+                <h3 style="background-color: <?=$bgHeader?>;color: white; text-align: center;font-size:22px;font-weight: bold;line-height:2;margin-left:0;margin-top:0;margin-right:0;margin-bottom:0;">
+                GRUPO <?=$grupoActual?></h3>
+                
+                
+                  <?php
+                  }
+                  ?>
+                  <div style="border-collapse: collapse;display: table;width: 100%;padding-top: 4px;padding-bottom: 4px;">
+                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
+                      <div style="border-radius: 4px;" class="local <?= $flagEq1 ? 'active' : '' ?>">
+                        <p><?=$equipo1->txt_nombre_equipo?></p>
+                        <img src="<?=$equipo1->txt_url_imagen_equipo?>" alt="">
+                      </div>
+                    </div>
+
+                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;">
+                      <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
+                      border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px;padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
+                      class="btn-empate <?= $flagEm3 ? 'btn-empate-active' : '' ?>">
+                        Empate</p>
+                    </div>
+
+                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
+                      <div style="border-radius: 4px;" class="visita <?= $flagEq2 ? 'active' : '' ?>">
+                        <p><?=$equipo2->txt_nombre_equipo?></p>
+                        <img src="<?=$equipo2->txt_url_imagen_equipo?>" alt="">
+                      </div>
+                    </div>
+               
+                  </div>
+              
+
+
+              
+              <?php
+              }
+              ?>
+             
+
+            </div>
+
+            
+
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
 
             </div>	
@@ -367,11 +472,11 @@ a[x-apple-data-detectors=true] {
 	<div style="color:#555555;line-height:120%;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 40px; padding-bottom: 20px;">	
 		<div style="line-height:14px;color: <?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align: center;">
 
-            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el.</p>
+            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el, si necesitas asistencia o soporte favor de escribirme a: <a href="mailto:'.<?= $mailAyuda ?>.'?Subject=Ayuda%20Web" target="_blank" style="display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300; color: <?= $colorLink ?>;  line-height: 16px;"><span style=" line-height: 20px;" data-mce-style=" line-height: 20px;"><?= $mailAyuda ?></span></a></p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
             <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize16 ?>"> <?= $crAuthor ?> </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
-            <!-- <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p> -->
+            <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p>
         </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->

@@ -9,21 +9,23 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
 
 
 ?>
-
+<style>
+    .row{
+        clear: both;
+        padding: 20px;
+    }
+    .col-4.col-md-4{float:left;}
+    .panel-body-item.active, .panel-body-item-button.active{
+        border: 1px solid black;
+        padding: 20px;
+    }
+</style>
 <div class="row">
     <div class="col-md-4 col-d-flex">
         <div class="column-textos">
             <p class="text-completa-registra" data-url="<?= Url::base() ?>">
-                1. Por cada partido selecciona un campo (equipo ganador o empate) 
-            </p>
-            <p class="text-completa-registra" data-url="<?= Url::base() ?>">
-                2. Completa cada grupo
-            </p>
-            <p class="text-completa-registra" data-url="<?= Url::base() ?>">
-                3. Da click en finalizar para guardar juego.
-            </p>
-            <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
-            <p class="text-completa-registra" data-url="<?= Url::base() ?>">Para dudas y aclaraciones comunicate  al  01 800 467 1897</p>
+            Quiniela mundialista       
+        </p>
         </div>
     </div>
     <div class="col-md-4">
@@ -61,6 +63,7 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
 
             }
             ?>
+              
                 <div id="js-div-partido-<?= $partido->txt_token ?>" class="row no-gutters <?= $resultado ? '' : 'js-partido-no-contestado' ?>">
                     <div class="col-4 col-md-4">
 

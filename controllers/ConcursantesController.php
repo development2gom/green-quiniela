@@ -21,6 +21,8 @@ use app\models\CatCodigos;
 
 use app\models\EntUsuariosQuiniela;
 use kartik\mpdf\Pdf;
+use app\models\Email;
+use app\modules\ModUsuarios\models\Utils;
 
 
 
@@ -154,9 +156,9 @@ class ConcursantesController extends Controller
             return $response;
         }
 
-        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$faseTorneo->id_fase])->one();
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $faseTorneo->id_fase])->one();
 
-        if($terminoPartido){
+        if ($terminoPartido) {
             $response->status = 'success';
             $response->message = "Quiniela completada";
             return $response;
@@ -268,6 +270,7 @@ class ConcursantesController extends Controller
             $mensajes = new Mensajes();
 
             $resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            $this->enviarEmail();
             //$resp = $mensajes->mandarMensageMasivos($mensajeTexto, $usuario->txt_telefono);
 
             $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
@@ -286,7 +289,8 @@ class ConcursantesController extends Controller
         }
     }
 
-    public function actionFinal(){
+    public function actionFinal()
+    {
         $this->layout = "classic/topBar/mainFinalizado";
         return $this->render("finalizado");
     }
@@ -338,7 +342,8 @@ class ConcursantesController extends Controller
         return $response;
     }
 
-    public function actionDescargarPdf(){
+    public function actionDescargarPdf()
+    {
 
         $usuario = EntUsuarios::getUsuarioLogueado();
 
@@ -365,36 +370,71 @@ class ConcursantesController extends Controller
 
         $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $fase->id_fase])->one();
 
-        //return $this->render('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
+        //return $this->renderAjax('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
 
-        $content = $this->renderPartial('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
-// setup kartik\mpdf\Pdf component
-$pdf = new Pdf([
-    // set to use core fonts only
-    'mode' => Pdf::MODE_CORE, 
-    // A4 paper format
-    'format' => Pdf::FORMAT_A4, 
-    // portrait orientation
-    'orientation' => Pdf::ORIENT_PORTRAIT, 
-    // stream to browser inline
-    'destination' => Pdf::DEST_BROWSER, 
-    // your html content input
-    'content' => $content,  
-    // format content from your own css file if needed or use the
-    // enhanced bootstrap css built by Krajee for mPDF formatting 
-     
-     // set mPDF properties on the fly
-    'options' => ['title' => 'Quiniela mundialista'],
-     // call mPDF methods on the fly
-    'methods' => [ 
-        'SetHeader'=>['Krajee Report Header'], 
-        'SetFooter'=>['{PAGENO}'],
-    ]
-]);
+        $content = $this->renderAjax('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
+        // setup kartik\mpdf\Pdf component
+        $pdf = new Pdf([
+        // set to use core fonts only
+            'mode' => Pdf::MODE_CORE, 
+        // A4 paper format
+            'format' => Pdf::FORMAT_A4, 
+        // portrait orientation
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+        // stream to browser inline
+            'destination' => Pdf::DEST_BROWSER, 
+        // your html content input
+            'content' => $content,  
+        // format content from your own css file if needed or use the
+        // enhanced bootstrap css built by Krajee for mPDF formatting 
+        'cssInline' => '.col-4.col-md-4{display:inline-block}', 
+        // set mPDF properties on the fly
+            'options' => ['title' => 'Quiniela mundialista'],
+        // call mPDF methods on the fly
+            'methods' => [
+                'SetHeader' => ['Quiniela mundialista'],
+                'SetFooter' => ['{PAGENO}'],
+            ]
+        ]);
 
 // return the pdf output as per the destination setting
-return $pdf->render(); 
+        return $pdf->render();
 
+    }
+
+    public function enviarEmail($email="humberto@2gom.com.mx" ){
+
+        $usuario = EntUsuarios::getUsuarioLogueado();
+
+        $this->layout = "classic/topBar/mainConcursante";
+
+        $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+            ->one();
+
+        if (!$fase) {
+            $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_inicio')])
+                ->one();
+
+            if (!$proximaFase) {
+                $fases = CatFasesDelTorneo::find()->where(["b_habilitado" => 1])->all();
+                return $this->render("quiniela-finalizada", ["fases" => $fases]);
+            }
+            $fasesAnteriores = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['>', new Expression('now()'), new Expression('fch_termino')])
+                ->all();
+
+            $this->layout = "classic/topBar/mainTerminado";
+            return $this->render("fase-por-empezar", ["proximaFase" => $proximaFase, "fasesAnteriores" => $fasesAnteriores]);
+        }
+        $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
+
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $fase->id_fase])->one();
+
+        $parametros["user"] = $usuario;
+        $parametros["partidos"] = $partidos;
+        $parametros["url"] = null;
+
+        $email = new Utils();
+        $email->sendEmailQuiniela($email, $parametros);
     }
 
 }
