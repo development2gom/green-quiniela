@@ -476,7 +476,7 @@ a[x-apple-data-detectors=true] {
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
             <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize16 ?>"> <?= $crAuthor ?> </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
-            <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p>
+            
         </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
