@@ -242,3 +242,26 @@
 			display: flex
 			justify-content: flex-end
 			width: 100%
+
+
+// Footer
+.site-footer
+	height: auto !important
+	padding: 2px 32px !important
+	.site-footer-legal
+		a
+			img
+				height: 48px
+
+	.site-footer-right
+		a
+			color: $primary
+			display: inline-block
+			@extend .fs-15
+			margin-top: 14px
+			vertical-align: middle
+			&:hover
+				opacity: .85
+			+respond-to(sl)
+				margin-top: 4px
+				margin-bottom: 4px
