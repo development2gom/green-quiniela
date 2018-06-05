@@ -8,17 +8,6 @@ $this->title = "Quiniela mundialista";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
 
 
-
-$this->registerJsFile(
-    'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js',
-    ['depends' => [\app\assets\AppAsset::className()]]
-);
-
-$this->registerJsFile(
-    '@web/webAssets/js/site/proximos-partidos.js',
-    ['depends' => [\app\assets\AppAsset::className()]]
-);
-
 ?>
 
 <div class="row">
@@ -42,7 +31,7 @@ $this->registerJsFile(
         <h4>Fase de grupos</h4>
 
         <!-- Accordion -->
-        <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
+        <div class="panel-group panel-group-simple" id="siteMegaAccordion">
             
             <?php
             $grupoActual = null;
@@ -60,13 +49,13 @@ $this->registerJsFile(
                 if ($grupoActual != $partido->txt_grupo) {
                     $grupoActual = $partido->txt_grupo;
                     ?>
-                    <div class="panel-heading" id="siteMegaAccordionHeadingOne<?= $key ?>" role="tab">
-                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne<?= $key ?>" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
+                    <div class="panel-heading" >
+                        <a class="panel-title"  >
                             Grupo: <?= $grupoActual ?>
                         </a>
 
                     </div>
-                    <div class="panel-collapse collapse" id="siteMegaCollapseOne<?= $key ?>" aria-labelledby="siteMegaAccordionHeadingOne<?= $key ?>" role="tabpanel">
+                    <div class="panel-collapse" id="siteMegaCollapseOne<?= $key ?>" >
                         <div class="panel-body">
                 <?php
 

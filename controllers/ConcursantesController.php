@@ -20,6 +20,8 @@ use app\modules\ModUsuarios\models\EntUsuarios;
 use app\models\CatCodigos;
 
 use app\models\EntUsuariosQuiniela;
+use kartik\mpdf\Pdf;
+
 
 
 
@@ -335,6 +337,66 @@ class ConcursantesController extends Controller
 
         return $response;
     }
+
+    public function actionDescargarPdf(){
+
+        $usuario = EntUsuarios::getUsuarioLogueado();
+
+        $this->layout = "classic/topBar/mainConcursante";
+
+        $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+            ->one();
+
+        if (!$fase) {
+            $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_inicio')])
+                ->one();
+
+            if (!$proximaFase) {
+                $fases = CatFasesDelTorneo::find()->where(["b_habilitado" => 1])->all();
+                return $this->render("quiniela-finalizada", ["fases" => $fases]);
+            }
+            $fasesAnteriores = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['>', new Expression('now()'), new Expression('fch_termino')])
+                ->all();
+
+            $this->layout = "classic/topBar/mainTerminado";
+            return $this->render("fase-por-empezar", ["proximaFase" => $proximaFase, "fasesAnteriores" => $fasesAnteriores]);
+        }
+        $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])->andWhere(['id_fase' => $fase->id_fase])->orderBy(' txt_grupo ASC,fch_partido ASC,')->all();
+
+        $terminoPartido = EntUsuariosQuiniela::find()->where(["id_usuario" => $usuario->id_usuario, "id_fase" => $fase->id_fase])->one();
+
+        //return $this->render('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
+
+        $content = $this->renderPartial('mi-quiniela', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
+// setup kartik\mpdf\Pdf component
+$pdf = new Pdf([
+    // set to use core fonts only
+    'mode' => Pdf::MODE_CORE, 
+    // A4 paper format
+    'format' => Pdf::FORMAT_A4, 
+    // portrait orientation
+    'orientation' => Pdf::ORIENT_PORTRAIT, 
+    // stream to browser inline
+    'destination' => Pdf::DEST_BROWSER, 
+    // your html content input
+    'content' => $content,  
+    // format content from your own css file if needed or use the
+    // enhanced bootstrap css built by Krajee for mPDF formatting 
+     
+     // set mPDF properties on the fly
+    'options' => ['title' => 'Quiniela mundialista'],
+     // call mPDF methods on the fly
+    'methods' => [ 
+        'SetHeader'=>['Krajee Report Header'], 
+        'SetFooter'=>['{PAGENO}'],
+    ]
+]);
+
+// return the pdf output as per the destination setting
+return $pdf->render(); 
+
+    }
+
 }
 
 ?>

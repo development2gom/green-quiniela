@@ -1,5 +1,10 @@
 //recibe la variable
 $(document).ready(function () {
+
+    $(".selector").on("click", function () {
+        descargarPDF(elemento);
+    });
+
     $(".js-equipo").on("click", function () {
         //console.log($(this).data('token'));
         var token = $(this).data('partido');
@@ -54,7 +59,7 @@ $(document).ready(function () {
         if (sinContestar.length > 0) {
             swal('Espera', 'Falta por contestar ' + sinContestar.length + ' partidos', 'warning');
         } else {
-            
+
             hijo.addClass("active");
             window.location.href = url + "/concursantes/finalizado";
         }
@@ -97,8 +102,67 @@ function gruposFaltantes() {
 
 }
 
-function aparecerLabelTerminar(mensaje){
+function aparecerLabelTerminar(mensaje) {
     $(".js-span-finalizado").addClass("active");
-    
+
     $(".js-span-finalizado").text(mensaje);
+}
+
+var widthPaper = 210;
+var heightPaper = 295;
+function calcularFactor($ancho, $alto, $redimension) {
+    var factor = 0;
+    if ($ancho >= $alto) {
+        factor = $redimension / $ancho;
+    } else if ($ancho <= $alto) {
+        factor = $redimension / $alto;
+    }
+    
+    return factor;
+}
+
+
+function descargarReportePDF(identificador,nombre){
+
+    var w = 1000;
+    var h = 1000;
+    var div = document.querySelector(identificador);
+    
+    html2canvas(div).then(function(canvas) {
+
+        var widthPreguntas = canvas.width;
+        var heightPreguntas = canvas.height;
+        var dataURLPreguntas = canvas.toDataURL();
+
+        if(widthPreguntas >= widthPaper){
+            var factor = calcularFactor(widthPreguntas, heightPreguntas, widthPaper-20);
+            widthPreguntas = widthPreguntas * factor;
+            heightPreguntas = heightPreguntas * factor;
+        }
+
+        // var chart = $(graficaIdentificador).get(0);
+        // var widthGrafica = chart.width;
+        // var heightGrafica = chart.height;
+        // var dataURL = chart.toDataURL();
+
+        // if(widthGrafica >= widthPaper){
+        //     var factor = calcularFactor(widthGrafica, heightGrafica, widthPaper/2);
+        //     widthGrafica = widthGrafica * factor;
+        //     heightGrafica = heightGrafica * factor;
+        // }
+       
+        var pdf = new jsPDF("p", "mm",[widthPreguntas, heightPreguntas]);
+        //
+        pdf.addImage(dataURLPreguntas, "PNG", 0, 0, widthPreguntas, heightPreguntas);
+        //pdf.addPage();
+        //pdf.addImage(dataURL, "PNG", 10, 10, widthGrafica, heightGrafica);
+        //pdf.addImage(dataURL, "PNG", 10, 10);
+    
+        pdf.save(nombre+".pdf");
+
+        $("body").append(canvas);
+       
+    });
+
+    return false;
 }
