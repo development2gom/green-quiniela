@@ -269,7 +269,7 @@ class ConcursantesController extends Controller
             $mensajeTexto = "Gracias por participar Finalizaste la quiniela el " . Calendario::getDateCompleteMessage($existeQuiniela->fch_termino);
             $mensajes = new Mensajes();
 
-            $resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
+            //$resp = $mensajes->mandarMensage($mensajeTexto, $usuario->txt_telefono);
             $this->enviarEmail();
             //$resp = $mensajes->mandarMensageMasivos($mensajeTexto, $usuario->txt_telefono);
 
@@ -434,7 +434,7 @@ class ConcursantesController extends Controller
         $parametros["url"] = null;
 
         $email = new Utils();
-        $email->sendEmailQuiniela($email, $parametros);
+        $email->sendEmailQuiniela($usuario->txt_email, $parametros);
     }
 
 }
