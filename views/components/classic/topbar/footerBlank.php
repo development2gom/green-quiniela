@@ -4,12 +4,7 @@ use yii\helpers\Url;
 
 ?>
 <footer class="page-copyright page-copyright-inverse">
-    <p class="developer-link">Sistema desarrollado por </p>
-    <a class="developer-link" href="https://www.2geeksonemonkey.com"> 2 Geeks one Monkey</a>
-    <p>© <?=date('Y')?>. Todos los derechos reservados.</p>
-    <div class="social">
-        <a class="btn btn-icon btn-pure" href="https://www.2geeksonemonkey.com">
-        <img class="developer-logo" src="<?=Url::base()?>/webAssets/images/monkey-logo.png" alt="We develop successfull apps">
-        </a>
-    </div>
+    <a class="footer-link" target = "_blank" href="<?=Url::base()?>/site/terminos-condiciones">Términos y condiciones</a>
+    <hr>
+    <a class="footer-link" data-toggle="modal" href="#modal-aviso-privacidad">Aviso de Privacidad</a>
 </footer>

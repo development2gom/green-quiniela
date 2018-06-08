@@ -1,0 +1,398 @@
+/*!
+	-----------------------------------------------------------------------------
+	2.0 - Basicos
+	-----------------------------------------------------------------------------
+	*/
+
+body
+	background-color: #eee
+	background-color: #f5f5f5
+	color: $font-color
+	font:
+		family: $f-base
+		size: 16px
+		weight: $light
+	overflow-x: hidden
+
+a
+	color: $link
+	font:
+		family: $f-base
+		size: 16px
+	text-decoration: none
+	// +transition(all 0.3s ease-in)
+	&:active,
+	&:focus,
+	&:hover
+		color: darken($link , 10% )
+		text-decoration: none
+
+/*  Btn
+	================================================ */
+.ladda-button
+	background-color: transparent
+	border-radius: 0
+	padding: 0
+
+.btn-primary.ladda-button[disabled],
+.btn-primary.ladda-button[disabled]:hover,
+.btn-primary.ladda-button[data-loading],
+.btn-primary.ladda-button[data-loading]:hover
+	background-color: $primary
+
+.btn-info.ladda-button[disabled],
+.btn-info.ladda-button[disabled]:hover,
+.btn-info.ladda-button[data-loading],
+.btn-info.ladda-button[data-loading]:hover
+	background-color: $info
+
+.btn-success.ladda-button[disabled],
+.btn-success.ladda-button[disabled]:hover,
+.btn-success.ladda-button[data-loading],
+.btn-success.ladda-button[data-loading]:hover
+	background-color: $success
+
+.btn-warning.ladda-button[disabled],
+.btn-warning.ladda-button[disabled]:hover,
+.btn-warning.ladda-button[data-loading],
+.btn-warning.ladda-button[data-loading]:hover
+	background-color: $warning
+
+.btn
+	display: inline-block
+	text-align: center
+	white-space: nowrap
+	vertical-align: middle
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	border: 1px solid transparent
+	padding: .375rem .75rem
+	line-height: 1.5
+	font-size: $fs-16
+	font-weight: $regular
+	letter-spacing: 1px
+	border-radius: .25rem
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+.btn-primary
+	border-color: $primary
+	background-color: $primary
+	// color: $primary
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active
+		border-color: $primary
+		background-color: $primary
+		box-shadow: none
+		// color: darken( $primary, 10% )
+
+.btn-secondary
+	border-color: $secondary
+	// background-color: $secondary
+	background-color: transparent
+	color: $white
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $secondary, 10% )
+		// background-color: darken( $secondary, 10% )
+		background-color: transparent
+		box-shadow: none
+		color: $white
+
+.btn-outline-primary
+	border-color: $grey-d
+	color: $grey-d
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+
+.btn-warning
+	border-color: $accent
+	background-color: $accent
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $accent, 10% )
+		background-color: darken( $accent, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($accent,0.1)
+
+.btn-error
+	border-color: $error
+	background-color: $error
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $error, 10% )
+		background-color: darken( $error, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($error,0.1)
+
+.btn-success
+	border-color: $success
+	background-color: $success
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $success, 10% )
+		background-color: darken( $success, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($success,0.1)
+
+.btn-info
+	border-color: $info
+	background-color: $info
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $info, 10% )
+		background-color: darken( $info, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($info,0.1)
+
+.btn-outline-default
+	background-color: transparent
+	border-color: $font-color
+	color: $font-color
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $font-color, 10% )
+		color: darken( $font-color, 10% )
+		box-shadow: none
+
+/*  Label
+	======================================= */
+/* Normal */
+.page-login-v3
+	form
+		.form-material
+			label
+				color: lighten($font-color, 30%)
+				@extend .fw-light
+
+.form-material
+	.form-control:-webkit-autofill~.floating-label
+		top: -1.3rem
+
+	.form-control~.floating-label
+		padding: 0 10px
+
+/* Active */
+.form-material
+	.form-control.focus~.floating-label,
+	.form-control:focus~.floating-label
+		color: $primary
+		top: -1.3rem
+
+/* Error */
+.form-material.form-group.has-danger
+	.form-control.focus~.floating-label,
+	.form-control:focus~.floating-label,
+	.form-control:not(.empty)~.floating-label
+		color: $error
+		top: -1.3rem
+
+/* Succes */
+.form-material.form-group.has-success
+	.form-control.focus~.floating-label,
+	.form-control:focus~.floating-label,
+	.form-control:not(.empty)~.floating-label
+		color: $primary
+		top: -1.3rem
+
+
+/*  Input
+	======================================= */
+.form-material
+	.form-control,
+	.form-control.focus,
+	.form-control:focus
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
+
+.form-material.form-group.has-success
+	.form-control.focus,
+	.form-control:focus,
+	.form-control:not(.empty)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
+
+.form-control
+	color: lighten($font-color, 25%)
+	
+/*  Login
+	======================================= */
+/* Imagen de fondo */
+.page-login-v3
+	&:before
+		background-color: $primary
+		background-image: none
+
+/* Login */
+.login
+	.brand
+		.brand-img
+			height: 100px
+			margin-bottom: 20px
+	
+	form
+		.form-group
+			.help-block.help-block-error
+				color: $error
+				font-size: .9rem
+				text-align: left
+
+/*  Header
+	======================================= */
+.navbar-inverse
+	background-color: $accent
+	.navbar-collapse,
+	.navbar-form
+		border-color: $accent
+
+.navbar-brand
+	padding: 12px !important
+.site-navbar
+	.navbar-header
+		.navbar-brand-logo
+			height: 48px !important
+
+.navbar-nav,
+.navbar-toolbar
+	.nav-link.navbar-avatar
+		padding-top: 1.557rem !important
+		padding-bottom: 1.557rem !important
+
+
+
+/*  Footer
+	======================================= */
+.site-footer
+	.site-footer-legal
+		img
+			height: 30px
+	
+	.site-footer-right
+		img
+			height: 30px
+
+.page-copyright
+	.social
+		a
+			img
+				height: 30px
+
+/*  Usuarios
+	======================================= */
+/* Crear */
+.usuarios-create
+	.user-file
+		cursor: pointer
+		display: block
+		height: 200px
+		margin: 0 auto
+		max-width: 80%
+		width: 200px
+
+/* Actualizar */
+.usuarios-actualizar
+	.user-file
+		cursor: pointer
+		display: block
+		height: 200px
+		margin: 0 auto
+		max-width: 80%
+		width: 200px
+
+// Inpus
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="number"],
+	input[type="tel"]
+	.form-control
+		background-color: $accent
+		border-color: $accent
+		color: $primary
+		@extend .fs-20
+		@extend .fw-regular
+		height: 3.273rem
+		&:focus
+			border-color: darken( $accent, 20% )
+
+// Loader
+.loader-overlay
+	background-color: $primary !important
+

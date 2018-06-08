@@ -14,7 +14,10 @@ use app\modules\ModUsuarios\models\EntUsuariosFacebook;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\filters\AccessControl;
-use app\config\FireBase;
+use app\models\CatCodigos;
+use app\models\RelUsuariosCodigos;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 /**
  * Default controller for the `musuarios` module
@@ -57,7 +60,7 @@ class ManagerController extends Controller {
 		
 		$model = new EntUsuarios ( [ 
 				'scenario' => 'registerInput' 
-		] );
+		]);
 
 		if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
 			Yii::$app->response->format = Response::FORMAT_JSON;
@@ -65,44 +68,80 @@ class ManagerController extends Controller {
 		}
 		
 		if ($model->load ( Yii::$app->request->post () )) {
-			
-			if ($model->signup ()) {
 
-				// Envia un correo de bienvenida al usuario
-				if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
-					$model->enviarEmailBienvenida();
-				}
-				
-				if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
-					
-					$model->enviarEmailActivacion();
-					
-					$this->redirect ( [ 
-							'login' 
-					] );
-					
-				} else {
-					
-					if (Yii::$app->getUser ()->login ( $model )) {
-						return $this->goHome ();
+			$codigo = CatCodigos::find()->where(['txt_codigo'=>$model->txt_codigo, 'b_habilitado'=>1])->one();
+			if($codigo){
+				if($codigo->b_codigo_usado == 0){
+	
+					// $session = Yii::$app->session;				
+					// $usuarioTemporal = $session->get('usuarioTemporal');
+					//$model->txt_username = $usuarioTemporal['user'];
+					//$model->txt_apellido_paterno = $usuarioTemporal['user'];
+					// $model->repeatPassword = $usuarioTemporal['pass2'];
+					// $model->password = $usuarioTemporal['pass'];
+
+					if ($model->signup ()) {
+						$codigo->b_codigo_usado = 1;
+						$codigo->save();
+
+						$relUSerCodigo = new RelUsuariosCodigos();
+						$relUSerCodigo->id_usuario = $model->id_usuario;
+						$relUSerCodigo->id_codigo = $codigo->id_codigo;
+						$relUSerCodigo->id_fase = $codigo->id_fase;
+						$relUSerCodigo->save();
+
+						// Envia un correo de bienvenida al usuario
+						if(Yii::$app->params ['modUsuarios'] ['mandarCorreoBienvenida']){
+							$model->enviarEmailBienvenida();
+						}
+						
+						if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion']) {
+							
+							$model->enviarEmailActivacion();
+							
+							$this->redirect ( [ 
+									'login' 
+							] );
+							
+						} else {
+							
+							if (Yii::$app->getUser ()->login ( $model )) {
+								return $this->redirect ( [ 
+									'//concursantes/partidos-proximos' 
+								] );
+								//return $this->goHome ();
+							}
+						}
+					}else{
+						print_r($model->errors);
 					}
+				}else{
+					$model->addError('txt_codigo', 'Este código ya fue usado.');					
 				}
+			}else{
+				$model->addError('txt_codigo', 'Este código no existe.');
 			}
 			
 			// return $this->redirect(['view', 'id' => $model->id_usuario]);
 		}
-
-		if(FireBase::ENABLED){
-			return $this->render ( '//firebase/sign-up', [ 
-				'model' => $model 
-			] );
-		}else{
-			return $this->render ( 'signUp', [ 
-				'model' => $model 
-			] );
-		}
+		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+		return $this->render( 'signUp', [ 
+			'model' => $model
+		] );
 		
 	}
+
+	/*public function actionPreReg(){
+		if($_POST){
+			$session = Yii::$app->session;
+			$session->set('usuarioTemporal', $_POST);
+			
+			$this->redirect(['sign-up']);
+		}
+
+		return $this->render('preReg');
+	}*/
 	
 	/**
 	 * Crea peticion para el cambio de contraseña
@@ -127,7 +166,10 @@ class ManagerController extends Controller {
 			
 			// Envio de correo electronico
 			$utils->sendEmailRecuperarPassword ($user->txt_email, $parametrosEmail );
+
+			Yii::$app->session->setFlash('success', "Se ha enviado un email a: ".$user->txt_email." para recuperar tu contraseña");
 		}
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'peticionPass', [ 
 				'model' => $model 
 		] );
@@ -189,6 +231,7 @@ class ManagerController extends Controller {
 			] );
 		}
 		
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'cambiarPass', [ 
 				'model' => $model 
 		] );
@@ -222,7 +265,9 @@ class ManagerController extends Controller {
 	public function actionLogin() {
 
 		if (! Yii::$app->user->isGuest) {
-			return $this->goHome ();
+			return $this->redirect ( [ 
+				'//concursantes/partidos-proximos' 
+			] );
 		}
 
 		$model = new LoginForm ();
@@ -235,8 +280,12 @@ class ManagerController extends Controller {
 
 		if ($model->load ( Yii::$app->request->post () ) && $model->login ()) {
 			
-			return $this->goBack ();
+			return $this->redirect ( [ 
+				'//concursantes/partidos-proximos' 
+			] );//return $this->goBack ();
 		}
+
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
 		return $this->render ( 'login', [ 
 				'model' => $model 
 		] );
@@ -351,4 +400,22 @@ class ManagerController extends Controller {
 			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
+
+	/**
+     * Renders the index view for the module
+     * @return string
+     */
+    public function actionPreRegistro()
+    {
+		$this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+
+		if($_POST){
+			$session = Yii::$app->session;
+			$session->set('usuarioTemporal', $_POST);
+			
+			$this->redirect(['sign-up']);
+		}
+
+        return $this->render('pre-registro');
+    }
 }

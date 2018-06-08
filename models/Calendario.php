@@ -12,7 +12,7 @@ class Calendario
 	 * @return string
 	 */
 	public static function getFechaActual() {
-		
+		date_default_timezone_set('America/Mexico_City');
 		// Inicializamos la fecha y hora actual
 		$fecha = date ( 'Y-m-d H:i:s', time () );
 		return $fecha;
@@ -25,6 +25,7 @@ class Calendario
      */
     public static function getDayName($string = null)
     {
+        date_default_timezone_set('America/Mexico_City');
         // Inicializamos la fecha y hora actual
         $tiempo = time();
         if ($string) {
@@ -46,6 +47,7 @@ class Calendario
      */
     public static function getNumberDayWeek($string = null)
     {
+        date_default_timezone_set('America/Mexico_City');
         // Inicializamos la fecha y hora actual
         $tiempo = time();
         if ($string) {
@@ -64,7 +66,7 @@ class Calendario
      */
     public static function getDayNumber($string = null)
     {
-
+        date_default_timezone_set('America/Mexico_City');
         $tiempo = time();
         if ($string) {
             $tiempo = strtotime($string);
@@ -81,6 +83,7 @@ class Calendario
      */
     public static function getMonthName($string = null)
     {
+        date_default_timezone_set('America/Mexico_City');
         // Inicializamos la fecha y hora actual
 
         $tiempo = time();
@@ -102,7 +105,7 @@ class Calendario
     public static function getMonthNumber($string = null)
     {
         // Inicializamos la fecha y hora actual
-
+        date_default_timezone_set('America/Mexico_City');
         $tiempo = time();
         if ($string) {
             $tiempo = strtotime($string);
@@ -121,7 +124,7 @@ class Calendario
      */
     public static function getYearLastDigit($string = null)
     {
-
+        date_default_timezone_set('America/Mexico_City');
         $tiempo = time();
         if ($string) {
             $tiempo = strtotime($string);
@@ -138,6 +141,7 @@ class Calendario
      */
     public static function getDateCompleteHour($string)
     {
+        date_default_timezone_set('America/Mexico_City');
         $nombreDia = self::getDayName($string);
         $dia = self::getDayNumber($string);
         $mes = self::getMonthName($string);
@@ -148,12 +152,31 @@ class Calendario
     }
 
     /**
+     * Regresa la fecha completa con hora
+     * @param string $string
+     * @return string
+     */
+    public static function getDateCompleteMessage($string)
+    {
+        date_default_timezone_set('America/Mexico_City');
+        $nombreDia = self::getDayName($string);
+        $dia = self::getDayNumber($string);
+        $mes = self::getMonthName($string);
+        $anio = self::getYearLastDigit($string);
+        $hora = self::getHoursMessage($string);
+        $min = self::getMinMessage($string);
+
+        return $nombreDia . " " . $dia . " de " . $mes . " del " . $anio . " a las " . $hora . " horas con " . $min . " min";
+    }
+
+    /**
      * Regresa la fecha completa sin hora y minuto
      * @param string $string
      * @return string
      */
     public static function getDateComplete($string)
     {
+        date_default_timezone_set('America/Mexico_City');
         $nombreDia = self::getDayName($string);
         $dia = self::getDayNumber($string);
         $mes = self::getMonthName($string);
@@ -170,6 +193,7 @@ class Calendario
      */
     public static function getHoursMinutes($string = null)
     {
+        date_default_timezone_set('America/Mexico_City');
         $tiempo = time();
         if ($string) {
             $tiempo = strtotime($string);
@@ -179,6 +203,39 @@ class Calendario
         return $fecha;
     }
 
+    /**
+     * Regresa la hora y minutos
+     * @param string $string
+     * @return string
+     */
+    public static function getHoursMessage($string = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
+        $tiempo = time();
+        if ($string) {
+            $tiempo = strtotime($string);
+        }
+        $fecha = date('H', $tiempo);
+
+        return $fecha;
+    }
+    
+    /**
+     * Regresa la hora y minutos
+     * @param string $string
+     * @return string
+     */
+    public static function getMinMessage($string = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
+        $tiempo = time();
+        if ($string) {
+            $tiempo = strtotime($string);
+        }
+        $fecha = date('i', $tiempo);
+
+        return $fecha;
+    }
 
     /**
      * Regresa el nombre mes dependiendo del número

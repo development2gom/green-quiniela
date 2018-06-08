@@ -1,55 +1,235 @@
 /*!
 	-----------------------------------------------------------------------------
-
 	2.0 - Basicos
-			#
-			# Login
-			# Footer
-			# Usuarios
-
 	-----------------------------------------------------------------------------
 	*/
 
-/*  A
-	======================================= */
+body
+	background-color: #eee
+	background-color: #f5f5f5
+	color: $font-color
+	font:
+		family: $f-base
+		size: 16px
+		weight: $light
+	overflow-x: hidden
+
 a
-	color: $link-primary
+	color: $link
+	font:
+		family: $f-base
+		size: 16px
+	text-decoration: none
+	// +transition(all 0.3s ease-in)
 	&:active,
 	&:focus,
 	&:hover
-		color: $link-primary-active
+		color: darken($link , 10% )
+		text-decoration: none
 
 /*  Btn
-	======================================= */
-/* primary */
+	================================================ */
+.ladda-button
+	background-color: transparent
+	border-radius: 0
+	padding: 0
+
+.btn-primary.ladda-button[disabled],
+.btn-primary.ladda-button[disabled]:hover,
+.btn-primary.ladda-button[data-loading],
+.btn-primary.ladda-button[data-loading]:hover
+	background-color: transparent
+
+.btn-info.ladda-button[disabled],
+.btn-info.ladda-button[disabled]:hover,
+.btn-info.ladda-button[data-loading],
+.btn-info.ladda-button[data-loading]:hover
+	background-color: $info
+
+.btn-success.ladda-button[disabled],
+.btn-success.ladda-button[disabled]:hover,
+.btn-success.ladda-button[data-loading],
+.btn-success.ladda-button[data-loading]:hover
+	background-color: $success
+
+.btn-warning.ladda-button[disabled],
+.btn-warning.ladda-button[disabled]:hover,
+.btn-warning.ladda-button[data-loading],
+.btn-warning.ladda-button[data-loading]:hover
+	background-color: $warning
+
+.btn
+	display: inline-block
+	text-align: center
+	white-space: nowrap
+	vertical-align: middle
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	border: 1px solid transparent
+	padding: .375rem .75rem
+	line-height: 1.5
+	font-size: $fs-16
+	font-weight: $regular
+	letter-spacing: 1px
+	border-radius: .25rem
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
 .btn-primary
-	border-color: $btn-primary
-    background-color: $btn-primary
+	border-color: transparent
+	background-color: transparent
+	background-image: url(../images/BOTON.png)
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: 260px 60px
+	color: $primary
 	&:active,
 	&:focus,
-	&:hover
-		border-color: $btn-primary-active
-		background-color: $btn-primary-active
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active
+		border-color: transparent
+		background-color: transparent
+		box-shadow: none
+		color: darken( $primary, 10% )
 
-/* succes */
+.btn-secondary
+	border-color: $secondary
+	// background-color: $secondary
+	background-color: transparent
+	color: $white
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $secondary, 10% )
+		// background-color: darken( $secondary, 10% )
+		background-color: transparent
+		box-shadow: none
+		color: $white
+
+.btn-outline-primary
+	border-color: $grey-d
+	color: $grey-d
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		box-shadow: 0 0 0 0.1rem rgba($primary,0.1)
+
+.btn-warning
+	border-color: $accent
+	background-color: $accent
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $accent, 10% )
+		background-color: darken( $accent, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($accent,0.1)
+
+.btn-error
+	border-color: $error
+	background-color: $error
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $error, 10% )
+		background-color: darken( $error, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($error,0.1)
+
 .btn-success
 	border-color: $success
 	background-color: $success
 	&:active,
 	&:focus,
-	&:hover
-		border-color: $success-active
-		background-color: $success-active
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $success, 10% )
+		background-color: darken( $success, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($success,0.1)
 
-/* danger */
-.btn-danger
-	border-color: $error
-    background-color: $error
+.btn-info
+	border-color: $info
+	background-color: $info
 	&:active,
 	&:focus,
-	&:hover
-		border-color: $error-active
-		background-color: $error-active
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $info, 10% )
+		background-color: darken( $info, 10% )
+		box-shadow: 0 0 0 0.1rem rgba($info,0.1)
+
+.btn-outline-default
+	background-color: transparent
+	border-color: $font-color
+	color: $font-color
+	&:active,
+	&:focus,
+	&:hover,
+	&:active,
+	&:active:focus,
+	&:active:hover,
+	&:disabled,
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&:hover,
+	&:focus
+		border-color: darken( $font-color, 10% )
+		color: darken( $font-color, 10% )
+		box-shadow: none
 
 /*  Label
 	======================================= */
@@ -58,12 +238,22 @@ a
 	form
 		.form-material
 			label
-				color: #a3afb7
+				color: lighten($font-color, 30%)
+				@extend .fw-light
+
+.form-material
+	.form-control:-webkit-autofill~.floating-label
+		top: -1.3rem
+
+	.form-control~.floating-label
+		padding: 0 10px
+
 /* Active */
 .form-material
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label
-		color: $color-primary
+		color: $primary
+		top: -1.3rem
 
 /* Error */
 .form-material.form-group.has-danger
@@ -71,13 +261,16 @@ a
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
 		color: $error
+		top: -1.3rem
 
 /* Succes */
 .form-material.form-group.has-success
 	.form-control.focus~.floating-label,
 	.form-control:focus~.floating-label,
 	.form-control:not(.empty)~.floating-label
-		color: $color-primary
+		color: $primary
+		top: -1.3rem
+
 
 /*  Input
 	======================================= */
@@ -85,25 +278,35 @@ a
 	.form-control,
 	.form-control.focus,
 	.form-control:focus
-		background-image: -webkit-gradient(linear,left top,left bottom,from($color-primary),to($color-primary)),-webkit-gradient(linear,left top,left bottom,from($color-gray),to($color-gray))
-		background-image: -webkit-linear-gradient($color-primary,$color-primary),-webkit-linear-gradient($color-gray,$color-gray)
-		background-image: -o-linear-gradient($color-primary,$color-primary),-o-linear-gradient($color-gray,$color-gray)
-		background-image: linear-gradient($color-primary,$color-primary),linear-gradient($color-gray,$color-gray)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
 
+.form-material.form-group.has-success
+	.form-control.focus,
+	.form-control:focus,
+	.form-control:not(.empty)
+		background-image: -webkit-gradient(linear,left top,left bottom,from(primary),to(primary)),-webkit-gradient(linear,left top,left bottom,from($secondary),to($secondary))
+		background-image: -webkit-linear-gradient(primary,primary),-webkit-linear-gradient($secondary,$secondary)
+		background-image: -o-linear-gradient(primary,primary),-o-linear-gradient($secondary,$secondary)
+		background-image: linear-gradient(primary,primary),linear-gradient($secondary,$secondary)
+
+.form-control
+	color: lighten($font-color, 25%)
+	
 /*  Login
 	======================================= */
 /* Imagen de fondo */
 .page-login-v3
 	&:before
-		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)
-		background-image: -webkit-gradient(linear, left top, left bottom, from($bg-primary), to(#3583ca))
-		background-image: -webkit-linear-gradient(top, $bg-primary 0%, #3583ca 100%)
-		background-image: -o-linear-gradient(top, $bg-primary 0%, #3583ca 100%)
-		background-image: url('https://drscdn.500px.org/photo/230473379/q%3D80_m%3D2000/v2?webp=true&sig=8098ec687c2dacf53ba17515209dca4cf6ee1ad91d7e0aae23a217db2089824c')
+		background-image: url('../images/IMAGEN-AZUL.png')
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
 
 /* Login */
 .login
-	background-color: red
 	.brand
 		.brand-img
 			height: 100px
@@ -119,10 +322,10 @@ a
 /*  Header
 	======================================= */
 .navbar-inverse
-	background-color: $bg-primary
+	background-color: $primary
 	.navbar-collapse,
 	.navbar-form
-		border-color: $border-color
+		border-color: $primary
 
 /*  Footer
 	======================================= */
@@ -140,6 +343,103 @@ a
 		a
 			img
 				height: 30px
+
+// FORM CHECKBOX
+//
+// Checkbox
+.checkboxes
+	background-color: transparent
+	display: block
+	height: 32px
+	margin-bottom: 12px
+	padding: 0 20px
+	position: relative
+	text-align: center
+	+respond-to(xs)
+		padding: 0 20px
+	
+	.checkboxes-cont
+		display: flex
+		.checkbox 
+			display: table-cell
+			width: 100%
+			height: 100%
+			vertical-align: middle
+			text-align: center
+
+		label
+			align-items: center
+			cursor: pointer
+			display: flex !important
+			flex-wrap: wrap
+			justify-content: flex-start
+			position: relative
+
+			p
+				display: inline-block
+				width: calc(100% - 30px)
+
+			span
+				display: inline-block
+				position: relative
+				background-color: transparent
+				width: 16px
+				height: 16px
+				transform-origin: center
+				border: 2px solid $primary
+				vertical-align: -4px
+				margin-right: 12px
+				transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89) // custom ease effect for bouncy animation
+				// +respond-to(xs)
+				// 	width: 19px
+
+				&:before 
+					content: ""
+					width: 0px
+					height: 2px
+					border-radius: 2px // so that the tick has nice rounded look
+					background: $white
+					position: absolute
+					transform: rotate(45deg)
+					top: 5px // you'll need to experiment with placement depending on the dimensions you've chosen
+					left: 3px // you'll need to experiment with placement depending on the dimensions you've chosen
+					transition: width 50ms ease 50ms
+					transform-origin: 0% 0%
+				
+			
+				&:after 
+					content: ""
+					width: 0
+					height: 2px
+					border-radius: 2px // so that the tick has nice rounded look
+					background: $white
+					position: absolute
+					transform: rotate(305deg)
+					top: 9px // you'll need to experiment with placement depending on the dimensions you've chosen
+					left: 4px // you'll need to experiment with placement depending on the dimensions you've chosen
+					transition: width 50ms ease
+					transform-origin: 0% 0%
+
+		input[type="checkbox"],
+		input[type="radio"]
+			display: none 
+		
+			&:checked 
+				+ label 
+					span 
+						background-color: $primary
+						transform: scale(1.1) // enlarge the box
+
+						&:after 
+							width: 10px
+							background-color: $white
+							transition: width 150ms ease 100ms // enlarge the tick
+						
+
+						&:before 
+							width: 5px
+							background-color: $white
+							transition: width 150ms ease 100ms
 
 /*  Usuarios
 	======================================= */
@@ -162,3 +462,310 @@ a
 		margin: 0 auto
 		max-width: 80%
 		width: 200px
+
+// Inpus
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="number"],
+	input[type="tel"]
+	.form-control
+		background-color: $accent
+		border-color: $accent
+		color: $primary
+		@extend .fs-20
+		@extend .fw-regular
+		height: 3.273rem
+		&:focus
+			border-color: darken( $accent, 20% )
+
+.form-group
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"]
+		text-transform: uppercase
+
+// Loader
+.loader-overlay
+	background-color: $primary
+
+// Template design
+.triangulo-naranja,
+.cuadro-naranja,
+.pasto-superior-derecha,
+.red-balon,
+.pasto-verde-inferior-izquierda,
+.pasto-verde,
+.logo-25-anos,
+.logo-quiniela,
+.logo-quiniela-terminos
+	position: fixed
+	width: 100%
+	z-index: 2
+	+respond-to(xs)
+		z-index: 18
+
+.quiniela-sign-up
+	align-items: center
+	background-color: $accent
+	border-radius: 50%
+	display: flex
+	height: 40px
+	justify-content: center
+	position: fixed
+	right: 8px
+	top: 12px
+	width: 40px
+	z-index: 19
+	i
+		color: $primary
+	+respond-to(xs)
+		right: 16px
+		top: 16px
+
+.logo-quiniela,
+.logo-quiniela-terminos
+	display: block
+
+.triangulo-naranja
+	// background-color: red
+	left: 0
+	top: 0
+	+respond-to(xs)
+		display: none
+	img
+		width: 74%
+
+.cuadro-naranja
+	display: none
+	left: 0
+	right: 0
+	top: -190px
+	+respond-to(xs)
+		display: block
+	+respond-to(tp)
+		top: -40px
+	+respond-to(tx)
+		top: -100px
+	+respond-to(sl)
+		top: -50px
+	+respond-to(sp)
+		top: -40px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		top: -180px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		top: -140px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		top: -160px
+
+	img
+		width: 100%
+
+.pasto-superior-derecha
+	right: 0
+	text-align: right
+	top: 0
+	+respond-to(xs)
+		display: none
+	img
+		width: 90%
+		+respond-to(xs)
+			height: 80%
+			max-width: 100%
+			width: 768px
+
+.pasto-verde
+	display: none
+	left: 0
+	right: 0
+	bottom: 5px
+	+respond-to(xs)
+		display: block
+		z-index: 2
+	+respond-to(sp)
+		bottom: 15px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		bottom: -170px
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		bottom: -160px
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		bottom: -150px
+
+	img
+		width: 100%
+
+.red-balon
+	bottom: 0
+	right: 0
+	text-align: right
+	img
+		width: 90%
+
+.pasto-verde-inferior-izquierda
+	bottom: 0
+	left: 0
+	img
+		width: 90%
+
+.logo-25-anos
+	right: 24px
+	text-align: right
+	top: 16px
+	+respond-to(xs)
+		right: auto
+		top: auto
+		bottom: 60px
+		left: 24px
+		text-align: left
+	+respond-to(tp)
+		right: auto
+		top: auto
+		bottom: 50px
+		left: 24px
+		text-align: left
+	+respond-to(sl)
+		right: auto
+		top: auto
+		bottom: 40px
+		left: 24px
+		text-align: left
+	+respond-to(sp)
+		right: auto
+		top: auto
+		bottom: 30px
+		left: 24px
+		text-align: left
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		display: none
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		display: none
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		display: none
+	
+	img
+		max-width: 120px
+		width: 120px
+		+respond-to(micon)
+			max-width: 100px
+			width: 100px
+		+respond-to(md)
+			max-width: 90px
+			width: 90px
+		+respond-to(sm)
+			max-width: 80px
+			width: 80px
+		+respond-to(tl)
+			max-width: 70px
+			width: 70px
+
+		+respond-to(xs)
+			max-width: 120px
+			width: 120px
+		+respond-to(tp)
+			max-width: 110px
+			width: 110px
+		+respond-to(sl)
+			max-width: 100px
+			width: 100px
+
+.logo-quiniela
+	// background-color: red
+	display: inline-block
+	left: 20px
+	top: 16px
+	width: 270px
+	z-index: 19
+	+respond-to(lg)
+		top: 24px
+		left: 24px
+	+respond-to(md)
+		top: 24px
+		left: 24px
+		width: 240px
+	+respond-to(sm)
+		top: 24px
+		left: 24px
+		width: 200px
+	+respond-to(tl)
+		top: 20px
+		left: 20px
+		width: 180px
+	+respond-to(xs)
+		top: 16px
+		left: 16px
+		width: 180px
+	+respond-to(sp)
+		top: 16px
+		left: 16px
+		width: 140px
+
+	@media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		top: 13px
+		width: 28%
+	@media screen and (max-width: 600px ) and (orientation: landscape)
+		top: 24px
+		width: 26%
+	@media screen and (max-width: 480px ) and (orientation: landscape)
+		top: 16px
+		width: 24%
+
+	img
+		max-width: 100%
+		// width: 100%
+		// +respond-to(md)
+		// 	width: 22%
+		// +respond-to(sm)
+		// 	width: 20%
+		// +respond-to(tl)
+		// 	width: 20%
+		// +respond-to(xs)
+		// 	width: 40%
+		// +respond-to(sp)
+
+		// @media (min-width: 601px) and (max-width: 768px ) and (orientation: landscape)
+		// 	width: 22%
+		// @media screen and (max-width: 600px ) and (orientation: landscape)
+		// 	width: 21%
+		// @media screen and (max-width: 480px ) and (orientation: landscape)
+		// 	width: 20%
+
+.logo-quiniela-terminos
+	// background-color: red
+	left: 0
+	// position: fixed
+	top: 0
+	max-width: 90%
+	width: 430px
+	z-index: 19
+	a
+		display: inline
+		img
+			max-width: 430px
+			width: 430px
+			+respond-to(md)
+				max-width: 420px
+				width: 420px
+			+respond-to(sm)
+				max-width: 360px
+				width: 360px
+			+respond-to(tl)
+				max-width: 300px
+				width: 300px
+			+respond-to(xs)
+				max-width: 100%
+
+.panel
+	box-shadow: none
+
+.page-content
+	overflow-x: hidden
+
+
+.page-content
+	.logo-quiniela-blue
+		max-width: 80%

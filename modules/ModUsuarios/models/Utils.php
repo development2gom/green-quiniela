@@ -18,6 +18,18 @@ class Utils {
 		$token = $pre . md5 ( uniqid ( $pre ) ) . uniqid ();
 		return $token;
 	}
+
+	/**
+	 * Obtenemos la fecha actual para almacenarla
+	 *
+	 * @return string
+	 */
+	public static function getFechaActual() {
+		
+		// Inicializamos la fecha y hora actual
+		$fecha = date ( 'Y-m-d H:i:s', time () );
+		return $fecha;
+	}
 	
 	/**
 	 * Obtiene fecha de vencimiento para una fecha
@@ -39,6 +51,18 @@ class Utils {
 		
 		// Envia el correo electronico
 		return $this->sendEmail ( '@app/modules/ModUsuarios/email/activarCuenta', '@app/modules/ModUsuarios/email/layouts/text', Yii::$app->params ['modUsuarios'] ['email'] ['emailActivacion'],$email, Yii::$app->params ['modUsuarios'] ['email'] ['subjectActivacion'], $parametrosEmail );
+	}
+
+	/**
+	 * Envia el correo electronico para la activiación de la cuenta
+	 *
+	 * @param array $parametrosEmail
+	 * @return boolean        	
+	 */
+	public function sendEmailQuiniela($email,$parametrosEmail) {
+		
+		// Envia el correo electronico
+		return $this->sendEmail ( '@app/modules/ModUsuarios/email/quiniela', '@app/modules/ModUsuarios/email/layouts/text', Yii::$app->params ['modUsuarios'] ['email'] ['emailActivacion'],$email, "Tu quiniela", $parametrosEmail );
 	}
 	
 	/**
