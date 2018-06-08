@@ -1,0 +1,196 @@
+/*!
+	--------------------------
+	Aviso - Términos
+	--------------------------
+	*/
+
+// ----------- Aviso - Términos
+.modal-content.page-aviso,
+.modal-content.page-terminos
+	width: 100%
+
+	.modal-header
+		h3.page-aviso-title
+			color: $primary
+			@extend .fs-24
+			@extend .fw-bold
+			line-height: 1
+			+respond-to(xs)
+				font-size: $fs-22
+			+respond-to(tx)
+				font-size: $fs-20
+	.modal-body.page-aviso-body,
+	.modal-body.page-terminos-body
+
+		h3,
+		h4,
+		h5,
+		ul,
+		ol,
+		p
+			color: $primary
+
+		h3
+			@extend .fs-18
+			@extend .fw-regular
+			letter-spacing: 1px
+			margin-bottom: 24px
+			@extend .text-up
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+		h4
+			@extend .fs-16
+			@extend .fw-bold
+			letter-spacing: 1px
+			margin-bottom: 4px
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+			.num-pos
+				display: inline-block
+				height: 16px
+				position: relative
+				width: 12px
+				small
+					@extend .fs-10
+					@extend .fw-bold
+					position: absolute
+					top: -4px
+
+		h5
+			@extend .fs-144
+			@extend .fw-bold
+			letter-spacing: 1px
+			margin-bottom: 4px
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+
+		ul
+			list-style-position: outside
+			margin-bottom: 30px
+			padding-left: 26px
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+			li
+				@extend .fs-16
+				letter-spacing: 1px
+				line-height: 1.8
+				margin-bottom: 8px
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+				.bold
+					@extend .fw-bold
+
+				.num-pos
+					display: inline-block
+					height: 16px
+					position: relative
+					width: 12px
+					small
+						@extend .fs-10
+						position: absolute
+						top: -6px
+
+				a
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+			&.ul-style-simple
+				list-style: none
+
+			&.ul-simple
+					list-style: none
+					margin-top: 16px
+
+		ol
+			list-style-position: outside
+			margin-bottom: 30px
+			padding-left: 26px
+			li
+				@extend .fs-16
+				letter-spacing: 1px
+				line-height: 1.6
+				margin-bottom: 6px
+				padding-left: 8px
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+		hr
+			@extend .bg-e
+			display: block
+			height: 1px
+			margin: 0 0 32px
+			width: 25%
+
+		p
+			@extend .fs-16
+			letter-spacing: 1px
+			line-height: 1.6
+			margin-bottom: 30px
+			text-align: justify
+			+respond-to(xs)
+				// white-space: pre-wrap
+				word-wrap: break-word
+				overflow-wrap: break-word
+			&.text-italic
+				font-style: italic
+
+			.num-pos
+				display: inline-block
+				height: 16px
+				position: relative
+				width: 12px
+				small
+					@extend .fs-10
+					position: absolute
+					top: -6px
+			
+			.bold
+				@extend .fw-bold
+			.up
+				text-transform: uppercase
+
+			a
+				color: $accent
+				@extend .fs-16
+				@extend .fw-bold
+				letter-spacing: 1px
+				line-height: 1.6
+
+		.table
+			thead
+				background-color: $secondary
+				tr
+					th
+						border-color: $black
+						color: $font-color
+						@extend .fs-18
+						@extend .fw-bold
+						text-align: center
+						@extend .text-up
+						vertical-align: middle
+			tbody
+				tr
+					td
+						border: 1px solid $black
+						color: $primary
+						span
+							display: block
+			
+			&.table-bordered
+				border: 1px solid $black

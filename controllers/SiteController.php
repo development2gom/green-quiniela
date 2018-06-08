@@ -16,29 +16,29 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    // public function behaviors()
-    // {
-        // return [
-        //     'access' => [
-        //         'class' => AccessControlExtend::className(),
-        //         'only' => ['logout', 'about'],
-        //         'rules' => [
-        //             [
-        //                 'actions' => ['logout'],
-        //                 'allow' => true,
-        //                 'roles' => ['admin'],
-        //             ],
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControlExtend::className(),
+                'only' => ['logout', 'about'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                    
-        //         ],
-        //     ],
-            // 'verbs' => [
-            //     'class' => VerbFilter::className(),
-            //     'actions' => [
-            //         'logout' => ['post'],
-            //     ],
-            // ],
-        //];
-    //}
+                ],
+            ],
+            /*'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],*/
+        ];
+    }
 
     /**
      * @inheritdoc
@@ -46,14 +46,20 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
+            // 'error' => [
+            //     'class' => 'yii\web\ErrorAction',
+            // ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function actionError(){
+        $this->layout = "@app/views/layouts/classic/topBar/mainRegistro";
+
+        return $this->render("error");
     }
 
     public function actionTest(){
@@ -83,6 +89,8 @@ class SiteController extends Controller
         // $auth = \Yii::$app->authManager;
         // $authorRole = $auth->getRole('test');
         // $auth->assign($authorRole, $usuario->getId());
+
+        $this->layout = "classic/topBar/mainBienvenido";
         return $this->render('index');
     }
 
@@ -138,4 +146,12 @@ class SiteController extends Controller
         exit;
         return $fulllist;
     }
+
+    public function actionTerminosCondiciones(){
+
+        $this->layout = "classic/topBar/mainTerminosCondiciones";
+
+        return $this->render("terminos-condiciones");
+    }
+
 }

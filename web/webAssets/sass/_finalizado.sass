@@ -1,0 +1,102 @@
+/*!
+	-----------------------------------------------------------------------------
+	Bienvenido
+	-----------------------------------------------------------------------------
+	*/
+
+.sec-finalizado
+	background-color: $accent
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
+	.red-balon,
+	.pasto-verde-inferior-izquierda
+		+respond-to(xs)
+			display: none
+
+	.page-finalizado
+		min-height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+
+		.sf-participar
+			margin-top: 24px
+			+respond-to(xs)
+				margin-bottom: 90px
+			+respond-to(tx)
+				margin-bottom: 90px
+			+respond-to(tp)
+				margin-bottom: 90px
+			+respond-to(sl)
+				margin-bottom: 90px
+			+respond-to(sp)
+				margin-bottom: 90px
+
+			.sf-participar-logo
+				display: block
+				margin: 0 auto
+				max-width: 80%
+				text-align: center
+				width: 380px
+				.sf-participar-link
+					display: inline-block
+					.sf-participar-img
+						display: inline-block
+						max-width: 100%
+
+			.sf-participar-title
+				h2
+					@extend .color-white
+					font-size: 3.8rem
+					@extend .fw-bold
+					margin-bottom: 0
+					@extend .text-up
+					span
+						display: block
+					+respond-to(xs)
+						font-size: $fs-38
+				h3
+					color: $primary
+					@extend .fs-26
+					@extend .fw-regular
+					margin-top: 0
+					@extend .text-up
+					+respond-to(xs)
+						font-size: $fs-18
+
+			.sf-participar-body
+				margin-top: 64px
+				p.text-codigo,
+				span.text-fase
+					color: $primary
+					@extend .fs-18
+					@extend .fw-bold
+					@extend .text-up
+				span.text-fase
+					display: block
+				input.codigo
+					background-color: $white
+					border: 1px solid $white
+					border-radius: 6px
+					color: $primary
+					@extend .fs-20
+					@extend .fw-bold
+					@extend .text-up
+					height: 42px
+					margin: 16px auto 0
+					max-width: 100%
+					padding: 8px 16px
+					width: 330px
+
+				.form-group
+					margin-top: 16px
+					a.btn-primary,
+					button.btn-primary
+						color: $primary
+						@extend .fs-34
+						@extend .fw-bold
+						height: 60px
+						margin-top: 24px
+						@extend .text-up
+						width: 260px

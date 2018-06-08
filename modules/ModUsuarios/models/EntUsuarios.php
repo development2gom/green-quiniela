@@ -10,6 +10,8 @@ use app\modules\ModUsuarios\models\Utils;
 use kartik\password\StrengthValidator;
 use yii\web\UploadedFile;
 use app\models\Email;
+use app\models\Calendario;
+use app\models\RelUsuariosCodigos;
 
 /**
  * This is the model class for table "ent_usuarios".
@@ -45,6 +47,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 	public $repeat;
 	public $repeatEmail;
 	public $image;
+	public $txt_codigo;
 	
 	/**
 	 * @inheritdoc
@@ -65,7 +68,11 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 					'on' => 'registerInput',
 					'message'=>'Los email deben coincidir'
 				],
-
+				[
+					['txt_email', 'repeatEmail'], 'trim', 
+					
+					
+				],
 				
 				[
 					['txt_email', 'repeatEmail'], 'email', 
@@ -103,8 +110,11 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				[ 
 						[ 
 								'txt_username',
-								'txt_apellido_paterno',
-								'txt_email' 
+								//'txt_apellido_paterno',
+								'txt_email',
+								'txt_telefono',
+								'txt_codigo_postal',
+								'txt_codigo'
 						],
 						'required',
 						'on' => 'registerInput',
@@ -269,6 +279,9 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 				'id_usuario' => 'id_usuario' 
 		] );
 	}
+
+	
+	
 	
 	/**
 	 *
@@ -280,6 +293,10 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 		] );
 	}
 	
+	public function getEntUsuariosQuinielas() 
+	{ 
+		return $this->hasMany(EntUsuariosQuiniela::className(), ['id_usuario' => 'id_usuario']); 
+	}
 	/**
 	 * INCLUDE USER LOGIN VALIDATION FUNCTIONS*
 	 */
@@ -457,7 +474,7 @@ class EntUsuarios extends \yii\db\ActiveRecord implements IdentityInterface
 
 		$this->setPassword ( $this->password );
 		$this->generateAuthKey ();
-		$this->fch_creacion = Utils::getFechaActual ();
+		$this->fch_creacion = Calendario::getFechaActual ();
 		
 		// Si esta activada la opcion de mandar correo de activación el usuario estara en status pendiente
 		if (Yii::$app->params ['modUsuarios'] ['mandarCorreoActivacion'] && !$isFacebook) {

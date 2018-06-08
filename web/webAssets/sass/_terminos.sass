@@ -1,0 +1,228 @@
+/*!
+	-----------------------------------------------------------------------------
+	Bienvenido
+	-----------------------------------------------------------------------------
+	*/
+
+
+.sec-terminos-condiciones
+	background-color: $white
+	padding-top: 0 !important
+	position: relative
+	z-index: 9
+
+	.pasto-verde-inferior-izquierda,
+	.logo-quiniela-terminos,
+	.pasto-verde
+		+respond-to(xs)
+			display: none
+	
+	.page-terminos-condiciones
+		min-height: 100vh
+		position: relative
+		width: 100%
+		z-index: 9
+
+		.page-content
+			width: 100%
+
+		.stc-logo
+			align-items: center
+			display: flex
+			justify-content: center
+			width: 100%
+			.stc-link
+				align-items: center
+				display: flex
+				justify-content: center
+				.stc-img
+					display: none
+					margin: 0 auto
+					max-width: 80%
+					+respond-to(xs)
+						display: flex
+
+		.stc-title
+			h2
+				color: $primary
+				@extend .fs-30
+				@extend .fw-bold
+				margin-bottom: 0
+				@extend .text-up
+				+respond-to(xs)
+					font-size: $fs-24
+					text-align: center
+
+		.stc-body
+			margin-top: 32px
+			padding-bottom: 32px
+			+respond-to(xs)
+				margin-bottom: 60px
+				padding-left: 16px
+				padding-right: 16px
+
+			h3,
+			h4,
+			h5,
+			ul,
+			ol,
+			p
+				color: $primary
+
+			h3
+				@extend .fs-18
+				@extend .fw-regular
+				letter-spacing: 1px
+				margin-bottom: 24px
+				@extend .text-up
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+			h4
+				@extend .fs-16
+				@extend .fw-bold
+				letter-spacing: 1px
+				margin-bottom: 4px
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+				.num-pos
+					display: inline-block
+					height: 16px
+					position: relative
+					width: 12px
+					small
+						@extend .fs-10
+						@extend .fw-bold
+						position: absolute
+						top: -4px
+
+			h5
+				@extend .fs-14
+				@extend .fw-bold
+				letter-spacing: 1px
+				margin-bottom: 4px
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+
+			ul
+				list-style-position: outside
+				margin-bottom: 30px
+				padding-left: 26px
+				li
+					// @extend .color-gray-700
+					@extend .fs-16
+					letter-spacing: 1px
+					line-height: 1.8
+					margin-bottom: 8px
+					+respond-to(xs)
+						// white-space: pre-wrap
+						word-wrap: break-word
+						overflow-wrap: break-word
+
+					.bold
+						@extend .fw-bold
+
+					.num-pos
+						display: inline-block
+						height: 16px
+						position: relative
+						width: 12px
+						small
+							@extend .fs-10
+							position: absolute
+							top: -6px
+
+				&.ul-style-simple
+					list-style: none
+				&.ul-simple
+					list-style: none
+					margin-top: 16px
+
+
+			ol
+				list-style-position: outside
+				margin-bottom: 30px
+				padding-left: 26px
+				li
+					// @extend .color-gray-700
+					@extend .fs-16
+					letter-spacing: 1px
+					line-height: 1.6
+					margin-bottom: 6px
+					padding-left: 8px
+					+respond-to(xs)
+						// white-space: pre-wrap
+						word-wrap: break-word
+						overflow-wrap: break-word
+
+			hr
+				@extend .bg-e
+				display: block
+				height: 1px
+				margin: 0 0 32px
+				width: 25%
+
+			p
+				@extend .fs-16
+				letter-spacing: 1px
+				line-height: 1.6
+				margin-bottom: 30px
+				text-align: justify
+				+respond-to(xs)
+					// white-space: pre-wrap
+					word-wrap: break-word
+					overflow-wrap: break-word
+				&.text-italic
+					font-style: italic
+
+				.num-pos
+					display: inline-block
+					height: 16px
+					position: relative
+					width: 12px
+					small
+						@extend .fs-10
+						position: absolute
+						top: -6px
+				
+				.bold
+					@extend .fw-bold
+				.up
+					text-transform: uppercase
+
+				a
+					color: $accent
+					@extend .fs-16
+					letter-spacing: 1px
+					line-height: 1.6
+
+			.table
+				thead
+					background-color: $secondary
+					tr
+						th
+							border-color: $black
+							color: $font-color
+							@extend .fs-18
+							@extend .fw-bold
+							text-align: center
+							@extend .text-up
+							vertical-align: middle
+				
+				tbody
+					tr
+						td
+							border: 1px solid $black
+							color: $primary
+							span
+								display: block
+				
+				&.table-bordered
+					border: 1px solid $black

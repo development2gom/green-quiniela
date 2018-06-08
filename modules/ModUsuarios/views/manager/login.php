@@ -9,54 +9,45 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 $this->title = 'Login';
-$this->params['classBody'] = "page-login-v3 layout-full";
+$this->params['classBody'] = "site-navbar-small sec-registro";
 
 ?>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
 
 
-<div class="panel">
-	<div class="panel-body">
-		<div class="brand">
-			<img class="brand-img mb-40" src="<?= Url::base() ?>/webAssets/images/logo.png" alt="...">
-		</div>
+		  <?php 
+			$form = ActiveForm::begin([
+				'id' => 'form-ajax',
+				'enableAjaxValidation' => true,
+				'enableClientValidation' => true,
+				'options' => [
+					'class' => 'form-pre-registro'
+				]				
+			]);
+			?>
+			
+			<?= $form->field($model, 'username', ["template"=>"<div class='row'><div class='col-md-4 d-flex align-self-center'>{label}</div><div class='col-md-8'>{input}{error}</div></div>"])->textInput(["class" => "form-control"])->label("Email registrado") ?>
 
+			<?= $form->field($model, 'password', ["template"=>"<div class='row'><div class='col-md-4 d-flex align-self-center'>{label}</div><div class='col-md-8'>{input}{error}</div></div>"])->passwordInput(["class" => "form-control"]) ?>
 
-		<?php 
-	$form = ActiveForm::begin([
-		'id' => 'form-ajax',
-		'enableAjaxValidation' => true,
-		'enableClientValidation' => true,
-		'fieldConfig' => [
-			"template" => "{input}{label}{error}",
-			"options" => [
-				"class" => "form-group form-material floating",
-				"data-plugin" => "formMaterial"
-			],
-			"labelOptions" => [
-				"class" => "floating-label"
-			]
-		]
-	]);
-	?>
+			<div class="form-group clearfix olvide-contrasena">
+				<a href="<?= Url::base() ?>/peticion-pass">¿Olvidaste tu contraseña?</a>
+			</div>
 
-		<?= $form->field($model, 'username')->textInput(["class" => "form-control"]) ?>
+			<div class="form-group">
+				<?= Html::submitButton('<span class="ladda-label">Inicia sesión</span>', ["data-style" => "zoom-in", 'class' => 'btn btn-primary ladda-button', 'name' => 'login-button'])?>
+			</div>
 
-		<?= $form->field($model, 'password')->passwordInput(["class" => "form-control"]) ?>
+			<div class="form-group clearfix necesito-cuenta">
+				<a href="<?= Url::base() ?>/sign-up">Necesito una cuenta</a>
+			</div>
 
-		<div class="form-group clearfix">
-			<a class="float-right" href="<?= Url::base() ?>/peticion-pass">¿Olvidaste tu contraseña?</a>
-		</div>
+			<?php ActiveForm::end(); ?>
 
-		<?= Html::submitButton('<span class="ladda-label">Ingresar</span>', ["data-style" => "zoom-in", 'class' => 'btn btn-primary btn-block btn-lg mt-20 ladda-button', 'name' => 'login-button'])
-	?>
-		<div class="form-group clearfix text-center mt-20">
-			<a href="<?= Url::base() ?>/sign-up">Necesito una cuenta</a>
-		</div>
-
-		<?php ActiveForm::end(); ?>
-
-
-		<p class="soporteTxt">¿Necesitas ayuda? escribe a: <a class="no-redirect" href="mailto:soporte@2gom.com.mx?Subject=Solicitud%de%Soporte">soporte@2gom.com.mx</a></p>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>
