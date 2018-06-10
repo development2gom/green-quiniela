@@ -472,7 +472,8 @@ a[x-apple-data-detectors=true] {
 	<div style="color:#555555;line-height:120%;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 40px; padding-bottom: 20px;">	
 		<div style="line-height:14px;color: <?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align: center;">
 
-            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el, si necesitas asistencia o soporte favor de escribirme a: <a href="mailto:'.<?= $mailAyuda ?>.'?Subject=Ayuda%20Web" target="_blank" style="display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300; color: <?= $colorLink ?>;  line-height: 16px;"><span style=" line-height: 20px;" data-mce-style=" line-height: 20px;"><?= $mailAyuda ?></span></a></p>
+            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el. 
+            </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
             <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize16 ?>"> <?= $crAuthor ?> </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
