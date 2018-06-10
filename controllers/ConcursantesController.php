@@ -402,6 +402,10 @@ class ConcursantesController extends Controller
 
     }
 
+    public function actionSend(){
+        $this->enviarEmail();
+    }
+
     public function enviarEmail($email="humberto@2gom.com.mx" ){
 
         $usuario = EntUsuarios::getUsuarioLogueado();
