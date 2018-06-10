@@ -144,7 +144,7 @@ a[x-apple-data-detectors=true] {
   border-right: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
-.local.active,.visita.active{
+.active{
   background-color: #f4a21b;
   border: 1px solid #f4a21b;
   color: <?=$colorSubtitle?>;
