@@ -150,6 +150,12 @@ a[x-apple-data-detectors=true] {
   color: <?=$colorSubtitle?>;
 }
 
+.x.active,.x.active{
+  background-color: rgba(<?=$bgHeaderTrans?>,0.35);
+  border-color: <?=$bgHeader?>;
+  color: <?=$colorSubtitle?>;
+}
+
 @media only screen and (min-width: 620px) {
   .block-grid {
     width: 600px !important; }
