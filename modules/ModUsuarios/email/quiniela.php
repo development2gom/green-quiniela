@@ -146,13 +146,13 @@ a[x-apple-data-detectors=true] {
 }
 .local.active,.visita.active{
   background-color: #f4a21b;
-  border-color: #f4a21b;
+  border: 1px solid #f4a21b;
   color: <?=$colorSubtitle?>;
 }
 
 .x_visita.x_active, .x_local.x_active{
   background-color: #f4a21b;
-  border-color: #f4a21b;
+  border: 1px solid #f4a21b;
   color: <?=$colorSubtitle?>;
 }
 
