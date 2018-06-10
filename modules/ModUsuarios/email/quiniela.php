@@ -144,7 +144,7 @@ a[x-apple-data-detectors=true] {
   border-right: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
-.local.active,.visita.active{
+.active{
   background-color: #f4a21b;
   border: 1px solid #f4a21b;
   color: <?=$colorSubtitle?>;
@@ -412,7 +412,10 @@ a[x-apple-data-detectors=true] {
                   ?>
                   <div style="border-collapse: collapse;display: table;width: 100%;padding-top: 4px;padding-bottom: 4px;">
                     <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
-                      <div style="border-radius: 4px;" class="local <?= $flagEq1 ? 'active' : '' ?>">
+                      <div style="border-radius: 4px; <?= $flagEq1 ? 'background-color: #f4a21b;
+    border: 1px solid #f4a21b;
+    color: #444;' : '' ?>" 
+                      class="local <?= $flagEq1 ? 'active' : '' ?>" >
                         <p><?=$equipo1->txt_nombre_equipo?></p>
                         <img src="<?=$equipo1->txt_url_imagen_equipo?>" alt="">
                       </div>
@@ -426,7 +429,9 @@ a[x-apple-data-detectors=true] {
                     </div>
 
                     <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
-                      <div style="border-radius: 4px;" class="visita <?= $flagEq2 ? 'active' : '' ?>">
+                      <div style="border-radius: 4px; <?= $flagEq2 ? 'background-color: #f4a21b;
+    border: 1px solid #f4a21b;
+    color: #444;' : '' ?>" class="visita <?= $flagEq2 ? 'active' : '' ?>">
                         <p><?=$equipo2->txt_nombre_equipo?></p>
                         <img src="<?=$equipo2->txt_url_imagen_equipo?>" alt="">
                       </div>
