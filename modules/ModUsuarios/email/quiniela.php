@@ -31,7 +31,7 @@ $btnBg = "#B80E29";
 
 $url = $url;
 
-$mailAyuda = "ayuda@mail.com";
+$mailAyuda = "contacto@mundialcentrosantafe.com";
 $crAuthor = "&copy; Quiniela mundialista";
 
 $logoAuthor = "http://via.placeholder.com/380x180";
