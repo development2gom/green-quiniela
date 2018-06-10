@@ -145,14 +145,14 @@ a[x-apple-data-detectors=true] {
   border-bottom: 1px solid transparent;
 }
 .local.active,.visita.active{
-  background-color: rgba(<?=$bgHeaderTrans?>,0.35);
-  border-color: <?=$bgHeader?>;
+  background-color: #f4a21b;
+  border-color: #f4a21b;
   color: <?=$colorSubtitle?>;
 }
 
-.x.active,.x.active{
-  background-color: rgba(<?=$bgHeaderTrans?>,0.35);
-  border-color: <?=$bgHeader?>;
+.x_visita.x_active, .x_local.x_active{
+  background-color: #f4a21b;
+  border-color: #f4a21b;
   color: <?=$colorSubtitle?>;
 }
 
