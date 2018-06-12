@@ -9,10 +9,39 @@ use app\models\CatEquipos;
 use Symfony\Component\HttpFoundation\Response;
 use app\models\WrkQuiniela;
 use app\models\RelRespuestaUsuario;
+use app\components\AccessControlExtend;
 
 
 class AdministradorController extends \yii\web\Controller
 {
+
+/**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControlExtend::className(),
+                'only' => ['index','nuevos-partidos', 'resultados', 'partidos', 'actualizar-partidos', 'guardar-actualizacion'],
+                'rules' => [
+                    [
+                        'actions' => ['index','nuevos-partidos', 'resultados', 'partidos', 'actualizar-partidos', 'guardar-actualizacion'],
+                        'allow' => true,
+                        'roles' => ['super-admin'],
+
+                    ],
+                ],
+            ],
+           // 'verbs' => [
+           //     'class' => VerbFilter::className(),
+           //     'actions' => [
+           //         'logout' => ['post'],
+           //     ],
+           // ],
+        ];
+    }
+
         public function actionIndex()
         {
                 return $this->render('index');
