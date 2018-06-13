@@ -30,7 +30,8 @@
 
 // Actualizar Partidos
 .sec-actualizar-partidos,
-.sec-nuevos-partidos
+.sec-nuevos-partidos,
+.sec-resultados-partidos
 
 	.page
 		.page-content
@@ -55,7 +56,8 @@
 		width: 650px
 
 	.sec-ap-cont,
-	.sec-np-cont
+	.sec-np-cont,
+	.sec-rp-cont
 		background-color: $white
 		border-radius: 4px
 		box-shadow: 0 2px 4px 0 rgba($black,.3)
@@ -119,65 +121,132 @@
 					text-align: center
 
 
-		.form-pre-registro
-			display: flex
-			flex-direction: column
-			width: 100%
-			.sec-np-item
-				align-items: center
+		
+
+
+	.sec-np-tabs-cont
+		// background-color: $white
+		// border-radius: 4px
+		// box-shadow: 0 2px 4px 0 rgba($black,.3)
+		display: block
+		margin: 0 auto 32px
+		max-width: 96%
+		// padding: 24px
+		width: 920px
+		.nav-tabs-horizontal
+			.nav-tabs
+				.nav-link
+					@extend .fs-16
+					&.active
+						border-bottom: 1px solid $primary
+
+		.tab-content
+			background-color: $white
+			padding: 24px
+
+			.form-pre-registro
 				display: flex
-				margin-bottom: 24px
+				border-bottom: 1px solid $primary
+				flex-direction: column
 				width: 100%
-				.sec-np-item-local,
-				.sec-np-item-empate,
-				.sec-np-item-visita
-					margin-right: 3%
-					width: 31.31%
-					+respond-to(xs)
-						width: 35%
-					&.active
-						border: 2px solid $secondary
-				.sec-np-item-empate
+				.sec-np-item
 					align-items: center
 					display: flex
-					justify-content: center
+					justify-content: space-between
+					margin-bottom: 24px
+					width: 100%
+					+respond-to(xs)
+						flex-wrap: wrap
 
-					button.btn-secondary
-						color: $secondary
+					.sec-np-item-text,
+					.sec-np-item-local,
+					.sec-np-item-empate,
+					.sec-np-item-visita,
+					.sec-np-item-save
 						+respond-to(xs)
-							max-width: 100%
-							min-width: 100%
-							padding-left: 0
-							padding-right: 0
-					&.active
+							order: 3
+							width: 100%
+
+					// 	// margin-right: 3%
+					// 	// width: 31.31%
+					// 	// +respond-to(xs)
+					// 	// 	width: 35%
+					// 	&.active
+					// 		border: 2px solid $secondary
+
+					.sec-np-item-text
+						width: 180px
+						h4
+							@extend .fs-24
+							@extend .fw-light
+							margin: 0 0 8px 0
+						p
+							@extend .fs-16
+						+respond-to(xs)
+							order: 1
+							width: calc(100% - 30px )
+						
+
+					.sec-np-item-empate
+						align-items: center
+						display: flex
+						justify-content: center
+
 						button.btn-secondary
-							background-color: $secondary
-							border-color: $secondary
-							color: $white
+							color: $secondary
+							+respond-to(xs)
+								max-width: 100%
+								min-width: 100%
+								padding-left: 0
+								padding-right: 0
+						&.active
+							button.btn-secondary
+								background-color: $secondary
+								border-color: $secondary
+								color: $white
 
-				.sec-np-item-local,
-				.sec-np-item-visita
-					align-items: center
-					display: flex
-					flex-direction: column
-					// padding: 16px 8px
-					+respond-to(xs)
-						padding: 16px 2px
-					img
-						max-width: 100%
-						width: 30px
-					p
-						text-align: center
+					.sec-np-item-local,
+					.sec-np-item-visita
+						align-items: center
+						display: flex
+						flex-direction: column
+						// padding: 16px 8px
+						+respond-to(xs)
+							padding: 12px 4px
+						img
+							max-width: 100%
+							width: 30px
+						p
+							text-align: center
+						
+						.form-group
+							margin-bottom: 0
 
-				.sec-np-item-empate
-					align-items: center
-					display: flex
-					flex-direction: column
-					justify-content: flex-start
-					p
-						@extend .fs-15
-						@extend .fw-bold
-						margin-bottom: 8px
+					.sec-np-item-empate
+						align-items: center
+						display: flex
+						flex-direction: column
+						justify-content: flex-start
+						p
+							@extend .fs-28
+							@extend .fw-regular
+							margin-bottom: 0
+
+					.sec-np-item-save
+						+respond-to(xs)
+							order: 2
+							width: 30px
+						.checkbox-primary
+							input[type="checkbox"]:checked + label::before
+								background-color: transparent
+								border-color: transparent
+								border: 1px solid $primary
+							input[type="checkbox"]:checked + label::after
+								color: $primary
+							label
+								&::before
+									border-color: $primary
+
 
 // Usuarios
 .sec-usuarios
