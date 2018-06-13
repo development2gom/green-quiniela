@@ -121,9 +121,6 @@
 					text-align: center
 
 
-		
-
-
 	.sec-np-tabs-cont
 		// background-color: $white
 		// border-radius: 4px
@@ -334,3 +331,59 @@
 			+respond-to(sl)
 				margin-top: 4px
 				margin-bottom: 4px
+
+.sec-resultados-partidos
+	.sec-rp-cont
+		background-color: transparent
+		box-shadow: none
+		padding: 0
+		width: 480px
+		.sec-rp-item
+			// background-color: pink
+			background-color: $white
+			border-radius: 4px
+			box-shadow: 0 2px 4px 0 rgba($black,.3)
+			display: flex
+			flex-direction: column
+			width: 100%
+			.sec-rp-content
+				.sec-rp-head
+					background-color: $primary
+					margin-top: 32px
+					h3
+						color: $white
+						@extend .fs-24
+						@extend .fw-regular
+						margin: 0
+						padding: 16px 24px
+					&:first-child
+						margin-top: 0
+				.sec-rp-body
+					background-color: $white
+					border-bottom: 1px solid $grey-d
+					padding: 16px 24px
+					.sec-rp-body-head
+						align-items: center
+						display: flex
+						justify-content: space-between
+						width: 100%
+						h4
+							@extend .fs-20
+							@extend .fw-regular
+							width: calc(100% - 60px)
+							span
+								@extend .fw-regular
+						p
+							background-color: $accent
+							border-radius: 30px
+							color: $white
+							@extend .fs-14
+							padding: 2px 8px
+							text-align: center
+							width: 40px
+
+					p
+						@extend .fs-16
+						@extend .fw-regular
+						span
+							@extend .fw-bold
