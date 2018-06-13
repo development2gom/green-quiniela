@@ -46,7 +46,7 @@ class AdministradorController extends \yii\web\Controller
 
         public function actionIndex()
         {
-                return $this->render('index');
+                return $this->redirect('resultados');
         }
 
         public function actionResultados()
@@ -222,6 +222,7 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionNuevosPartidos()
     {
+        
         $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])
                 ->one();
         
