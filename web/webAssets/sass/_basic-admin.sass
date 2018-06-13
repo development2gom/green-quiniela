@@ -396,3 +396,22 @@ a
 .loader-overlay
 	background-color: $primary !important
 
+
+.page
+	.page-content
+		h2.title-admin
+			color: $primary
+			@extend .fs-30
+			@extend .fw-regular
+			margin-bottom: 40px
+			position: relative
+			text-align: center
+			&::before
+				background-color: $primary
+				bottom: -10px
+				content: ""
+				height: 2px
+				left: 50%
+				margin-left: -40px
+				position: absolute
+				width: 80px
