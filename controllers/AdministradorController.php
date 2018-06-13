@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use app\models\WrkQuiniela;
 use app\models\RelRespuestaUsuario;
 use app\components\AccessControlExtend;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 
 class AdministradorController extends \yii\web\Controller
@@ -49,7 +51,8 @@ class AdministradorController extends \yii\web\Controller
 
         public function actionResultados()
         {
-                return $this->render('resultados');
+            $fases = CatFasesDelTorneo::find()->all();
+                return $this->render('resultados', ["fases"=>$fases]);
         }
 
         public function actionPartidos()
@@ -219,7 +222,14 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionNuevosPartidos()
     {
-        $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])->all();
+        $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])
+                ->one();
+        
+        if(!$proximaFase){
+         exit;
+        }
+        $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])
+        ->andWhere(["id_fase"=>$proximaFase])->all();
 
         $equiposDisponibles = CatEquipos::find()->where(['b_habilitado' => '1'])->orderBy('txt_nombre_equipo ASC')->all();
             //los valores ue se le envian al a vista en el return son los sigientes:
