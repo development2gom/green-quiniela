@@ -12,10 +12,6 @@ $this->title = "Nuevos Partidos";
 $this->params['classBody'] = "sec-nuevos-partidos";
 ?>
 
-<div class="sec-np-actions">
-    <button class="btn btn-primary">GUARDAR</button>
-</div>
-
 <div class="sec-np-cont">
     
     <?php
