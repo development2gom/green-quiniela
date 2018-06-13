@@ -48,7 +48,7 @@ class CatCodigos extends \yii\db\ActiveRecord
     {
         return [
             'id_codigo' => 'Id Codigo',
-            'txt_codigo' => 'Txt Codigo',
+            'txt_codigo' => 'Código',
             'id_fase' => 'Id Fase',
             'b_habilitado' => 'B Habilitado',
             'b_codigo_usado' => 'B Codigo Usado',

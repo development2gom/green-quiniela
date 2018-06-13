@@ -96,7 +96,7 @@ class ConcursantesController extends Controller
         $usuarioParticipa = RelUsuariosCodigos::find()->where(["id_usuario"=>$usuario->id_usuario, "id_fase"=>$fase->id_fase])->one();
 
         if(!$usuarioParticipa){
-            return $this->render("ingresar-codigo");
+            return $this->redirect(["ingresar-codigo"]);
         }
 
         if($fase->id_fase>1){
@@ -105,6 +105,37 @@ class ConcursantesController extends Controller
 
         return $this->render('partidos-proximos', ['partidos' => $partidos, "terminoPartido" => $terminoPartido]);
 
+    }
+
+    public function actionIngresarCodigo(){
+        $codigo = new CatCodigos();
+        $this->layout = "main";
+
+        $usuario = EntUsuarios::getUsuarioLogueado();
+        $fase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['between', new Expression('now()'), new Expression('fch_inicio'), new Expression('fch_termino')])
+        ->one();
+
+        if($codigo->load(Yii::$app->request->post())){
+            $buscarCodigo = CatCodigos::find()->where(["txt_codigo"=>$codigo->txt_codigo])->one();
+            if(!$buscarCodigo){
+                $codigo->addError("txt_codigo", "El código no existe");
+            }else if($buscarCodigo->b_codigo_usado){
+                $codigo->addError("txt_codigo", "El código ha sido utilizado");
+            }else{
+                $relCodigo = new RelUsuariosCodigos();
+                $relCodigo->id_usuario = $usuario->id_usuario;
+                $relCodigo->id_codigo = $buscarCodigo->id_codigo;
+                $relCodigo->id_fase = $fase->id_fase;
+                if($relCodigo->save()){
+                    $this->redirect(["partidos-proximos"]);
+                }else{
+                    
+                }
+            }
+
+        }
+
+        return $this->render("ingresar-codigo", ["codigo"=>$codigo]);
     }
 
     public function actionResultados()

@@ -8,7 +8,6 @@ $this->title = "Quiniela mundialista";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
 
 
-
 $this->registerJsFile(
     'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js',
     ['depends' => [\app\assets\AppAsset::className()]]
@@ -33,13 +32,13 @@ $this->registerJsFile(
             <p class="text-completa-registra" data-url="<?= Url::base() ?>">
                 3. Da click en finalizar para guardar juego.
             </p>
-            <h5 class="text-resultados">Los resultados serán publicados el 29 de junio</h5>
+            <h5 class="text-resultados"></h5>
             <p class="text-completa-registra" data-url="<?= Url::base() ?>">Para dudas y aclaraciones comunicate  al  01 800 467 1897</p>
         </div>
     </div>
     <div class="col-md-4">
         
-        <h4>Fase de grupos</h4>
+       
 
         <!-- Accordion -->
         <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
@@ -117,6 +116,7 @@ $this->registerJsFile(
     </div>
 </div>
 
+
     
     <div class="col-md-4 col-d-flex-end">
         <div class="column-actions">
@@ -129,6 +129,23 @@ $this->registerJsFile(
 </div>
 
 <?php
+if(count($partidos)==0){
+    $this->registerJs(
+        "
+            $('.js-verificar-siguiente').remove();
+        "
+        
+        ,View::POS_READY,
+        'my-button-handler'
+    );
+}
+    $this->registerJs(
+        "$('.text-resultados').text('Los resultados serán publicados el ".Calendario::getDateComplete($fase->fch_premiacion)."')",
+        View::POS_READY,
+        'my-button-handler'
+    );
+
+
 if($terminoPartido){
 ?>
 
