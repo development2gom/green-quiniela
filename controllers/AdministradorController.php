@@ -46,7 +46,7 @@ class AdministradorController extends \yii\web\Controller
 
         public function actionIndex()
         {
-                return $this->render('index');
+                return $this->redirect('resultados');
         }
 
         public function actionResultados()
