@@ -5,7 +5,7 @@ $(document).ready(function () {
         var partido = $(this).data("partido");
         var formulario = $('#form-ajax-' + partido).serialize();
         $.ajax({
-            url: 'administrador/guardar-partidos-nuevos',
+            url: baseUrl+'administrador/guardar-partidos-nuevos',
             type: 'post',
             data:
                 formulario,
