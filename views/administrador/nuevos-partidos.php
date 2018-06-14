@@ -54,8 +54,11 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                 
         <?php 
         $validar = true;
-               foreach ($fases as $faseTorneo) {
+       
 
+        
+               foreach ($fases as $faseTorneo) {
+                $contador= 1;
                ?>
             
             
@@ -80,6 +83,13 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                     'class' => 'form-pre-registro'
                     ]    
                     ]);
+                    $contestado = false;
+
+                    if($partido->id_equipo1){
+                        $contestado = true;
+                        
+                    }
+                   
                 ?>
  
 
@@ -87,8 +97,9 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                     <div class="sec-np-item">
                     <?php # echo $faseTorneo->id_fase;?>
                         <div class="sec-np-item-text">
-                            <h4>P1:</h4>
+                            <h4>P<?=$contador?>:</h4>
                             <?php
+                            $contador++;
                             $id=$partido->id_partido;
                             $fecha =$partido->fch_partido;
                             $fchPartido=Calendario::getDateComplete($fecha);
@@ -111,7 +122,7 @@ $this->params['classBody'] = "sec-nuevos-partidos";
 
                         <div class="sec-np-item-save">
                             <div class="checkbox-custom checkbox-primary checkbox-lg">
-                                <input name="inputCheckboxes" data-partido="<?=$id?>" class="js-submit" type="checkbox">
+                                <input name="inputCheckboxes" data-partido="<?=$id?>" class="js-submit" type="checkbox" <?=$contestado?'checked':''?>>
                                 <label></label>
                             </div>
                         </div>
