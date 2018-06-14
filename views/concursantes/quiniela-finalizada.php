@@ -41,10 +41,10 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
                             <div class="col-md-4">
                                 <p class="finalizada-nombre"><?=$ganador->txt_username?></p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="finalizada-puntos"><?=$ganador->num_puntos?></p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <p class="finalizada-fecha"><?=Calendario::getDateCompleteHour($ganador->fch_termino)?></p>
                             </div>
                                 
