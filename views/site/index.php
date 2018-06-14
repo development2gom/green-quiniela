@@ -17,7 +17,7 @@ $this->params['classBody'] = "site-navbar-small sec-bienvenido";
             <li><strong>Presenta.</strong> Tu ticket de compra en los Módulos de Atención participantes.</li>
             <li><strong>Recibe.</strong> Un código de participación.</li>
             <li><strong>Ingresa.</strong> A www.mundialcentrosantafe.com.</li>
-            <li><strong>Juega.</strong> En la quiniela mundialista.</li>
+            <li><strong>Juega.</strong> En el concurso mundialista.</li>
             <li><strong>Realiza.</strong> Más compras y sigue participando.</li>
             <li>Si logras el mejor puntaje al final de cada jornada ¡GANAS!.</li>
         </ul>
