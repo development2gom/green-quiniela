@@ -279,6 +279,10 @@ class ManagerController extends Controller {
 		}
 
 		if ($model->load ( Yii::$app->request->post () ) && $model->login ()) {
+			$usuario = EntUsuarios::getUsuarioLogueado();
+			if($usuario->txt_auth_item =="super-admin"){
+				return $this->redirect(["//administrador/index"]);
+			}
 			
 			return $this->redirect ( [ 
 				'//concursantes/partidos-proximos' 

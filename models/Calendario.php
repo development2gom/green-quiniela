@@ -7,6 +7,23 @@ class Calendario
 {
 
     /**
+     * Regresa el número del día
+     * @param string $string
+     * @return string
+     */
+    public static function getFechaShort($string = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
+        $tiempo = time();
+        if ($string) {
+            $tiempo = strtotime($string);
+        }
+        $diaNumero = date('Y-m-d', $tiempo);
+
+        return $diaNumero;
+    }
+
+    /**
 	 * Obtenemos la fecha actual para guardarla en la base de datos
 	 *
 	 * @return string

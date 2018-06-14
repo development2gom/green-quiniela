@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\components\AccessControlExtend;
+use app\modules\ModUsuarios\models\EntUsuarios;
 
 class SiteController extends Controller
 {
@@ -84,6 +85,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $usuario = EntUsuarios::getUsuarioLogueado();
+        if($usuario->txt_auth_item =="super-admin"){
+            return $this->redirect(["//administrador/index"]);
+        }
         
         // $usuario = Yii::$app->user->identity;
         // $auth = \Yii::$app->authManager;

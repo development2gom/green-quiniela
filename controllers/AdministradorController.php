@@ -9,18 +9,50 @@ use app\models\CatEquipos;
 use Symfony\Component\HttpFoundation\Response;
 use app\models\WrkQuiniela;
 use app\models\RelRespuestaUsuario;
+use app\components\AccessControlExtend;
+use app\models\CatFasesDelTorneo;
+use yii\db\Expression;
 
 
 class AdministradorController extends \yii\web\Controller
 {
+
+/**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControlExtend::className(),
+                'only' => ['index','nuevos-partidos', 'resultados', 'partidos', 'actualizar-partidos', 'guardar-actualizacion'],
+                'rules' => [
+                    [
+                        'actions' => ['index','nuevos-partidos', 'resultados', 'partidos', 'actualizar-partidos', 'guardar-actualizacion'],
+                        'allow' => true,
+                        'roles' => ['super-admin'],
+
+                    ],
+                ],
+            ],
+           // 'verbs' => [
+           //     'class' => VerbFilter::className(),
+           //     'actions' => [
+           //         'logout' => ['post'],
+           //     ],
+           // ],
+        ];
+    }
+
         public function actionIndex()
         {
-                return $this->render('index');
+                return $this->redirect('resultados');
         }
 
         public function actionResultados()
         {
-                return $this->render('resultados');
+            $fases = CatFasesDelTorneo::find()->all();
+                return $this->render('resultados', ["fases"=>$fases]);
         }
 
         public function actionPartidos()
@@ -190,14 +222,25 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionNuevosPartidos()
     {
-        $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])->all();
+        
+        $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])->one();
+        $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->all();
+       
+
+        
+        if(!$proximaFase){
+         exit;
+        }
+        
+        $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])
+        ->andWhere(["id_fase"=>$proximaFase])->all();
 
         $equiposDisponibles = CatEquipos::find()->where(['b_habilitado' => '1'])->orderBy('txt_nombre_equipo ASC')->all();
             //los valores ue se le envian al a vista en el return son los sigientes:
             // el primer valor denominado nuevos-partidos indica a la vista a la que se enviara
             // dentro de los corchetes se aloja entre comillas el nombre de la variable que se usara en la vista
             // la flecha que apunta a la variable indica lo que vale esa variable
-        return $this->render('nuevos-partidos', ['nuevoPartido' => $nuevoPartido, 'equiposDisponibles' => $equiposDisponibles]);
+        return $this->render('nuevos-partidos', ['nuevoPartido' => $nuevoPartido, 'equiposDisponibles' => $equiposDisponibles,'proximaFase'=>$proximaFase,'fases'=>$fases]);
     }
 
     public function actionGuardarPartidosNuevos()
@@ -205,7 +248,8 @@ class AdministradorController extends \yii\web\Controller
         $response = new ResponseServices();
         $WrkPartidos = null;
         $partido = null;
-
+// print_r($_POST);
+// exit();
         $newPartido = WrkPartidos::find()->where(['b_habilitado' => '1'])->andWhere(['id_partido' => $_POST['WrkPartidos']['id_partido']])->one();
 
 
