@@ -223,12 +223,15 @@ class AdministradorController extends \yii\web\Controller
     public function actionNuevosPartidos()
     {
         
-        $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])
-                ->one();
+        $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])->one();
+        $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->all();
+       
+
         
         if(!$proximaFase){
          exit;
         }
+        
         $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])
         ->andWhere(["id_fase"=>$proximaFase])->all();
 
@@ -237,7 +240,7 @@ class AdministradorController extends \yii\web\Controller
             // el primer valor denominado nuevos-partidos indica a la vista a la que se enviara
             // dentro de los corchetes se aloja entre comillas el nombre de la variable que se usara en la vista
             // la flecha que apunta a la variable indica lo que vale esa variable
-        return $this->render('nuevos-partidos', ['nuevoPartido' => $nuevoPartido, 'equiposDisponibles' => $equiposDisponibles]);
+        return $this->render('nuevos-partidos', ['nuevoPartido' => $nuevoPartido, 'equiposDisponibles' => $equiposDisponibles,'proximaFase'=>$proximaFase,'fases'=>$fases]);
     }
 
     public function actionGuardarPartidosNuevos()
@@ -245,7 +248,8 @@ class AdministradorController extends \yii\web\Controller
         $response = new ResponseServices();
         $WrkPartidos = null;
         $partido = null;
-
+// print_r($_POST);
+// exit();
         $newPartido = WrkPartidos::find()->where(['b_habilitado' => '1'])->andWhere(['id_partido' => $_POST['WrkPartidos']['id_partido']])->one();
 
 
