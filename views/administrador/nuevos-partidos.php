@@ -5,6 +5,7 @@ use Faker\Guesser\Name;
 use yii\helpers\ArrayHelper;
 use app\models\Calendario;
 use yii\bootstrap\ActiveForm;
+use app\models\WrkPartidos;
 $this->registerJsFile('@web/webAssets/js/site/nuevos-partidos.js',
 ['depends'=>[\app\assets\AppAsset::className()]]);
 
@@ -16,27 +17,27 @@ $this->params['classBody'] = "sec-nuevos-partidos";
         
     <div class="nav-tabs-horizontal" data-plugin="tabs">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" data-toggle="tab" href="#tab-8vos" aria-controls="tab-8vos" role="tab" aria-expanded="false">
-                    8vos de Final
-                </a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#tab-4tos" aria-controls="tab-4tos" role="tab" aria-expanded="false">
-                    4tos de Final
-                </a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#tab-semi" aria-controls="tab-semi" role="tab" aria-expanded="false">
-                    Semifinal
-                </a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#tab-final" aria-controls="tab-final" role="tab" aria-expanded="false">
-                    Final
+            <?php
+
+
+            foreach ($fases as $faseTorneo) {
+            
+//print_r($faseTorneo);
+                ?>
+
+               
+                <li class="nav-item" role="presentation">
+                <a class="nav-link" data-toggle="tab" href="#<?=$faseTorneo->id_fase?>" aria-controls="<?=$faseTorneo->id_fase?>" role="tab" aria-expanded="false">
+                    <?php # echo $faseTorneo->id_fase;?>
+                    <?=$faseTorneo->txt_nombre_fase;?>
                 </a>
             </li>
 
+               <?php }
+              
+               ?>
+            
+           
             <li class="dropdown nav-item" role="presentation" style="display: none;">
                 <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Menu </a>
                 <div class="dropdown-menu" role="menu">
@@ -46,12 +47,31 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                     <a class="dropdown-item" data-toggle="tab" href="#tab-final" aria-controls="tab-final" role="tab">Final</a>
                 </div>
             </li>
+        
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="tab-8vos" role="tabpanel" aria-expanded="false">
+           
                 
-                <?php
-                foreach ($nuevoPartido as $partido) {
+        <?php 
+        $validar = true;
+               foreach ($fases as $faseTorneo) {
+
+               ?>
+            
+            
+
+                 <?php
+                  $nuevosPartidos2 = WrkPartidos::find()->where(['b_habilitado'=>1])
+                  ->andWhere(["id_fase"=>$faseTorneo->id_fase])->all();
+
+                  
+                  ?>
+                  <div class="tab-pane <?= $validar?'active':''?>" id="<?=$faseTorneo->id_fase?>" role="tabpanel" aria-expanded="false">
+                 <?php
+                 $validar = false;
+                foreach ($nuevosPartidos2 as $partido) {
+
+
                     $form = ActiveForm::begin([
                     'id' => 'form-ajax-'.$partido->id_partido,
                     'enableAjaxValidation' => true,
@@ -61,9 +81,11 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                     ]    
                     ]);
                 ?>
+ 
+
                 <?= $form->field($partido,'id_partido')->hiddenInput(['value'=>$partido->id_partido])->label(false);?>
                     <div class="sec-np-item">
-                        
+                    <?php # echo $faseTorneo->id_fase;?>
                         <div class="sec-np-item-text">
                             <h4>P1:</h4>
                             <?php
@@ -89,36 +111,25 @@ $this->params['classBody'] = "sec-nuevos-partidos";
 
                         <div class="sec-np-item-save">
                             <div class="checkbox-custom checkbox-primary checkbox-lg">
-                                <input name="inputCheckboxes" type="checkbox">
+                                <input name="inputCheckboxes" data-partido="<?=$id?>" class="js-submit" type="checkbox">
                                 <label></label>
                             </div>
                         </div>
 
                     </div>
+
                 <?php
                 ActiveForm::end();
+
                 }
                 ?>
+      </div>
+                     
+<?php
+            }
+                ?> 
             
-            </div>
-            <div class="tab-pane" id="tab-4tos" role="tabpanel" aria-expanded="false">
-                Negant parvos fructu nostram mutans supplicii ac dissentias, maius tibi licebit
-                ruinae philosophia. Salutatus repellere titillaret expetendum
-                ipsi. Cupiditates intellegam exercitumque privatio concederetur,
-                sempiternum, verbis malint dissensio nullas noctesque earumque.
-            </div>
-            <div class="tab-pane" id="tab-semi" role="tabpanel" aria-expanded="true">
-                Benivole horrent tantalo fuisset adamare fugiendam tractatos indicaverunt animis
-                chaere, brevi minuendas, ubi angoribus iisque deorsum audita
-                haec dedocendi utilitas. Panaetium erimus platonem varias
-                imperitos animum, iudiciorumque operis multa disputando.
-            </div>
-            <div class="tab-pane" id="tab-final" role="tabpanel" aria-expanded="false">
-                Metus subtilius texit consilio fugiendam, opinionum levius amici inertissimae pecuniae
-                tribus ordiamur, alienus artes solitudo, minime praesidia
-                proficiscuntur reiciat detracta involuta veterum. Rutilius
-                quis honestatis hominum, quisquis percussit sibi explicari.
-            </div>
+            
         </div>
     </div>
 
