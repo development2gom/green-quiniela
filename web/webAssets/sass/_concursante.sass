@@ -56,10 +56,12 @@
 						@extend .color-white
 						display: block
 						@extend .fs-40
-						padding: 0 16px
+						// padding: 0 16px
 						position: relative
 						text-align: center
 						@extend .text-up
+						line-height: 1.2
+						padding: 8px 40px
 
 						+respond-to(xs)
 							padding: 0 8px
@@ -74,8 +76,9 @@
 							font-weight: 400
 							font-style: normal
 							position: absolute
-							top: 15px
-							right: 30px
+							top: 50%
+							margin-top: -6px
+							right: 16px
 							-webkit-transition: all .3s linear 0s
 							-o-transition: all .3s linear 0s
 							transition: all .3s linear 0s
@@ -163,6 +166,15 @@
 							// .panel-body-btn
 							// 	background-color: transparent
 
+						.finalizada-nombre,
+						.finalizada-puntos,
+						.finalizada-fecha,
+						.finalizada-resultado-fase
+							color: $white
+
+						.finalizada-resultado-fase
+							@extend .fs-24
+							@extend .fw-light
 			
 
 			.col-d-flex,
@@ -429,3 +441,38 @@
 		@extend .fs-28
 		@extend .fw-bold
 		@extend .text-up
+
+.sec-ingresar-codigo
+	h3
+		color: $white
+		@extend .fs-24
+		text-align: center
+		@extend .text-up
+	form.form-registro
+		width: 100%
+		.form-control,
+		.help-block.help-block-error,
+		.form-group-actions
+			margin: 0 auto
+			max-width: 280px
+			width: 96%
+
+		.form-group-actions
+			text-align: center
+			a.btn-primary,
+			button.btn-primary
+				background-size: 260px 60px
+				color: $primary
+				@extend .fs-24
+				@extend .fw-bold
+				height: 60px
+				margin-top: 24px
+				@extend .text-up
+				text-align: center
+				width: 260px
+				+respond-to(tp)
+					background-size: 260px 40px
+					font-size: $fs-26
+					height: 40px
+					line-height: 1.1
+					margin-top: 12px
