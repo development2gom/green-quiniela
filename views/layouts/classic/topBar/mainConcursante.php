@@ -31,7 +31,7 @@ AppAssetConcursante::register($this);
   </div>
 
   <a href="<?=Url::base()?>/" class="logo-quiniela">
-    <img src="<?=Url::base()?>/webAssets/images/logo-bienvenido.png" alt="">
+    <img src="<?=Url::base()?>/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png" alt="">
   </a>
   <?=$this->render("//components/logout")?>
   <?php $this->beginBody();?>
