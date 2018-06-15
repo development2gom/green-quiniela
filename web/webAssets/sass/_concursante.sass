@@ -171,10 +171,20 @@
 						.finalizada-fecha,
 						.finalizada-resultado-fase
 							color: $white
+							margin-bottom: 12px
+							+respond-to(xs)
+								margin-bottom: 8px
 
 						.finalizada-resultado-fase
 							@extend .fs-24
 							@extend .fw-light
+
+						.finalizada-nombre
+							text-transform: capitalize
+
+						.finalizada-fecha
+							+respond-to(xs)
+								margin-bottom: 24px
 			
 
 			.col-d-flex,

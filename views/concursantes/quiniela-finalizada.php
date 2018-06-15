@@ -8,10 +8,8 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
 ?>
 
 <div class="row">
-    <div class="col-md-4 col-d-flex">
-        
-    </div>   
-    <div class="col-md-4">
+ 
+    <div class="col-md-6 offset-md-3">
         
         <h4>Resultados</h4>
 
@@ -38,13 +36,13 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
                 foreach ($ganadores as $index=>$ganador) {
                     ?>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-10 col-md-4">
                                 <p class="finalizada-nombre"><?=$ganador->txt_username?></p>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-2 col-md-2">
                                 <p class="finalizada-puntos"><?=$ganador->num_puntos?></p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12 col-md-6">
                                 <p class="finalizada-fecha"><?=Calendario::getDateCompleteHour($ganador->fch_termino)?></p>
                             </div>
                                 
