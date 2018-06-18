@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use app\models\WrkPartidos;
+use yii\db\Expression;
 
 
 $this->title = "Actualizar Partidos";
@@ -68,9 +69,10 @@ $this->registerJsFile(
         andWhere(['is not', 'id_equipo1', null])->
         andWhere(['is not', 'id_equipo2', null])->
         andWhere(['id_fase' => $faseTorneo->id_fase])->
+        orderBy([ new Expression('fch_partido ASC')])->
         all();
         ?>
-<div class="tab-pane active" id="<?= $faseTorneo->id_fase ?>" role="tabpanel" aria-expanded="false">
+<div class="tab-pane active" id="p<?= $faseTorneo->id_fase ?>" role="tabpanel" aria-expanded="false">
 
 <?php
 
@@ -93,7 +95,7 @@ $this->registerJsFile(
             
         
         
-        <div class="sec-ap-item-empate">
+        <div class="sec-ap-item-empate ">
                 <button class='btn btn-secondary js-seleccionar-equipo js-equipos <?= $nuevosPartidos->b_empate == 1 ? 'active' : '' ?>'  
                 data-nombre='Empate' data-token ="<?= $nuevosPartidos->txt_token ?>" 
                 data-equipo="<?= null ?>">empate</button >
