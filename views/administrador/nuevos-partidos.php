@@ -37,14 +37,20 @@ $this->params['classBody'] = "sec-nuevos-partidos";
               
                ?>
             
-           
-            <li class="dropdown nav-item" role="presentation" style="display: none;">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Menu </a>
+            <li class="dropdown nav-item" role="presentation" style="display: list-item;">
+                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Fases </a>
                 <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" data-toggle="tab" href="#tab-8vos" aria-controls="tab-8vos" role="tab">8vos de Final</a>
-                    <a class="dropdown-item" data-toggle="tab" href="#tab-4tos" aria-controls="tab-4tos" role="tab">4tos de Final</a>
-                    <a class="dropdown-item" data-toggle="tab" href="#tab-semi" aria-controls="tab-semi" role="tab">Semifinal</a>
-                    <a class="dropdown-item" data-toggle="tab" href="#tab-final" aria-controls="tab-final" role="tab">Final</a>
+
+                <?php
+                    foreach ($fases as $faseTorneo) {
+
+                        ?>
+                        <a class="nav-link" data-toggle="tab" href="#<?=$faseTorneo->id_fase?>" aria-controls="<?=$faseTorneo->id_fase?>" role="tab" aria-expanded="false">
+                            <?=$faseTorneo->txt_nombre_fase;?>
+                        </a>
+                    <?php 
+                }
+                ?>
                 </div>
             </li>
         
