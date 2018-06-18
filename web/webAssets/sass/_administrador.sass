@@ -245,6 +245,61 @@
 									border-color: $primary
 
 
+
+			// NEWS
+			.sec-ap-item
+				align-items: center
+				display: flex
+				margin-bottom: 24px
+				width: 100%
+				.sec-ap-item-local
+					width: 40%
+					+respond-to(xs)
+						width: 35%
+					&.active
+						border: 2px solid $secondary
+				
+				.sec-ap-item-local,
+				.sec-ap-item-visita
+					cursor: pointer
+
+				.sec-ap-item-empate
+					align-items: center
+					display: flex
+					justify-content: center
+					width: 20%
+					+respond-to(xs)
+						width: 30%
+					button.btn-secondary
+						color: $secondary
+						+respond-to(xs)
+							max-width: 90%
+							min-width: 90%
+							padding-left: 0
+							padding-right: 0
+						&.active
+							background-color: $secondary
+							border-color: $secondary
+							color: $white
+				.sec-ap-item-visita
+					width: 40%
+					+respond-to(xs)
+						width: 35%
+					&.active
+						border: 2px solid $secondary
+				.sec-ap-item-local,
+				.sec-ap-item-visita
+					align-items: center
+					display: flex
+					flex-direction: column
+					padding: 16px 8px
+					+respond-to(xs)
+						padding: 16px 1px
+					img
+						max-width: 100%
+						width: 30px
+					p
+						text-align: center
 // Usuarios
 .sec-usuarios
 

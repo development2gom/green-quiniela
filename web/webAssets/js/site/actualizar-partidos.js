@@ -10,8 +10,8 @@ $(document).ready(function () {
         var url = $(".js-div-contenedor").data('url');
 
         var seleccion = $('#js-seleccion-' + partido + '.active').removeClass('active');
-        var seleccionado = $(this).parent();
-        seleccionado.toggleClass('active');
+        // var seleccionado = $(this).parent();
+        $(this).toggleClass('active');
 
         if (!equipo_ganador) {
             equipo_ganador = null;
