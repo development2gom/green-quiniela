@@ -67,10 +67,11 @@ class AdministradorController extends \yii\web\Controller
         //consultamos la base de datos para poder enviar los resultados a el ducumento destino
                 $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])
                         ->all();
+                        $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->all();
         
         //envio de datos a el documento destino
                 $this->layout = "classic/topBar/mainAdmin";
-                return $this->render('actualizar-partidos', ['partidos' => $partidos]);
+                return $this->render('actualizar-partidos', ['partidos' => $partidos,'fases'=>$fases]);
 
         }
 
@@ -232,6 +233,7 @@ class AdministradorController extends \yii\web\Controller
          exit;
         }
         
+
         $nuevoPartido = WrkPartidos::find()->where(['id_equipo1' => null])->andWhere(['id_equipo2' => null])
         ->andWhere(["id_fase"=>$proximaFase])->all();
 
