@@ -9,7 +9,7 @@ $(document).ready(function () {
         var resultado=$(this).data("nombre");
         var url = $(".js-div-contenedor").data('url');
 
-        var seleccion = $('#js-seleccion-' + partido + ' .active').removeClass('active');
+        var seleccion = $('#js-seleccion-' + partido + '.active').removeClass('active');
         var seleccionado = $(this).parent();
         seleccionado.toggleClass('active');
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
      
         $.ajax({
-            url:url+'/administrador/guardar-actualizacion',
+            url:baseUrl+'administrador/guardar-actualizacion',
             type: 'post',
             data:{
                 partido: partido,
