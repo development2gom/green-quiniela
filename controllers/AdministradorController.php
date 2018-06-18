@@ -65,7 +65,9 @@ class AdministradorController extends \yii\web\Controller
         public function actionActualizarPartidos()
         {
         //consultamos la base de datos para poder enviar los resultados a el ducumento destino
-                $partidos = WrkPartidos::find()->where(['b_habilitado' => 1])->andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])
+                $partidos = WrkPartidos::find()->
+                where(['b_habilitado' => 1])->
+                andWhere(['is not', 'id_equipo1', null])->andWhere(['is not', 'id_equipo2', null])
                         ->all();
                         $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->all();
         
@@ -132,44 +134,8 @@ class AdministradorController extends \yii\web\Controller
             //Buscar registros de resultados anteriores y si concuerdan con los resutados
             //reales restar un punto a los usuarios.
             $resultadosAnteriores = WrkQuiniela::find()->where(['id_partido'=>$ganador->id_partido])->all();
-
-            if($resultadosAnteriores){
-                foreach($resultadosAnteriores as $resultadoAnterior){
-                    $usuario = $resultadoAnterior->usuario;
-                    $aciertos = $usuario->num_puntos;
-                    
-                    $relRespuestaUsuario = RelRespuestaUsuario::find()->where(['id_usuario'=>$usuario->id_usuario, 'id_partido'=>$resultadoAnterior->id_partido])->one();
-                    if($relRespuestaUsuario){
-                        if($relRespuestaUsuario->id_ganador == $equipo_ganador && $relRespuestaUsuario->b_empate == 0){
-                            $usuario->num_puntos = $aciertos + 1;
-                            if($relRespuestaUsuario->b_error == 1){
-                                $relRespuestaUsuario->b_error = 0;
-                            }
-                        }else if($relRespuestaUsuario->b_empate == $ganador->b_empate){
-                            if($relRespuestaUsuario->b_empate == 1){
-                                $usuario->num_puntos = $aciertos + 1;
-                            }else{
-                                if($aciertos > 0 && $relRespuestaUsuario->b_error == 0){
-                                    $usuario->num_puntos = $aciertos - 1;
-                                    $relRespuestaUsuario->b_error = 1;
-                                }
-                            }
-                        }else{
-                            if($aciertos > 0 && $relRespuestaUsuario->b_error == 0){
-                                $usuario->num_puntos = $aciertos - 1;
-                                $relRespuestaUsuario->b_error = 1;
-                            }
-                        }
-                    }    
-                    
-                    if(!$usuario->save()){
-                        print_r($usuario->error);exit;
-                    }
-                    if(!$relRespuestaUsuario->save()){
-                        print_r($relRespuestaUsuario->error);exit;
-                    }
-                }
-            }
+           
+            
         }
 
         return $response;

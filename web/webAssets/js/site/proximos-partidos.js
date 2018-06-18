@@ -16,7 +16,7 @@ $(document).ready(function () {
         /*if (!equipo_seleccionado) {
             equipo_seleccionado = null;
         }*/
-        var contenedor = $('#js-div-partido-' + token + ' .active').removeClass('active');
+        var contenedor = $('#js-div-partido-'+token+'.active').removeClass('active');
 
         // var padre = $(this).parent();
         // padre.toggleClass('active');
