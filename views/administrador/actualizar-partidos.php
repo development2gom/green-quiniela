@@ -52,11 +52,7 @@ $this->registerJsFile(
                 foreach ($partidos as $nuevosPartidos) {
                     $equipo1 = $nuevosPartidos->equipo1;
                     $equipo2 = $nuevosPartidos->equipo2;
-                    // echo $equipo1;
-                    // echo $equipo2;
-                
-                    // $equipo1 = $nuevosPartidos->equipo1;
-                    //  $equipo2 = $nuevosPartidos->equipo2;
+                    
 
     ?>
 
@@ -95,11 +91,6 @@ $this->registerJsFile(
 ?>
 
 </div>
-
-      
-
-
-
 <?php
 
 }
@@ -108,14 +99,3 @@ $this->registerJsFile(
         </div>
     </div>
 </div>
-
-
-
-    
-
-
-
-
-
-
-    0

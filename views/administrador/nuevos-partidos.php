@@ -22,7 +22,7 @@ $this->params['classBody'] = "sec-nuevos-partidos";
 
             foreach ($fases as $faseTorneo) {
             
-//print_r($faseTorneo);
+
                 ?>
 
                
