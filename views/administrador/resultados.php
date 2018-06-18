@@ -11,7 +11,7 @@ use app\models\ViewPuntuacionUsuarios;
     <div class="sec-rp-item">
         <?php
             foreach($fases as $fase){
-            $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->limit(13)->all();
+                $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(13)->all();
         ?>
         <div class="sec-rp-content">
             <div class="sec-rp-head">

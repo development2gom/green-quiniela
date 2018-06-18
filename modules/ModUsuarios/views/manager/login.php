@@ -13,7 +13,7 @@ $this->params['classBody'] = "site-navbar-small sec-registro";
 
 ?>
 
-<div class="row">
+<div class="row mt-30">
   <div class="col-md-12">
     <div class="panel">
 
