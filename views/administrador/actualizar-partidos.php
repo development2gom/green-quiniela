@@ -93,8 +93,7 @@ $this->registerJsFile(
             
         
         
-        <div class="sec-ap-item-empate 
-        ">
+        <div class="sec-ap-item-empate">
                 <button class='btn btn-secondary js-seleccionar-equipo js-equipos <?= $nuevosPartidos->b_empate == 1 ? 'active' : '' ?>'  
                 data-nombre='Empate' data-token ="<?= $nuevosPartidos->txt_token ?>" 
                 data-equipo="<?= null ?>">empate</button >
