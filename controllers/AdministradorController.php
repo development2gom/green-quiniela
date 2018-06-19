@@ -161,7 +161,7 @@ class AdministradorController extends \yii\web\Controller
     public function actionExportar()
     {
         $fileName = "Usuarios.csv";
-        header('Content-Type: application/excel');
+        header('Content-Type: application/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename="' . $fileName . '"');
 
         //$consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
