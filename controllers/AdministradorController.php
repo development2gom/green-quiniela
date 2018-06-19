@@ -160,9 +160,7 @@ class AdministradorController extends \yii\web\Controller
 
     public function actionExportar()
     {
-        $fileName = "Usuarios.csv";
-        header('Content-Type: application/csv; charset=utf-8');
-        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        
 
         //$consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
         $consultaUsuarios = RelUsuariosCodigos::find()->all();
@@ -171,8 +169,8 @@ class AdministradorController extends \yii\web\Controller
         $data[] = ["Nombre", "Teléfono","C.P.", "Email", "Puntuación", "Fecha Creacion", "Código usado"];
 
         foreach ($consultaUsuarios as $clienteUsuario) {
-            $datosUsuario = $usuario->usuario;
-            $datosCodigo = $usuario->codigo;
+            $datosUsuario = $clienteUsuario->usuario;
+            $datosCodigo = $clienteUsuario->codigo;
 
                 $data[] = [
                         $datosUsuario->txt_username,
@@ -185,6 +183,9 @@ class AdministradorController extends \yii\web\Controller
                 ];
         }
 
+        $fileName = "Usuarios.csv";
+        header('Content-Type: application/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename="' . $fileName . '"');
         $fp = fopen('php://output', 'w');
         fputs($fp, $bom = (chr(0xEF) . chr(0xBB) . chr(0xBF)));
         foreach ($data as $row) {
