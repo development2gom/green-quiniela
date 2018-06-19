@@ -12,6 +12,7 @@ use app\models\RelRespuestaUsuario;
 use app\components\AccessControlExtend;
 use app\models\CatFasesDelTorneo;
 use yii\db\Expression;
+use app\models\RelUsuariosCodigos;
 
 
 class AdministradorController extends \yii\web\Controller
@@ -163,22 +164,29 @@ class AdministradorController extends \yii\web\Controller
         header('Content-Type: application/excel');
         header('Content-Disposition: attachment; filename="' . $fileName . '"');
 
-        $consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
+        //$consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
+        $consultaUsuarios = RelUsuariosCodigos::find()->all();
 
-        $data[] = ["Nombre", "Telefono","C.P.", "Email", "Puntuacion", "Fecha Creacion"];
+
+        $data[] = ["Nombre", "Teléfono","C.P.", "Email", "Puntuación", "Fecha Creacion", "Código usado"];
 
         foreach ($consultaUsuarios as $clienteUsuario) {
+            $datosUsuario = $usuario->usuario;
+            $datosCodigo = $usuario->codigo;
+
                 $data[] = [
-                        $clienteUsuario->txt_username,
-                        $clienteUsuario->txt_telefono,
-                        $clienteUsuario->txt_codigo_postal,
-                        $clienteUsuario->txt_email,
-                        $clienteUsuario->num_puntos,
-                        $clienteUsuario->fch_creacion
+                        $datosUsuario->txt_username,
+                        $datosUsuario->txt_telefono,
+                        $datosUsuario->txt_codigo_postal,
+                        $datosUsuario->txt_email,
+                        $datosUsuario->num_puntos,
+                        $datosUsuario->fch_creacion,
+                        $datosCodigo->txt_codigo
                 ];
         }
 
         $fp = fopen('php://output', 'w');
+        fputs($fp, $bom = (chr(0xEF) . chr(0xBB) . chr(0xBF)));
         foreach ($data as $row) {
 
                 fputcsv($fp, $row);
