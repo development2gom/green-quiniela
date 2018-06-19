@@ -166,7 +166,7 @@ class AdministradorController extends \yii\web\Controller
         $consultaUsuarios = RelUsuariosCodigos::find()->all();
 
 
-        $data[] = ["Nombre", "Teléfono","C.P.", "Email", "Puntuación", "Fecha Creacion", "Código usado"];
+        $data[] = ["Nombre", "Teléfono","C.P.", "Email",  "Fecha Creacion", "Código usado"];
 
         foreach ($consultaUsuarios as $clienteUsuario) {
             $datosUsuario = $clienteUsuario->usuario;
@@ -177,7 +177,7 @@ class AdministradorController extends \yii\web\Controller
                         $datosUsuario->txt_telefono,
                         $datosUsuario->txt_codigo_postal,
                         $datosUsuario->txt_email,
-                        $datosUsuario->num_puntos,
+                        
                         $datosUsuario->fch_creacion,
                         $datosCodigo->txt_codigo
                 ];
