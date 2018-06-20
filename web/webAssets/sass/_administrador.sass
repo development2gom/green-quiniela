@@ -318,7 +318,8 @@
 		margin-bottom: 16px
 		text-align: center
 
-	.sec-usuarios-cont
+	.sec-usuarios-cont,
+	.sec-concursantes-cont
 		background-color: $white
 		border-radius: 4px
 		box-shadow: 0 2px 4px 0 rgba($black,.3)
@@ -357,6 +358,8 @@
 						@extend .fs-15
 						@extend .fw-regular
 						padding: 16px 4px
+						&.text-capitalize
+							text-transform: capitalize
 
 		.sec-usuarios-actions
 			align-items: center
@@ -364,6 +367,12 @@
 			justify-content: flex-end
 			width: 100%
 
+	
+	.sec-concursantes-cont
+		max-width: 98%
+		width: 620px
+		+respond-to(xs)
+			padding: 24px 12px
 
 // Footer
 .site-footer

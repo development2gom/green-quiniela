@@ -10,43 +10,44 @@ use yii\bootstrap\Button;
 
 use app\models\Calendario;
 ?>
-<div class="sec-usuarios-cont">
-
-    <table class="table table-hover table-responsive">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th class="text-right">Fecha de registro</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <?php
-            $nombreUsuario = null;
-            foreach ($usuarios as $usuarioactual) {
-
-                $idUsuario = $usuarioactual->id_usuario;
-                $tipoUsuario = $usuarioactual->txt_auth_item;
-                $nombreUsuario = $usuarioactual->txt_username;
-                $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
-                $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
-                $puntos = $usuarioactual->num_puntos;
-                $fechaCreacion = $usuarioactual->fch_creacion;
-
-                if ($nombreUsuario != null) {
-                    ?>
-                    <tr>
-
-                        <td><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
-                        <td class="text-right"><?= $fechaCreacion ?></td>
-                    </tr>
+<div class="sec-concursantes-cont">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th class="text-right">Fecha de registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                
                 <?php
+                $nombreUsuario = null;
+                foreach ($usuarios as $usuarioactual) {
 
+                    $idUsuario = $usuarioactual->id_usuario;
+                    $tipoUsuario = $usuarioactual->txt_auth_item;
+                    $nombreUsuario = $usuarioactual->txt_username;
+                    $apellidoPaternoUsuario = $usuarioactual->txt_apellido_paterno;
+                    $apellidoMaternoUsuario = $usuarioactual->txt_apellido_materno;
+                    $puntos = $usuarioactual->num_puntos;
+                    $fechaCreacion = $usuarioactual->fch_creacion;
+
+                    if ($nombreUsuario != null) {
+                        ?>
+                        <tr>
+
+                            <td class="text-capitalize"><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
+                            <td class="text-right"><?= $fechaCreacion ?></td>
+                        </tr>
+                    <?php
+
+                }
             }
-        }
-        ?>
-        </tbody>
-    </table>
+            ?>
+            </tbody>
+        </table>
+    </div>
 
 
     <div class="sec-usuarios-actions">
