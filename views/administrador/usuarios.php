@@ -16,8 +16,7 @@ use app\models\Calendario;
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th class="text-center">Puntuación</th>
-                <th>Fecha de registro</th>
+                <th class="text-right">Fecha de registro</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +38,7 @@ use app\models\Calendario;
                     <tr>
 
                         <td><?= $nombreUsuario ?> <?= $apellidoPaternoUsuario ?> <?= $apellidoMaternoUsuario ?></td>
-                        <td class="text-center"><?= $puntos ?></td>
-                        <td><?= $fechaCreacion ?></td>
+                        <td class="text-right"><?= $fechaCreacion ?></td>
                     </tr>
                 <?php
 
@@ -52,7 +50,7 @@ use app\models\Calendario;
 
 
     <div class="sec-usuarios-actions">
-        <a href="<?= Url::base() ?>/administrador/exportar" target="_blank" type="button" class="btn btn-primary">
+        <a class="btn btn-primary" href="<?= Url::base() ?>/administrador/exportar" target="_blank">
             EXPORTAR
         </a>
     </div>
