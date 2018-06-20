@@ -71,7 +71,9 @@ $this->params['classBody'] = "sec-nuevos-partidos";
 
                  <?php
                   $nuevosPartidos2 = WrkPartidos::find()->where(['b_habilitado'=>1])
-                  ->andWhere(["id_fase"=>$faseTorneo->id_fase])->all();
+                  ->andWhere(["id_fase"=>$faseTorneo->id_fase])->
+                  orderBy('fch_partido ASC')->
+                  all();
 
                   
                   ?>
@@ -98,6 +100,7 @@ $this->params['classBody'] = "sec-nuevos-partidos";
                    
                 ?>
  
+
 
                 <?= $form->field($partido,'id_partido')->hiddenInput(['value'=>$partido->id_partido])->label(false);?>
                     <div class="sec-np-item">

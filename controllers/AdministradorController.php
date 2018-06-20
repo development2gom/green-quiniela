@@ -200,7 +200,8 @@ class AdministradorController extends \yii\web\Controller
     {
         
         $proximaFase = CatFasesDelTorneo::find()->where(['b_habilitado' => 1])->andWhere(['<', new Expression('now()'), new Expression('fch_termino')])->one();
-        $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->all();
+        $fases=CatFasesDelTorneo::find()->where(['b_habilitado'=>1])->
+        andWhere(['!=','id_fase',1])->all();
        
 
         

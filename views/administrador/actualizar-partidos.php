@@ -33,10 +33,11 @@ $this->registerJsFile(
     }
     ?>
             <li class="dropdown nav-item" role="presentation" style="display: list-item;">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Fases </a>
+                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#p" aria-expanded="false">Fases </a>
                 <div class="dropdown-menu" role="menu">
 
                 <?php
+                $validar = true;
                     foreach ($fases as $faseTorneo) {
 
                         ?>
@@ -47,7 +48,16 @@ $this->registerJsFile(
                             <?= $faseTorneo->txt_nombre_fase; ?>
                         </a>
                     <?php 
+
                 }
+               
+                if ($faseTorneo == reset($fases))
+                {
+                    echo $fases->id_fase;
+                    $valido='active';
+                 }else{
+                    $valido='';
+                 }
                 ?>
                 </div>
             </li>
@@ -60,9 +70,10 @@ $this->registerJsFile(
 
 
     <?php
-
+$isprimero=true;
     foreach ($fases as $faseTorneo) {
-
+      
+     
 
         $partidos = WrkPartidos::find()->
         where(['b_habilitado' => 1])->
@@ -72,10 +83,10 @@ $this->registerJsFile(
         orderBy([ new Expression('fch_partido ASC')])->
         all();
         ?>
-<div class="tab-pane active" id="p<?= $faseTorneo->id_fase ?>" role="tabpanel" aria-expanded="false">
+<div class="tab-pane <?=$isprimero?'active':''?>" id="p<?= $faseTorneo->id_fase ?>" role="tabpanel" aria-expanded="false">
 
-<?php
-
+    <?php
+$isprimero = false;
                 foreach ($partidos as $nuevosPartidos) {
                     $equipo1 = $nuevosPartidos->equipo1;
                     $equipo2 = $nuevosPartidos->equipo2;
@@ -83,7 +94,7 @@ $this->registerJsFile(
 
     ?>
 
-<div id='js-seleccion-<?=$nuevosPartidos->txt_token ?>' class="sec-ap-item js-partido-<?= $nuevosPartidos->id_partido ?>">
+    <div id='js-seleccion-<?=$nuevosPartidos->txt_token ?>' class="sec-ap-item js-partido-<?= $nuevosPartidos->id_partido ?>">
 
             <div class="sec-ap-item-local js-seleccionar-equipo js-equipos 
             <?= $nuevosPartidos->id_equipo1 == $nuevosPartidos->id_equipo_ganador ? 'active' :''?>" 
