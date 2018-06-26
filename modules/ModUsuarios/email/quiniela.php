@@ -410,33 +410,33 @@ a[x-apple-data-detectors=true] {
 
 
     <?php
-      $grupoActual = false;
+      // $grupoActual = false;
       
-      foreach($partidos as $key => $partido){
-        $equipo1 = $partido->equipo1;
-        $equipo2 = $partido->equipo2;
-        $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
+      // foreach($partidos as $key => $partido){
+      //   $equipo1 = $partido->equipo1;
+      //   $equipo2 = $partido->equipo2;
+      //   $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
         
-        $flagEq1 = false;
-        $flagEq2 = false;
-        $flagEm3 = false;
-        if ($resultado) {
-            if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
-                $flagEq1 = true;
-            } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
-                $flagEq2 = true;
-            } else {
-                $flagEm3 = true;
-            }
-        } 
+      //   $flagEq1 = false;
+      //   $flagEq2 = false;
+      //   $flagEm3 = false;
+      //   if ($resultado) {
+      //       if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
+      //           $flagEq1 = true;
+      //       } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
+      //           $flagEq2 = true;
+      //       } else {
+      //           $flagEm3 = true;
+      //       }
+      //   } 
 
-        if ($grupoActual && $grupoActual != $partido->txt_grupo) {
-          echo '</div>';
-      }
+      //   if ($grupoActual && $grupoActual != $partido->txt_grupo) {
+      //     echo '</div>';
+      // }
         
 
-        if($grupoActual != $partido->txt_grupo){
-          $grupoActual = $partido->txt_grupo;
+      //   if($grupoActual != $partido->txt_grupo){
+      //     $grupoActual = $partido->txt_grupo;
     ?>
 
 
@@ -458,7 +458,7 @@ a[x-apple-data-detectors=true] {
             <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
               <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center">
                 <span style="color: #fff; font-size: 24px; font-weight: bold; line-height: 26px; text-transform: uppercase;">
-                  GRUPO <?=$grupoActual?>
+                  GRUPO <?php # $grupoActual?>
                 </span>
               </p></div>	
             </div>
@@ -474,7 +474,7 @@ a[x-apple-data-detectors=true] {
       </div>
 
     <?php
-    }
+    // }
     ?>
     
     
@@ -496,8 +496,8 @@ a[x-apple-data-detectors=true] {
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
             <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
             <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
-            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=$equipo1->txt_nombre_equipo?></p>
-            <img src="<?=$equipo1->txt_url_imagen_equipo?>" alt="">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Equipo Local <?php # $equipo1->txt_nombre_equipo?></p>
+            <img src="<?php # $equipo1->txt_url_imagen_equipo?>" alt="">
 
             </div>	
             </div>
@@ -541,8 +541,8 @@ a[x-apple-data-detectors=true] {
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
             <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
             <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
-            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=$equipo2->txt_nombre_equipo?></p>
-            <img src="<?=$equipo2->txt_url_imagen_equipo?>" alt="">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Equipo V<?php # $equipo2->txt_nombre_equipo?></p>
+            <img src="<?php # $equipo2->txt_url_imagen_equipo?>" alt="">
 
             </div>	
             </div>
@@ -559,7 +559,7 @@ a[x-apple-data-detectors=true] {
       </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
 
     <?php
-    }
+    // }
     ?>
 
 
