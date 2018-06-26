@@ -497,7 +497,126 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
         </div>
       </div>
-    </div>    <div style="background-color: <?=$bgBody?>;">
+    </div>
+
+
+
+    <div style="background-color:transparent;">
+      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #F4A21B;" class="block-grid ">
+        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#F4A21B;">
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:#F4A21B;"><![endif]-->
+
+              <!--[if (mso)|(IE)]><td align="center" width="500" style=" width:500px; padding-right: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+            <div class="col num12" style="min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;display: table-cell;vertical-align: top;">
+              <div style="background-color: transparent; width: 100% !important;">
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+                  
+                    <div class="">
+	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+	<div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+		<div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center"><span style="color: #fff; font-size: 24px; font-weight: bold; line-height: 26px; text-transform: uppercase;">Título</span></p></div>	
+	</div>
+	<!--[if mso]></td></tr></table><![endif]-->
+</div>
+                  
+              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+        </div>
+      </div>
+    </div>
+    
+    
+    
+
+    <div style="background-color:transparent;">
+      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent; border-bottom: 1px dashed #F4A21B;" class="block-grid three-up ">
+        
+        <div style="border-collapse: collapse;display: table;width: 100%;background-color: #FFF;">
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:transparent;"><![endif]-->
+
+              <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid #F4A21B; border-left: 0px solid #F4A21B; border-bottom: 0px solid #F4A21B; border-right: 0px solid #F4A21B;" valign="top"><![endif]-->
+            <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+              
+            <!-- <div style="border-radius: 4px;" class="local active">
+                      <p>Rusia</p>
+                      <img src="http://img.fifa.com/images/flags/3/rus.png" alt="">
+                    </div> -->
+
+              <div style=" width: 100% !important; border-radius: 4px;" class="local active">
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid #F4A21B; border-left: 0px solid #F4A21B; border-bottom: 0px solid #F4A21B; border-right: 0px solid #F4A21B; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+                  
+                    <div class="">
+	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+	<div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+		<div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
+      <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Blanco</p>
+                      <img src="http://img.fifa.com/images/flags/3/rus.png" alt="">
+    </div>	
+	</div>
+	<!--[if mso]></td></tr></table><![endif]-->
+</div>
+                  
+              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+              </div>
+            </div>
+              <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+            <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+              <div style="background-color: transparent; width: 100% !important;">
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+                  
+                    
+<div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;">
+  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31pt; v-text-anchor:middle; width:76pt;" arcsize="10%" strokecolor="#3AAEE0" fillcolor="#3AAEE0"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:16px;"><![endif]-->
+    <!-- <div style="color: #ffffff; background-color: #3AAEE0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; max-width: 102px; width: 62px;width: auto; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 20px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; text-align: center; mso-border-alt: none;">
+      <span style="font-size:16px;line-height:32px;">Empate</span>
+    </div> -->
+    <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
+                      border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px;padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
+                      class="btn-empate <?= $flagEm3 ? 'btn-empate-active' : '' ?>">
+                        Empate</p>
+  <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
+</div>
+
+                  
+              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+              </div>
+            </div>
+              <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+            <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+              <div style="width: 100% !important; border-radius: 4px;" class="local active">
+              <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+                  
+                    <div class="">
+	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+	<div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+		<div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
+      <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Negro</p>
+      <img src="http://img.fifa.com/images/flags/3/rus.png" alt="">
+    </div>	
+	</div>
+	<!--[if mso]></td></tr></table><![endif]-->
+</div>
+                  
+              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+        </div>
+      </div>
+    </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+
+
+
+
+    
+    
+    <div style="background-color: <?=$bgBody?>;">
       <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBody?>;" class="block-grid ">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBody?>;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#F0F0F0;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#F0F0F0;"><![endif]-->
