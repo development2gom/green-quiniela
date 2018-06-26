@@ -553,7 +553,7 @@ a[x-apple-data-detectors=true] {
             </div>
           <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
         </div>
-      </div>
+      
     </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
 
     <?php
