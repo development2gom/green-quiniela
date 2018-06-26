@@ -195,6 +195,10 @@ a[x-apple-data-detectors=true] {
     min-width: 320px !important;
     max-width: 100% !important;
     display: block !important; }
+    .col.col-res{
+      max-width: 96% !important;
+      margin: 0 auto !important;
+    }
   .block-grid {
     width: calc(100% - 40px) !important; }
   .col {
@@ -222,7 +226,13 @@ a[x-apple-data-detectors=true] {
     max-width: 0px;
     display: none;
     overflow: hidden;
-    font-size: 0px; } }
+    font-size: 0px; }
+    .num-res-t{
+      padding-top: 32px !important;
+    }
+    .num-res-b{
+      padding-bottom: 32px !important;
+    }}
 
     </style>
 </head>
@@ -241,6 +251,10 @@ a[x-apple-data-detectors=true] {
         max-width: 100%!important;
         width: 100%!important;
         display: block!important;
+      }
+      .col.col-res{
+        max-width: 96% !important;
+        margin: 0 auto !important;
       }
 
         .col > div {
@@ -410,8 +424,8 @@ a[x-apple-data-detectors=true] {
                   <?php
                   }
                   ?>
-                  <div style="border-collapse: collapse;display: table;width: 100%;padding-top: 4px;padding-bottom: 4px;">
-                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;padding-top: 4px;padding-bottom: 4px; border-bottom: 1px solid <?=$bgHeader?>;">
+                    <div class="col col-res num4 num-res-t" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
                       <div style="border-radius: 4px; <?= $flagEq1 ? 'background-color: #f4a21b;
     border: 1px solid #f4a21b;
     color: #444;' : '' ?>" 
@@ -421,14 +435,14 @@ a[x-apple-data-detectors=true] {
                       </div>
                     </div>
 
-                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;">
+                    <div class="col col-res num4" style="display: table-cell;vertical-align: middle;text-align: center;">
                       <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
                       border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px;padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
                       class="btn-empate <?= $flagEm3 ? 'btn-empate-active' : '' ?>">
                         Empate</p>
                     </div>
 
-                    <div class="col num4" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
+                    <div class="col col-res num4 num-res-b" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
                       <div style="border-radius: 4px; <?= $flagEq2 ? 'background-color: #f4a21b;
     border: 1px solid #f4a21b;
     color: #444;' : '' ?>" class="visita <?= $flagEq2 ? 'active' : '' ?>">
