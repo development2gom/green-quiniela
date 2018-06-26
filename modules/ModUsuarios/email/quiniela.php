@@ -226,7 +226,13 @@ a[x-apple-data-detectors=true] {
     max-width: 0px;
     display: none;
     overflow: hidden;
-    font-size: 0px; } }
+    font-size: 0px; }
+    .num-res-t{
+      padding-top: 32px !important;
+    }
+    .num-res-b{
+      padding-bottom: 32px !important;
+    }}
 
     </style>
 </head>
