@@ -444,7 +444,7 @@ a[x-apple-data-detectors=true] {
       <div style="background-color:transparent;">
         <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgHeader?>;" class="block-grid ">
           <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgHeader?>;">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:#F4A21B;"><![endif]-->
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:<?=$bgHeader?>;"><![endif]-->
 
             <!--[if (mso)|(IE)]><td align="center" width="500" style=" width:500px; padding-right: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
             <div class="col num12" style="min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;display: table-cell;vertical-align: top;">
@@ -481,16 +481,16 @@ a[x-apple-data-detectors=true] {
     
 
       <div style="background-color:transparent; background-color: green;">
-        <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBox?>; border-bottom: 1px dashed #F4A21B;" class="block-grid three-up ">
+        <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBox?>; border-bottom: 1px dashed <?=$bgHeader?>;" class="block-grid three-up ">
 
           <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBox?>;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:transparent;"><![endif]-->
 
-          <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid #F4A21B; border-left: 0px solid #F4A21B; border-bottom: 0px solid #F4A21B; border-right: 0px solid #F4A21B;" valign="top"><![endif]-->
+          <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>;" valign="top"><![endif]-->
           <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
 
-            <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local active">
-            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid #F4A21B; border-left: 0px solid #F4A21B; border-bottom: 0px solid #F4A21B; border-right: 0px solid #F4A21B; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+            <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local">
+            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
             <div class="">
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
@@ -522,7 +522,7 @@ a[x-apple-data-detectors=true] {
             </div> -->
             <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
             border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
-            class="btn-empate <?= $flagEm3 ? 'btn-empate-active' : '' ?>">
+            class="btn-empate <?php # $flagEm3 ? 'btn-empate-active' : '' ?>">
             Empate</p>
             <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
             </div>
