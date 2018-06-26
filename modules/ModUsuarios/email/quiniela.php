@@ -46,6 +46,22 @@ $logoAuthorW = "108px";
       <o:PixelsPerInch>96</o:PixelsPerInch>
      </o:OfficeDocumentSettings>
     </xml><![endif]-->
+    <!--[if gte mso 9]>
+    <style type="text/css">
+    .local.active, .visita.active{
+      background-color: rgba(244,162,27,0.35) !important;
+      padding-top: 4px !important;
+      padding-bottom: 8px !important;
+    }
+    @media (max-width: 620px) {
+      .num-res-t{
+      padding-top: 32px !important;
+    }
+    .num-res-b{
+      padding-bottom: 32px !important;
+    }}
+    </style>
+<![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
     <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
