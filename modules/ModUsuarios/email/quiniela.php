@@ -392,97 +392,6 @@ a[x-apple-data-detectors=true] {
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
             <p style="margin: 0;line-height: 24px;text-align: left;background-color:red;" dir="ltr"></p>
 
-
-    
-
-
-
-
-
-            <div style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; border-bottom: 1px solid <?=$bgHeader?>;border-radius: 3px;">
-              <?php
-              $grupoActual = false;
-              
-              foreach($partidos as $key => $partido){
-                $equipo1 = $partido->equipo1;
-                $equipo2 = $partido->equipo2;
-                $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
-                
-                $flagEq1 = false;
-                $flagEq2 = false;
-                $flagEm3 = false;
-                if ($resultado) {
-                    if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
-                        $flagEq1 = true;
-                    } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
-                        $flagEq2 = true;
-                    } else {
-                        $flagEm3 = true;
-                    }
-                } 
-
-                if ($grupoActual && $grupoActual != $partido->txt_grupo) {
-                  echo '</div>';
-              }
-               
-
-                if($grupoActual != $partido->txt_grupo){
-                  $grupoActual = $partido->txt_grupo;
-              ?>
-
-
-              <div style="background-color: transparent;">
-
-                <h3 style="background-color: <?=$bgHeader?>;color: white; text-align: center;font-size:22px;font-weight: bold;line-height:2;margin-left:0;margin-top:0;margin-right:0;margin-bottom:0;">
-                GRUPO <?=$grupoActual?></h3>
-                
-                
-                  <?php
-                  }
-                  ?>
-                  <div style="border-collapse: collapse;display: table;width: 100%;padding-top: 4px;padding-bottom: 4px; border-bottom: 1px solid <?=$bgHeader?>;">
-                    <div class="col col-res num4 num-res-t" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
-                      <div style="border-radius: 4px; <?= $flagEq1 ? 'background-color: #f4a21b;
-    border: 1px solid #f4a21b;
-    color: #444;' : '' ?>" 
-                      class="local <?= $flagEq1 ? 'active' : '' ?>" >
-                        <p><?=$equipo1->txt_nombre_equipo?></p>
-                        <img src="<?=$equipo1->txt_url_imagen_equipo?>" alt="">
-                      </div>
-                    </div>
-
-                    <div class="col col-res num4" style="display: table-cell;vertical-align: middle;text-align: center;">
-                      <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
-                      border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px;padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
-                      class="btn-empate <?= $flagEm3 ? 'btn-empate-active' : '' ?>">
-                        Empate</p>
-                    </div>
-
-                    <div class="col col-res num4 num-res-b" style="display: table-cell;vertical-align: middle;text-align: center;padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px;">
-                      <div style="border-radius: 4px; <?= $flagEq2 ? 'background-color: #f4a21b;
-    border: 1px solid #f4a21b;
-    color: #444;' : '' ?>" class="visita <?= $flagEq2 ? 'active' : '' ?>">
-                        <p><?=$equipo2->txt_nombre_equipo?></p>
-                        <img src="<?=$equipo2->txt_url_imagen_equipo?>" alt="">
-                      </div>
-                    </div>
-               
-                  </div>
-              
-
-
-              
-              <?php
-              }
-              ?>
-             
-
-            </div>
-
-            
-
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-
             </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
@@ -567,7 +476,7 @@ a[x-apple-data-detectors=true] {
     
 
     <div style="background-color:transparent;">
-      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent; border-bottom: 1px dashed #F4A21B;" class="block-grid three-up ">
+      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBox?>; border-bottom: 1px dashed #F4A21B;" class="block-grid three-up ">
         
         <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBox?>;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:transparent;"><![endif]-->
@@ -607,7 +516,7 @@ a[x-apple-data-detectors=true] {
                   
                     
 <div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;">
-  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31pt; v-text-anchor:middle; width:76pt;" arcsize="10%" strokecolor="#3AAEE0" fillcolor="#3AAEE0"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:16px;"><![endif]-->
+  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31pt; v-text-anchor:middle; width:76pt;" arcsize="10%" strokecolor="transparent" fillcolor="transparent"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:16px;"><![endif]-->
     <!-- <div style="color: #ffffff; background-color: transparent; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; max-width: 102px; width: 62px;width: auto; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 20px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; text-align: center; mso-border-alt: none;">
       <span style="font-size:16px;line-height:32px;">Empate</span>
     </div> -->
