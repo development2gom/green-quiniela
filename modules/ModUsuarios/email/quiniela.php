@@ -211,16 +211,16 @@ a[x-apple-data-detectors=true] {
     min-width: 320px !important;
     max-width: 100% !important;
     display: block !important; }
-    .col.col-res{
-      max-width: 96% !important;
-      margin: 0 auto !important;
-    }
   .block-grid {
     width: calc(100% - 40px) !important; }
   .col {
     width: 100% !important; }
     .col > div {
       margin: 0 auto; }
+  .col.col-res{
+    width: calc(100% - 16px) !important;
+    margin: 0 auto !important;
+  }
   img.fullwidth, img.fullwidthOnMobile {
     max-width: 100% !important; }
   .no-stack .col {
@@ -268,14 +268,15 @@ a[x-apple-data-detectors=true] {
         width: 100%!important;
         display: block!important;
       }
-      .col.col-res{
-        max-width: 96% !important;
-        margin: 0 auto !important;
-      }
-
         .col > div {
           margin: 0 auto;
         }
+
+      .col.col-res{
+        width: calc(320px - 16px) !important;
+        min-width: calc(310px - 16px) !important; 
+        margin: 0 auto !important;
+      }
 
       img.fullwidth {
         max-width: 100%!important;
@@ -487,7 +488,7 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:transparent;"><![endif]-->
 
           <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>;" valign="top"><![endif]-->
-          <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
 
             <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
@@ -510,7 +511,7 @@ a[x-apple-data-detectors=true] {
           
           
           <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-          <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
             <div style="background-color: transparent; width: 100% !important;">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
@@ -530,7 +531,7 @@ a[x-apple-data-detectors=true] {
 
 
           <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-          <div class="col num4" style="max-width: <?= $bgBodyWmin ?>;min-width: 166px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px;">
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
             <div style="width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local active">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
