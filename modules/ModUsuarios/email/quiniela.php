@@ -480,7 +480,7 @@ a[x-apple-data-detectors=true] {
     
     
 
-      <div style="background-color:transparent; background-color: green;">
+      <div style="background-color:transparent;">
         <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBox?>; border-bottom: 1px dashed <?=$bgHeader?>;" class="block-grid three-up ">
 
           <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBox?>;">
@@ -514,12 +514,9 @@ a[x-apple-data-detectors=true] {
             <div style="background-color: transparent; width: 100% !important;">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
-            <div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;">
+            <div align="center" class="center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;">
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31pt; v-text-anchor:middle; width:76pt;" arcsize="10%" strokecolor="transparent" fillcolor="transparent"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:16px;"><![endif]-->
-            <!-- <div style="color: #ffffff; background-color: transparent; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; max-width: 102px; width: 62px;width: auto; border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
-            border-bottom: 1px solid <?=$bgHeader?>; padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 20px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; text-align: center; mso-border-alt: none;">
-            <span style="font-size:16px;line-height:32px;">Empate</span>
-            </div> -->
+   
             <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
             border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
             class="btn-empate <?php # $flagEm3 ? 'btn-empate-active' : '' ?>">
@@ -557,7 +554,8 @@ a[x-apple-data-detectors=true] {
           </div>
         </div>
       </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-
+        
+    </div>
     <?php
     // }
     ?>
