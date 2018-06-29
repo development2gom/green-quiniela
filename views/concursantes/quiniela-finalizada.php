@@ -79,3 +79,9 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         ?>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Para dudas y aclaraciones comunícate al 01 800 467 1897.</p>
+    </div>
+</div>
