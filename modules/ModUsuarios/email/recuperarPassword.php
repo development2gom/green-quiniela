@@ -1,4 +1,6 @@
 <?php
+
+use app\models\WrkQuiniela;
 $logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
 $logoClienteH = "70px";
 $logoClienteW = "auto";
@@ -386,15 +388,10 @@ a[x-apple-data-detectors=true] {
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
         <div style="line-height:24px;color:<?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align:left;">
-            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has
-            solicitado </strong> un cambio de contraseña, para hacer el cambio da click en la siguiente liga:</span></p>
+            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has 
+            finalizado tu quiniela </strong> </span></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">
-              <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left;color: <?= $colorLink ?>; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300;  line-height: 16px;">
-                <span style="line-height:24px;"><span style=" line-height: 32px; font-size: <?= $fontSize14 ?>; color: <?= $colorLink ?>;" data-mce-style=" line-height: 32px;"><?= $url ?></span></span>
-              </a>
-            </p>
+            <p style="margin: 0;line-height: 24px;text-align: left;background-color:red;" dir="ltr"></p>
 
             </div>	
 	</div>
