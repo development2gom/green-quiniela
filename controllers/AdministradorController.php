@@ -13,6 +13,8 @@ use app\components\AccessControlExtend;
 use app\models\CatFasesDelTorneo;
 use yii\db\Expression;
 use app\models\RelUsuariosCodigos;
+use app\models\Mensajes;
+use app\models\ViewUsuariosData;
 
 
 class AdministradorController extends \yii\web\Controller
@@ -163,14 +165,13 @@ class AdministradorController extends \yii\web\Controller
         
 
         //$consultaUsuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
-        $consultaUsuarios = RelUsuariosCodigos::find()->all();
+        $consultaUsuarios = ViewUsuariosData::find()->all();
 
 
-        $data[] = ["Nombre", "Teléfono","C.P.", "Email",  "Fecha Creacion", "Código usado"];
+        $data[] = ["Nombre", "Teléfono","C.P.", "Email",  "Fecha Creacion", "Código usado", "Fase", "Puntos"];
 
-        foreach ($consultaUsuarios as $clienteUsuario) {
-            $datosUsuario = $clienteUsuario->usuario;
-            $datosCodigo = $clienteUsuario->codigo;
+        foreach ($consultaUsuarios as $datosUsuario) {
+            
 
                 $data[] = [
                         $datosUsuario->txt_username,
@@ -179,7 +180,9 @@ class AdministradorController extends \yii\web\Controller
                         $datosUsuario->txt_email,
                         
                         $datosUsuario->fch_creacion,
-                        $datosCodigo->txt_codigo
+                        $datosUsuario->txt_codigo,
+                        $datosUsuario->txt_nombre_fase,
+                        $datosUsuario->num_puntos,
                 ];
         }
 
@@ -244,4 +247,47 @@ class AdministradorController extends \yii\web\Controller
         }
         return $response;
     }
+
+    public function actionMandarSms(){
+        $usuarios = ModUsuariosEntUsuarios::find()->where(['txt_auth_item' => 'usuario-normal'])->all();
+
+        foreach($usuarios as $usuario){
+            if($usuario->txt_telefono){
+                $mensajes = new Mensajes();
+                $texto = "CONCURSO MUNDIALISTA CENTRO SANTA FE Completa la segunda jornada el 29 de junio de 2018 en http://dgom.mobi/4a1fe8";
+                $tel = $usuario->txt_telefono;
+                          
+                $mensajes->mandarMensageMasivos($texto, $tel);
+            }
+        }
+
+        
+    }
+
+    
+
+    public function actionGetUrl(){
+        echo $this->getShortUrl("http://mundialcentrosantafe.com/web");
+    }
+
+    private function getShortUrl($url)
+	{
+		$urlAutenticate = 'http://dgom.mobi';
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $urlAutenticate);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_POSTFIELDS, 'user=userGreenSaco&pass=passGreenSacro&app=GreenSacro&url=' . $url);
+		curl_setopt($ch, CURLOPT_POSTREDIR, 3);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		
+		// in real life you should use something like:
+		// curl_setopt($ch, CURLOPT_POSTFIELDS,
+		// http_build_query(array('postvar1' => 'value1')));
+		
+		// receive server response ...
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$server_output = curl_exec($ch);
+		curl_close($ch);
+		return $server_output;
+	}
 }

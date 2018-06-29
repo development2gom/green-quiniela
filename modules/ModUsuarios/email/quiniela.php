@@ -411,33 +411,33 @@ a[x-apple-data-detectors=true] {
 
 
     <?php
-      // $grupoActual = false;
+       $grupoActual = false;
       
-      // foreach($partidos as $key => $partido){
-      //   $equipo1 = $partido->equipo1;
-      //   $equipo2 = $partido->equipo2;
-      //   $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
+      foreach($partidos as $key => $partido){
+         $equipo1 = $partido->equipo1;
+         $equipo2 = $partido->equipo2;
+         $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
         
-      //   $flagEq1 = false;
-      //   $flagEq2 = false;
-      //   $flagEm3 = false;
-      //   if ($resultado) {
-      //       if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
-      //           $flagEq1 = true;
-      //       } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
-      //           $flagEq2 = true;
-      //       } else {
-      //           $flagEm3 = true;
-      //       }
-      //   } 
+         $flagEq1 = false;
+         $flagEq2 = false;
+         $flagEm3 = false;
+         if ($resultado) {
+             if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
+                 $flagEq1 = true;
+             } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
+                 $flagEq2 = true;
+             } else {
+                 $flagEm3 = true;
+             }
+         } 
 
       //   if ($grupoActual && $grupoActual != $partido->txt_grupo) {
       //     echo '</div>';
       // }
         
 
-      //   if($grupoActual != $partido->txt_grupo){
-      //     $grupoActual = $partido->txt_grupo;
+         if($grupoActual != $partido->txt_grupo){
+           $grupoActual = $partido->txt_grupo;
     ?>
 
 
@@ -445,40 +445,41 @@ a[x-apple-data-detectors=true] {
       <div style="background-color:transparent;">
         <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgHeader?>;" class="block-grid ">
           <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgHeader?>;">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:<?=$bgHeader?>;"><![endif]-->
+            <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:<?=$bgHeader?>;"><![endif]-->
 
-            <!--[if (mso)|(IE)]><td align="center" width="500" style=" width:500px; padding-right: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
-            <div class="col num12" style="min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;display: table-cell;vertical-align: top;">
-            <div style="background-color: transparent; width: 100% !important;">
-            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+              <!--[if (mso)|(IE)]><td align="center" width="500" style=" width:500px; padding-right: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+              <div class="col num12" style="min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;display: table-cell;vertical-align: top;">
+                <div style="background-color: transparent; width: 100% !important;">
+                  <!--[if (!mso)&(!IE)]><!-->
+                  <div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
 
-            <div class="">
-            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
-            <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
-            <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
-              <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center">
-                <span style="color: #fff; font-size: 24px; font-weight: bold; line-height: 26px; text-transform: uppercase;">
-                  GRUPO <?php # $grupoActual?>
-                </span>
-              </p></div>	
-            </div>
-            <!--[if mso]></td></tr></table><![endif]-->
-            </div>
+                    <div class="">
+                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+                        <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+                            <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
+                              <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center">
+                                <span style="color: #fff; font-size: 24px; font-weight: bold; line-height: 26px; text-transform: uppercase;">
+                                   <?= $grupoActual?>
+                                </span>
+                              </p>
+                            </div>	
+                        </div>
+                        <!--[if mso]></td></tr></table><![endif]-->
+                    </div>
 
-            <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-            </div>
-            </div>
-          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    <!--[if (!mso)&(!IE)]><!-->
+                  </div><!--<![endif]-->
+                </div>
+              </div>
+              <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
           </div>
         </div>
       </div>
 
     <?php
-    // }
+     }
     ?>
-    
-    
     
 
       <div style="background-color:transparent;">
@@ -490,15 +491,15 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>;" valign="top"><![endif]-->
           <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
 
-            <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local">
+            <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local <?=$flagEq1?'active':''?>">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
             <div class="">
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
             <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
             <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
-            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Equipo Local <?php # $equipo1->txt_nombre_equipo?></p>
-            <img src="<?php # $equipo1->txt_url_imagen_equipo?>" alt="">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=  $equipo1->txt_nombre_equipo?></p>
+            <img src="<?=  $equipo1->txt_url_imagen_equipo?>" alt="">
 
             </div>	
             </div>
@@ -520,7 +521,7 @@ a[x-apple-data-detectors=true] {
    
             <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
             border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
-            class="btn-empate <?php # $flagEm3 ? 'btn-empate-active' : '' ?>">
+            class="btn-empate <?php $flagEm3 ? 'btn-empate-active' : '' ?>">
             Empate</p>
             <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
             </div>
@@ -532,15 +533,15 @@ a[x-apple-data-detectors=true] {
 
           <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
           <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
-            <div style="width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local active">
+            <div style="width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local <?=$flagEq2?'active':''?>">
             <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
 
             <div class="">
             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
             <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
             <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
-            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;">Equipo V<?php # $equipo2->txt_nombre_equipo?></p>
-            <img src="<?php # $equipo2->txt_url_imagen_equipo?>" alt="">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=  $equipo2->txt_nombre_equipo?></p>
+            <img src="<?=  $equipo2->txt_url_imagen_equipo?>" alt="">
 
             </div>	
             </div>
@@ -558,7 +559,7 @@ a[x-apple-data-detectors=true] {
         
     </div>
     <?php
-    // }
+     }
     ?>
 
 

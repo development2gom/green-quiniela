@@ -2,9 +2,11 @@
 
 use app\models\ViewPuntuacionUsuarios;
 use app\models\Calendario;
+use app\models\CatPremios;
 
 $this->title = "Resultados";
 $this->params['classBody'] = "site-navbar-small sec-concursante";
+
 ?>
 
 <div class="row">
@@ -14,8 +16,9 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         <h4>Resultados</h4>
 
         <?php
+       
         foreach($fases as $key=>$fase){
-            
+            $premios = CatPremios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_lugar")->all();
         ?>
         <!-- Accordion -->
         <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
@@ -32,7 +35,8 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
             $fechaPremiacion = strtotime(Calendario::getFechaShort($fase->fch_premiacion));
 
             if($fechaActual >= $fechaPremiacion){
-                $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(13)->all();
+                $index = 0;
+                $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(12)->all();
                 foreach ($ganadores as $index=>$ganador) {
                     ?>
                         <div class="row">
@@ -45,11 +49,15 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
                             <div class="col-12 col-md-6">
                                 <p class="finalizada-fecha"><?=Calendario::getDateCompleteHour($ganador->fch_termino)?></p>
                             </div>
+
+                            <div class="col-12 col-md-6">
+                                <p><?=$premios[$index]->txt_nombre?></p>
+                            </div>
                                 
                         </div>
                         
                     <?php
-        
+                    $index++;
                     }
                     
             }else{
@@ -66,6 +74,7 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         </div>
         <!-- End Accordion -->
         <?php
+       
         }
         ?>
     </div>

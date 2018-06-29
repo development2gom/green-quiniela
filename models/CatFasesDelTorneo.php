@@ -60,4 +60,6 @@ class CatFasesDelTorneo extends \yii\db\ActiveRecord
     {
         return $this->hasMany(CatCodigos::className(), ['id_fase' => 'id_fase']);
     }
+
+    
 }

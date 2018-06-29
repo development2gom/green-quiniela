@@ -4,12 +4,14 @@ $this->title = "Ganadores";
 $this->params['classBody'] = "sec-resultados-partidos";
 
 use app\models\ViewPuntuacionUsuarios;
+use app\models\CatPremios;
 ?>
 
 <div class="sec-rp-cont">
 
     <div class="sec-rp-item">
         <?php
+            
             foreach($fases as $fase){
                 $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(13)->all();
         ?>
@@ -18,6 +20,8 @@ use app\models\ViewPuntuacionUsuarios;
                 <h3><?=$fase->txt_nombre_fase?></h3>
             </div>
             <?php
+            $index = 0;
+            $premios = CatPremios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_lugar")->all();
             foreach($ganadores as $ganador){
             ?>
         
@@ -30,9 +34,13 @@ use app\models\ViewPuntuacionUsuarios;
 
                     <p><span>Email:</span> <?=$ganador->txt_email?></p>            
                     <p><span>Fecha y hora de término:</span> <?=$ganador->fch_termino?></p>
+                    <div class="col-12 col-md-6">
+                        <p><?=$premios[$index]->txt_nombre?></p>
+                    </div>
                 </div>
         
         <?php
+            $index++;
             }
         ?>
         </div>
