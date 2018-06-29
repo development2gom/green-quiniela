@@ -1,5 +1,5 @@
 <?php
-$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/logo-bienvenido.png";
+$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
 $logoClienteH = "90px";
 $logoClienteW = "auto";
 

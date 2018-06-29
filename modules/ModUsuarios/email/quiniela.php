@@ -1,7 +1,7 @@
 <?php
 
 use app\models\WrkQuiniela;
-$logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/logo-bienvenido.png";
+$logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
 $logoClienteH = "90px";
 $logoClienteW = "auto";
 
