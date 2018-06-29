@@ -36,7 +36,7 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
 
             if($fechaActual >= $fechaPremiacion){
                 $index = 0;
-                $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(12)->all();
+                $ganadores = ViewPuntuacionUsuarios::find()->where(["id_fase"=>$fase->id_fase])->orderBy("num_puntos DESC, fch_termino ASC")->limit(3)->all();
                 foreach ($ganadores as $index=>$ganador) {
                     ?>
                         <div class="row">
