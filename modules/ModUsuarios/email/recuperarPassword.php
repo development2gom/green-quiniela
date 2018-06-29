@@ -1,5 +1,5 @@
 <?php
-$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
+$logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
 $logoClienteH = "70px";
 $logoClienteW = "auto";
 
@@ -18,8 +18,9 @@ $fontSize16 = "16px";
 $fontSize24 = "24px";
 
 $bgHeader = "#F4A21B";
+$bgHeaderTrans = "244,162,27";
 $bgBody = "#E2E2E2";
-$bgBodyWmax = "460px";
+$bgBodyWmax = "500px";
 $bgBodyWmin = "320px";
 $bgBox = "#FFF";
 
@@ -28,7 +29,7 @@ $btnBg = "#B80E29";
 
 $url = $url;
 
-$mailAyuda = "ayuda@mail.com";
+$mailAyuda = "contacto@mundialcentrosantafe.com";
 $crAuthor = "&copy; Quiniela mundialista";
 
 $logoAuthor = "http://via.placeholder.com/380x180";
@@ -43,6 +44,22 @@ $logoAuthorW = "108px";
       <o:PixelsPerInch>96</o:PixelsPerInch>
      </o:OfficeDocumentSettings>
     </xml><![endif]-->
+    <!--[if gte mso 9]>
+    <style type="text/css">
+    .local.active, .visita.active{
+      background-color: rgba(244,162,27,0.35) !important;
+      padding-top: 4px !important;
+      padding-bottom: 8px !important;
+    }
+    @media (max-width: 620px) {
+      .num-res-t{
+      padding-top: 32px !important;
+    }
+    .num-res-b{
+      padding-bottom: 32px !important;
+    }}
+    </style>
+<![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
     <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
@@ -126,6 +143,33 @@ a[x-apple-data-detectors=true] {
 .ie-browser .block-grid.twelve-up .col, [owa] .block-grid.twelve-up .col {
   width: 50px !important; }
 
+
+.btn-empate{
+  color: <?=$bgHeader?>;
+}
+.btn-empate-active{
+  background-color: <?=$bgHeader?>;
+  color: white;
+}
+
+.local,.visita{
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.active{
+  background-color: #f4a21b;
+  border: 1px solid #f4a21b;
+  color: <?=$colorSubtitle?>;
+}
+
+.x_visita.x_active, .x_local.x_active{
+  background-color: #f4a21b;
+  border: 1px solid #f4a21b;
+  color: <?=$colorSubtitle?>;
+}
+
 @media only screen and (min-width: 620px) {
   .block-grid {
     width: 600px !important; }
@@ -171,6 +215,10 @@ a[x-apple-data-detectors=true] {
     width: 100% !important; }
     .col > div {
       margin: 0 auto; }
+  .col.col-res{
+    width: calc(100% - 16px) !important;
+    margin: 0 auto !important;
+  }
   img.fullwidth, img.fullwidthOnMobile {
     max-width: 100% !important; }
   .no-stack .col {
@@ -192,7 +240,13 @@ a[x-apple-data-detectors=true] {
     max-width: 0px;
     display: none;
     overflow: hidden;
-    font-size: 0px; } }
+    font-size: 0px; }
+    .num-res-t{
+      padding-top: 32px !important;
+    }
+    .num-res-b{
+      padding-bottom: 32px !important;
+    }}
 
     </style>
 </head>
@@ -212,10 +266,15 @@ a[x-apple-data-detectors=true] {
         width: 100%!important;
         display: block!important;
       }
-
         .col > div {
           margin: 0 auto;
         }
+
+      .col.col-res{
+        width: calc(320px - 16px) !important;
+        min-width: calc(310px - 16px) !important; 
+        margin: 0 auto !important;
+      }
 
       img.fullwidth {
         max-width: 100%!important;
@@ -317,7 +376,7 @@ a[x-apple-data-detectors=true] {
                     <div class="">
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
-		<div style="font-size: <?= $fontSize16 ?>;line-height:24px;font-family:'Verdana', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: <?= $fontSize16 ?>;line-height: 28px;text-align: left"><span style="font-size: <?= $fontSize24 ?>; font-weight: bold; color: <?= $colorTitle ?>; line-height: 48px;">Hola <?= $user ?> </span></p></div>	
+		<div style="font-size: <?= $fontSize16 ?>;line-height:24px;font-family:'Verdana', Georgia, Times, 'Times New Roman', serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: <?= $fontSize16 ?>;line-height: 28px;text-align: left"><span style="font-size: <?= $fontSize24 ?>; font-weight: bold; color: <?= $colorTitle ?>; line-height: 48px;">Hola <?= $user->nombreCompleto ?> </span></p></div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
@@ -327,15 +386,15 @@ a[x-apple-data-detectors=true] {
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
         <div style="line-height:24px;color:<?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align:left;">
-            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has 
-            solicitado </strong> un cambio de contraseña. para hacer el cambio da click en la siguiente liga:</span></p>
+            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has
+            solicitado </strong> un cambio de contraseña, para hacer el cambio da click en la siguiente liga:</span></p>
+            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">
               <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left;color: <?= $colorLink ?>; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300;  line-height: 16px;">
                 <span style="line-height:24px;"><span style=" line-height: 32px; font-size: <?= $fontSize14 ?>; color: <?= $colorLink ?>;" data-mce-style=" line-height: 32px;"><?= $url ?></span></span>
               </a>
             </p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
 
             </div>	
 	</div>
@@ -351,7 +410,165 @@ a[x-apple-data-detectors=true] {
           <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
         </div>
       </div>
-    </div>    <div style="background-color: <?=$bgBody?>;">
+    </div>
+
+
+    <?php
+       $grupoActual = false;
+      
+      foreach($partidos as $key => $partido){
+         $equipo1 = $partido->equipo1;
+         $equipo2 = $partido->equipo2;
+         $resultado = WrkQuiniela::find()->where(["id_usuario" => $user->id_usuario, 'id_partido' => $partido->id_partido])->one();
+        
+         $flagEq1 = false;
+         $flagEq2 = false;
+         $flagEm3 = false;
+         if ($resultado) {
+             if ($equipo1->id_equipo == $resultado->id_equipo_ganador) {
+                 $flagEq1 = true;
+             } else if ($equipo2->id_equipo == $resultado->id_equipo_ganador) {
+                 $flagEq2 = true;
+             } else {
+                 $flagEm3 = true;
+             }
+         } 
+
+      //   if ($grupoActual && $grupoActual != $partido->txt_grupo) {
+      //     echo '</div>';
+      // }
+        
+
+         if($grupoActual != $partido->txt_grupo){
+           $grupoActual = $partido->txt_grupo;
+    ?>
+
+
+
+      <div style="background-color:transparent;">
+        <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgHeader?>;" class="block-grid ">
+          <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgHeader?>;">
+            <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:<?=$bgHeader?>;"><![endif]-->
+
+              <!--[if (mso)|(IE)]><td align="center" width="500" style=" width:500px; padding-right: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+              <div class="col num12" style="min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;display: table-cell;vertical-align: top;">
+                <div style="background-color: transparent; width: 100% !important;">
+                  <!--[if (!mso)&(!IE)]><!-->
+                  <div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+
+                    <div class="">
+                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+                        <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+                            <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
+                              <p style="margin: 0;font-size: 14px;line-height: 17px;text-align: center">
+                                <span style="color: #fff; font-size: 24px; font-weight: bold; line-height: 26px; text-transform: uppercase;">
+                                   <?= $grupoActual?>
+                                </span>
+                              </p>
+                            </div>	
+                        </div>
+                        <!--[if mso]></td></tr></table><![endif]-->
+                    </div>
+
+                    <!--[if (!mso)&(!IE)]><!-->
+                  </div><!--<![endif]-->
+                </div>
+              </div>
+              <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+          </div>
+        </div>
+      </div>
+
+    <?php
+     }
+    ?>
+    
+
+      <div style="background-color:transparent;">
+        <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBox?>; border-bottom: 1px dashed <?=$bgHeader?>;" class="block-grid three-up ">
+
+          <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBox?>;">
+          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 500px;"><tr class="layout-full-width" style="background-color:transparent;"><![endif]-->
+
+          <!--[if (mso)|(IE)]><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>;" valign="top"><![endif]-->
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
+
+            <div style=" width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local <?=$flagEq1?'active':''?>">
+            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid <?=$bgHeader?>; border-left: 0px solid <?=$bgHeader?>; border-bottom: 0px solid <?=$bgHeader?>; border-right: 0px solid <?=$bgHeader?>; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+            <div class="">
+            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+            <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+            <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=  $equipo1->txt_nombre_equipo?></p>
+            <img src="<?=  $equipo1->txt_url_imagen_equipo?>" alt="">
+
+            </div>	
+            </div>
+            <!--[if mso]></td></tr></table><![endif]-->
+            </div>
+
+            <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+            </div>
+          </div>
+          
+          
+          <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
+            <div style="background-color: transparent; width: 100% !important;">
+            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+            <div align="center" class="center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;">
+            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31pt; v-text-anchor:middle; width:76pt;" arcsize="10%" strokecolor="transparent" fillcolor="transparent"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:16px;"><![endif]-->
+   
+            <p style="border-left: 1px solid <?=$bgHeader?>; border-top: 1px solid <?=$bgHeader?>; border-right: 1px solid <?=$bgHeader?>; 
+            border-bottom: 1px solid <?=$bgHeader?>;border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; padding-left: 8px; padding-top: 4px; padding-right: 8px; padding-bottom: 4px;"  
+            class="btn-empate <?php $flagEm3 ? 'btn-empate-active' : '' ?>">
+            Empate</p>
+            <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
+            </div>
+
+            <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+            </div>
+          </div>
+
+
+          <!--[if (mso)|(IE)]></td><td align="center" width="167" style=" width:167px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><![endif]-->
+          <div class="col num4" style="max-width: 304;min-width: 150px;display: table-cell;vertical-align: middle; padding-top: 12px; padding-bottom: 12px; padding-left: 8px; padding-right: 8px;">
+            <div style="width: 100% !important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;" class="local <?=$flagEq2?'active':''?>">
+            <!--[if (!mso)&(!IE)]><!--><div style="border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;"><!--<![endif]-->
+
+            <div class="">
+            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
+            <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">	
+            <div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:center;">
+            <p style="margin: 0;font-size: 14px;line-height: 17px; margin-bottom: 12px;"><?=  $equipo2->txt_nombre_equipo?></p>
+            <img src="<?=  $equipo2->txt_url_imagen_equipo?>" alt="">
+
+            </div>	
+            </div>
+            <!--[if mso]></td></tr></table><![endif]-->
+          </div>
+
+          <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+          </div>
+          </div>
+
+          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+          </div>
+        </div>
+      </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        
+    </div>
+    <?php
+     }
+    ?>
+
+
+    
+    
+    <div style="background-color: <?=$bgBody?>;">
       <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmax ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBody?>;" class="block-grid ">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBody?>;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#F0F0F0;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#F0F0F0;"><![endif]-->
@@ -367,11 +584,12 @@ a[x-apple-data-detectors=true] {
 	<div style="color:#555555;line-height:120%;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 40px; padding-bottom: 20px;">	
 		<div style="line-height:14px;color: <?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align: center;">
 
-            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el.</p>
+            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el. 
+            </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
             <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize16 ?>"> <?= $crAuthor ?> </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
-            <!-- <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p> -->
+            
         </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
