@@ -50,8 +50,8 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
                                 <p class="finalizada-fecha"><?=Calendario::getDateCompleteHour($ganador->fch_termino)?></p>
                             </div>
 
-                            <div class="col-12 col-md-6">
-                                <p><?=$premios[$index]->txt_nombre?></p>
+                            <div class="col-12 col-md-12">
+                                <p class="finalizada-premios"><?=$premios[$index]->txt_nombre?></p>
                             </div>
                                 
                         </div>
@@ -77,10 +77,9 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         }
         ?>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <p>Para dudas y aclaraciones comunícate al 01 800 467 1897.</p>
+    <div class="col-md-6 offset-md-3">
+        <p class="p-dudas-aclaraciones">Para dudas y aclaraciones comunícate al 01 800 467 1897.</p>
     </div>
+
 </div>
