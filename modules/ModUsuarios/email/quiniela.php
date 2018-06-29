@@ -2,7 +2,7 @@
 
 use app\models\WrkQuiniela;
 $logoCliente = "http://mundialcentrosantafe.com/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
-$logoClienteH = "90px";
+$logoClienteH = "70px";
 $logoClienteW = "auto";
 
 $colorTitle = "#000";
