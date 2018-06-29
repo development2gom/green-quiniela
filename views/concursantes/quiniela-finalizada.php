@@ -74,7 +74,6 @@ $this->params['classBody'] = "site-navbar-small sec-concursante";
         </div>
         <!-- End Accordion -->
         <?php
-       
         }
         ?>
     </div>
