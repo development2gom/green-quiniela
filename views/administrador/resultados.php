@@ -34,8 +34,8 @@ use app\models\CatPremios;
 
                     <p><span>Email:</span> <?=$ganador->txt_email?></p>            
                     <p><span>Fecha y hora de término:</span> <?=$ganador->fch_termino?></p>
-                    <div class="col-12 col-md-6">
-                        <p><?=$premios[$index]->txt_nombre?></p>
+                    <div class="col-12 col-md-12 p-0">
+                        <p class="sec-rp-body-premios"><?=$premios[$index]->txt_nombre?></p>
                     </div>
                 </div>
         
