@@ -1,6 +1,6 @@
 <?php
-$logoCliente = "http://via.placeholder.com/280x90";
-$logoClienteH = "80px";
+$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
+$logoClienteH = "70px";
 $logoClienteW = "auto";
 
 $colorTitle = "#000";
@@ -8,7 +8,7 @@ $colorSubtitle = "#444";
 $colorText = "#999";
 $colorLink = "blue";
 
-$user = "Juan"; // Usuario del titulo
+$user = $user; // Usuario del titulo
 $usuario = "juanito@mail.com";
 $password = "12345678";
 
@@ -17,7 +17,7 @@ $fontSize14 = "14px";
 $fontSize16 = "16px";
 $fontSize24 = "24px";
 
-$bgHeader = "rgb(184,14,41)";
+$bgHeader = "#F4A21B";
 $bgBody = "#E2E2E2";
 $bgBodyWmax = "460px";
 $bgBodyWmin = "320px";
@@ -26,10 +26,10 @@ $bgBox = "#FFF";
 $btnText = "#FFF";
 $btnBg = "#B80E29";
 
-$url = "https://2geeksonemonkey.com";
+$url = $url;
 
-$mailAyuda = "ayuda@mail.com";
-$crAuthor = "&copy; Regalado y Galindo Abogados 2018";
+$mailAyuda = "contacto@mundialcentrosantafe.com";
+$crAuthor = "&copy; Quiniela mundialista";
 
 $logoAuthor = "http://via.placeholder.com/380x180";
 $logoAuthorH = "auto";
@@ -285,7 +285,7 @@ a[x-apple-data-detectors=true] {
         </div>
       </div>
     </div>    <div style="background-color: <?=$bgBody?>;">
-      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= in ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBody?>;" class="block-grid ">
+      <div style="Margin: 0 auto;min-width: <?= $bgBodyWmin ?>;max-width: <?= $bgBodyWmin ?>;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: <?=$bgBody?>;" class="block-grid ">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color: <?=$bgBody?>;">
           <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#F0F0F0;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width: 600px;"><tr class="layout-full-width" style="background-color:#F0F0F0;"><![endif]-->
 
@@ -327,40 +327,22 @@ a[x-apple-data-detectors=true] {
 	<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 	<div style="line-height:200%;color:#555555;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">	
         <div style="line-height:24px;color:<?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align:left;">
-            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has sido agregado</strong> a un grupo de trabajo dentro de la plataforma “Regalado y galindo - Gestor de localidades”, para poder <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">acceder</strong> al sistema da click en la siguiente liga:</span></p>
+            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Este correo es para notificarte que <strong style="font-family: Verdana;  font-style: italic; font-weight: bold;">has 
+            solicitado </strong> un cambio de contraseña. para hacer el cambio da click en la siguiente liga:</span></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">
-              <a href="http://dev.2geeksonemonkey.com/ryg/gestor-localidades/web/login/" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left;color: <?= $colorLink ?>; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300;  line-height: 16px;">
+              <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left;color: <?= $colorLink ?>; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300;  line-height: 16px;">
                 <span style="line-height:24px;"><span style=" line-height: 32px; font-size: <?= $fontSize14 ?>; color: <?= $colorLink ?>;" data-mce-style=" line-height: 32px;"><?= $url ?></span></span>
               </a>
             </p>
             <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
 
-            <p style="margin: 0;font-size: <?= $fontSize16 ?>;line-height: 28px;text-align: left"><span style="font-size: <?= $fontSize16 ?>; font-weight: bold; color: <?= $colorSubtitle ?>; line-height: 30px; text-align: left;">Importante</span></p>
-
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: justify;"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">para acceder al sistema conserva este correo, es necesario ingreses tu usuario y contraseña mismos que te compartimos a continuación</span></p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: left"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Usuario:</span></p><p style="margin: 0;line-height: 24px;text-align: left"></p>
-            <p style="margin: 0;line-height: 24px;text-align: left"><span style="color: <?= $colorLink ?>; font-size: <?= $fontSize14 ?>;"><?= $usuario ?></span></p><p style="margin: 0;line-height: 24px;text-align: left"></p>
-            <p style="margin: 0;line-height: 24px;text-align: left;" dir="ltr">&#160;<br></p>
-            <p style="margin: 0;line-height: 24px;text-align: left"><span style="font-size: <?= $fontSize16 ?>; line-height: 32px;">Contraseña:</span></p><p style="margin: 0;line-height: 24px;text-align: left"></p>
-            <p style="margin: 0;line-height: 24px;text-align: left"><span style="color: <?= $colorLink ?>; font-size: <?= $fontSize14 ?>;"><?= $password ?></span></p><p style="margin: 0;line-height: 24px;text-align: left"></p>
-            <p style="margin: 0;line-height: 24px;text-align: left">&#160;<br></p>
-        </div>	
+            </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
 </div>
                   
                   
-                    
-<div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:25px; padding-bottom:30px;">
-  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:25px; padding-bottom:30px;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="<?=$url?>" style="height:35pt; v-text-anchor:middle; width:196pt;" arcsize="13%" strokecolor="#E33032" fillcolor="#E33032"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; font-size:16px;"><![endif]-->
-    <a href="<?=$url?>" target="_blank" style="display: block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: <?= $btnText ?>; background-color: <?= $btnBg ?>; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; max-width: 262px; width: 222px;width: auto; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif;mso-border-alt: none; font-weight: 300;">
-      <span style="line-height:24px;"><span style=" line-height: 32px; font-size: <?= $fontSize16 ?>" data-mce-style=" line-height: 32px; color: <?= $btnText ?>;">Ingreso automático al portal</span></span>
-    </a>
-  <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-</div>
 
                   
               <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
@@ -385,11 +367,11 @@ a[x-apple-data-detectors=true] {
 	<div style="color:#555555;line-height:120%;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif; padding-right: 20px; padding-left: 20px; padding-top: 40px; padding-bottom: 20px;">	
 		<div style="line-height:14px;color: <?= $colorText ?>;font-family:'Verdanaf', Georgia, Times, 'Times New Roman', serif;text-align: center;">
 
-            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el, si necesitas asistencia o soporte favor de escribirme a: <a href="mailto:'.<?= $mailAyuda ?>.'?Subject=Ayuda%20Web" target="_blank" style="display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: left; width: auto; font-family: 'Verdanaf', Georgia, Times, 'Times New Roman', serif; mso-border-alt: none; font-weight: 300; color: <?= $colorLink ?>;  line-height: 16px;"><span style=" line-height: 20px;" data-mce-style=" line-height: 20px;"><?= $mailAyuda ?></span></a></p>
+            <p style="margin: 0;line-height: 24px;text-align: justify; font-size: <?= $fontSize14 ?>">Este correo electrónico fue generado de manera automática por el sistema y no es necesario contestes a el.</p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
             <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize16 ?>"> <?= $crAuthor ?> </p>
             <p style="margin: 0;line-height: 24px;text-align: left; font-size: <?= $fontSize14 ?>" dir="ltr">&#160;<br><br></p>
-            <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p>
+            <!-- <p style="margin: 0;line-height: 17px;text-align: center; font-size: <?= $fontSize14 ?>"><img class="center  autowidth  fullwidth" align="center" border="0" src="<?= $logoAuthor ?>" alt="2GOM" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: <?= $logoAuthorH ?>;float: none;margin: 0 auto; width: <?= $logoAuthorW ?>;max-width: 100%" width="<?= $logoAuthorW ?>"></p> -->
         </div>	
 	</div>
 	<!--[if mso]></td></tr></table><![endif]-->
