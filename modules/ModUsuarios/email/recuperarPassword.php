@@ -1,6 +1,6 @@
 <?php
-$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/logo-bienvenido.png";
-$logoClienteH = "90px";
+$logoCliente = "https://dev.2geeksonemonkey.com/green/green-quiniela/web/webAssets/images/LOGO-QUINIELA-MUNDIALISTA-01.png";
+$logoClienteH = "70px";
 $logoClienteW = "auto";
 
 $colorTitle = "#000";
@@ -28,7 +28,7 @@ $btnBg = "#B80E29";
 
 $url = $url;
 
-$mailAyuda = "ayuda@mail.com";
+$mailAyuda = "contacto@mundialcentrosantafe.com";
 $crAuthor = "&copy; Quiniela mundialista";
 
 $logoAuthor = "http://via.placeholder.com/380x180";
