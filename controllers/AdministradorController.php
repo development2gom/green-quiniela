@@ -168,7 +168,7 @@ class AdministradorController extends \yii\web\Controller
         $consultaUsuarios = ViewUsuariosData::find()->all();
 
 
-        $data[] = ["Nombre", "Teléfono","C.P.", "Email",  "Fecha Creacion", "Código usado", "Fase", "Puntos"];
+        $data[] = ["Nombre", "Teléfono","C.P.", "Email",  "Fecha Creacion", "Código usado", "Fase", "Puntos", "Fecha completo quiniela"];
 
         foreach ($consultaUsuarios as $datosUsuario) {
             
@@ -183,6 +183,7 @@ class AdministradorController extends \yii\web\Controller
                         $datosUsuario->txt_codigo,
                         $datosUsuario->txt_nombre_fase,
                         $datosUsuario->num_puntos,
+                        $datosUsuario->fch_termino,
                 ];
         }
 
